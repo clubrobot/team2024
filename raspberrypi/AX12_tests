@@ -1,0 +1,14 @@
+from common.components import Manager
+from daughter_cards.actionneur import Actionneur, AX12
+from setups.setup_logger import *
+from robots.team2023.pince import Pince
+
+import time
+
+#c'est votre terrain de jeu
+
+manager = Manager("10.0.0.3")#IP du RaspberryPi
+manager.connect(7)
+
+pince = Pince(manager=manager)
+pince.fermer()
