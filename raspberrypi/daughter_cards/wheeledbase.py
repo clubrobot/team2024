@@ -192,6 +192,17 @@ class WheeledBase(SecureArduino):
         self.final_angle = finalangle
         self.send(START_PUREPURSUIT_OPCODE, BYTE({'forward':0, 'backward':1}[direction]), FLOAT(finalangle))
 
+    def purepursuit_stop(self, waypoints,sensors, direction='forward', finalangle=None, lookahead=None, lookaheadbis=None,
+                    linvelmax=None, angvelmax=None, **kwargs):
+        self.purepursuit(waypoints,direction,finalangle,lookahead,lookaheadbis,linvelmax,angvelmax)
+        while not self.isarrived(raiseSpinUrgency=False):
+            print(sensors.get_all())
+            if (np.min(sensors.get_all()[0:4]) < 500 or np.min(sensors.get_all()[4:]) < 300):
+                interrupt = True
+                self.stop()
+                print("arret")
+
+        print("ARRIVE")
     def start_purepursuit(self):
         self.send(START_PUREPURSUIT_OPCODE, BYTE({self.NO_DIR:0, self.FORWARD:0, self.BACKWARD:1}[self.direction]),
                   FLOAT(self.final_angle))
