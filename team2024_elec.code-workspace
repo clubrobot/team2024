@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "SerialTopic_Test",
+			"path": "platformIO/SerialTopic_Test"
+		},
+		{
+			"name": "SerialTopicOnArduino_Test",
+			"path": "platformIO/SerialTopicOnArduino_Test"
+		}
+	],
+	"settings": {}
+}
