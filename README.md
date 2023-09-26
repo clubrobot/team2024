@@ -28,3 +28,4 @@
 
 NB:
 to upload: `sudo -E make flash UPLOAD_PORT=/dev/ttyUSB0`
+to install libs into platformio: https://community.platformio.org/t/how-integrate-external-personal-zip-libraries/17407/2
