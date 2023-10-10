@@ -1,6 +1,6 @@
-# Club Robot INSA Rennes 2022
+# Club Robot INSA Rennes 2024
 
-> Software solution of the 2021/2022 Robotics Club of INSA Rennes
+> Software solution of the 2023/2024 Robotics Club of INSA Rennes
 
 ## How to clone the repository ?
 
@@ -28,3 +28,4 @@
 
 NB:
 to upload: `sudo -E make flash UPLOAD_PORT=/dev/ttyUSB0`
+to install libs into platformio: https://community.platformio.org/t/how-integrate-external-personal-zip-libraries/17407/2
