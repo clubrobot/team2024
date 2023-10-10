@@ -1,37 +1,25 @@
-from common.components import Manager
-from daughter_cards.wheeledbase import WheeledBase
-from daughter_cards.actionneur import Actionneur
-#from tracking.libs.positionDetector import PositionDetector
-from daughter_cards.sensors import Sensors
-import time
-from time import sleep
-#from tracking.libs.positionDetectorMultiple import *
-from robots.team2023.ascenseur import Ascenseur
+import cv2, glob
 import math
-from robots.team2023.team2023Robot import Bornibus
-from robots.team2023.pince import Pince
-#from common.gpiodevices import Switch, LightButton, gpio_pins
-manager = Manager("10.0.0.2")
-
-manager.connect(7)
-
-from setups.setup_serialtalks import *
-actionneur = Actionneur(manager, "actionneurs")
-#actionneur.connect()
-pince=Pince(actionneur)
-print("tourne")
-actionneur.SetServoAngle(300)
-#asc=Ascenseur(actionneur)
+from tracking.libs.positionDetectorMultiple import PositionDetectorMultiple
 print("a")
-#pince.ouvrir()
-#asc.bas()
-pince.fermer()
+cam = cv2.VideoCapture(1)
 
-#asc.rouler()
-#print("bas")
-#asc.bas()
-wb=WheeledBase(manager)
-print()
+if not cam.isOpened():
+    print("Cannot open camera")
+    exit()
+
+#pd=PositionDetectorMultiple()
+#pd.KNOW_WIDTH_MARKER=65
+#pd.KNOW_WIDTH_MARKER=600
+#pd.init([560,1000,880],0,-math.pi/2)
+print("read")
+while True:
+    ret_val, img = cam.read()
+    #print(img.shape)
+    cv2.imshow('my webcam', img)
+    if cv2.waitKey(1) == 27: 
+        break  # esc to quit
+cv2.destroyAllWindows()
 """
 print(wb.left_codewheel_radius.get())
 print(wb.right_wheel_radius.get())
