@@ -30,8 +30,7 @@ uint16_t vl53_measurement[VL53L0X_COUNT] = {10};
 // serialtalks wrapper
 void talksExecuteWrapper()
 {
-    talks.execute();
-    //topics.execute();
+
 }
 
 void setup()
@@ -82,6 +81,6 @@ void loop()
     counter = 0;
 
     for (const auto &cur_sensor : sensors_vl53){
-        Serial.println(vl53_measurement[counter++] = cur_sensor->readRangeContinuousMillimeters());
+        Serial.println(vl53_measurement[counter++] = cur_sensor->readRangeContinuousMillimeters(talksExecuteWrapper));
     }
 }
