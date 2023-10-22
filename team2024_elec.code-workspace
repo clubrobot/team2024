@@ -18,6 +18,10 @@
 		{
 			"name": "Lidar_Test",
 			"path": "platformIO/Lidar_Test"
+		},
+		{
+			"name": "STM32_Test",
+			"path": "platformIO/STM32_Test"
 		}
 	],
 	"settings": {}
