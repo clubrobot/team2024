@@ -1,18 +1,29 @@
 #include <Arduino.h>
+#include "SerialTransfer.h"
 
-// put function declarations here:
-int myFunction(int, int);
+#define SERIAL_BAUD 115200
 
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+SerialTransfer transfer;
+char * s_message = (char*)"Coucou raspberry, je suis arduino.";
+char r_message[255];
+
+void setup()
+{
+  // Init Serial
+  Serial.begin(SERIAL_BAUD);
+  transfer.begin(Serial);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-}
+void loop()
+{
+  //Envoi message
+  transfer.sendDatum(s_message);
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  //Réception message
+  if(transfer.available()) {
+    transfer.rxObj(r_message);
+    Serial.println(r_message);
+  }
+
+  delay(1000);
 }
