@@ -22,6 +22,10 @@
 		{
 			"name": "STM32_Test",
 			"path": "platformIO/STM32_Test"
+		},
+		{
+			"name": "Multiple_Board_Test",
+			"path": "platformIO/Multiple_Board_Test"
 		}
 	],
 	"settings": {}
