@@ -1,21 +1,41 @@
 #include <Arduino.h>
+#include "SerialTransfer.h"
 
-// put function declarations here:
-int myFunction(int, int);
+#define SERIAL_BAUD 115200
 
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(115200);
+SerialTransfer transfer;
+char * s_message = (char*)"Coucou raspberry, je suis arduino.";
+char r_message[255];
+double y = 2.5;
+
+struct __attribute__((packed)) STRUCT {
+  char z;
+  double y;
+} testStruct;
+
+
+void setup()
+{
+  // Init Serial
+  Serial.begin(SERIAL_BAUD);
+  transfer.begin(Serial);
+
+  testStruct.z ='$';
+  testStruct.y = 4.5;
+  
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-  int result = myFunction(2, 3);
-  Serial.println(result);
-  delay(500);
-}
+void loop()
+{
+  //Envoi message
+  uint16_t sendSize = 0;
+  sendSize = transfer.txObj(testStruct, sendSize);
+  transfer.sendData(sendSize);
+  //Réception message
+  /*if(transfer.available()) {
+    transfer.rxObj(r_message);
+    Serial.println(r_message);
+  }*/
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  delay(1000);
 }
