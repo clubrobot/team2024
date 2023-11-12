@@ -6,6 +6,8 @@
 #    fi
 #    exit 0
 #fi
+echo "RUN AT YOUR OWN RISK"
+echo "It's a very old artefact of ancient time that we don't use anymore"
 
 if [ "$(uname -s)" = 'Linux' ]; then
 	REPOSITORY=$(dirname $(readlink -f "$BASH_SOURCE"))

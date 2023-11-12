@@ -2,3 +2,4 @@ __pycache__
 build
 .pio
 .vsocode/arduino.json
+.vsocode/settings.json
