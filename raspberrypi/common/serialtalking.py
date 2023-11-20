@@ -1,10 +1,11 @@
+'''
+ SerialTalking Lib Work In progess: CRINSA 2024
+ 
+ Negrache Gibril et Hilkens Boris
+'''
+
 import time
 from pySerialTransfer import pySerialTransfer as txfer
-
-#TODO: pensez à une trame efficace Faire avec des callback sur arduino uniquement?
-
-MASTER_BYTE = b'R'
-SLAVE_BYTE = b'A'
 
 PING_OPCODE = 0x00
 GETUUID_OPCODE = 0x01
@@ -14,26 +15,37 @@ GETEEPROM_OPCODE = 0x04
 SETEEPROM_OPCODE = 0x05
 GETBUFFERSIZE_OPCODE = 0x06
 
-"""
-class struct(object):
-    z = ''
-    y = 0.0
-"""
+#https://docs.python.org/3/library/struct.html#format-characters
+CHAR = 'c'
+UCHAR = 'B'
+SHORT = 'h'
+USHORT = 'H'
+LONG = 'l'
+ULONG = 'L'
+FLOAT = 'f'
+STRING = 's'
+BYTE = UCHAR
+INT = SHORT
+UINT = USHORT
+DOUBLE = FLOAT
 
+class SerialTalking:
+    def __init__(self):
+        pass
 
 if __name__ == '__main__':
      #Seuleument pour test
     
     try:
         #testStruct = struct
-        link = txfer.SerialTransfer('/dev/ttyUSB0')
+        link = txfer.SerialTransfer('COM3')
         
         link.open()
         time.sleep(2) # allow some time for the Arduino to completely reset
         while True:
             send_size = 0
-            send_size = link.tx_obj(PING_OPCODE)
-            link.send(send_size)
+            send_size = link.tx_obj(0)#On met les params ici!
+            link.send(send_size, packet_id=PING_OPCODE)
 
             if link.available():
                 """
@@ -49,9 +61,20 @@ if __name__ == '__main__':
                 print('{} {}'.format(testStruct.z, testStruct.y))"""
 
                 recSize = 0
-                ping_data = link.rx_obj(obj_type=str)
+
+                data_size = link.rx_obj(obj_type='H', start_pos=recSize)#le type h à 2octects (correspond à uint16_t en c++)
+                recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
+
+                ping_data = link.rx_obj(obj_type=str, start_pos=recSize, obj_byte_size=data_size)
                 recSize += len(ping_data)
-                print("Ping data : {}".format(ping_data))
+
+                data2_size = link.rx_obj(obj_type='H', start_pos=recSize)#le type h à 2octects (correspond à uint16_t en c++)
+                recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
+
+                ping2_data = link.rx_obj(obj_type="H", start_pos=recSize)
+                recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
+                print(repr("Ping data : {}, Str size: {}".format(ping_data, data_size)))
+                print(repr("Ping data : {}, Str size: {}".format(ping2_data, data2_size)))
              
             elif link.status < 0:
                 if link.status == txfer.CRC_ERROR:
