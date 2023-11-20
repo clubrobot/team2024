@@ -29,9 +29,42 @@ INT = SHORT
 UINT = USHORT
 DOUBLE = FLOAT
 
+#TODO: Les erreurs
+#TODO: Faire un thread qui check périodiquement si l'arduino est alive (avec ping) lors qu'il ne communique pas
+#TODO: Faire un meilleur log avec teleplot (à la fin)
+
 class SerialTalking:
     def __init__(self):
         pass
+
+    #Quand on utilise avec with
+    def __enter__(self):
+        self.connect()
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.disconnect()
+
+    def connect(self, timeout=5):
+        return
+    
+    def disconnect(self):
+        return
+    
+    def getuuid(self):
+        return
+
+    def setuuid(self, uuid):
+        return
+
+    #For each arg, on tx l'arg puis on envoie tout
+    def order(self, opcode, *args):
+        return
+
+    #call order puis fait le tralala du request
+    #à voir comment on gère ça
+    def request(self, opcode, type,*args):
+        return
 
 if __name__ == '__main__':
      #Seuleument pour test

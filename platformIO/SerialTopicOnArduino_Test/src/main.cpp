@@ -40,13 +40,12 @@ uint16_t sendSize;*/
   //Serial.println("Test pong");
 }*/
 
-void callback_getuuid()
-{
+void callback_getuuid(){
   char uuid[] = "sensors";
   uint16_t val = 6452;
   talking.addTxData(uuid);//For array
   talking.addTxDatum(val);//For Values
-  talking.sendTranfert();
+  talking.sendTranfert();//On envoie touttttt
 }
 
 // Tableau de callbacks
