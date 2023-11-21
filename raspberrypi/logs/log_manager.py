@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+if __name__ == "__main__":
+    import sys
+    sys.path.insert(0, 'C:/Users/boris/Desktop/robotique/team2024/raspberrypi/')
+
 import os
 from select import select
 from time import time
@@ -175,6 +179,7 @@ class Logger:
         self.parent.reset_time()
 
 if __name__ == "__main__":
+
     def f(name):
         loggerf = LogManager().getlogger('f')
         for i in range(0,1000):
@@ -186,11 +191,15 @@ if __name__ == "__main__":
             loggerg(CRITICAL, 'hello', name)
 
     LogManager().start()
-    p = Process(target=f, args=('bob',))
+    setup_logger = LogManager().getlogger('Setup logger', level_disp=INFO)
+
+    setup_logger(INFO, "test", "bob")
+    """  
+   p = Process(target=f, args=('bob',))
     q = Process(target=g, args=('world',))
     p.start()
     q.start()
     p.join()
-    q.join()
+    q.join() """
 
-    input()
+    #input()

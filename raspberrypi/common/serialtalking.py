@@ -42,7 +42,7 @@ class SerialTalking:
         self.connect()
         return self
 
-    def __exit__(self, exc_type, exc_value, traceback):
+    def __exit__(self):
         self.disconnect()
 
     def connect(self, timeout=5):
@@ -71,7 +71,7 @@ if __name__ == '__main__':
     
     try:
         #testStruct = struct
-        link = txfer.SerialTransfer('COM3')
+        link = txfer.SerialTransfer('COM4')
         
         link.open()
         time.sleep(2) # allow some time for the Arduino to completely reset
@@ -104,7 +104,7 @@ if __name__ == '__main__':
                 data2_size = link.rx_obj(obj_type='H', start_pos=recSize)#le type h à 2octects (correspond à uint16_t en c++)
                 recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
 
-                ping2_data = link.rx_obj(obj_type="H", start_pos=recSize)
+                ping2_data = link.rx_obj(obj_type='H', start_pos=recSize)
                 recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
                 print(repr("Ping data : {}, Str size: {}".format(ping_data, data_size)))
                 print(repr("Ping data : {}, Str size: {}".format(ping2_data, data2_size)))
