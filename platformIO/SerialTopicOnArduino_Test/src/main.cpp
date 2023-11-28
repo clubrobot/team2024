@@ -8,18 +8,7 @@
 #include <Arduino.h>
 #include "SerialTalking.h"
 
-/*#define SERIAL_BAUD 115200
-
-#define PING_OPCODE 0x00
-#define GETUUID_OPCODE 0x01
-#define SETUUID_OPCODE 0x02
-#define DISCONNECT_OPCODE 0x03
-#define GETEEPROM_OPCODE 0x04
-#define SETEEPROM_OPCODE  0x05
-#define GETBUFFERSIZE_OPCODE 0x06
-
-#define MAX_CALLBACKS 50
-
+/*
 SerialTransfer transfer;
 uint16_t sendSize;*/
 
@@ -53,15 +42,11 @@ void callback_getuuid(){
 
 }
 
-// Tableau de callbacks
-//functionPtr callbackArr[MAX_CALLBACKS] = {nullptr};
-
-
 void setup(){
   Serial.begin(SERIALTALKING_BAUDRATE);
   talking.begin(Serial);
 
-  //talking.bind(SERIALTALKING_PING_OPCODE, callback_getuuid);
+  talking.bind(SERIALTALKING_PING_OPCODE, callback_getuuid);
 }
 
 void loop()

@@ -5,6 +5,7 @@
 '''
 
 import time
+import sys
 from pySerialTransfer import pySerialTransfer as txfer
 
 PING_OPCODE = 0x00
@@ -66,16 +67,37 @@ class SerialTalking:
     def request(self, opcode, type,*args):
         return
 
+    def free_receiver(self):
+        self.recSize = 0
+
+    # Réception de donnée
+    def recieve_transfert(self, obj_type):
+        data_size = link.rx_obj(obj_type='H', start_pos=self.recSize) #le type h à 2octects (correspond à uint16_t en c++)
+        self.recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
+
+        data = link.rx_obj(obj_type=obj_type, start_pos=self.recSize, obj_byte_size=data_size)
+        if (obj_type == str):
+            data_size = len(data)
+        else:
+            data_size = txfer.STRUCT_FORMAT_LENGTHS[obj_type]
+        self.recSize += data_size
+        return (data, data_size)
+
 if __name__ == '__main__':
-     #Seuleument pour test
+     #Seulement pour test
     
     try:
-        #testStruct = struct
-        link = txfer.SerialTransfer('/dev/ttyUSB0')
+        #Gestion du port série
+        if 'linux' in sys.platform:
+            serial_path = '/dev/ttyUSB0'
+        else:
+            serial_path = 'COM6'
+        link = txfer.SerialTransfer(serial_path)
         
         link.open()
         time.sleep(2) # allow some time for the Arduino to completely reset
         while True:
+            # Envoi
             send_size = 0
             send_size = link.tx_obj(2, send_size, val_type_override=USHORT)#On met la size d'envoie ici
 
@@ -85,42 +107,17 @@ if __name__ == '__main__':
             link.send(send_size, packet_id=PING_OPCODE)# Opcode important
 
             if link.available():
-                """
-                recSize = 0
+                #Réception
+                s = SerialTalking()
+                s.free_receiver()
 
-                testStruct.z = link.rx_obj(obj_type='c', start_pos=recSize)
-                link.se
-                recSize += txfer.STRUCT_FORMAT_LENGTHS['c']
-                
-                testStruct.y = link.rx_obj(obj_type='f', start_pos=recSize)
-                recSize += txfer.STRUCT_FORMAT_LENGTHS['f']
-    
-                print('{} {}'.format(testStruct.z, testStruct.y))"""
+                ping_data, data_size = s.recieve_transfert(str)
+                ping2_data, data2_size = s.recieve_transfert('f')
+                ping3_data, data3_size = s.recieve_transfert('f')
 
-                recSize = 0
-
-                data_size = link.rx_obj(obj_type='H', start_pos=recSize)#le type h à 2octects (correspond à uint16_t en c++)
-                recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
-
-                ping_data = link.rx_obj(obj_type=str, start_pos=recSize, obj_byte_size=data_size)
-                recSize += len(ping_data)
-
-                data2_size = link.rx_obj(obj_type='H', start_pos=recSize)#le type h à 2octects (correspond à uint16_t en c++)
-                recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
-
-                ping2_data = link.rx_obj(obj_type='H', start_pos=recSize)
-                recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
-
-                data3_size = link.rx_obj(obj_type='H', start_pos=recSize)#le type h à 2octects (correspond à uint16_t en c++)
-                recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
-
-                ping3_data = link.rx_obj(obj_type='f', start_pos=recSize)
-                recSize += txfer.STRUCT_FORMAT_LENGTHS[FLOAT]
-
-                print(repr("Ping data : {}, Str size: {}".format(ping_data, data_size)))
-                print(repr("Ping data : {}, Str size: {}".format(ping2_data, data2_size)))
-                print(repr("Ping data : {}, Str size: {}".format(ping3_data, data3_size)))
-             
+                print(repr("Ping data 1 : {}, Str size: {}".format(ping_data, data_size)))
+                print(repr("Ping data 2 : {}, Str size: {}".format(ping2_data, data2_size)))
+                print(repr("Ping data 3 : {}, Str size: {}".format(ping3_data, data3_size)))
             elif link.status < 0:
                 if link.status == txfer.CRC_ERROR:
                     print('ERROR: CRC_ERROR')
