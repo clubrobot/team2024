@@ -42,18 +42,18 @@ void SerialTalking::begin(Stream& stream)
 #endif // BOARD_UUID
 
 	// Add UUID accessors
-	/*bind(SERIALTALKING_PING_OPCODE,     SerialTalking::PING);
+	bind(SERIALTALKING_PING_OPCODE,     SerialTalking::PING);
 	bind(SERIALTALKING_GETUUID_OPCODE,  SerialTalking::GETUUID);
 	bind(SERIALTALKING_SETUUID_OPCODE,  SerialTalking::SETUUID);
 	bind(SERIALTALKING_GETEEPROM_OPCODE,SerialTalking::GETEEPROM);
 	bind(SERIALTALKING_SETEEPROM_OPCODE,SerialTalking::SETEEPROM);
-	bind(SERIALTALKING_GETBUFFERSIZE_OPCODE, SerialTalking::GETBUFFERSIZE);*/
+	bind(SERIALTALKING_GETBUFFERSIZE_OPCODE, SerialTalking::GETBUFFERSIZE);
 }
 
 void SerialTalking::bind(byte opcode, functionPtr instruction){
-	/*if(opcode>SERIALTALKING_MAX_OPCODE){return;}
+	if(opcode>SERIALTALKING_MAX_OPCODE){return;}
 	if(instruction==nullptr){return;}//No null function
-  	if(m_talkingTo[opcode]!=nullptr){return;}//No overdrive*/
+  	if(m_talkingTo[opcode]!=nullptr){return;}//No overdrive
 
   	m_talkingTo[opcode] = instruction;//On affecte la fonction au callbacks
 
@@ -110,3 +110,21 @@ void SerialTalking::generateRandomUUID(char* uuid, int length){
 	}
 	uuid[length] = '\0';
 }
+
+/*
+	Fonctions de Callback
+*/
+void SerialTalking::PING(){
+	talking.addTxData("pong");
+	talking.sendTranfert();
+}
+void SerialTalking::GETUUID(){
+	char * uuid;
+	talking.getUUID(uuid);
+	talking.addTxData(*uuid);
+	talking.sendTranfert();
+}
+void SerialTalking::SETUUID() {}
+void SerialTalking::GETEEPROM() {}
+void SerialTalking::SETEEPROM() {}
+void SerialTalking::GETBUFFERSIZE() {}

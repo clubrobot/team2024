@@ -3,3 +3,4 @@ build
 .pio
 .vsocode/arduino.json
 .vsocode/settings.json
+.venv

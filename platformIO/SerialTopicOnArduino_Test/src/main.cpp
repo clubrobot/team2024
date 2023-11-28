@@ -57,12 +57,11 @@ void callback_getuuid(){
 //functionPtr callbackArr[MAX_CALLBACKS] = {nullptr};
 
 
-
 void setup(){
   Serial.begin(SERIALTALKING_BAUDRATE);
   talking.begin(Serial);
 
-  talking.bind(SERIALTALKING_PING_OPCODE, callback_getuuid);
+  //talking.bind(SERIALTALKING_PING_OPCODE, callback_getuuid);
 }
 
 void loop()
