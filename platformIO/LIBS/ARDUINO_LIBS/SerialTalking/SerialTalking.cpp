@@ -18,6 +18,7 @@ void SerialTalking::begin(Stream& stream)
 	m_stream = &stream;
 	m_connected = false;
 	m_bytesNumber = 0;
+	m_bytesCounter = 0;
 
     //Config du transfert
     m_transfert_config.debug = SERIALTALKING_DEBUG;

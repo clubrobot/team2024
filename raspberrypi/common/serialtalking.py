@@ -19,7 +19,7 @@ GETBUFFERSIZE_OPCODE = 0x06
 CHAR = 'c'
 UCHAR = 'B'
 SHORT = 'h'
-USHORT = 'H'
+USHORT = "H"
 LONG = 'l'
 ULONG = 'L'
 FLOAT = 'f'
@@ -71,14 +71,18 @@ if __name__ == '__main__':
     
     try:
         #testStruct = struct
-        link = txfer.SerialTransfer('COM4')
+        link = txfer.SerialTransfer('COM6')
         
         link.open()
         time.sleep(2) # allow some time for the Arduino to completely reset
         while True:
             send_size = 0
-            send_size = link.tx_obj(0)#On met les params ici!
-            link.send(send_size, packet_id=PING_OPCODE)
+            send_size = link.tx_obj(2, send_size, val_type_override=USHORT)#On met la size d'envoie ici
+
+            send_size = link.tx_obj(5.8, send_size, val_type_override=FLOAT)#On met les params ici!
+            send_size = link.tx_obj(586.6, send_size, val_type_override=FLOAT)#On met les params ici!
+
+            link.send(send_size, packet_id=PING_OPCODE)# Opcode important
 
             if link.available():
                 """
@@ -106,8 +110,16 @@ if __name__ == '__main__':
 
                 ping2_data = link.rx_obj(obj_type='H', start_pos=recSize)
                 recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
+
+                data3_size = link.rx_obj(obj_type='H', start_pos=recSize)#le type h à 2octects (correspond à uint16_t en c++)
+                recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
+
+                ping3_data = link.rx_obj(obj_type='f', start_pos=recSize)
+                recSize += txfer.STRUCT_FORMAT_LENGTHS[FLOAT]
+
                 print(repr("Ping data : {}, Str size: {}".format(ping_data, data_size)))
                 print(repr("Ping data : {}, Str size: {}".format(ping2_data, data2_size)))
+                print(repr("Ping data : {}, Str size: {}".format(ping3_data, data3_size)))
              
             elif link.status < 0:
                 if link.status == txfer.CRC_ERROR:

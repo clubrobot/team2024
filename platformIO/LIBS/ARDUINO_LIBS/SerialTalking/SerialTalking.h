@@ -22,6 +22,7 @@
 #define SERIALTALKING_UUID_LENGTH 32
 
 #define SERIALTALKING_MAX_OPCODE 0x20
+#define SERIALTALKING_MAX_BUFFER_RECV 0x10
 //On fait un ACK? même si c'est un ordre sans réponse ?
 
 #define SERIALTALKING_PING_OPCODE           0x00
@@ -77,7 +78,6 @@ public:
     */
     template <typename T>
     void addTxDatum(const T& val){
-        
         m_bytesNumber = m_transfert.txObj((uint16_t) sizeof(val), m_bytesNumber); //On envoie la taille de la donnée!
   	    m_bytesNumber = m_transfert.txObj(val, m_bytesNumber, sizeof(val));
     }
@@ -90,6 +90,26 @@ public:
     void addTxData(const T& val){
         m_bytesNumber = m_transfert.txObj((uint16_t) sizeof(val)/sizeof(val[0]), m_bytesNumber); //On envoie la taille de la donnée!
   	    m_bytesNumber = m_transfert.txObj(val, m_bytesNumber, sizeof(val)/sizeof(val[0]));
+    }
+
+    /*! Ajoute un buffer au buffer serial transfert
+    \param val valeur à ajouter
+    */
+    template <typename T>
+    void receiveTransfert(const T& data, const uint16_t& len = sizeof(T)){
+        m_bytesCounter=0;
+
+        uint16_t data_size=0; 
+        m_bytesCounter = m_transfert.rxObj(data_size, m_bytesCounter); //On envoie la taille de la donnée!
+
+        if(len<data_size){
+            digitalWrite(LED_BUILTIN, HIGH);
+            return;
+        }
+
+        for(uint16_t i=0; i<data_size; i++){
+            m_bytesCounter = m_transfert.rxObj(data[i], m_bytesCounter);
+        }
     }
 
     /*! Envoie toutes les données du buffer transfert

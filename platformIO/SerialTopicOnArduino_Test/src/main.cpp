@@ -41,11 +41,16 @@ uint16_t sendSize;*/
 }*/
 
 void callback_getuuid(){
+  double recv_data[4] = {0};
+  talking.receiveTransfert(recv_data);
+
   char uuid[] = "sensors";
-  uint16_t val = 6452;
+
   talking.addTxData(uuid);//For array
-  talking.addTxDatum(val);//For Values
+  talking.addTxDatum(recv_data[0]);//For Values
+  talking.addTxDatum(recv_data[1]);//For Values
   talking.sendTranfert();//On envoie touttttt
+
 }
 
 // Tableau de callbacks
