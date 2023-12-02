@@ -26,6 +26,10 @@
 		{
 			"name": "Multiple_Board_Test",
 			"path": "platformIO/Multiple_Board_Test"
+		},
+		{
+			"name": "wheeledbase",
+			"path": "platformIO/wheeledbase"
 		}
 	],
 	"settings": {

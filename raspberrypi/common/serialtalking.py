@@ -99,10 +99,10 @@ if __name__ == '__main__':
         while True:
             # Envoi
             send_size = 0
-            send_size = link.tx_obj(2, send_size, val_type_override=USHORT)#On met la size d'envoie ici
-
+            send_size = link.tx_obj(1, send_size, val_type_override=USHORT)#On met la size d'envoie ici
             send_size = link.tx_obj(5.8, send_size, val_type_override=FLOAT)#On met les params ici!
-            send_size = link.tx_obj(586.6, send_size, val_type_override=FLOAT)#On met les params ici!
+            send_size = link.tx_obj(1, send_size, val_type_override=USHORT)#On met la size d'envoie ici
+            send_size = link.tx_obj(8, send_size, val_type_override=BYTE)#On met les params ici!
 
             link.send(send_size, packet_id=PING_OPCODE)# Opcode important
 
@@ -113,7 +113,7 @@ if __name__ == '__main__':
 
                 ping_data, data_size = s.recieve_transfert(str)
                 ping2_data, data2_size = s.recieve_transfert('f')
-                ping3_data, data3_size = s.recieve_transfert('f')
+                ping3_data, data3_size = s.recieve_transfert(BYTE)
 
                 print(repr("Ping data 1 : {}, Str size: {}".format(ping_data, data_size)))
                 print(repr("Ping data 2 : {}, Str size: {}".format(ping2_data, data2_size)))

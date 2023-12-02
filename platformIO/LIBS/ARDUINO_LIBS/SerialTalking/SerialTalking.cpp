@@ -64,9 +64,12 @@ void SerialTalking::execute(){
 	m_transfert.tick();
 }
 
-void SerialTalking::sendTranfert(){
-	m_transfert.sendData(m_bytesNumber);
+void SerialTalking::endTranfert(){
+	if(m_bytesCounter>0){
+		m_transfert.sendData(m_bytesNumber);
+	}
 	m_bytesNumber = 0; //On reset le counter
+	m_bytesCounter=0; //RX Aussi
 }
 
 bool SerialTalking::getUUID(char* uuid){
@@ -117,13 +120,13 @@ void SerialTalking::generateRandomUUID(char* uuid, int length){
 void SerialTalking::PING(){
 	char msg[] = "pong";
 	talking.addTxData(msg);
-	talking.sendTranfert();
+	talking.endTranfert();
 }
 void SerialTalking::GETUUID(){
 	char * uuid;
 	talking.getUUID(uuid);
 	talking.addTxData(uuid);
-	talking.sendTranfert();
+	talking.endTranfert();
 }
 void SerialTalking::SETUUID() {}
 void SerialTalking::GETEEPROM() {}

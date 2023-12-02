@@ -92,12 +92,10 @@ public:
   	    m_bytesNumber = m_transfert.txObj(val, m_bytesNumber, sizeof(val)/sizeof(val[0]));
     }
 
-    /*! Ajoute un buffer au buffer serial transfert
-    \param val valeur à ajouter
+    /*! Recois une liste de même donnée
     */
     template <typename T>
-    void receiveTransfert(const T& data, const uint16_t& len = sizeof(T)){
-        m_bytesCounter=0;
+    void receiveTransfertData(const T& data, const uint16_t& len = sizeof(T)){
 
         uint16_t data_size=0; 
         m_bytesCounter = m_transfert.rxObj(data_size, m_bytesCounter); //On envoie la taille de la donnée!
@@ -112,9 +110,26 @@ public:
         }
     }
 
+    /*! Recoit une valeur et la retourne
+    */
+    template <typename T>
+    T receiveTransfertDatum(){
+
+        uint16_t data_size=0; 
+        m_bytesCounter = m_transfert.rxObj(data_size, m_bytesCounter); //On envoie la taille de la donnée!
+
+        if(data_size>1){
+            digitalWrite(LED_BUILTIN, HIGH);//C'est un data
+            return;
+        }
+        m_bytesCounter = m_transfert.rxObj((T*) &data, m_bytesCounter);
+
+        return data;
+    }
+
     /*! Envoie toutes les données du buffer transfert
     */
-    void sendTranfert();
+    void endTranfert();
 
     //! Méthode bloquante jusqu'à handshake avec le raspberry ou jusqu'au timeout.
     /*!
