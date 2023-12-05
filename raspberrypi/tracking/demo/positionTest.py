@@ -24,9 +24,7 @@ while(True):
     sucess, img = posDetect.cameraLeft.read()
     
     posDetect.update()
-    #print(posDetect.markerPositions)
-    #print(1/(time.time()-t))
-        
+
 
         
                     

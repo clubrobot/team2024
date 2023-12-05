@@ -18,7 +18,6 @@ class PositionDetectorMultiple:
         self.invViewMatrix = np.identity(4)
         self.invProjectionMatrix= np.identity(4)
         self.cameraPos = []
-        self.FOV = 70
         self.cameraLeft = None
         self.cameraRight = None
         self.WIDTH = 480
@@ -49,9 +48,6 @@ class PositionDetectorMultiple:
                     return math.sqrt(l)
         return -1
 
-    def distance_to_camera(self,knowWidth, focalLength, perWidth):
-        return (knowWidth * focalLength) / perWidth
-
     #create rotation matrix with the position vector p of the camera multiply by -1 and 3 by 3 rotation matrix r
     #|r00 r01 r11 px|
     #|r10 r11 r12 py|
@@ -62,54 +58,19 @@ class PositionDetectorMultiple:
         T = ts.translation_matrix(negativepos)
         return ts.concatenate_matrices(E, T)
 
-    #compute projection matrix a is screen height divide by width t is tan(FOV/2)
-    # l is the frustum length equals to far plane minus near plane f=is far plane n is near plane
-    #|1/(t*a) 0     0      0    |
-    #|  0    1/t    0      0    |
-    #|  0    0  -(f+n)/l -2fn/l |
-    #|  0    0     -1      0    |
-    def createProjectionMatrix(self,fov, aspect, near, far):
-        M = np.identity(4)
-        M[3, 3] = 0
-        M[1, 1] = 1 / math.tan(fov / 2)
-        M[0, 0] = 1 / math.tan(fov / 2) / aspect
-        M[2, 2] = -((far + near)) / (far - near)
-        M[2, 3] = -1
-        M[3, 2] = -((far * near * 2)) / (far - near)
-        return M
-
-    #compute the ray the pixel pos
-    def getRay(self,screenPos):
-        screenPos[0] = screenPos[0] / self.WIDTH * 2 - 1
-        screenPos[1] = screenPos[1] / self.HEIGTH* 2 - 1
-        clipCoord = [screenPos[0], screenPos[1], -1, 1]
-        eyeCoord = np.matmul(self.invProjectionMatrix, clipCoord)
-
-        eyeCoord[2] = -1
-        eyeCoord[3] = 0
-
-        rayWorld = np.matmul(self.invViewMatrix, eyeCoord)
-        length = rayWorld[0] * rayWorld[0] + rayWorld[1] * rayWorld[1] + rayWorld[2] * rayWorld[2]
-        length = math.sqrt(length)
-        return [rayWorld[0] / length, rayWorld[1] / length, rayWorld[2] / length]
-
     #init the camera need the camera position and its orientation
-    def init(self,camPosL, pitchCam, yawCam):
+    def init(self,camPos, pitchCam, yawCam):
         self.cameraLeft = cv2.VideoCapture(0)
         self.cameraLeft.set(3, self.WIDTH)
         self.cameraLeft.set(4, self.HEIGTH)
         self.cameraLeft.set(10, 10)
 
+        self.cameraPos = camPos
 
-
-        self.cameraPosLeft = camPosL
-        #self.cameraPosRight = camPosR
 
         #compute view matrix
-        #viewMatrix=self.createViewMatrix(pitchCam, yawCam, [-camPosL[0],-camPosL[1],-camPosL[2]])
-        #self.invViewMatrix = np.linalg.inv(viewMatrix)
-        # compute projection matrix with the camera fov the images aspect ratio and random far and near value.
-        #self.invProjectionMatrix = np.linalg.inv(self.createProjectionMatrix(self.FOV, float(self.WIDTH) / self.HEIGTH, 1000, 0.1))
+        viewMatrix=self.createViewMatrix(pitchCam, yawCam, [-camPos[0],-camPos[1],-camPos[2]])
+        self.invViewMatrix = np.linalg.inv(viewMatrix)
         self.cameraMatrix=np.load("res/cameraMatrix.npy")
         self.distCoeffs=np.load("res/distCoeffs.npy")
         marker_size=66
@@ -117,26 +78,12 @@ class PositionDetectorMultiple:
                               [marker_size / 2, marker_size / 2, 0],
                               [marker_size / 2, -marker_size / 2, 0],
                               [-marker_size / 2, -marker_size / 2, 0]], dtype=np.float32)
-        
-
-    
-    def find_angle(self,x,fov):
-        return math.atan(x*math.tan(fov/2))
-
-    def find_distance(self,angleCam1,angleCam2,L):
-        if(angleCam2<0):
-            angleCam2*=-1
-            angleCam1*=-1
-        d1=L/(-math.sin(angleCam1)+math.cos(angleCam1)*math.tan(angleCam2))
-        d2=d1*math.cos(angleCam1)/math.cos(angleCam2)
-        return d1,d2
 
 
     #compute marker positions, velocities, and orientation
     def update(self):
+        #capture an image
         sucessL, imgL = self.cameraLeft.read()
-       
-
         self.markerPositions={}
 
         imgTreeL = cv2.cvtColor(imgL, cv2.COLOR_BGR2GRAY)
@@ -148,11 +95,13 @@ class PositionDetectorMultiple:
             for i in range(0, len(markeridsL)):
                 print( markeridsL[i][0],self.markerIds)
                 if markeridsL[i][0] in self.markerIds:
+                    #à tester
                     success, vector_rotation, vector_translation = cv2.solvePnP(self.obj_points , markerCornersL[i], self.cameraMatrix, self.distCoeffs, False,cv2.SOLVEPNP_IPPE_SQUARE)
-                    print(vector_translation)
+                    pos=np.matmul(self.invViewMatrix,np.array([vector_translation[0],vector_translation[1],vector_translation[2],1]))
+                    print(pos)
                     if not (markeridsL[i][0] in self.markerPositions.keys()):
                         self.markerPositions[markeridsL[i][0]]=[]
-                    #self.markerPositions[markeridsL[i][0]].append(pos)
+                    self.markerPositions[markeridsL[i][0]].append(pos)
                     cv2.drawFrameAxes(imgL, self.cameraMatrix, self.distCoeffs, vector_rotation, vector_translation, 33)
         # Press Q on keyboard to  exit
         cv2.imshow('Frame', imgL)
@@ -171,12 +120,6 @@ class PositionDetectorMultiple:
         self.markerIds.remove(idMarker)
 
     #GETTERS AND SETTERS
-    def setFOV(self,value):
-        self.FOV=value
-
-    def getFOV(self):
-        return self.FOV
-
     def setWIDTH(self, value):
         self.WIDTH = value
 

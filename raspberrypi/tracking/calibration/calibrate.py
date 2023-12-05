@@ -2,32 +2,37 @@ import cv2, glob
 import math
 import numpy as np
 import time
-import matplotlib.pyplot as plt
-
-#wheeledbase
-#sensors
-#jetson
-
-
 from time import sleep
 import glob
-
+"""
+Script de calibration: prends des images d'un échiquier et calcule deux matrices de calibration
+Bien mettre la même resolution à la caméra pour la calibration et pour l'utilisation
+Il faut prendre des images avec un échiquier de taille n_carreau_longeur par n_carreau_largeur carreaux.
+Les images doivent être le plus varie possible il faut en prendre avec des:
+- rotations sur les 3 axes 
+- pas que dans le centre de la caméra (bien insister sur les bords et les coins)
+- à differente distance de la caméra
+"""
+#9 et 6 si l'échiquier fait bien 9 carreaux par 6 carreaux
+n_carreau_longeur=9
+n_carreau_largeur=6
+taille_carreau_mm=231/9#taille d'un carreau en mm
 
 criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
-objp = np.zeros((6*9, 3), np.float32)
-objp[:, :2] = np.mgrid[0:9, 0:6].T.reshape(-1, 2)*231/9
-
+objp = np.zeros((n_carreau_largeur*n_carreau_longeur, 3), np.float32)
+objp[:, :2] = np.mgrid[0:n_carreau_longeur, 0:n_carreau_largeur].T.reshape(-1, 2)*taille_carreau_mm
 objpoints = []  # 3D points in real world space
 imgpoints = []  # 2D points in image plane.
 
-cam= cv2.VideoCapture(0)
-cam.set(3, 480)
-cam.set(4, 480)
+cam= cv2.VideoCapture(0)#mettre 1 ou 2 ... si la camera qui est detectée n'est pas celle que l'on souhaite calibrer
+cam.set(3, 480)#résolution de la camera
+cam.set(4, 480)#résolution de la camera
 cam.set(10, 10)
 
 total=0
 print("Debut")
 last_capture=time.time()
+#boucle et et prends en photo l'échiquier toute les 1 secondes.
 for i in range(1,50):
     sucessL, img = cam.read()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -39,24 +44,24 @@ for i in range(1,50):
       break
     
     if(time.time-last_capture>1):
-        ret, corners = cv2.findChessboardCorners(gray, (9, 6), None)
+        #detecte l'echiquier
+        ret, corners = cv2.findChessboardCorners(gray, (n_carreau_longeur, n_carreau_largeur), None)
         if ret:
             total+=1
             objpoints.append(objp)
             corners2 = cv2.cornerSubPix(gray, corners, (11, 11), (-1, -1), criteria)
             imgpoints.append(corners2)
-            cv2.drawChessboardCorners(gray, (9,6), corners2, ret)
             last_capture=time.time()
     
     
-    
-
+#calcule et sauvegarde le résultat de la calibration
 ret, cameraMatrix, distCoeffs, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
 print(cameraMatrix)
 np.save("raspberrypi/tracking/cameraMatrix",cameraMatrix)
 print(distCoeffs)
 np.save("raspberrypi/tracking/distCoeffs",distCoeffs)
 
+#calcule un indicateur de la qualité de la calibration 
 mean_error = 0
 for i in range(len(objpoints)):
     imgpoints2, _ = cv2.projectPoints(objpoints[i], rvecs[i], tvecs[i], cameraMatrix, distCoeffs)
@@ -64,27 +69,3 @@ for i in range(len(objpoints)):
     mean_error += error
 
 print("Mean error: ", mean_error / len(objpoints))
-
-def draw(img, corners, imgpts):
-    corner = tuple(corners[0].ravel())
-    print(corner)
-    img = cv2.line(img, corner, tuple(imgpts[0].ravel()), (255,0,0), 5)
-    img = cv2.line(img, corner, tuple(imgpts[1].ravel()), (0,255,0), 5)
-    img = cv2.line(img, corner, tuple(imgpts[2].ravel()), (0,0,255), 5)
-    return img
-
-
-for i in range(1,100):
-    gray=np.load("res/"+str(i)+".npy")
-    ret, corners = cv2.findChessboardCorners(gray, (9, 6), None)
-    if ret:
-        corners2 = cv2.cornerSubPix(gray,corners,(11,11),(-1,-1),criteria)
-
-        ret,rvecs, tvecs = cv2.solvePnP(objp, corners2, cameraMatrix, distCoeffs)
-        print(tvecs)
-        # project 3D points to image plane
-        imgpts, jac = cv2.projectPoints(axis, rvecs, tvecs, cameraMatrix, distCoeffs)
-        #img = draw(gray,corners2,imgpts)
-        cv2.drawFrameAxes(gray, cameraMatrix, distCoeffs, rvecs, tvecs, 2)
-        cv2.imshow('img', gray)
-        cv2.waitKey(200)
