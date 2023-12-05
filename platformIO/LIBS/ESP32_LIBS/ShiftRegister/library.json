@@ -1,0 +1,7 @@
+{
+    "name": "ShitRegister",
+    "version": "1.0.0",
+    "description": "A ShiftRegister",
+    "frameworks": "*",
+    "platforms": "espressif32"
+  }
