@@ -1,9 +1,9 @@
 import math
 
-from team2022.raspberrypi.tracking.jetson.AccessibleMap import AccessibleMap as AccessibleMap
-from team2022.raspberrypi.tracking.libs.positionDetectorMultiple import PositionDetectorMultiple
+from tracking.jetson.AccessibleMap import AccessibleMap as AccessibleMap
+from tracking.libs.positionDetectorMultiple import PositionDetectorMultiple
 import numpy as np
-from team2022.raspberrypi.common.tcptalks import TCPTalks
+from common.tcptalks import TCPTalks
 import time
 #manque concurrence et paramétrage
 class JetsonManager(TCPTalks):
@@ -12,7 +12,7 @@ class JetsonManager(TCPTalks):
         GET_MARKER_POSITION_OPCODE = 0x20
         COMPUTE_PATH_OPCODE = 0x21  # attention calcul path si modif carte en même temps
 
-        TCPTalks.__init__("10.0.0.2", port=10, id="pi", password="raspberry")
+        TCPTalks.__init__("10.0.0.2", port=10, id="pi", password="raspberry")#L'IP CHANGE PAS HEIN
         TCPTalks.connect(10)
         #BIND et applications des fcts
         self.bind(GET_MARKER_POSITION_OPCODE, self.getMarkerPosition)

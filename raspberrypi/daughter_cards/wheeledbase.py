@@ -82,7 +82,7 @@ It contains methods for each action of the wheeled base.
 It allows the raspeberry pi to ask the arduino to perform an action via a specific OPCODE.
 """
 class WheeledBase(SecureArduino):
-
+    #Doc de la classe sur le owncloud
     _DEFAULT = {
         GET_CODEWHEELS_COUNTERS_OPCODE : Deserializer(LONG(0) + LONG(0)),
         POSITION_REACHED_OPCODE : Deserializer(BYTE(0) + BYTE(0)),
@@ -196,8 +196,9 @@ class WheeledBase(SecureArduino):
                     linvelmax=None, angvelmax=None, **kwargs):
         self.purepursuit(waypoints,direction,finalangle,lookahead,lookaheadbis,linvelmax,angvelmax)
         while not self.isarrived(raiseSpinUrgency=False):
-            print(sensors.get_all())
-            if (np.min(sensors.get_all()[0:4]) < 500 or np.min(sensors.get_all()[4:]) < 300):
+            m=np.min(sensors.get_all()[0:4])
+            print(self.get_position(),m)
+            if (m < 500 or np.min(sensors.get_all()[4:]) < 300):
                 interrupt = True
                 self.stop()
                 print("arret")

@@ -19,13 +19,15 @@ class PositionDetectorMultiple:
         self.invProjectionMatrix= np.identity(4)
         self.cameraPos = []
         self.FOV = 70
-        self.camera = None
+        self.cameraLeft = None
+        self.cameraRight = None
         self.WIDTH = 480
         self.HEIGTH = 480
         self.CENTER_MARKER_ID=17
         self.KNOW_DISTANCE_TO_MARKER = 300
         self.KNOW_WIDTH_MARKER = 0.06
         self.DELTA_TIME_SPEED=100
+        self.L=200
 
         self.markerIds=[]
         self.markerPositions={}
@@ -92,55 +94,71 @@ class PositionDetectorMultiple:
         return [rayWorld[0] / length, rayWorld[1] / length, rayWorld[2] / length]
 
     #init the camera need the camera position and its orientation
-    def init(self,camPos, pitchCam, yawCam):
-        self.camera = cv2.VideoCapture(0)
-        self.camera.set(3, self.WIDTH)
-        self.camera.set(4, self.HEIGTH)
-        self.camera.set(10, 10)
+    def init(self,camPosL, pitchCam, yawCam):
+        self.cameraLeft = cv2.VideoCapture(0)
+        self.cameraLeft.set(3, self.WIDTH)
+        self.cameraLeft.set(4, self.HEIGTH)
+        self.cameraLeft.set(10, 10)
 
-        self.cameraPos = camPos
+
+
+        self.cameraPosLeft = camPosL
+        #self.cameraPosRight = camPosR
 
         #compute view matrix
-        viewMatrix=self.createViewMatrix(pitchCam, yawCam, [-camPos[0],-camPos[1],-camPos[2]])
-        self.invViewMatrix = np.linalg.inv(viewMatrix)
+        #viewMatrix=self.createViewMatrix(pitchCam, yawCam, [-camPosL[0],-camPosL[1],-camPosL[2]])
+        #self.invViewMatrix = np.linalg.inv(viewMatrix)
         # compute projection matrix with the camera fov the images aspect ratio and random far and near value.
-        self.invProjectionMatrix = np.linalg.inv(self.createProjectionMatrix(self.FOV, float(self.WIDTH) / self.HEIGTH, 1000, 0.1))
+        #self.invProjectionMatrix = np.linalg.inv(self.createProjectionMatrix(self.FOV, float(self.WIDTH) / self.HEIGTH, 1000, 0.1))
+        self.cameraMatrix=np.load("res/cameraMatrix.npy")
+        self.distCoeffs=np.load("res/distCoeffs.npy")
+        marker_size=66
+        self.obj_points = np.array([[-marker_size / 2, marker_size / 2, 0],
+                              [marker_size / 2, marker_size / 2, 0],
+                              [marker_size / 2, -marker_size / 2, 0],
+                              [-marker_size / 2, -marker_size / 2, 0]], dtype=np.float32)
+        
 
-        #calibrate camera look for the center marker and when he see it calculate the camera focalLength
-        d = -1
-        while d < 0:
-            sucess, img = self.camera.read()
-            d = self.find_marker_length(img,self.CENTER_MARKER_ID)
-        self.focalLength = (d * self.KNOW_DISTANCE_TO_MARKER) / self.KNOW_WIDTH_MARKER
-        print(self.focalLength)
+    
+    def find_angle(self,x,fov):
+        return math.atan(x*math.tan(fov/2))
+
+    def find_distance(self,angleCam1,angleCam2,L):
+        if(angleCam2<0):
+            angleCam2*=-1
+            angleCam1*=-1
+        d1=L/(-math.sin(angleCam1)+math.cos(angleCam1)*math.tan(angleCam2))
+        d2=d1*math.cos(angleCam1)/math.cos(angleCam2)
+        return d1,d2
+
 
     #compute marker positions, velocities, and orientation
     def update(self):
-        sucess, img = self.camera.read()
+        sucessL, imgL = self.cameraLeft.read()
+       
 
         self.markerPositions={}
 
-        imgTree = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        imgTreeL = cv2.cvtColor(imgL, cv2.COLOR_BGR2GRAY)
 
-        markerCorners, markerids, rejectedCandidates = self.detector.detectMarkers(imgTree)
-        if markerids is not None:
-            for i in range(0, len(markerids)):
-                if markerids[i][0] in self.markerIds:
-                    p0 = markerCorners[0][0][0]
-                    p1 = markerCorners[0][0][1]
-                    p01 = p0 - p1
-                    l = p01[0] * p01[0] + p01[1] * p01[1]
-                    marker = math.sqrt(l)
-                    dist = self.distance_to_camera(self.KNOW_WIDTH_MARKER, self.focalLength, marker)
-
-                    point = markerCorners[0][0][0]
-
-                    ray = self.getRay(point)
-                    pos = getPosition(self.cameraPos, ray, dist)
-                    if not (markerids[i][0] in self.markerPositions.keys()):
-                        self.markerPositions[markerids[i][0]]=[]
-                    self.markerPositions[markerids[i][0]].append(pos)
-
+        #On suppose que les dex camera detexte bien les tout les mêmes tags hein sinon on pleure
+        markerCornersL, markeridsL, rejectedCandidates = self.detector.detectMarkers(imgTreeL)
+       
+        if markeridsL is not None:
+            for i in range(0, len(markeridsL)):
+                print( markeridsL[i][0],self.markerIds)
+                if markeridsL[i][0] in self.markerIds:
+                    success, vector_rotation, vector_translation = cv2.solvePnP(self.obj_points , markerCornersL[i], self.cameraMatrix, self.distCoeffs, False,cv2.SOLVEPNP_IPPE_SQUARE)
+                    print(vector_translation)
+                    if not (markeridsL[i][0] in self.markerPositions.keys()):
+                        self.markerPositions[markeridsL[i][0]]=[]
+                    #self.markerPositions[markeridsL[i][0]].append(pos)
+                    cv2.drawFrameAxes(imgL, self.cameraMatrix, self.distCoeffs, vector_rotation, vector_translation, 33)
+        # Press Q on keyboard to  exit
+        cv2.imshow('Frame', imgL)
+        time.sleep(0.2)
+        if cv2.waitKey(25) & 0xFF == ord('q'):
+            print("a")
     #add a new maker to follow
     def addMarker(self,idMarker):
         self.markerIds.append(idMarker)

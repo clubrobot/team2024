@@ -1,10 +1,34 @@
-from team2022.raspberrypi.tracking.libs.positionDetectorMultiple import *
+import time
+from daughter_cards.sensors import Sensors
+import cv2, glob
 import math
+import numpy as np
+from tracking.libs.positionDetectorMultiple import PositionDetectorMultiple
+from daughter_cards.wheeledbase import WheeledBase
 
-posdetect=PositionDetectorMultiple()
-posdetect.addMarker(17)
-posdetect.init([0,0,0],math.radians(90),0)
 
-while True:
-    posdetect.update()
-    print(posdetect.markerPositions)
+
+
+
+print("b")
+posDetect =PositionDetectorMultiple()
+posCam=[0,0,0]
+posDetect.addMarker(17)
+print(posDetect.markerIds)
+posDetect.init(posCam,0,0)
+
+print("boucle")
+datas=[]
+while(True):
+    t=time.time()
+    sucess, img = posDetect.cameraLeft.read()
+    
+    posDetect.update()
+    #print(posDetect.markerPositions)
+    #print(1/(time.time()-t))
+        
+
+        
+                    
+    
+
