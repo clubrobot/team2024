@@ -117,6 +117,7 @@ void SerialTalking::generateRandomUUID(char* uuid, int length){
 /*
 	Fonctions de Callback
 */
+/*
 void SerialTalking::PING(){
 	char msg[] = "pong";
 	talking.addTxData(msg);
@@ -131,4 +132,4 @@ void SerialTalking::GETUUID(){
 void SerialTalking::SETUUID() {}
 void SerialTalking::GETEEPROM() {}
 void SerialTalking::SETEEPROM() {}
-void SerialTalking::GETBUFFERSIZE() {}
+void SerialTalking::GETBUFFERSIZE() {}*/

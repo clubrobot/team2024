@@ -194,12 +194,12 @@ if __name__ == "__main__":
     setup_logger = LogManager().getlogger('Setup logger', level_disp=INFO)
 
     setup_logger(INFO, "test", "bob")
-    """  
-   p = Process(target=f, args=('bob',))
+
+    '''p = Process(target=f, args=('bob',))
     q = Process(target=g, args=('world',))
     p.start()
     q.start()
     p.join()
-    q.join() """
+    q.join()'''
 
     #input()

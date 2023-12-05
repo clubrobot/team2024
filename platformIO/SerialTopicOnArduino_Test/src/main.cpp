@@ -30,14 +30,19 @@ uint16_t sendSize;*/
 }*/
 
 void callback_getuuid(){
-  float recv_data = talking.receiveTransfertDatum<float>();
-  byte byte_data = talking.receiveTransfertDatum<byte>();
+  float recv_data = talking.read<float>();
+  byte byte_data = talking.read<byte>();
+
+  if(recv_data==5.8 && byte_data==8){
+    digitalWrite(LED_BUILTIN, HIGH);
+  }
 
   char uuid[] = "sensors";
 
   talking.addTxData(uuid);//For array
   talking.addTxDatum(recv_data);//For Values
   talking.addTxDatum(byte_data);//For Values
+
   talking.endTranfert();//On envoie touttttt
 
 }
