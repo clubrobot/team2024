@@ -70,11 +70,12 @@ class SerialTalking:
     def free_receiver(self):
         self.recSize = 0
 
+    def free_sender(self):
+        self.sendSize = 0
+
     # Réception de donnée
     def recieve_transfert(self, obj_type):
         data_size = link.rx_obj(obj_type='H', start_pos=self.recSize) #le type h à 2octects (correspond à uint16_t en c++)
-        self.recSize += txfer.STRUCT_FORMAT_LENGTHS['H']
-
         data = link.rx_obj(obj_type=obj_type, start_pos=self.recSize, obj_byte_size=data_size)
         if (obj_type == str):
             data_size = len(data)
@@ -82,6 +83,12 @@ class SerialTalking:
             data_size = txfer.STRUCT_FORMAT_LENGTHS[obj_type]
         self.recSize += data_size
         return (data, data_size)
+
+    # Réception de donnée
+    def send_transfert(self, data, data_size,val_type_override=''):
+        self.sendSize = link.tx_obj(data_size, start_pos=self.sendSize,val_type_override=USHORT) #le type h à 2octects (correspond à uint16_t en c++)
+        self.sendSize = link.tx_obj(data, start_pos=self.sendSize,val_type_override)
+        return self.sendSize
 
 if __name__ == '__main__':
      #Seulement pour test
@@ -96,19 +103,23 @@ if __name__ == '__main__':
         
         link.open()
         time.sleep(2) # allow some time for the Arduino to completely reset
+
+        s = SerialTalking()
         while True:
             # Envoi
+            """
             send_size = 0
             send_size = link.tx_obj(1, send_size, val_type_override=USHORT)#On met la size d'envoie ici
             send_size = link.tx_obj(5.8, send_size, val_type_override=FLOAT)#On met les params ici!
             send_size = link.tx_obj(1, send_size, val_type_override=USHORT)#On met la size d'envoie ici
-            send_size = link.tx_obj(8, send_size, val_type_override=BYTE)#On met les params ici!
-
+            send_size = link.tx_obj(8, send_size, val_type_override=BYTE)#On met les params ici!"""
+            s.free_sender()
+            send_size = s.send_transfert(5.8,1,FLOAT)
+            send_size = s.send_transfert(8,1,BYTE)
             link.send(send_size, packet_id=PING_OPCODE)# Opcode important
 
             if link.available():
                 #Réception
-                s = SerialTalking()
                 s.free_receiver()
 
                 ping_data, data_size = s.recieve_transfert(str)
