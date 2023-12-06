@@ -36,7 +36,8 @@ DOUBLE = FLOAT
 
 class SerialTalking:
     def __init__(self):
-        pass
+        self.recSize = 0
+        self.sendSize = 0
 
     #Quand on utilise avec with
     def __enter__(self):
@@ -75,7 +76,8 @@ class SerialTalking:
 
     # Réception de donnée
     def recieve_transfert(self, obj_type):
-        data_size = link.rx_obj(obj_type='H', start_pos=self.recSize) #le type h à 2octects (correspond à uint16_t en c++)
+        data_size = link.rx_obj(obj_type=USHORT, start_pos=self.recSize) #le type h à 2octects (correspond à uint16_t en c++)
+        self.recSize += txfer.STRUCT_FORMAT_LENGTHS[USHORT]
         data = link.rx_obj(obj_type=obj_type, start_pos=self.recSize, obj_byte_size=data_size)
         if (obj_type == str):
             data_size = len(data)
@@ -84,10 +86,10 @@ class SerialTalking:
         self.recSize += data_size
         return (data, data_size)
 
-    # Réception de donnée
-    def send_transfert(self, data, data_size,val_type_override=''):
+    # Transfert de donnée
+    def send_transfert(self, data, data_size,val_type=''):
         self.sendSize = link.tx_obj(data_size, start_pos=self.sendSize,val_type_override=USHORT) #le type h à 2octects (correspond à uint16_t en c++)
-        self.sendSize = link.tx_obj(data, start_pos=self.sendSize,val_type_override)
+        self.sendSize = link.tx_obj(data, start_pos=self.sendSize,val_type_override=val_type)
         return self.sendSize
 
 if __name__ == '__main__':
@@ -126,9 +128,9 @@ if __name__ == '__main__':
                 ping2_data, data2_size = s.recieve_transfert('f')
                 ping3_data, data3_size = s.recieve_transfert(BYTE)
 
-                print(repr("Ping data 1 : {}, Str size: {}".format(ping_data, data_size)))
-                print(repr("Ping data 2 : {}, Str size: {}".format(ping2_data, data2_size)))
-                print(repr("Ping data 3 : {}, Str size: {}".format(ping3_data, data3_size)))
+                print(repr("Ping data 1 : {}, Str size: {}, hex : {}".format(ping_data, data_size, hex(ping_data))))
+                print(repr("Ping data 2 : {}, Str size: {}, hex : {}".format(ping2_data, data2_size, hex(ping2_data))))
+                print(repr("Ping data 3 : {}, Str size: {}, hex : {}".format(ping3_data, data3_size, hex(ping3_data))))
             elif link.status < 0:
                 if link.status == txfer.CRC_ERROR:
                     print('ERROR: CRC_ERROR')
