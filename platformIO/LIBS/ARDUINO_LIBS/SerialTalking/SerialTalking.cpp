@@ -17,8 +17,8 @@ void SerialTalking::begin(Stream& stream)
 	//Attributs en privé
 	m_stream = &stream;
 	m_connected = false;
-	m_bytesNumber = 0;
-	m_bytesCounter = 0;
+	m_bytesTX = 0;
+	m_bytesRX = 0;
 
     //Config du transfert
     m_transfert_config.debug = SERIALTALKING_DEBUG;
@@ -65,11 +65,11 @@ void SerialTalking::execute(){
 }
 
 void SerialTalking::endTranfert(){
-	if(m_bytesCounter>0){
-		m_transfert.sendData(m_bytesNumber);
+	if(m_bytesTX!=0){
+		m_transfert.sendData(m_bytesTX);
 	}
-	m_bytesNumber = 0; //On reset le counter
-	m_bytesCounter=0; //RX Aussi
+	m_bytesTX = 0; //On reset le counter TX
+	m_bytesRX = 0; //RX Aussi
 }
 
 bool SerialTalking::getUUID(char* uuid){

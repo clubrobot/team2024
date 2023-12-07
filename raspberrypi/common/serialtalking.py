@@ -4,6 +4,7 @@
  Negrache Gibril et Hilkens Boris
 '''
 
+import math
 import time
 import sys
 from pySerialTransfer import pySerialTransfer as txfer
@@ -24,19 +25,27 @@ USHORT = "H"
 LONG = 'l'
 ULONG = 'L'
 FLOAT = 'f'
-STRING = 's'
-BYTE = UCHAR
-INT = SHORT
+STRING = str
+BYTE = CHAR
+INT = SHORT #OUI CAR 16BIT = SHORT
 UINT = USHORT
-DOUBLE = FLOAT
+DOUBLE = 'd'
+
+SERIALTALKING_SINGLE_MAGIC = 's' #comme single
+SERIALTALKING_MULTIPLE_MAGIC = 'm' #comme multiple
 
 #TODO: Les erreurs
 #TODO: Faire un thread qui check périodiquement si l'arduino est alive (avec ping) lors qu'il ne communique pas
 #TODO: Faire un meilleur log avec teleplot (à la fin)
 
 class SerialTalking:
-    def __init__(self):
-        pass
+    def __init__(self, port):
+        self.link = txfer.SerialTransfer(port)
+        self.connect()
+        time.sleep(2) # allow some time for the Arduino to completely reset
+
+        self.recSize = 0
+        self.sendSize = 0
 
     #Quand on utilise avec with
     def __enter__(self):
@@ -46,12 +55,19 @@ class SerialTalking:
     def __exit__(self):
         self.disconnect()
 
-    def connect(self, timeout=5):
-        return
+    def connect(self):
+        return self.link.open()
     
     def disconnect(self):
+        self.link.close()
         return
     
+    def available(self):
+        return self.link.available()
+    
+    def get_status_code(self):
+        return self.link.status
+
     def getuuid(self):
         return
 
@@ -73,22 +89,54 @@ class SerialTalking:
     def free_sender(self):
         self.sendSize = 0
 
+    def send_buffer(self, OPCODE):
+        self.link.send(self.sendSize, packet_id=OPCODE)# Opcode important
+        self.free_sender()
+
     # Réception de donnée
-    def recieve_transfert(self, obj_type):
-        data_size = link.rx_obj(obj_type='H', start_pos=self.recSize) #le type h à 2octects (correspond à uint16_t en c++)
-        data = link.rx_obj(obj_type=obj_type, start_pos=self.recSize, obj_byte_size=data_size)
-        if (obj_type == str):
-            data_size = len(data)
+    def read_buffer(self, obj_type):
+        data_size=-1
+        #On récupère la form de la donnée (liste ou valeur seule)
+        data_type = self.link.rx_obj(obj_type=str, start_pos=self.recSize, obj_byte_size=1)
+        self.recSize += txfer.STRUCT_FORMAT_LENGTHS['c']
+        #Si valeur seule
+        if(data_type==SERIALTALKING_SINGLE_MAGIC):
+            data_size=1
+            data = self.link.rx_obj(obj_type=obj_type, start_pos=self.recSize)
+            self.recSize += txfer.STRUCT_FORMAT_LENGTHS[obj_type]
+
+        #Sinon si valeur multiple (liste)
+        elif(data_type==SERIALTALKING_MULTIPLE_MAGIC):
+            data_arr = []
+            #On récupère le nombre d'élément dans notre liste
+            data_size = self.link.rx_obj(obj_type=UCHAR, start_pos=self.recSize)
+            self.recSize += txfer.STRUCT_FORMAT_LENGTHS[UCHAR]
+
+            #~magie (juste on append un liste où les données sont les obj reçu)
+            for i in range(int(data_size)):
+
+                    if(obj_type==str):
+                        data_arr.append(self.link.rx_obj(obj_type=CHAR, start_pos=self.recSize))
+                        self.recSize += 1
+                    else:
+                        data_arr.append(self.link.rx_obj(obj_type=obj_type, start_pos=self.recSize))
+                        self.recSize += txfer.STRUCT_FORMAT_LENGTHS[obj_type]
+
+            if(obj_type==str):
+                data= b''.join(data_arr).decode()
+                
         else:
-            data_size = txfer.STRUCT_FORMAT_LENGTHS[obj_type]
-        self.recSize += data_size
+            return -1 #pas normal
+
         return (data, data_size)
 
     # Réception de donnée
-    def send_transfert(self, data, data_size,val_type_override=''):
-        self.sendSize = link.tx_obj(data_size, start_pos=self.sendSize,val_type_override=USHORT) #le type h à 2octects (correspond à uint16_t en c++)
-        self.sendSize = link.tx_obj(data, start_pos=self.sendSize,val_type_override)
-        return self.sendSize
+    def write_buffer(self, data, val_type, data_size=1):
+        self.sendSize = self.link.tx_obj(data_size, start_pos=self.sendSize, val_type_override=UCHAR) #1 octet (la taille est 255 ça suffit) (correspond à uint8_t en c++)
+        if(type(data)==str):
+            self.sendSize = self.link.tx_obj(data, start_pos=self.sendSize)
+        else:
+            self.sendSize = self.link.tx_obj(data, start_pos=self.sendSize, val_type_override=val_type)
 
 if __name__ == '__main__':
      #Seulement pour test
@@ -99,50 +147,38 @@ if __name__ == '__main__':
             serial_path = '/dev/ttyUSB0'
         else:
             serial_path = 'COM6'
-        link = txfer.SerialTransfer(serial_path)
-        
-        link.open()
-        time.sleep(2) # allow some time for the Arduino to completely reset
 
-        s = SerialTalking()
+        s = SerialTalking(serial_path)
         while True:
             # Envoi
-            """
-            send_size = 0
-            send_size = link.tx_obj(1, send_size, val_type_override=USHORT)#On met la size d'envoie ici
-            send_size = link.tx_obj(5.8, send_size, val_type_override=FLOAT)#On met les params ici!
-            send_size = link.tx_obj(1, send_size, val_type_override=USHORT)#On met la size d'envoie ici
-            send_size = link.tx_obj(8, send_size, val_type_override=BYTE)#On met les params ici!"""
-            s.free_sender()
-            send_size = s.send_transfert(5.8,1,FLOAT)
-            send_size = s.send_transfert(8,1,BYTE)
-            link.send(send_size, packet_id=PING_OPCODE)# Opcode important
+            test = "yes of course"
 
-            if link.available():
+            s.write_buffer(test, str, len(test))
+            s.write_buffer(math.sin(time.time_ns()), FLOAT)
+            s.send_buffer(PING_OPCODE)
+
+            if s.available():
                 #Réception
                 s.free_receiver()
+                ping_data, data_size = s.read_buffer(str)
+                ping2_data, data2_size = s.read_buffer(FLOAT)
 
-                ping_data, data_size = s.recieve_transfert(str)
-                ping2_data, data2_size = s.recieve_transfert('f')
-                ping3_data, data3_size = s.recieve_transfert(BYTE)
+                print("Ping data 1 : {}, Str size: {} | Ping data 2 : {}, Str size: {}".format(ping_data, data_size, ping2_data, data2_size))
 
-                print(repr("Ping data 1 : {}, Str size: {}".format(ping_data, data_size)))
-                print(repr("Ping data 2 : {}, Str size: {}".format(ping2_data, data2_size)))
-                print(repr("Ping data 3 : {}, Str size: {}".format(ping3_data, data3_size)))
-            elif link.status < 0:
-                if link.status == txfer.CRC_ERROR:
+            elif s.get_status_code() < 0:
+                if s.get_status_code() == txfer.CRC_ERROR:
                     print('ERROR: CRC_ERROR')
-                elif link.status == txfer.PAYLOAD_ERROR:
+                elif s.get_status_code() == txfer.PAYLOAD_ERROR:
                     print('ERROR: PAYLOAD_ERROR')
-                elif link.status == txfer.STOP_BYTE_ERROR:
+                elif s.get_status_code() == txfer.STOP_BYTE_ERROR:
                     print('ERROR: STOP_BYTE_ERROR')
                 else:
-                    print('ERROR: {}'.format(link.status))
+                    print('ERROR: {}'.format(s.get_status_code()))
 
 
     except KeyboardInterrupt:
         try:
-            link.close()
+            s.disconnect()
         except:
             pass
     
@@ -151,6 +187,6 @@ if __name__ == '__main__':
         traceback.print_exc()
         
         try:
-            link.close()
+            s.disconnect()
         except:
             pass

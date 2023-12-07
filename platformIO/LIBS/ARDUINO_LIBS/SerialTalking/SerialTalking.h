@@ -23,7 +23,8 @@
 
 #define SERIALTALKING_MAX_OPCODE 0x20
 #define SERIALTALKING_MAX_BUFFER_RECV 0x10
-//On fait un ACK? même si c'est un ordre sans réponse ?
+#define SERIALTALKING_SINGLE_MAGIC 's' //comme single
+#define SERIALTALKING_MULTIPLE_MAGIC 'm' //comme multiple
 
 #define SERIALTALKING_PING_OPCODE           0x00
 #define SERIALTALKING_GETUUID_OPCODE        0x01
@@ -77,53 +78,60 @@ public:
     \param val valeur à ajouter
     */
     template <typename T>
-    void addTxDatum(const T& val){
-        m_bytesNumber = m_transfert.txObj((uint16_t) sizeof(val), m_bytesNumber); //On envoie la taille de la donnée!
-  	    m_bytesNumber = m_transfert.txObj(val, m_bytesNumber, sizeof(val));
+    void write(const T& val){
+        m_bytesTX = m_transfert.txObj(SERIALTALKING_SINGLE_MAGIC, m_bytesTX);
+  	    m_bytesTX = m_transfert.txObj(val, m_bytesTX, sizeof(T));
     }
 
 
     /*! Ajoute un buffer au buffer serial transfert
         \param val valeur à ajouter
+        \warning taille max du tableau est de 255 élément (suffisant mdr)
     */
     template <typename T>
-    void addTxData(const T& val){
-        m_bytesNumber = m_transfert.txObj((uint16_t) sizeof(val)/sizeof(val[0]), m_bytesNumber); //On envoie la taille de la donnée!
-  	    m_bytesNumber = m_transfert.txObj(val, m_bytesNumber, sizeof(val)/sizeof(val[0]));
+    void writeTable(const T& val){
+        m_bytesTX = m_transfert.txObj(SERIALTALKING_MULTIPLE_MAGIC, m_bytesTX);
+
+        uint8_t table_size = sizeof(val)/sizeof(val[0]);
+        m_bytesTX = m_transfert.txObj(table_size, m_bytesTX); //On envoie la taille de la donnée!
+
+        for(uint8_t i=0; i<table_size; i++){
+            m_bytesTX = m_transfert.txObj(val[i], m_bytesTX, sizeof(val[i]));
+        }
     }
 
     /*! Recois une liste de même donnée
     */
     template <typename T>
-    void readTable(const T& data, const uint16_t& len = sizeof(T)){
-
-        uint16_t data_size=0; 
-        m_bytesCounter = m_transfert.rxObj(data_size, m_bytesCounter); //On envoie la taille de la donnée!
-
+    void readTable(const T &data, const uint16_t& len = sizeof(T)){
+        uint8_t data_size=0; 
+        m_bytesRX = m_transfert.rxObj(data_size, m_bytesRX); //On envoie la taille de la donnée!
+        
         if(len<data_size){
-            digitalWrite(LED_BUILTIN, HIGH);
+            digitalWrite(LED_BUILTIN, HIGH); //Erreur de taille
             return;
         }
 
-        for(uint16_t i=0; i<data_size; i++){
-            m_bytesCounter = m_transfert.rxObj(data[i], m_bytesCounter);
-        }
+        m_bytesRX = m_transfert.rxObj(data, m_bytesRX, data_size);
+        /*for(uint16_t i=0; i<data_size; i++){
+            m_bytesRX = m_transfert.rxObj((*data)[i], m_bytesRX);
+        }*/
     }
 
     /*! Recoit une valeur et la retourne
     */
     template <typename T>
     T read(){
-        uint16_t data_size=0; 
+        uint8_t data_size=0; 
         T data;
 
-        m_bytesCounter = m_transfert.rxObj(data_size, m_bytesCounter); //On envoie la taille de la donnée!
+        m_bytesRX = m_transfert.rxObj(data_size, m_bytesRX, 1); //On envoie la taille de la donnée!
 
-        if(data_size>1){
-            digitalWrite(LED_BUILTIN, HIGH);//C'est un data
+        if(data_size!=1){
+            //TODO: Code d'erreurs
             return;
         }
-        m_bytesCounter = m_transfert.rxObj(&data, m_bytesCounter);
+        m_bytesRX = m_transfert.rxObj(data, m_bytesRX);
 
         return data;
     }
@@ -183,8 +191,8 @@ protected: // Protected methods
         SERIALTALKING_RETURN, ///< Retour de requête.
     } m_order;              /// Type de requête reçu.
 
-    byte m_bytesNumber;  /*!< Variable pour la réception de données qui correspond à la longueur de la requête en bytes (valeur donnée dans le deuxième byte d'une requête).*/
-    byte m_bytesCounter; /*!< Variable d'incrementation pour la réception de données.*/
+    uint16_t m_bytesTX;  /*!< Variable pour la réception de données qui correspond à la longueur de la requête en bytes (valeur donnée dans le deuxième byte d'une requête).*/
+    uint16_t m_bytesRX; /*!< Variable d'incrementation pour la réception de données.*/
     long m_lastTime;     /*!< Timeout pour la réception d'octets d'une même requête.*/
     unsigned long m_lastRetcode;
 
