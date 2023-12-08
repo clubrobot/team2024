@@ -9,6 +9,8 @@ import time
 import sys
 from pySerialTransfer import pySerialTransfer as txfer
 
+
+#Défini les opcodes par défault
 PING_OPCODE = 0x00
 GETUUID_OPCODE = 0x01
 SETUUID_OPCODE = 0x02
@@ -17,6 +19,7 @@ GETEEPROM_OPCODE = 0x04
 SETEEPROM_OPCODE = 0x05
 GETBUFFERSIZE_OPCODE = 0x06
 
+#Taille des chars
 #https://docs.python.org/3/library/struct.html#format-characters
 CHAR = 'c'
 UCHAR = 'B'
@@ -31,12 +34,16 @@ INT = SHORT #OUI CAR 16BIT = SHORT
 UINT = USHORT
 DOUBLE = 'd'
 
+#Magics numbers
 SERIALTALKING_SINGLE_MAGIC = 's' #comme single
 SERIALTALKING_MULTIPLE_MAGIC = 'm' #comme multiple
 
 #TODO: Les erreurs
 #TODO: Faire un thread qui check périodiquement si l'arduino est alive (avec ping) lors qu'il ne communique pas
 #TODO: Faire un meilleur log avec teleplot (à la fin)
+#TODO: Expliqer ASS (Asymetrical Serial Shit); mon protocol de tranfert mdr
+#TODO: clean up
+#TODO: Timeout & connections checks 
 
 class SerialTalking:
     def __init__(self, port):
@@ -75,13 +82,32 @@ class SerialTalking:
         return
 
     #For each arg, on tx l'arg puis on envoie tout
-    def order(self, opcode, *args):
+    def order(self, opcode, arg_type=BYTE, *args):
+        if(args==((),)): args = [0] #Si pas d'args
+
+        #Oui le string fait chier
+        if(arg_type==str):
+            for arg in args:
+                self.write_buffer(arg[0], arg_type, len(arg[0]))
+        else:
+            for arg in args:
+                self.write_buffer(arg, arg_type)
+
+        self.send_buffer(opcode)
         return
 
     #call order puis fait le tralala du request
     #à voir comment on gère ça
-    def request(self, opcode, type,*args):
-        return
+    def request(self, opcode, arg_type=BYTE, return_type=str, *args):
+        self.order(opcode, arg_type, args)
+
+        data, data_size = ([], -1)
+        while True:
+            if(self.available()):
+                data, data_size = self.read_buffer(return_type)
+                break
+        self.free_receiver()
+        return (data, data_size)
 
     def free_receiver(self):
         self.recSize = 0
@@ -133,6 +159,7 @@ class SerialTalking:
     # Réception de donnée
     def write_buffer(self, data, val_type, data_size=1):
         self.sendSize = self.link.tx_obj(data_size, start_pos=self.sendSize, val_type_override=UCHAR) #1 octet (la taille est 255 ça suffit) (correspond à uint8_t en c++)
+        
         if(type(data)==str):
             self.sendSize = self.link.tx_obj(data, start_pos=self.sendSize)
         else:
@@ -153,15 +180,10 @@ if __name__ == '__main__':
             # Envoi
             test = "yes of course"
 
-            s.write_buffer(test, str, len(test))
-            s.write_buffer(math.sin(time.time_ns()), FLOAT)
-            s.send_buffer(PING_OPCODE)
-
-            if s.available():
+            if True:
                 #Réception
-                s.free_receiver()
-                ping_data, data_size = s.read_buffer(str)
-                ping2_data, data2_size = s.read_buffer(FLOAT)
+                ping_data, data_size = s.request(0x03, str, str, test)
+                ping2_data, data2_size = s.request(GETUUID_OPCODE)
 
                 print("Ping data 1 : {}, Str size: {} | Ping data 2 : {}, Str size: {}".format(ping_data, data_size, ping2_data, data2_size))
 

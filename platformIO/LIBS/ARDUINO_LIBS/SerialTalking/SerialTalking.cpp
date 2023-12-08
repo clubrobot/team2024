@@ -31,21 +31,23 @@ void SerialTalking::begin(Stream& stream)
 
 	//Déf de l'UUID
 #ifdef BOARD_UUID //<- changé en tant que option pre-compil (voir platformio.ini)
+	#define SERIALTALKING_UUID_LENGTH sizeof(BOARD_UUID)/sizeof(BOARD_UUID[0])
 	setUUID(BOARD_UUID);
 #else
-	char uuid[SERIALTALKS_UUID_LENGTH];
+	#define SERIALTALKING_UUID_LENGTH 32
+	char uuid[SERIALTALKING_UUID_LENGTH];
 	if (!getUUID(uuid) || uuid[0] == '\0')
 	{
-		generateRandomUUID(uuid, SERIALTALKS_DEFAULT_UUID_LENGTH);
+		generateRandomUUID(uuid, SERIALTALKING_UUID_LENGTH);
 		setUUID(uuid);
 	}
 #endif // BOARD_UUID
 
 	// Add UUID accessors
-	/*bind(SERIALTALKING_PING_OPCODE,     SerialTalking::PING);
+	bind(SERIALTALKING_PING_OPCODE,     SerialTalking::PING);
 	bind(SERIALTALKING_GETUUID_OPCODE,  SerialTalking::GETUUID);
 	bind(SERIALTALKING_SETUUID_OPCODE,  SerialTalking::SETUUID);
-	bind(SERIALTALKING_GETEEPROM_OPCODE,SerialTalking::GETEEPROM);
+	/*bind(SERIALTALKING_GETEEPROM_OPCODE,SerialTalking::GETEEPROM);
 	bind(SERIALTALKING_SETEEPROM_OPCODE,SerialTalking::SETEEPROM);
 	bind(SERIALTALKING_GETBUFFERSIZE_OPCODE, SerialTalking::GETBUFFERSIZE);*/
 }
@@ -53,7 +55,7 @@ void SerialTalking::begin(Stream& stream)
 void SerialTalking::bind(byte opcode, functionPtr instruction){
 	if(opcode>SERIALTALKING_MAX_OPCODE){return;}
 	if(instruction==nullptr){return;}//No null function
-  	if(m_talkingTo[opcode]!=nullptr){return;}//No overdrive
+  	if((m_talkingTo[opcode]!=nullptr)){return;}//No overdrive
 
   	m_talkingTo[opcode] = instruction;//On affecte la fonction au callbacks
 
@@ -73,11 +75,10 @@ void SerialTalking::endTranfert(){
 }
 
 bool SerialTalking::getUUID(char* uuid){
-	for (int i = 0; i < int(EEPROM.length()); i++)
-	{
+	for (int i = 0; i < int(EEPROM.length()); i++){
 		uuid[i] = EEPROM.read(SERIALTALKING_UUID_ADDRESS + i);
-		switch(byte(uuid[i]))
-		{
+
+		switch(byte(uuid[i])){
 		case '\0': return true;
 		case 0xFF: return false;
 		default  : continue;
@@ -115,21 +116,22 @@ void SerialTalking::generateRandomUUID(char* uuid, int length){
 }
 
 /*
-	Fonctions de Callback
+	Fonctions par défault de SerialTalking
 */
-/*
+
 void SerialTalking::PING(){
 	char msg[] = "pong";
-	talking.addTxData(msg);
+	talking.writeTable(msg);
 	talking.endTranfert();
 }
 void SerialTalking::GETUUID(){
-	char * uuid;
+	char uuid[SERIALTALKING_UUID_LENGTH];
 	talking.getUUID(uuid);
-	talking.addTxData(uuid);
+	talking.writeTable(uuid);
 	talking.endTranfert();
 }
+
 void SerialTalking::SETUUID() {}
 void SerialTalking::GETEEPROM() {}
 void SerialTalking::SETEEPROM() {}
-void SerialTalking::GETBUFFERSIZE() {}*/
+void SerialTalking::GETBUFFERSIZE() {}

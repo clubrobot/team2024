@@ -19,10 +19,8 @@
 #define SERIALTALKING_OUTPUT_BUFFER_SIZE 64
 
 #define SERIALTALKING_UUID_ADDRESS 0x0000000000
-#define SERIALTALKING_UUID_LENGTH 32
 
 #define SERIALTALKING_MAX_OPCODE 0x20
-#define SERIALTALKING_MAX_BUFFER_RECV 0x10
 #define SERIALTALKING_SINGLE_MAGIC 's' //comme single
 #define SERIALTALKING_MULTIPLE_MAGIC 'm' //comme multiple
 
@@ -35,8 +33,6 @@
 #define SERIALTALKING_GETBUFFERSIZE_OPCODE  0x06
 #define SERIALTALKING_RESEND_OPCODE         0x07
 #define SERIALTALKING_FREE_BUFFER_OPCODE    0x08
-#define SERIALTALKING_STDOUT_RETCODE 0xFFFFFFFF
-#define SERIALTALKING_STDERR_RETCODE 0xFFFFFFFE
 
 /** class SerialTalking
  *  \brief Object de communication serial avec un ordinateur.
@@ -169,12 +165,6 @@ public:
 
 
 protected: // Protected methods
-    /**
-	 * @brief Méthode interne pour traiter les retours de requêtes.
-	 *  ??? qu'est ce que c'est que ça ???
-	 */
-    bool receive(byte *inputBuffer);
-
     // Attributes
 
     Stream *m_stream; /*!< Stream de communication utilisé par SerialTalking.*/
