@@ -1,0 +1,55 @@
+#ifndef __INSTRUCTIONS_H__
+#define __INSTRUCTIONS_H__
+
+#include <SerialTalking.h>
+#include <AX12.h>
+#include <ESP32Servo.h>
+
+#define RESET_OPCODE 0X12
+
+#define PING_AX_OPCODE 0X13
+
+#define SET_ID_OPCODE 0X14
+#define SET_BD_OPCODE 0X15
+
+#define MOVE_OPCODE 0X16
+#define MOVE_SPEED_OPCODE 0X17
+#define TURN_OPCODE 0x18
+
+#define SET_ENDLESS_MODE_OPCODE 0X19
+
+#define SET_TEMP_LIMIT_OPCODE 0X1A
+#define SET_ANGLE_LIMIT_OPCODE 0X1B
+#define SET_VOLTAGE_LIMIT_OPCODE 0X1C
+#define SET_MAX_TORQUE_OPCODE 0X1D
+
+#define READ_POSITION_OPCODE 0X1E
+#define READ_SPEED_OPCODE 0X1F
+#define READ_TORQUE_OPCODE 0X2A
+
+#define SET_ANGLE_SERVO_OPCODE 0x2B
+
+void RESET();
+
+void PING_AX();
+
+void SET_ID();
+void SET_BD();
+
+void MOVE();
+void MOVE_SPEED();
+void TURN();
+
+void SET_ENDLESS_MODE();
+void SET_TEMP_LIMIT();
+void SET_ANGLE_LIMIT();
+void SET_VOLTAGE_LIMIT();
+void SET_MAX_TORQUE();
+
+void READ_POSITION();
+void READ_SPEED();
+void READ_TORQUE();
+
+void SET_ANGLE_SERVO();
+
+#endif //__INSTRUCTIONS_H__
