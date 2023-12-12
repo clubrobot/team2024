@@ -30,6 +30,10 @@
 		{
 			"name": "wheeledbase",
 			"path": "platformIO/wheeledbase"
+		},
+		{
+			"name": "actionneurs",
+			"path": "platformIO/actionneurs"
 		}
 	],
 	"settings": {

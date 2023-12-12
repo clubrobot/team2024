@@ -91,8 +91,8 @@ void GOTO_DELTA()
 
 void SET_OPENLOOP_VELOCITIES()
 {
-	float leftWheelVel  = input.read<float>();//A faire dans SerialTalking
-	float rightWheelVel = input.read<float>();
+	float leftWheelVel  = talking.read<float>();//A faire dans SerialTalking
+	float rightWheelVel = talking.read<float>();
 
 	velocityControl.disable();
 	positionControl.disable();
@@ -105,14 +105,14 @@ void GET_CODEWHEELS_COUNTERS()
 	long leftCodewheelCounter  = leftCodewheel. getCounter();
 	long rightCodewheelCounter = rightCodewheel.getCounter();
 
-	output.write<long>(leftCodewheelCounter);
-	output.write<long>(rightCodewheelCounter);
+	talking.write<long>(leftCodewheelCounter);
+	talking.write<long>(rightCodewheelCounter);
 }
 
 void SET_VELOCITIES()
 {
-	float linVelSetpoint = input.read<float>();
-	float angVelSetpoint = input.read<float>();
+	float linVelSetpoint = talking.read<float>();
+	float angVelSetpoint = talking.read<float>();
 	positionControl.disable();
 	velocityControl.enable();
 	velocityControl.setSetpoints(linVelSetpoint, angVelSetpoint);
@@ -127,13 +127,13 @@ void RESET_PUREPURSUIT()
 void START_PUREPURSUIT()
 {
 	// Setup PurePursuit
-	byte direction = input.read<byte>();
+	byte direction = talking.read<byte>();
 	switch (direction)
 	{
 	case 0: purePursuit.setDirection(PurePursuit::FORWARD); break;
 	case 1: purePursuit.setDirection(PurePursuit::BACKWARD); break;
 	}
-	purePursuit.setFinalAngle(input.read<float>());
+	purePursuit.setFinalAngle(talking.read<float>());
 
 	// Compute final setpoint
 	const PurePursuit::Waypoint wp0 = purePursuit.getWaypoint(purePursuit.getNumWaypoints() - 2);
@@ -149,8 +149,8 @@ void START_PUREPURSUIT()
 void ADD_PUREPURSUIT_WAYPOINT()
 {
 	// Queue waypoint
-	float x = input.read<float>();
-	float y = input.read<float>();
+	float x = talking.read<float>();
+	float y = talking.read<float>();
 	purePursuit.addWaypoint(PurePursuit::Waypoint(x, y));
 }
 
@@ -158,11 +158,11 @@ void START_TURNONTHESPOT()
 {
 	Position posSetpoint = odometry.getPosition();
 	float initTheta = posSetpoint.theta;
-	posSetpoint.theta = input.read<float>();
+	posSetpoint.theta = talking.read<float>();
 	float angPosSetpoint = inrange((posSetpoint.theta - initTheta), -M_PI, M_PI);
 	velocityControl.enable();
 	positionControl.setPosSetpoint(posSetpoint);
-	if(input.read<byte>()){
+	if(talking.read<byte>()){
 		if(angPosSetpoint>0) turnOnTheSpot.setDirection(TurnOnTheSpot::CLOCK);
 		else                 turnOnTheSpot.setDirection(TurnOnTheSpot::TRIG);
 	}
@@ -177,10 +177,10 @@ void START_TURNONTHESPOT()
 void START_TURNONTHESPOT_DIR()
 {
 	Position posSetpoint = odometry.getPosition();
-	posSetpoint.theta = input.read<float>();
+	posSetpoint.theta = talking.read<float>();
 	velocityControl.enable();
 	positionControl.setPosSetpoint(posSetpoint);
-	if (input.read<byte>()){
+	if (talking.read<byte>()){
 		turnOnTheSpot.setDirection(TurnOnTheSpot::TRIG);
 	}
 	else{
@@ -195,30 +195,30 @@ void POSITION_REACHED()
 {
 	bool positionReached = positionControl.getPositionReached() && positionControl.isEnabled();
 	bool spinUrgency = !velocityControl.isEnabled();
-	output.write<byte>(positionReached);
-	output.write<byte>(spinUrgency);
+	talking.write<byte>(positionReached);
+	talking.write<byte>(spinUrgency);
 }
 
 void GET_VELOCITIES_WANTED()
 {
 
-	if(input.read<byte>())
+	if(talking.read<byte>())
 	{
-		talking.addTxDatum(velocityControl.getLinOutput());
-		talking.addTxDatum(velocityControl.getAngOutput());
+		talking.write<float>(velocityControl.getLinOutput());
+		talking.write<float>(velocityControl.getAngOutput());
 	}else
 	{
-		output.write<float>(velocityControl.getLinSpinGoal());
-		output.write<float>(velocityControl.getAngSpinGoal());
+		talking.write<float>(velocityControl.getLinSpinGoal());
+		talking.write<float>(velocityControl.getAngSpinGoal());
 	}
 }
 
 
 void SET_POSITION()
 {
-	float x     = input.read<float>();
-	float y     = input.read<float>();
-	float theta = input.read<float>();
+	float x     = talking.read<float>();
+	float y     = talking.read<float>();
+	float theta = talking.read<float>();
 
 	odometry.setPosition(x, y, theta);
 }
@@ -227,9 +227,9 @@ void GET_POSITION()
 {
 	const Position& pos = odometry.getPosition();
 	
-	output.write<float>(pos.x);
-	output.write<float>(pos.y);
-	output.write<float>(pos.theta);
+	talking.write<float>(pos.x);
+	talking.write<float>(pos.y);
+	talking.write<float>(pos.theta);
 }
 
 void GET_VELOCITIES()
@@ -237,131 +237,131 @@ void GET_VELOCITIES()
 	const float linVel = odometry.getLinVel();
 	const float angVel = odometry.getAngVel();
 	
-	output.write<float>(linVel);
-	output.write<float>(angVel);
+	talking.write<float>(linVel);
+	talking.write<float>(angVel);
 }
 
 void SET_PARAMETER_VALUE()
 {
-	byte  id = input.read<byte>();
+	byte  id = talking.read<byte>();
 	switch (id)
 	{
 	case LEFTWHEEL_RADIUS_ID:
-		leftWheel.setWheelRadius(input.read<float>());
+		leftWheel.setWheelRadius(talking.read<float>());
 		break;
 	case LEFTWHEEL_CONSTANT_ID:
-		leftWheel.setConstant(input.read<float>());
+		leftWheel.setConstant(talking.read<float>());
 		break;
 	case LEFTWHEEL_MAXPWM_ID:
-		leftWheel.setMaxPWM(input.read<float>());
+		leftWheel.setMaxPWM(talking.read<float>());
 		break;
 
 	case RIGHTWHEEL_RADIUS_ID:
-		rightWheel.setWheelRadius(input.read<float>());
+		rightWheel.setWheelRadius(talking.read<float>());
 		break;
 	case RIGHTWHEEL_CONSTANT_ID:
-		rightWheel.setConstant(input.read<float>());
+		rightWheel.setConstant(talking.read<float>());
 		break;
 	case RIGHTWHEEL_MAXPWM_ID:
-		rightWheel.setMaxPWM(input.read<float>());
+		rightWheel.setMaxPWM(talking.read<float>());
 		break;
 
 	case LEFTCODEWHEEL_RADIUS_ID:
-		leftCodewheel.setWheelRadius(input.read<float>());
+		leftCodewheel.setWheelRadius(talking.read<float>());
 		break;
 	case LEFTCODEWHEEL_COUNTSPERREV_ID:
-		leftCodewheel.setCountsPerRev(input.read<long>());
+		leftCodewheel.setCountsPerRev(talking.read<long>());
 		break;
 
 	case RIGHTCODEWHEEL_RADIUS_ID:
-		rightCodewheel.setWheelRadius(input.read<float>());
+		rightCodewheel.setWheelRadius(talking.read<float>());
 		break;
 	case RIGHTCODEWHEEL_COUNTSPERREV_ID:
-		rightCodewheel.setCountsPerRev(input.read<long>());
+		rightCodewheel.setCountsPerRev(talking.read<long>());
 		break;
 	
 	case ODOMETRY_AXLETRACK_ID:
-		odometry.setAxleTrack(input.read<float>());
+		odometry.setAxleTrack(talking.read<float>());
 		break;
 	case ODOMETRY_SLIPPAGE_ID:
-		odometry.setSlippage(input.read<float>());
+		odometry.setSlippage(talking.read<float>());
 		break;
 	
 	case VELOCITYCONTROL_AXLETRACK_ID:
-		velocityControl.setAxleTrack(input.read<float>());
+		velocityControl.setAxleTrack(talking.read<float>());
 		break;
 	case VELOCITYCONTROL_MAXLINACC_ID:
-		velocityControl.setMaxLinAcc(input.read<float>());
+		velocityControl.setMaxLinAcc(talking.read<float>());
 		break;
 	case VELOCITYCONTROL_MAXLINDEC_ID:
-		velocityControl.setMaxLinDec(input.read<float>());
+		velocityControl.setMaxLinDec(talking.read<float>());
 		break;
 	case VELOCITYCONTROL_MAXANGACC_ID:
-		velocityControl.setMaxAngAcc(input.read<float>());
+		velocityControl.setMaxAngAcc(talking.read<float>());
 		break;
 	case VELOCITYCONTROL_MAXANGDEC_ID:
-		velocityControl.setMaxAngDec(input.read<float>());
+		velocityControl.setMaxAngDec(talking.read<float>());
 		break;
 	case VELOCITYCONTROL_SPINSHUTDOWN_ID:
-		velocityControl.setSpinShutdown(input.read<byte>());
+		velocityControl.setSpinShutdown(talking.read<byte>());
 		break;
 	
 	case LINVELPID_KP_ID:
-		linVelPID.setTunings(input.read<float>(), linVelPID.getKi(), linVelPID.getKd());
+		linVelPID.setTunings(talking.read<float>(), linVelPID.getKi(), linVelPID.getKd());
 		break;
 	case LINVELPID_KI_ID:
-		linVelPID.setTunings(linVelPID.getKp(), input.read<float>(), linVelPID.getKd());
+		linVelPID.setTunings(linVelPID.getKp(), talking.read<float>(), linVelPID.getKd());
 		break;
 	case LINVELPID_KD_ID:
-		linVelPID.setTunings(linVelPID.getKp(), linVelPID.getKi(), input.read<float>());
+		linVelPID.setTunings(linVelPID.getKp(), linVelPID.getKi(), talking.read<float>());
 		break;
 	case LINVELPID_MINOUTPUT_ID:
-		linVelPID.setOutputLimits(input.read<float>(), linVelPID.getMaxOutput());
+		linVelPID.setOutputLimits(talking.read<float>(), linVelPID.getMaxOutput());
 		break;
 	case LINVELPID_MAXOUTPUT_ID:
-		linVelPID.setOutputLimits(linVelPID.getMinOutput(), input.read<float>());
+		linVelPID.setOutputLimits(linVelPID.getMinOutput(), talking.read<float>());
 		break;
 	
 	case ANGVELPID_KP_ID:
-		angVelPID.setTunings(input.read<float>(), angVelPID.getKi(), angVelPID.getKd());
+		angVelPID.setTunings(talking.read<float>(), angVelPID.getKi(), angVelPID.getKd());
 		break;
 	case ANGVELPID_KI_ID:
-		angVelPID.setTunings(angVelPID.getKp(), input.read<float>(), angVelPID.getKd());
+		angVelPID.setTunings(angVelPID.getKp(), talking.read<float>(), angVelPID.getKd());
 		break;
 	case ANGVELPID_KD_ID:
-		angVelPID.setTunings(angVelPID.getKp(), angVelPID.getKi(), input.read<float>());
+		angVelPID.setTunings(angVelPID.getKp(), angVelPID.getKi(), talking.read<float>());
 		break;
 	case ANGVELPID_MINOUTPUT_ID:
-		angVelPID.setOutputLimits(input.read<float>(), angVelPID.getMaxOutput());
+		angVelPID.setOutputLimits(talking.read<float>(), angVelPID.getMaxOutput());
 		break;
 	case ANGVELPID_MAXOUTPUT_ID:
-		angVelPID.setOutputLimits(angVelPID.getMinOutput(), input.read<float>());
+		angVelPID.setOutputLimits(angVelPID.getMinOutput(), talking.read<float>());
 		break;
 	
 	case POSITIONCONTROL_LINVELKP_ID:
-		positionControl.setVelTunings(input.read<float>(), positionControl.getAngVelKp());
+		positionControl.setVelTunings(talking.read<float>(), positionControl.getAngVelKp());
 		break;
 	case POSITIONCONTROL_ANGVELKP_ID:
-		positionControl.setVelTunings(positionControl.getLinVelKp(), input.read<float>());
+		positionControl.setVelTunings(positionControl.getLinVelKp(), talking.read<float>());
 		break;
 	case POSITIONCONTROL_LINVELMAX_ID:
-		positionControl.setVelLimits(input.read<float>(), positionControl.getAngVelMax());
+		positionControl.setVelLimits(talking.read<float>(), positionControl.getAngVelMax());
 		break;
 	case POSITIONCONTROL_ANGVELMAX_ID:
-		positionControl.setVelLimits(positionControl.getLinVelMax(), input.read<float>());
+		positionControl.setVelLimits(positionControl.getLinVelMax(), talking.read<float>());
 		break;
 	case POSITIONCONTROL_LINPOSTHRESHOLD_ID:
-		positionControl.setPosThresholds(input.read<float>(), positionControl.getAngPosThreshold());
+		positionControl.setPosThresholds(talking.read<float>(), positionControl.getAngPosThreshold());
 		break;
 	case POSITIONCONTROL_ANGPOSTHRESHOLD_ID:
-		positionControl.setPosThresholds(positionControl.getLinPosThreshold(), input.read<float>());
+		positionControl.setPosThresholds(positionControl.getLinPosThreshold(), talking.read<float>());
 		break;
 
 	case PUREPURSUIT_LOOKAHED_ID:
-		purePursuit.setLookAhead(input.read<float>());
+		purePursuit.setLookAhead(talking.read<float>());
 		break;
 	case PUREPURSUIT_LOOKAHEADBIS_ID:
-		purePursuit.setLookAheadBis(input.read<float>());
+		purePursuit.setLookAheadBis(talking.read<float>());
 		break;
 	}
 }
@@ -382,125 +382,125 @@ void SAVE_PARAMETERS()
 
 void GET_PARAMETER_VALUE()
 {
-	byte id = input.read<byte>();
+	byte id = talking.read<byte>();
 	switch (id)
 	{
 	case LEFTWHEEL_RADIUS_ID: 
-		talking.addTxDatum(leftWheel.getWheelRadius());
+		talking.write<float>(leftWheel.getWheelRadius());
 		break;
 	case LEFTWHEEL_CONSTANT_ID:
-		talking.addTxDatum(leftWheel.getConstant());
+		talking.write<float>(leftWheel.getConstant());
 		break;
 	case LEFTWHEEL_MAXPWM_ID:
-		talking.addTxDatum(leftWheel.getMaxPWM());
+		talking.write<float>(leftWheel.getMaxPWM());
 		break;
 	
 	case RIGHTWHEEL_RADIUS_ID:
-		talking.addTxDatum(rightWheel.getWheelRadius());
+		talking.write<float>(rightWheel.getWheelRadius());
 		break;
 	case RIGHTWHEEL_CONSTANT_ID:
-		talking.addTxDatum(rightWheel.getConstant());
+		talking.write<float>(rightWheel.getConstant());
 		break;
 	case RIGHTWHEEL_MAXPWM_ID:
-		talking.addTxDatum(rightWheel.getMaxPWM());
+		talking.write<float>(rightWheel.getMaxPWM());
 		break;
 
 	case LEFTCODEWHEEL_RADIUS_ID:
-		talking.addTxDatum(leftCodewheel.getWheelRadius());
+		talking.write<float>(leftCodewheel.getWheelRadius());
 		break;
 	case LEFTCODEWHEEL_COUNTSPERREV_ID:
-		output.write<long>(leftCodewheel.getCountsPerRev());
+		talking.write<long>(leftCodewheel.getCountsPerRev());
 		break;
 	
 	case RIGHTCODEWHEEL_RADIUS_ID:
-		talking.addTxDatum(rightCodewheel.getWheelRadius());
+		talking.write<float>(rightCodewheel.getWheelRadius());
 		break;
 	case RIGHTCODEWHEEL_COUNTSPERREV_ID:
-		output.write<long>(rightCodewheel.getCountsPerRev());
+		talking.write<long>(rightCodewheel.getCountsPerRev());
 		break;
 	
 	case ODOMETRY_AXLETRACK_ID:
-		talking.addTxDatum(odometry.getAxleTrack());
+		talking.write<float>(odometry.getAxleTrack());
 		break;
 	case ODOMETRY_SLIPPAGE_ID:
-		talking.addTxDatum(odometry.getSlippage());
+		talking.write<float>(odometry.getSlippage());
 		break;
 	
 	case VELOCITYCONTROL_AXLETRACK_ID:
-		talking.addTxDatum(velocityControl.getAxleTrack());
+		talking.write<float>(velocityControl.getAxleTrack());
 		break;
 	case VELOCITYCONTROL_MAXLINACC_ID:
-		talking.addTxDatum(velocityControl.getMaxLinAcc());
+		talking.write<float>(velocityControl.getMaxLinAcc());
 		break;
 	case VELOCITYCONTROL_MAXLINDEC_ID:
-		talking.addTxDatum(velocityControl.getMaxLinDec());
+		talking.write<float>(velocityControl.getMaxLinDec());
 		break;
 	case VELOCITYCONTROL_MAXANGACC_ID:
-		talking.addTxDatum(velocityControl.getMaxAngAcc());
+		talking.write<float>(velocityControl.getMaxAngAcc());
 		break;
 	case VELOCITYCONTROL_MAXANGDEC_ID:
-		talking.addTxDatum(velocityControl.getMaxAngDec());
+		talking.write<float>(velocityControl.getMaxAngDec());
 		break;
 	case VELOCITYCONTROL_SPINSHUTDOWN_ID:
-		output.write<byte>(velocityControl.getSpinShutdown());
+		talking.write<byte>(velocityControl.getSpinShutdown());
 		break;
 	
 	case LINVELPID_KP_ID:
-		talking.addTxDatum(linVelPID.getKp());
+		talking.write<float>(linVelPID.getKp());
 		break;
 	case LINVELPID_KI_ID:
-		talking.addTxDatum(linVelPID.getKi());
+		talking.write<float>(linVelPID.getKi());
 		break;
 	case LINVELPID_KD_ID:
-		talking.addTxDatum(linVelPID.getKd());
+		talking.write<float>(linVelPID.getKd());
 		break;
 	case LINVELPID_MINOUTPUT_ID:
-		talking.addTxDatum(linVelPID.getMinOutput());
+		talking.write<float>(linVelPID.getMinOutput());
 		break;
 	case LINVELPID_MAXOUTPUT_ID:
-		talking.addTxDatum(linVelPID.getMaxOutput());
+		talking.write<float>(linVelPID.getMaxOutput());
 		break;
 	
 	case ANGVELPID_KP_ID:
-		talking.addTxDatum(angVelPID.getKp());
+		talking.write<float>(angVelPID.getKp());
 		break;
 	case ANGVELPID_KI_ID:
-		talking.addTxDatum(angVelPID.getKi());
+		talking.write<float>(angVelPID.getKi());
 		break;
 	case ANGVELPID_KD_ID:
-		talking.addTxDatum(angVelPID.getKd());
+		talking.write<float>(angVelPID.getKd());
 		break;
 	case ANGVELPID_MINOUTPUT_ID:
-		talking.addTxDatum(angVelPID.getMinOutput());
+		talking.write<float>(angVelPID.getMinOutput());
 		break;
 	case ANGVELPID_MAXOUTPUT_ID:
-		talking.addTxDatum(angVelPID.getMaxOutput());
+		talking.write<float>(angVelPID.getMaxOutput());
 		break;
 
 	case POSITIONCONTROL_LINVELKP_ID:
-		talking.addTxDatum(positionControl.getLinVelKp());
+		talking.write<float>(positionControl.getLinVelKp());
 		break;
 	case POSITIONCONTROL_ANGVELKP_ID:
-		talking.addTxDatum(positionControl.getAngVelKp());
+		talking.write<float>(positionControl.getAngVelKp());
 		break;
 	case POSITIONCONTROL_LINVELMAX_ID:
-		talking.addTxDatum(positionControl.getLinVelMax());
+		talking.write<float>(positionControl.getLinVelMax());
 		break;
 	case POSITIONCONTROL_ANGVELMAX_ID:
-		talking.addTxDatum(positionControl.getAngVelMax());
+		talking.write<float>(positionControl.getAngVelMax());
 		break;
 	case POSITIONCONTROL_LINPOSTHRESHOLD_ID:
-		talking.addTxDatum(positionControl.getLinPosThreshold());
+		talking.write<float>(positionControl.getLinPosThreshold());
 		break;
 	case POSITIONCONTROL_ANGPOSTHRESHOLD_ID:
-		talking.addTxDatum(positionControl.getAngPosThreshold());
+		talking.write<float>(positionControl.getAngPosThreshold());
 		break;
 
 	case PUREPURSUIT_LOOKAHED_ID:
-		talking.addTxDatum(purePursuit.getLookAhead());
+		talking.write<float>(purePursuit.getLookAhead());
 		break;
 	case PUREPURSUIT_LOOKAHEADBIS_ID:
-		talking.addTxDatum(purePursuit.getLookAheadBis());
+		talking.write<float>(purePursuit.getLookAheadBis());
 		break;
 	}
 }
