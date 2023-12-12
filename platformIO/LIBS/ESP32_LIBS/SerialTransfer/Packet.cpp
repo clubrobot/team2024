@@ -135,6 +135,7 @@ uint8_t Packet::parse(const uint8_t& recChar, const bool& valid)
 
 	if (valid)
 	{
+		
 		switch (state)
 		{
 		case find_start_byte: /////////////////////////////////////////

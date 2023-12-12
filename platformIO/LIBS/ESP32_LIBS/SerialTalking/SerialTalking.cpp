@@ -14,6 +14,9 @@ SerialTalking talking;
 
 void SerialTalking::begin(Stream& stream)
 {
+	//Initialize EEPROM
+	EEPROM.begin(EEPROM_SIZE);
+	
 	//Attributs en privé
 	m_stream = &stream;
 	m_connected = false;
@@ -75,7 +78,7 @@ void SerialTalking::endTranfert(){
 }
 
 bool SerialTalking::getUUID(char* uuid){
-	for (int i = 0; i < int(EEPROM.length()); i++){
+	for (int i = 0; i < EEPROM_SIZE; i++){
 		uuid[i] = EEPROM.read(SERIALTALKING_UUID_ADDRESS + i);
 
 		switch(byte(uuid[i])){
@@ -92,6 +95,7 @@ void SerialTalking::setUUID(const char* uuid){
 	do
 		EEPROM.write(SERIALTALKING_UUID_ADDRESS + i, uuid[i]);
 	while(uuid[i++] != '\0');
+	EEPROM.commit();
 }
 
 void SerialTalking::generateRandomUUID(char* uuid, int length){

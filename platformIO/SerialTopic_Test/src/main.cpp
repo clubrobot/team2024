@@ -1,18 +1,43 @@
+/***
+ * SerialTalking Lib Work In progess: CRINSA 2024
+ * 
+ * Negrache	Gibril et Hilkens Boris
+ * 
+*/
+
 #include <Arduino.h>
-#include "VL53L0X.h"
-// put function declarations here:
-int myFunction(int, int);
+#include "SerialTalking.h"
 
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+char buffer[50] ={0};
+void callback_getuuid(){
+  
+  talking.readTable(buffer);
+  //float recv_data = talking.read<float>();
+  
+
+  //talking.addTxData(uuid);//For array
+  
+  talking.writeTable(buffer);
+  //talking.write(recv_data);//For Values
+
+  talking.endTranfert();//On envoie touttttt
+
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void PING(){
+	//digitalWrite(LED_BUILTIN, HIGH);
+	char msg[5] = "pong";
+	talking.writeTable(msg);
+	talking.endTranfert();
 }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+void setup(){
+  Serial.begin(SERIALTALKING_BAUDRATE);
+  talking.begin(Serial);
+
+  talking.bind(0x03, PING);
+}
+
+void loop(){
+  talking.execute();
 }

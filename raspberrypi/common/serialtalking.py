@@ -7,8 +7,10 @@
 import math
 import time
 import sys
-from pySerialTransfer import pySerialTransfer as txfer
+from serialtypes import IntegerType, FloatType, StringType
+import pySerialTransfer as txfer
 
+BAUDRATE = 115200
 
 #Défini les opcodes par défault
 PING_OPCODE = 0x00
@@ -21,40 +23,58 @@ GETBUFFERSIZE_OPCODE = 0x06
 
 #Taille des chars
 #https://docs.python.org/3/library/struct.html#format-characters
-CHAR = 'c'
-UCHAR = 'B'
-SHORT = 'h'
-USHORT = "H"
-LONG = 'l'
-ULONG = 'L'
-FLOAT = 'f'
-STRING = str
-BYTE = CHAR
-INT = SHORT #OUI CAR 16BIT = SHORT
+
+BYTEORDER = '<' #equal to little endian
+ENCODING = 'utf-8'
+
+CHAR = IntegerType('c', BYTEORDER)
+UCHAR = IntegerType('B', BYTEORDER)
+SHORT = IntegerType('h', BYTEORDER)
+USHORT = IntegerType('H', BYTEORDER)
+LONG = IntegerType('l', BYTEORDER)
+ULONG = IntegerType('L', BYTEORDER)
+
+FLOAT = FloatType('f', BYTEORDER)
+
+STRING = StringType(ENCODING, BYTEORDER)
+
+BYTE = UCHAR
+INT = SHORT
 UINT = USHORT
-DOUBLE = 'd'
+DOUBLE = FLOAT
+
 
 #Magics numbers
 SERIALTALKING_SINGLE_MAGIC = 's' #comme single
 SERIALTALKING_MULTIPLE_MAGIC = 'm' #comme multiple
 
-#TODO: Les erreurs
+# Exceptions
+
+class AlreadyConnectedError(ConnectionError): pass
+
+class ConnectionFailedError(ConnectionError): pass
+
+class NotConnectedError(ConnectionError): pass
+
+class MuteError(TimeoutError): pass
+
+class SerialTalksWarning(UserWarning, ConnectionError): pass
+
+#TODO: Les erreurs (avec logs)
 #TODO: Faire un thread qui check périodiquement si l'arduino est alive (avec ping) lors qu'il ne communique pas
 #TODO: Faire un meilleur log avec teleplot (à la fin)
 #TODO: Expliqer ASS (Asymetrical Serial Shit); mon protocol de tranfert mdr
-#TODO: clean up
+#TODO: clean up & intégrer les fonctions de base
 #TODO: Timeout & connections checks 
 
 class SerialTalking:
-    def __init__(self, port):
-        self.link = txfer.SerialTransfer(port)
-        self.connect()
-        time.sleep(2) # allow some time for the Arduino to completely reset
+    def __init__(self, port):    
+        self.port = port
+        self.is_connected=False
 
         self.recSize = 0
         self.sendSize = 0
 
-    #Quand on utilise avec with
     def __enter__(self):
         self.connect()
         return self
@@ -62,8 +82,36 @@ class SerialTalking:
     def __exit__(self):
         self.disconnect()
 
-    def connect(self):
-        return self.link.open()
+    def connect(self, timeout=5):
+        if self.is_connected:
+            raise AlreadyConnectedError('{} is already connected'.format(self.port))
+
+        # Connect to the serial port
+        try:
+            self.link = txfer.SerialTransfer(self.port, BAUDRATE)
+            if(self.link.open()==False):
+                raise ConnectionFailedError
+        except Exception as e:
+            raise ConnectionFailedError(str(e))
+        
+        startingtime = time.monotonic()
+        while not self.is_connected:
+            try:
+                shouldBePong = self.request(PING_OPCODE, STRING)[0]
+                if(shouldBePong[0]=="pong\x00"):
+                    self.is_connected = True
+                if(time.monotonic() - startingtime > timeout): raise TimeoutError
+            except TimeoutError:
+                if time.monotonic() - startingtime > timeout:
+                    self.disconnect()
+                    raise MuteError(
+                        '\'{}\' is mute. It may not be an Arduino or it\'s sketch may not be correctly loaded.'.format(
+                            self.port)) from None
+                else:
+                    continue
+
+            except NotConnectedError:
+                self.is_connected = False
     
     def disconnect(self):
         self.link.close()
@@ -76,36 +124,44 @@ class SerialTalking:
         return self.link.status
 
     def getuuid(self):
-        return
+        return self.request(GETUUID_OPCODE, return_type=str)
 
     def setuuid(self, uuid):
         return
 
     #For each arg, on tx l'arg puis on envoie tout
-    def order(self, opcode, arg_type=BYTE, *args):
-        if(args==((),)): args = [0] #Si pas d'args
-
+    def order(self, opcode, *args):
+        if(len(args)==0): args = [BYTE(0x01)] #Si pas d'args
         #Oui le string fait chier
-        if(arg_type==str):
-            for arg in args:
-                self.write_buffer(arg[0], arg_type, len(arg[0]))
-        else:
-            for arg in args:
-                self.write_buffer(arg, arg_type)
-
+        for arg in args:
+            if(arg.format=="str"):
+                self.write_buffer(arg, len(arg.value))
+            else:
+                self.write_buffer(arg)
         self.send_buffer(opcode)
         return
 
     #call order puis fait le tralala du request
-    #à voir comment on gère ça
-    def request(self, opcode, arg_type=BYTE, return_type=str, *args):
-        self.order(opcode, arg_type, args)
+    def request(self, opcode, *args, timeout=5):
+        data, data_size = ([], []) #Notre array
+        self.order(opcode)# On envoit l'ordre pour avoir la réponse
 
-        data, data_size = ([], -1)
+        time.sleep(0.005)
+        startingtime = time.monotonic()
+        #Boucle while avec timeout
         while True:
-            if(self.available()):
-                data, data_size = self.read_buffer(return_type)
+            if(self.available()):#Tant que pas de réponse
+                for arg in args:#On cycle dans tout les valeurs excepté
+                    datum, datum_size = self.read_buffer(arg) #On lit le buffer
+                    data.append(datum)
+                    data_size.append(datum_size)
                 break
+            else:#si on a pas de réponse, on la force mdr
+                self.order(opcode)
+                time.sleep(0.005)
+            if(time.monotonic() - startingtime > timeout): raise TimeoutError
+
+        #On remet à 0 l'index RX
         self.free_receiver()
         return (data, data_size)
 
@@ -123,47 +179,43 @@ class SerialTalking:
     def read_buffer(self, obj_type):
         data_size=-1
         #On récupère la form de la donnée (liste ou valeur seule)
-        data_type = self.link.rx_obj(obj_type=str, start_pos=self.recSize, obj_byte_size=1)
-        self.recSize += txfer.STRUCT_FORMAT_LENGTHS['c']
+        data_type = self.link.rx_obj(obj_type=STRING, start_pos=self.recSize, obj_byte_size=1)
+        self.recSize += txfer.STRUCT_FORMAT_LENGTHS[CHAR.format]
         #Si valeur seule
         if(data_type==SERIALTALKING_SINGLE_MAGIC):
             data_size=1
             data = self.link.rx_obj(obj_type=obj_type, start_pos=self.recSize)
-            self.recSize += txfer.STRUCT_FORMAT_LENGTHS[obj_type]
+            self.recSize += txfer.STRUCT_FORMAT_LENGTHS[obj_type.format]
 
         #Sinon si valeur multiple (liste)
         elif(data_type==SERIALTALKING_MULTIPLE_MAGIC):
             data_arr = []
             #On récupère le nombre d'élément dans notre liste
             data_size = self.link.rx_obj(obj_type=UCHAR, start_pos=self.recSize)
-            self.recSize += txfer.STRUCT_FORMAT_LENGTHS[UCHAR]
+            self.recSize += txfer.STRUCT_FORMAT_LENGTHS[UCHAR.format]
 
             #~magie (juste on append un liste où les données sont les obj reçu)
             for i in range(int(data_size)):
 
-                    if(obj_type==str):
+                    if(obj_type.format=="str"):
                         data_arr.append(self.link.rx_obj(obj_type=CHAR, start_pos=self.recSize))
                         self.recSize += 1
                     else:
                         data_arr.append(self.link.rx_obj(obj_type=obj_type, start_pos=self.recSize))
-                        self.recSize += txfer.STRUCT_FORMAT_LENGTHS[obj_type]
+                        self.recSize += txfer.STRUCT_FORMAT_LENGTHS[obj_type.format]
 
-            if(obj_type==str):
+            if(obj_type.format=="str"):
                 data= b''.join(data_arr).decode()
                 
         else:
-            return -1 #pas normal
+            return (-1,-1) #pas normal
 
         return (data, data_size)
 
     # Réception de donnée
-    def write_buffer(self, data, val_type, data_size=1):
-        self.sendSize = self.link.tx_obj(data_size, start_pos=self.sendSize, val_type_override=UCHAR) #1 octet (la taille est 255 ça suffit) (correspond à uint8_t en c++)
-        
-        if(type(data)==str):
-            self.sendSize = self.link.tx_obj(data, start_pos=self.sendSize)
-        else:
-            self.sendSize = self.link.tx_obj(data, start_pos=self.sendSize, val_type_override=val_type)
+    def write_buffer(self, data, data_size=1):
+        self.sendSize = self.link.tx_obj(UCHAR(data_size), start_pos=self.sendSize) #1 octet (la taille est 255 ça suffit) (correspond à uint8_t en c++)
+        self.sendSize = self.link.tx_obj(data, start_pos=self.sendSize)
 
 if __name__ == '__main__':
      #Seulement pour test
@@ -176,26 +228,17 @@ if __name__ == '__main__':
             serial_path = 'COM6'
 
         s = SerialTalking(serial_path)
+        s.connect(5)
         while True:
             # Envoi
             test = "yes of course"
 
-            if True:
-                #Réception
-                ping_data, data_size = s.request(0x03, str, str, test)
-                ping2_data, data2_size = s.request(GETUUID_OPCODE)
+            #Réception
+            ping_data, data_size = s.request(PING_OPCODE, STRING)
+            ping2_data, data2_size = s.request(GETUUID_OPCODE, STRING)
 
-                print("Ping data 1 : {}, Str size: {} | Ping data 2 : {}, Str size: {}".format(ping_data, data_size, ping2_data, data2_size))
-
-            elif s.get_status_code() < 0:
-                if s.get_status_code() == txfer.CRC_ERROR:
-                    print('ERROR: CRC_ERROR')
-                elif s.get_status_code() == txfer.PAYLOAD_ERROR:
-                    print('ERROR: PAYLOAD_ERROR')
-                elif s.get_status_code() == txfer.STOP_BYTE_ERROR:
-                    print('ERROR: STOP_BYTE_ERROR')
-                else:
-                    print('ERROR: {}'.format(s.get_status_code()))
+            print("Ping data 1 : {}, Str size: {} | Ping data 2 : {}, Str size: {}".format(ping_data, data_size, ping2_data, data2_size))
+            
 
 
     except KeyboardInterrupt:
