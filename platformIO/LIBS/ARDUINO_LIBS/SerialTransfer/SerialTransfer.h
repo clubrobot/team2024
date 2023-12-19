@@ -1,4 +1,6 @@
-#pragma once
+#ifndef __SERIALTRANSFER_H__
+#define __SERIALTRANSFER_H__
+
 #include "Arduino.h"
 #include "Packet.h"
 
@@ -100,3 +102,5 @@ class SerialTransfer
 	Stream* port;
 	uint32_t timeout;
 };
+
+#endif //__SERIALTRANSFER_H__

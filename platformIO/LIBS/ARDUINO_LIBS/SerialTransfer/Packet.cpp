@@ -232,10 +232,10 @@ uint8_t Packet::parse(const uint8_t& recChar, const bool& valid)
 				status    = NEW_DATA;
 
 				if (callbacks)
-				{
-					if (idByte < callbacksLen)
+				{	
+					if (idByte < callbacksLen){
 						callbacks[idByte]();
-					else if (debug)
+					}else if (debug)
 					{
 						debugPort->print(F("ERROR: No callback available for packet ID "));
 						debugPort->println(idByte);

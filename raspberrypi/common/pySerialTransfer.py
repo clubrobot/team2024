@@ -4,7 +4,7 @@ import struct
 import serial
 import serial.tools.list_ports
 from array import array
-from CRC import CRC
+from common.CRC import CRC
 
 class InvalidSerialPort(Exception):
     pass
@@ -157,7 +157,7 @@ class SerialTransfer(object):
 
             if self.port_name is None:
                 raise InvalidSerialPort('Invalid serial port specified.\
-                    Valid options are {ports},  but {port} was provided'.format(
+                    Valid options are {ports},  but {port} was provided'["format"](
                     **{'ports': serial_ports(), 'port': port}))
         else:
             self.port_name = port
@@ -228,16 +228,15 @@ class SerialTransfer(object):
         :return: int - index of the last byte of the value in the TX buffer + 1,
                        None if operation failed
         '''
-
-        if val.format == "str":
-            val.value = val.value.encode()
-            format_str = '%ds' % len(val.value)
-            val_bytes = struct.pack(val.byteorder + format_str, val.value)
-        elif val.format == 'c':
-            val_bytes = struct.pack(val.byteorder + val.format, bytes(str(val.value), val.encoding))
+        if val["format"] == "str":
+            val["value"] = val["value"].encode()
+            format_str = '%ds' % len(val["value"])
+            val_bytes = struct.pack(val["byteorder"] + format_str, val["value"])
+        elif val["format"] == 'c':
+            val_bytes = struct.pack(val["byteorder"] + val["format"], bytes(str(val["value"]), val["encoding"]))
         else:
-            val_bytes = struct.pack(val.byteorder + val.format, val.value)
-
+            val_bytes = struct.pack(val["byteorder"] + val["format"], val["value"])
+        
         return self.tx_struct_obj(val_bytes, start_pos)
 
     def tx_struct_obj(self, val_bytes, start_pos=0):
@@ -522,7 +521,7 @@ class SerialTransfer(object):
                         return self.bytesRead
 
                     else:
-                        print('ERROR: Undefined state: {}'.format(self.state))
+                        print('ERROR: Undefined state: {}'["format"](self.state))
 
                         self.bytesRead = 0
                         self.state = find_start_byte
@@ -552,7 +551,7 @@ class SerialTransfer(object):
             if self.idByte < len(self.callbacks):
                 self.callbacks[self.idByte]()
             elif self.debug:
-                print('ERROR: No callback available for packet ID {}'.format(self.idByte))
+                print('ERROR: No callback available for packet ID {}'["format"](self.idByte))
             
             return True
         
@@ -566,6 +565,6 @@ class SerialTransfer(object):
             else:
                 err_str = str(self.status)
                 
-            print('ERROR: {}'.format(err_str))
+            print('ERROR: {}'["format"](err_str))
         
         return False

@@ -53,10 +53,9 @@ void GOTO_DELTA()
 
 	Position initial_pos =  odometry.getPosition();
 
-	float dxdy[2] = {0};
-	talking.receiveTransfert(dxdy);
-	float dx = dxdy[0];
-	float dy = dxdy[1];
+	float dx = talking.read<float>();
+	float dy = talking.read<float>();
+	talking.endTranfert();
 
 	Position target_pos;
 	target_pos.x = initial_pos.x + dx*cos(initial_pos.theta)    + dy*-1*sin(initial_pos.theta);
@@ -86,13 +85,13 @@ void GOTO_DELTA()
 	velocityControl.enable();
 	positionControl.setMoveStrategy(purePursuit);
 	positionControl.enable();
-
 }
 
 void SET_OPENLOOP_VELOCITIES()
 {
-	float leftWheelVel  = talking.read<float>();//A faire dans SerialTalking
+	float leftWheelVel  = talking.read<float>();
 	float rightWheelVel = talking.read<float>();
+	talking.endTranfert();
 
 	velocityControl.disable();
 	positionControl.disable();
@@ -107,12 +106,15 @@ void GET_CODEWHEELS_COUNTERS()
 
 	talking.write<long>(leftCodewheelCounter);
 	talking.write<long>(rightCodewheelCounter);
+	talking.endTranfert();
 }
 
 void SET_VELOCITIES()
 {
 	float linVelSetpoint = talking.read<float>();
 	float angVelSetpoint = talking.read<float>();
+	talking.endTranfert();
+
 	positionControl.disable();
 	velocityControl.enable();
 	velocityControl.setSetpoints(linVelSetpoint, angVelSetpoint);
@@ -134,7 +136,7 @@ void START_PUREPURSUIT()
 	case 1: purePursuit.setDirection(PurePursuit::BACKWARD); break;
 	}
 	purePursuit.setFinalAngle(talking.read<float>());
-
+	talking.endTranfert();
 	// Compute final setpoint
 	const PurePursuit::Waypoint wp0 = purePursuit.getWaypoint(purePursuit.getNumWaypoints() - 2);
 	const PurePursuit::Waypoint wp1 = purePursuit.getWaypoint(purePursuit.getNumWaypoints() - 1);
@@ -151,6 +153,7 @@ void ADD_PUREPURSUIT_WAYPOINT()
 	// Queue waypoint
 	float x = talking.read<float>();
 	float y = talking.read<float>();
+	talking.endTranfert();
 	purePursuit.addWaypoint(PurePursuit::Waypoint(x, y));
 }
 
@@ -170,6 +173,7 @@ void START_TURNONTHESPOT()
 		if(angPosSetpoint>0) turnOnTheSpot.setDirection(TurnOnTheSpot::TRIG);
 		else                 turnOnTheSpot.setDirection(TurnOnTheSpot::CLOCK);
 	}
+	talking.endTranfert();
 	positionControl.setMoveStrategy(turnOnTheSpot);
 	positionControl.enable();
 }
@@ -188,6 +192,7 @@ void START_TURNONTHESPOT_DIR()
 	}
 	positionControl.setMoveStrategy(turnOnTheSpot);
 	positionControl.enable();
+	talking.endTranfert();
 }
 
 
@@ -197,6 +202,7 @@ void POSITION_REACHED()
 	bool spinUrgency = !velocityControl.isEnabled();
 	talking.write<byte>(positionReached);
 	talking.write<byte>(spinUrgency);
+	talking.endTranfert();
 }
 
 void GET_VELOCITIES_WANTED()
@@ -211,6 +217,7 @@ void GET_VELOCITIES_WANTED()
 		talking.write<float>(velocityControl.getLinSpinGoal());
 		talking.write<float>(velocityControl.getAngSpinGoal());
 	}
+	talking.endTranfert();
 }
 
 
@@ -219,7 +226,7 @@ void SET_POSITION()
 	float x     = talking.read<float>();
 	float y     = talking.read<float>();
 	float theta = talking.read<float>();
-
+	talking.endTranfert();
 	odometry.setPosition(x, y, theta);
 }
 
@@ -230,6 +237,7 @@ void GET_POSITION()
 	talking.write<float>(pos.x);
 	talking.write<float>(pos.y);
 	talking.write<float>(pos.theta);
+	talking.endTranfert();
 }
 
 void GET_VELOCITIES()
@@ -239,6 +247,7 @@ void GET_VELOCITIES()
 	
 	talking.write<float>(linVel);
 	talking.write<float>(angVel);
+	talking.endTranfert();
 }
 
 void SET_PARAMETER_VALUE()
@@ -364,6 +373,7 @@ void SET_PARAMETER_VALUE()
 		purePursuit.setLookAheadBis(talking.read<float>());
 		break;
 	}
+	talking.endTranfert();
 }
 
 void SAVE_PARAMETERS()
@@ -503,6 +513,7 @@ void GET_PARAMETER_VALUE()
 		talking.write<float>(purePursuit.getLookAheadBis());
 		break;
 	}
+	talking.endTranfert();
 }
 
 void RESET_PARAMETERS()

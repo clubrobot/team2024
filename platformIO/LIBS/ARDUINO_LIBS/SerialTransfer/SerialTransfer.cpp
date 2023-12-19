@@ -88,18 +88,16 @@ uint8_t SerialTransfer::available()
 {
 	bool    valid   = false;
 	uint8_t recChar = 0xFF;
-
+	
 	if (port->available())
 	{
 		valid = true;
-
 		while (port->available())
 		{
 			recChar = port->read();
-
 			bytesRead = packet.parse(recChar, valid);
 			status    = packet.status;
-
+			
 			if (status != CONTINUE)
 			{
 				if (status < 0)
@@ -117,7 +115,6 @@ uint8_t SerialTransfer::available()
 		if (status < 0)
 			reset();
 	}
-
 	return bytesRead;
 }
 
@@ -178,7 +175,7 @@ uint8_t SerialTransfer::currentPacketID()
 */
 void SerialTransfer::reset()
 {
-	while (port->available())
+	while (port->available() > 0)
 		port->read();
 
 	packet.reset();

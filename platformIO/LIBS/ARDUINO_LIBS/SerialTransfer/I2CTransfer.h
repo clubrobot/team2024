@@ -1,4 +1,7 @@
-#pragma once
+
+#ifndef __I2CTRANSFER_H__
+#define __I2CTRANSFER_H__
+
 #include "Arduino.h"
 #include "Packet.h"
 #include "Wire.h"
@@ -109,3 +112,5 @@ class I2CTransfer
 
 	static void processData();
 };
+
+#endif //__I2CTRANSFER_H__

@@ -5,10 +5,8 @@ import time
 import math
 import numpy as np
 from time import sleep
-from common.serialutils import Deserializer
-from common.serialtalks import BYTE, LONG, FLOAT
-from daughter_cards.arduino import SecureArduino
-
+from common.serialtalking import BYTE, LONG, FLOAT
+from common.serialtalking import SerialTalking
 
 # Instructions
 SET_VELOCITIES_OPCODE           = 0x10
@@ -81,8 +79,10 @@ This class acts as an interface between the raspeberry pi and the arduino.
 It contains methods for each action of the wheeled base. 
 It allows the raspeberry pi to ask the arduino to perform an action via a specific OPCODE.
 """
-class WheeledBase(SecureArduino):
+class WheeledBase():
     #Doc de la classe sur le owncloud
+    
+    '''
     _DEFAULT = {
         GET_CODEWHEELS_COUNTERS_OPCODE : Deserializer(LONG(0) + LONG(0)),
         POSITION_REACHED_OPCODE : Deserializer(BYTE(0) + BYTE(0)),
@@ -92,6 +92,7 @@ class WheeledBase(SecureArduino):
         GET_PARAMETER_VALUE_OPCODE : Deserializer(LONG(0) + LONG(0))
 
     }
+    '''
 
     FORWARD = 1
     BACKWARD = 2
@@ -108,7 +109,7 @@ class WheeledBase(SecureArduino):
         def set(self, value): self.parent.set_parameter_value(self.id, value, self.type)
 
     def __init__(self, parent, uuid='wheeledbase'):
-        SecureArduino.__init__(self, parent, uuid, WheeledBase._DEFAULT)
+        self.wheeledbase = SerialTalking(uuid)
 
         self.left_wheel_radius              = WheeledBase.Parameter(self, LEFTWHEEL_RADIUS_ID, FLOAT)
         self.left_wheel_constant            = WheeledBase.Parameter(self, LEFTWHEEL_CONSTANT_ID, FLOAT)
@@ -162,22 +163,21 @@ class WheeledBase(SecureArduino):
         self.latch_time = None
 
     def set_openloop_velocities(self, left, right):
-        self.send(SET_OPENLOOP_VELOCITIES_OPCODE, FLOAT(left), FLOAT(right))
+        self.wheeledbase.order(SET_OPENLOOP_VELOCITIES_OPCODE, FLOAT(left), FLOAT(right))
 
-    def get_codewheels_counter(self, **kwargs):
-        output = self.execute(GET_CODEWHEELS_COUNTERS_OPCODE, **kwargs)
-        left, right = output.read(LONG, LONG)
+    def get_codewheels_counter(self):
+        left, right = self.wheeledbase.request(GET_CODEWHEELS_COUNTERS_OPCODE, LONG, LONG)[0]
         return left, right
 
     def set_velocities(self, linear_velocity, angular_velocity):
-        self.send(SET_VELOCITIES_OPCODE, FLOAT(linear_velocity), FLOAT(angular_velocity))
+        self.wheeledbase.order(SET_VELOCITIES_OPCODE, FLOAT(linear_velocity), FLOAT(angular_velocity))
 
     def purepursuit(self, waypoints, direction='forward', finalangle=None, lookahead=None, lookaheadbis=None, linvelmax=None, angvelmax=None, **kwargs):
         if len(waypoints) < 2:
             raise ValueError('not enough waypoints')
-        self.send(RESET_PUREPURSUIT_OPCODE)
+        self.wheeledbase.order(RESET_PUREPURSUIT_OPCODE)
         for x, y in waypoints:
-            self.send(ADD_PUREPURSUIT_WAYPOINT_OPCODE, FLOAT(x), FLOAT(y))
+            self.wheeledbase.order(ADD_PUREPURSUIT_WAYPOINT_OPCODE, FLOAT(x), FLOAT(y))
         if lookahead is not None:
             self.set_parameter_value(PUREPURSUIT_LOOKAHEAD_ID, lookahead, FLOAT)
         if lookaheadbis is not None:
@@ -190,10 +190,10 @@ class WheeledBase(SecureArduino):
             finalangle = math.atan2(waypoints[-1][1] - waypoints[-2][1], waypoints[-1][0] - waypoints[-2][0])
         self.direction = {'forward':self.FORWARD, 'backward':self.BACKWARD}[direction]
         self.final_angle = finalangle
-        self.send(START_PUREPURSUIT_OPCODE, BYTE({'forward':0, 'backward':1}[direction]), FLOAT(finalangle))
+        self.wheeledbase.order(START_PUREPURSUIT_OPCODE, BYTE({'forward':0, 'backward':1}[direction]), FLOAT(finalangle))
 
     def purepursuit_stop(self, waypoints,sensors, direction='forward', finalangle=None, lookahead=None, lookaheadbis=None,
-                    linvelmax=None, angvelmax=None, **kwargs):
+                    linvelmax=None, angvelmax=None):
         self.purepursuit(waypoints,direction,finalangle,lookahead,lookaheadbis,linvelmax,angvelmax)
         while not self.isarrived(raiseSpinUrgency=False):
             m=np.min(sensors.get_all()[0:4])
@@ -205,25 +205,23 @@ class WheeledBase(SecureArduino):
 
         print("ARRIVE")
     def start_purepursuit(self):
-        self.send(START_PUREPURSUIT_OPCODE, BYTE({self.NO_DIR:0, self.FORWARD:0, self.BACKWARD:1}[self.direction]),
+        self.wheeledbase.order(START_PUREPURSUIT_OPCODE, BYTE({self.NO_DIR:0, self.FORWARD:0, self.BACKWARD:1}[self.direction]),
                   FLOAT(self.final_angle))
 
     def turnonthespot(self, theta, direction=None, way='forward'):
         if direction is None:
-            self.send(START_TURNONTHESPOT_OPCODE, FLOAT(theta), BYTE({'forward':0, 'backward':1}[way]))
+            self.wheeledbase.order(START_TURNONTHESPOT_OPCODE, FLOAT(theta), BYTE({'forward':0, 'backward':1}[way]))
         else:
-            self.send(START_TURNONTHESPOT_DIR_OPCODE, FLOAT(theta), BYTE({'clock':0, 'trig':1}[direction]))
+            self.wheeledbase.order(START_TURNONTHESPOT_DIR_OPCODE, FLOAT(theta), BYTE({'clock':0, 'trig':1}[direction]))
 
-    def isarrived(self,raiseSpinUrgency=True, **kwargs):
-        output = self.execute(POSITION_REACHED_OPCODE, **kwargs)
-        isarrived, spinurgency = output.read(BYTE, BYTE)
+    def isarrived(self,raiseSpinUrgency=True):
+        isarrived, spinurgency = self.wheeledbase.request(POSITION_REACHED_OPCODE, BYTE, BYTE)[0]
         if bool(spinurgency)and raiseSpinUrgency:
             raise RuntimeError('spin urgency')
         return bool(isarrived)
 
     def get_velocities_wanted(self,real_output=False):
-        output = self.execute(GET_VELOCITIES_WANTED_OPCODE,BYTE(int(real_output)))
-        return output.read(FLOAT, FLOAT)
+        return self.wheeledbase.request(GET_VELOCITIES_WANTED_OPCODE, FLOAT, FLOAT, send_args=[BYTE(int(real_output))])[0]
 
     def wait(self, timestep=0.1, timeout=200, command=None, **kwargs):
         init_time = time.time()
@@ -235,7 +233,7 @@ class WheeledBase(SecureArduino):
                 time.sleep(timestep)
 
     def goto_delta(self, x, y):
-        self.send(GOTO_DELTA_OPCODE, FLOAT(x) + FLOAT(y))
+        self.wheeledbase.order(GOTO_DELTA_OPCODE, FLOAT(x) + FLOAT(y))
 
     def goto(self, x, y, theta=None, direction=None, finalangle=None, lookahead=None, lookaheadbis=None, linvelmax=None, angvelmax=None, **kwargs):
         # Compute the preferred direction if not set
@@ -340,20 +338,19 @@ class WheeledBase(SecureArduino):
         self.set_openloop_velocities(0, 0)
 
     def set_position(self, x, y, theta):
-        self.send(SET_POSITION_OPCODE, FLOAT(x), FLOAT(y), FLOAT(theta))
+        self.wheeledbase.order(SET_POSITION_OPCODE, FLOAT(x), FLOAT(y), FLOAT(theta))
 
     def reset(self):
         self.set_position(0, 0, 0)
 
-    def get_position(self, **kwargs):
-        output = self.execute(GET_POSITION_OPCODE, **kwargs)
-        self.x, self.y, self.theta = output.read(FLOAT, FLOAT, FLOAT)
+    def get_position(self):
+        self.x, self.y, self.theta = self.wheeledbase.request(GET_POSITION_OPCODE, FLOAT, FLOAT, FLOAT)[0]
         self.previous_measure = time.time()
         return self.x, self.y, self.theta
 
-    def get_position_latch(self, **kwargs):
+    def get_position_latch(self):
         if self.latch is None or time.time() - self.latch_time > self.LATCH_TIMESTEP:
-            self.latch = self.get_position(**kwargs)
+            self.latch = self.get_position()
             self.latch_time = time.time()
         return self.latch
 
@@ -362,22 +359,20 @@ class WheeledBase(SecureArduino):
             self.get_position()
         return self.x, self.y, self.theta
 
-    def get_velocities(self, **kwargs):
-        output = self.execute(GET_VELOCITIES_OPCODE, **kwargs)
-        linvel, angvel = output.read(FLOAT, FLOAT)
+    def get_velocities(self):
+        linvel, angvel = self.wheeledbase.request(GET_VELOCITIES_OPCODE, FLOAT, FLOAT)[0]
         return linvel, angvel
 
     def set_parameter_value(self, id, value, valuetype):
-        self.send(SET_PARAMETER_VALUE_OPCODE, BYTE(id), valuetype(value))
+        self.wheeledbase.order(SET_PARAMETER_VALUE_OPCODE, BYTE(id), valuetype(value))
         time.sleep(0.01)
 
     def get_parameter_value(self, id, valuetype):
-        output = self.execute(GET_PARAMETER_VALUE_OPCODE, BYTE(id))
-        value = output.read(valuetype)
+        value = self.wheeledbase.request(GET_PARAMETER_VALUE_OPCODE, valuetype, send_args=[BYTE(id)])
         return value
 
     def reset_parameters(self):
-        self.send(RESET_PARAMETERS_OPCODE)
+        self.wheeledbase.order(RESET_PARAMETERS_OPCODE)
 
     def save_parameters(self):
-        self.send(SAVE_PARAMETERS_OPCODE)
+        self.wheeledbase.order(SAVE_PARAMETERS_OPCODE)

@@ -1,24 +1,14 @@
 #import imp
-from common.components import Manager
-from common.gpiodevices import Switch, LightButton, gpio_pins
-from daughter_cards.wheeledbase import WheeledBase
-from daughter_cards.actionneur import Actionneur
-from daughter_cards.display import LEDMatrix, SevenSegments
-from daughter_cards.sensors import Sensors
-from listeners.sensor_listener import SensorListener
+from daughter_cards.wheeledbase import WheeledBase, LINVELPID_KP_ID
+from common.serialtypes import FLOAT, STRING, INT
+from common.serialtalking import GETUUID_OPCODE
+import time
 
-
-
-# Connect to the Raspberry Pi and the different modules
-manager = Manager("10.0.0.2")
-manager.connect(10)
-
-from setups.setup_serialtalks import *
-
-s = Actionneur(manager)
-s.connect()
-
-s.SetServoAngle(0)
+wheeeee = WheeledBase(None, 'COM6')
+time.sleep(1)
+while 1:
+    print(wheeeee.get_position())
+    time.sleep(1)
 
 	
 #LEFTCODEWHEEL_RADIUS_VALUE              = 21.90460280828869

@@ -11,7 +11,6 @@
 |______|_____________________________________________________________________Start byte (constant)
 */
 
-#pragma once
 #include "Arduino.h"
 #include "PacketCRC.h"
 

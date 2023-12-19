@@ -7,8 +7,8 @@
 import math
 import time
 import sys
-from serialtypes import IntegerType, FloatType, StringType
-import pySerialTransfer as txfer
+from common.serialtypes import *
+import common.pySerialTransfer as txfer
 
 BAUDRATE = 115200
 
@@ -21,27 +21,6 @@ GETEEPROM_OPCODE = 0x04
 SETEEPROM_OPCODE = 0x05
 GETBUFFERSIZE_OPCODE = 0x06
 
-#Taille des chars
-#https://docs.python.org/3/library/struct.html#format-characters
-
-BYTEORDER = '<' #equal to little endian
-ENCODING = 'utf-8'
-
-CHAR = IntegerType('c', BYTEORDER)
-UCHAR = IntegerType('B', BYTEORDER)
-SHORT = IntegerType('h', BYTEORDER)
-USHORT = IntegerType('H', BYTEORDER)
-LONG = IntegerType('l', BYTEORDER)
-ULONG = IntegerType('L', BYTEORDER)
-
-FLOAT = FloatType('f', BYTEORDER)
-
-STRING = StringType(ENCODING, BYTEORDER)
-
-BYTE = UCHAR
-INT = SHORT
-UINT = USHORT
-DOUBLE = FLOAT
 
 
 #Magics numbers
@@ -74,6 +53,8 @@ class SerialTalking:
 
         self.recSize = 0
         self.sendSize = 0
+
+        self.connect()
 
     def __enter__(self):
         self.connect()
@@ -134,17 +115,21 @@ class SerialTalking:
         if(len(args)==0): args = [BYTE(0x01)] #Si pas d'args
         #Oui le string fait chier
         for arg in args:
-            if(arg.format=="str"):
-                self.write_buffer(arg, len(arg.value))
+            if(arg["format"]=="str"):
+                self.write_buffer(arg, len(arg["value"]))
             else:
                 self.write_buffer(arg)
+
         self.send_buffer(opcode)
         return
 
     #call order puis fait le tralala du request
-    def request(self, opcode, *args, timeout=5):
+    def request(self, opcode, *args, send_args=None, timeout=5):
         data, data_size = ([], []) #Notre array
-        self.order(opcode)# On envoit l'ordre pour avoir la réponse
+        if(send_args==None):
+            self.order(opcode)# On envoit l'ordre pour avoir la réponse
+        else:
+            self.order(opcode, *send_args)
 
         time.sleep(0.005)
         startingtime = time.monotonic()
@@ -157,7 +142,10 @@ class SerialTalking:
                     data_size.append(datum_size)
                 break
             else:#si on a pas de réponse, on la force mdr
-                self.order(opcode)
+                if(send_args==None):
+                    self.order(opcode)# On envoit l'ordre pour avoir la réponse
+                else:
+                    self.order(opcode, *send_args)
                 time.sleep(0.005)
             if(time.monotonic() - startingtime > timeout): raise TimeoutError
 
