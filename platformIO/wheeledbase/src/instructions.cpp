@@ -528,5 +528,4 @@ void RESET_PARAMETERS()
 	angVelPID.load(ANGVELPID_ADDRESS);
 	positionControl.load(POSITIONCONTROL_ADDRESS);
 	purePursuit.load(PUREPURSUIT_ADDRESS);
-	purePursuit.load(PUREPURSUIT_ADDRESS);
 }
