@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from common.serialutils import Deserializer
-from daughter_cards.arduino import SecureArduino, INT, BYTE, FLOAT, USHORT
+from common.serialtalking import BYTE, LONG, FLOAT, USHORT, INT
+from common.serialtalking import SerialTalking
+
 import time
 
 # Instructions
@@ -33,64 +34,57 @@ This class acts as an interface between the raspeberry pi and the arduino.
 It contains methods relating to each action of the actuator.
 It allows the raspeberry pi to ask the arduino to perform an action via a specific OPCODE.
 """
-class Actionneur(SecureArduino):
-    DEFAULT = {PING_AX_OPCODE: Deserializer(BYTE(0)), #idk
-            }
+class Actionneur():
     
     def __init__(self, parent, uuid='actionneurs'):
-        SecureArduino.__init__(self, parent, uuid, self.DEFAULT)
+        self.actio = SerialTalking(uuid)
     
-    def SetServoAngle(self, angle): self.send(SET_ANGLE_SERVO_OPCODE, USHORT(angle))
+    def SetServoAngle(self, angle): self.actio.order(SET_ANGLE_SERVO_OPCODE, USHORT(angle))
 
     class AX12():
-        DEFAULT = {PING_AX_OPCODE: Deserializer(BYTE(0)), 
-                READ_POSITION_OPCODE: Deserializer(BYTE(0)), 
-                READ_SPEED_OPCODE: Deserializer(BYTE(0)), 
-                READ_TORQUE_OPCODE: Deserializer(BYTE(0)), 
-                }
         def __init__(self, id, parent):
             self.parent = parent
             self.id = id
         
-        def reset(self): self.parent.send(RESET_OPCODE, BYTE(self.id))
+        def reset(self): self.parent.actio.order(RESET_OPCODE, BYTE(self.id))
 
         def ping(self):
-            output = self.parent.execute(PING_AX_OPCODE, BYTE(self.id))
-            return not bool(output.read(BYTE))
+            output = self.parent.actio.request(PING_AX_OPCODE, BYTE, send_args=[BYTE(self.id)])
+            return not bool(output)
 
-        def setID(self, newID): self.parent.send(SET_ID_OPCODE, BYTE(self.id), BYTE(newID))
+        def setID(self, newID): self.parent.actio.order(SET_ID_OPCODE, BYTE(self.id), BYTE(newID))
 
-        def setBD(self, newBD): self.parent.send(SET_BD_OPCODE, BYTE(self.id), INT(newBD))
+        def setBD(self, newBD): self.parent.actio.order(SET_BD_OPCODE, BYTE(self.id), INT(newBD))
 
-        def move(self, Pos): self.parent.send(MOVE_OPCODE, BYTE(self.id), FLOAT(Pos))
+        def move(self, Pos): self.parent.actio.order(MOVE_OPCODE, BYTE(self.id), FLOAT(Pos))
 
-        def turn(self, Speed): self.parent.send(TURN_OPCODE, BYTE(self.id), FLOAT(Speed))
+        def turn(self, Speed): self.parent.actio.order(TURN_OPCODE, BYTE(self.id), FLOAT(Speed))
 
         def stop_turn(self): self.parent.turn(0)
         
-        def moveSpeed(self, Pos, Speed): self.parent.send(MOVE_SPEED_OPCODE, BYTE(self.id), FLOAT(Pos), FLOAT(Speed))
+        def moveSpeed(self, Pos, Speed): self.parent.actio.order(MOVE_SPEED_OPCODE, BYTE(self.id), FLOAT(Pos), FLOAT(Speed))
 
-        def setEndlessMode(self, Status): self.parent.send(SET_ENDLESS_MODE_OPCODE, BYTE(self.id), BYTE(Status))
+        def setEndlessMode(self, Status): self.parent.actio.order(SET_ENDLESS_MODE_OPCODE, BYTE(self.id), BYTE(Status))
 
-        def setTempLimit(self, Temp): self.parent.send(SET_TEMP_LIMIT_OPCODE, BYTE(self.id), BYTE(Temp))
+        def setTempLimit(self, Temp): self.parent.actio.order(SET_TEMP_LIMIT_OPCODE, BYTE(self.id), BYTE(Temp))
 
-        def setAngleLimit(self, CWLimit, CCWLimit): self.parent.send(SET_ANGLE_LIMIT_OPCODE, BYTE(self.id), FLOAT(CWLimit), FLOAT(CCWLimit))
+        def setAngleLimit(self, CWLimit, CCWLimit): self.parent.actio.order(SET_ANGLE_LIMIT_OPCODE, BYTE(self.id), FLOAT(CWLimit), FLOAT(CCWLimit))
 
-        def setVoltageLimit(self, DVoltage, UVoltage): self.parent.send(SET_VOLTAGE_LIMIT_OPCODE, BYTE(self.id), BYTE(DVoltage), BYTE(UVoltage))
+        def setVoltageLimit(self, DVoltage, UVoltage): self.parent.actio.order(SET_VOLTAGE_LIMIT_OPCODE, BYTE(self.id), BYTE(DVoltage), BYTE(UVoltage))
 
-        def setMaxTorque(self, MaxTorque): self.parent.send(SET_MAX_TORQUE_OPCODE, BYTE(self.id), INT(MaxTorque))
+        def setMaxTorque(self, MaxTorque): self.parent.actio.order(SET_MAX_TORQUE_OPCODE, BYTE(self.id), INT(MaxTorque))
 
         def readPosition(self):
-            output = self.parent.execute(READ_POSITION_OPCODE, BYTE(self.id))
-            return output.read(FLOAT)
+            output = self.parent.actio.request(READ_POSITION_OPCODE, FLOAT, send_args=[BYTE(self.id)])
+            return output
         
         def readSpeed(self):
-            output = self.parent.execute(READ_SPEED_OPCODE, BYTE(self.id))
-            return output.read(FLOAT)
+            output = self.parent.actio.request(READ_SPEED_OPCODE, FLOAT, send_args=[BYTE(self.id)])
+            return output.read()
 
         def readTorque(self):
-            output = self.parent.execute(READ_TORQUE_OPCODE, BYTE(self.id))
-            return output.read(INT)
+            output = self.parent.actio.request(READ_TORQUE_OPCODE, INT, BYTE(self.id))
+            return output
 
 
 if __name__ == "__main__":

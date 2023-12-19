@@ -73,6 +73,7 @@ class SerialTalking:
             if(self.link.open()==False):
                 raise ConnectionFailedError
         except Exception as e:
+            print(self.port)
             raise ConnectionFailedError(str(e))
         
         startingtime = time.monotonic()

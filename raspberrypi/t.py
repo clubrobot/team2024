@@ -1,14 +1,20 @@
 #import imp
 from daughter_cards.wheeledbase import WheeledBase, LINVELPID_KP_ID
+from daughter_cards.actionneur import Actionneur
 from common.serialtypes import FLOAT, STRING, INT
 from common.serialtalking import GETUUID_OPCODE
 import time
 
-wheeeee = WheeledBase(None, 'COM6')
+
+w = WheeledBase(None "")
+wheeeee = Actionneur(None, "COM7")
+axxx = wheeeee.AX12(254, wheeeee)
+axxx.setEndlessMode(True)
 time.sleep(1)
 while 1:
-    print(wheeeee.get_position())
-    time.sleep(1)
+    axxx.turn(0)
+    print("yes")
+    time.sleep(0.5)
 
 	
 #LEFTCODEWHEEL_RADIUS_VALUE              = 21.90460280828869

@@ -11,18 +11,17 @@
 #include <Arduino.h>
 #include "SerialTransfer.h"
 
-#define EEPROM_SIZE 512
-
 #define SERIALTALKING_BAUDRATE 115200 /*!< Baudrate utiliser */
 #define SERIALTALKING_DEBUG true
 #define SERIALTALKING_DEBUG_PORT Serial
+#define EEPROM_SIZE 512
 
 #define SERIALTALKING_INPUT_BUFFER_SIZE 64
 #define SERIALTALKING_OUTPUT_BUFFER_SIZE 64
 
 #define SERIALTALKING_UUID_ADDRESS 0x0000000000
 
-#define SERIALTALKING_MAX_OPCODE 0x20
+#define SERIALTALKING_MAX_OPCODE 0x30
 #define SERIALTALKING_SINGLE_MAGIC 's' //comme single
 #define SERIALTALKING_MULTIPLE_MAGIC 'm' //comme multiple
 
@@ -106,7 +105,7 @@ public:
         m_bytesRX = m_transfert.rxObj(data_size, m_bytesRX); //On envoie la taille de la donnée!
         
         if(len<data_size){
-            //digitalWrite(LED_BUILTIN, HIGH); //Erreur de taille
+            //Erreur de taille
             return;
         }
 
@@ -123,11 +122,10 @@ public:
         uint8_t data_size=0; 
         T data;
 
-        m_bytesRX = m_transfert.rxObj(data_size, m_bytesRX, 1); //On envoie la taille de la donnée!
-
+        m_bytesRX = m_transfert.rxObj(data_size, m_bytesRX, 1); //On reçois la taille de la donnée!
         if(data_size!=1){
             //TODO: Code d'erreurs
-            return;
+            return (T) -1;
         }
         m_bytesRX = m_transfert.rxObj(data, m_bytesRX);
 
@@ -175,7 +173,7 @@ protected: // Protected methods
 
     configST m_transfert_config;// Configuration du transfert
 
-    functionPtr m_talkingTo[SERIALTALKING_MAX_OPCODE] = {nullptr}; //Liste des callbakcs
+    functionPtr m_talkingTo[SERIALTALKING_MAX_OPCODE]; //Liste des callbakcs
  
     enum // m_order
     {

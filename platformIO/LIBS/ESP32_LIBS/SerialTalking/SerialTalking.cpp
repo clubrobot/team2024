@@ -14,14 +14,17 @@ SerialTalking talking;
 
 void SerialTalking::begin(Stream& stream)
 {
-	//Initialize EEPROM
-	EEPROM.begin(EEPROM_SIZE);
-	
 	//Attributs en privé
 	m_stream = &stream;
 	m_connected = false;
 	m_bytesTX = 0;
 	m_bytesRX = 0;
+
+	EEPROM.begin(EEPROM_SIZE);
+
+	for(uint16_t i=0; i<SERIALTALKING_MAX_OPCODE; i++){
+		m_talkingTo[i] = nullptr;
+	}
 
     //Config du transfert
     m_transfert_config.debug = SERIALTALKING_DEBUG;
@@ -50,9 +53,9 @@ void SerialTalking::begin(Stream& stream)
 	bind(SERIALTALKING_PING_OPCODE,     SerialTalking::PING);
 	bind(SERIALTALKING_GETUUID_OPCODE,  SerialTalking::GETUUID);
 	bind(SERIALTALKING_SETUUID_OPCODE,  SerialTalking::SETUUID);
-	/*bind(SERIALTALKING_GETEEPROM_OPCODE,SerialTalking::GETEEPROM);
+	bind(SERIALTALKING_GETEEPROM_OPCODE,SerialTalking::GETEEPROM);
 	bind(SERIALTALKING_SETEEPROM_OPCODE,SerialTalking::SETEEPROM);
-	bind(SERIALTALKING_GETBUFFERSIZE_OPCODE, SerialTalking::GETBUFFERSIZE);*/
+	bind(SERIALTALKING_GETBUFFERSIZE_OPCODE, SerialTalking::GETBUFFERSIZE);
 }
 
 void SerialTalking::bind(byte opcode, functionPtr instruction){
@@ -75,10 +78,11 @@ void SerialTalking::endTranfert(){
 	}
 	m_bytesTX = 0; //On reset le counter TX
 	m_bytesRX = 0; //RX Aussi
+	talking.m_transfert.reset();
 }
 
 bool SerialTalking::getUUID(char* uuid){
-	for (int i = 0; i < EEPROM_SIZE; i++){
+	for (int i = 0; i < int(EEPROM.length()); i++){
 		uuid[i] = EEPROM.read(SERIALTALKING_UUID_ADDRESS + i);
 
 		switch(byte(uuid[i])){
@@ -95,7 +99,6 @@ void SerialTalking::setUUID(const char* uuid){
 	do
 		EEPROM.write(SERIALTALKING_UUID_ADDRESS + i, uuid[i]);
 	while(uuid[i++] != '\0');
-	EEPROM.commit();
 }
 
 void SerialTalking::generateRandomUUID(char* uuid, int length){
@@ -137,7 +140,9 @@ void SerialTalking::GETUUID(){
 	talking.endTranfert();
 }
 
-void SerialTalking::SETUUID() {}
+void SerialTalking::SETUUID() {
+
+}
 void SerialTalking::GETEEPROM() {}
 void SerialTalking::SETEEPROM() {}
 void SerialTalking::GETBUFFERSIZE() {}
