@@ -19,9 +19,6 @@ SETUUID_OPCODE = 0x02
 DISCONNECT_OPCODE = 0x03
 GETEEPROM_OPCODE = 0x04
 SETEEPROM_OPCODE = 0x05
-GETBUFFERSIZE_OPCODE = 0x06
-
-
 
 #Magics numbers
 SERIALTALKING_SINGLE_MAGIC = 's' #comme single
@@ -47,14 +44,14 @@ class SerialTalksWarning(UserWarning, ConnectionError): pass
 #TODO: Timeout & connections checks 
 
 class SerialTalking:
-    def __init__(self, port):    
+    def __init__(self, port, timeout=5): 
         self.port = port
         self.is_connected=False
 
         self.recSize = 0
         self.sendSize = 0
 
-        self.connect()
+        self.connect(timeout)
 
     def __enter__(self):
         self.connect()
@@ -73,15 +70,15 @@ class SerialTalking:
             if(self.link.open()==False):
                 raise ConnectionFailedError
         except Exception as e:
-            print(self.port)
             raise ConnectionFailedError(str(e))
         
         startingtime = time.monotonic()
         while not self.is_connected:
             try:
                 shouldBePong = self.request(PING_OPCODE, STRING)[0]
-                if(shouldBePong[0]=="pong\x00"):
+                if(shouldBePong=="pong\x00"):
                     self.is_connected = True
+                time.sleep(0.1)
                 if(time.monotonic() - startingtime > timeout): raise TimeoutError
             except TimeoutError:
                 if time.monotonic() - startingtime > timeout:
@@ -94,7 +91,7 @@ class SerialTalking:
 
             except NotConnectedError:
                 self.is_connected = False
-    
+
     def disconnect(self):
         self.link.close()
         return
@@ -106,9 +103,18 @@ class SerialTalking:
         return self.link.status
 
     def getuuid(self):
-        return self.request(GETUUID_OPCODE, return_type=str)
+        return self.request(GETUUID_OPCODE, STRING)[0]
 
     def setuuid(self, uuid):
+        if uuid[-1]!='\x00': uuid=uuid+'\x00'
+        self.order(SETUUID_OPCODE, STRING(uuid))
+        return
+    
+    def getEEPROM(self, address):
+        return self.request(GETEEPROM_OPCODE, BYTE, send_args=[USHORT(address)])[0]
+    
+    def setEEPROM(self, address, value):
+        self.order(SETEEPROM_OPCODE, USHORT(address), BYTE(value))
         return
 
     #For each arg, on tx l'arg puis on envoie tout
@@ -147,12 +153,12 @@ class SerialTalking:
                     self.order(opcode)# On envoit l'ordre pour avoir la réponse
                 else:
                     self.order(opcode, *send_args)
-                time.sleep(0.005)
+                time.sleep(0.1)
             if(time.monotonic() - startingtime > timeout): raise TimeoutError
 
         #On remet à 0 l'index RX
         self.free_receiver()
-        return (data, data_size)
+        return data
 
     def free_receiver(self):
         self.recSize = 0
@@ -161,8 +167,9 @@ class SerialTalking:
         self.sendSize = 0
 
     def send_buffer(self, OPCODE):
-        self.link.send(self.sendSize, packet_id=OPCODE)# Opcode important
+        success = self.link.send(self.sendSize, packet_id=OPCODE)# Opcode important
         self.free_sender()
+        return success
 
     # Réception de donnée
     def read_buffer(self, obj_type):

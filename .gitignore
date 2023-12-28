@@ -4,3 +4,4 @@ build
 .vsocode/arduino.json
 .vsocode/settings.json
 .venv
+raspberrypi/logs/dump/

@@ -1,9 +1,5 @@
-from multiprocessing import Process, Queue
-import math
 import time
 import socket
-from datetime import datetime
-from utils.colors import colorise, Colors
 
 
 class Teleplot:
@@ -29,8 +25,11 @@ class Teleplot:
 
     def sendTelemetryXY(self, name, x, y, x1, y1, unit):
 
-        now = time.time() * 1000
-        msg = name+":"+str(x)+":"+str(y)+":"+str(now)+";" +str(x1)+":"+str(y1)+":"+str(now)+self.format_unit(unit)+"|xy"
+        now = (time.time()+3600)*1000
+        if(x1==None):
+            msg = name+":"+str(x)+":"+str(y)+":"+str(now)+self.format_unit(unit)+"|xy"
+        else:
+            msg = name+":"+str(x)+":"+str(y)+":"+str(now)+";" +str(x1)+":"+str(y1)+":"+str(now)+self.format_unit(unit)+"|xy"
         
         self.sock.sendto(msg.encode(), self.teleplotAddr)
 
@@ -43,48 +42,3 @@ class Teleplot:
         self.sock.sendto(msg.encode(), self.teleplotAddr)
 
 
-class Logger:
-    def __init__(self, IP="127.0.0.1"):
-        self.teleplot = Teleplot(IP)
-
-    def sendGraph(self, name, value, unit="", now=None):
-        if(now==None): now=time.time()*1000
-        self.teleplot.sendTelemetry(name, value, unit, now)
-
-    def sendXY(self, name, x, y, x1, y1, unit=""):
-        self.teleplot.sendTelemetryXY(self, name, x, y, x1, y1, unit)
-
-    def sendLog(self, message, origin=None, now=None):
-        if(now==None): now=time.time()+3600#Pour faire +1h
-        time_hr = datetime.utcfromtimestamp(now).strftime("%H:%M:%S")
-
-        if(now==None): origin_msg = ""
-        else: origin_msg=" | " +colorise(origin, Colors.WHITE2, Colors.URL)
-
-
-        final_message = colorise(time_hr, Colors.GREEN) + origin_msg + " | " + message
-        self.teleplot.sendLog(final_message, now)
-    
-def f(q):
-    q.put([42, None, 'hello'])
-    print(q.get(timeout=100))
-    print("ngmgr")
-
-if __name__ == '__main__':
-    logger = Logger()
-    i=0
-    while 1:
-        now = time.time() * 1000
-        logger.sendLog("Not connected", "sensors")
-        i+=0.1
-        time.sleep(0.1)
-		
-        
-    """
-    q = Queue()
-    p = Process(target=f, args=(q,))
-    p.start()
-    print(q.get())    # prints "[42, None, 'hello']"
-    q.put([42, None, 'test'])
-    p.join()
-    """

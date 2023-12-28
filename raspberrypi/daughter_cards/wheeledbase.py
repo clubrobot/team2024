@@ -205,7 +205,7 @@ class WheeledBase():
         self.wheeledbase.order(SET_OPENLOOP_VELOCITIES_OPCODE, FLOAT(left), FLOAT(right))
 
     def get_codewheels_counter(self):
-        left, right = self.wheeledbase.request(GET_CODEWHEELS_COUNTERS_OPCODE, LONG, LONG)[0]
+        left, right = self.wheeledbase.request(GET_CODEWHEELS_COUNTERS_OPCODE, LONG, LONG)
         return left, right
 
     def set_velocities(self, linear_velocity, angular_velocity):
@@ -254,13 +254,13 @@ class WheeledBase():
             self.wheeledbase.order(START_TURNONTHESPOT_DIR_OPCODE, FLOAT(theta), BYTE({'clock':0, 'trig':1}[direction]))
 
     def isarrived(self,raiseSpinUrgency=True):
-        isarrived, spinurgency = self.wheeledbase.request(POSITION_REACHED_OPCODE, BYTE, BYTE)[0]
+        isarrived, spinurgency = self.wheeledbase.request(POSITION_REACHED_OPCODE, BYTE, BYTE)
         if bool(spinurgency)and raiseSpinUrgency:
             raise RuntimeError('spin urgency')
         return bool(isarrived)
 
     def get_velocities_wanted(self,real_output=False):
-        return self.wheeledbase.request(GET_VELOCITIES_WANTED_OPCODE, FLOAT, FLOAT, send_args=[BYTE(int(real_output))])[0]
+        return self.wheeledbase.request(GET_VELOCITIES_WANTED_OPCODE, FLOAT, FLOAT, send_args=[BYTE(int(real_output))])
 
     def wait(self, timestep=0.1, timeout=200, command=None, **kwargs):
         init_time = time.time()
@@ -383,7 +383,7 @@ class WheeledBase():
         self.set_position(0, 0, 0)
 
     def get_position(self):
-        self.x, self.y, self.theta = self.wheeledbase.request(GET_POSITION_OPCODE, FLOAT, FLOAT, FLOAT)[0]
+        self.x, self.y, self.theta = self.wheeledbase.request(GET_POSITION_OPCODE, FLOAT, FLOAT, FLOAT)
         self.previous_measure = time.time()
         return self.x, self.y, self.theta
 
@@ -399,7 +399,7 @@ class WheeledBase():
         return self.x, self.y, self.theta
 
     def get_velocities(self):
-        linvel, angvel = self.wheeledbase.request(GET_VELOCITIES_OPCODE, FLOAT, FLOAT)[0]
+        linvel, angvel = self.wheeledbase.request(GET_VELOCITIES_OPCODE, FLOAT, FLOAT)
         return linvel, angvel
 
     def set_parameter_value(self, id, value, valuetype):

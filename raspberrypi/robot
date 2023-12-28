@@ -3,14 +3,14 @@
 
 from argparse import ArgumentParser
 
-from common.serialtalks import *
-from common.tcptalks import ForeverAloneError
-from common.components import Manager, Server
-from daughter_cards.display import SevenSegments
-from logs.log_manager import *
+from common.serialtalking import *
+#from common.tcptalks import ForeverAloneError
+#from common.components import Manager, Server
+#from daughter_cards.display import SevenSegments
+#from logs.log_manager import *
 import os
 
-from behaviours.robot_behaviour import RobotBehavior
+#from behaviours.robot_behaviour import RobotBehavior
 
 DEV_MODE = True
 MATCH_MODE = False
@@ -60,10 +60,9 @@ def start_approval(args):
 
 
 def getuuid(args):
-    talks = SerialTalks(args.port)
+    talking = SerialTalking(args.port)
     try:
-        talks.connect(args.timeout)
-        uuid = talks.getuuid(args.timeout)
+        uuid = talking.getuuid()
         if isinstance(uuid, str):
             print(uuid)
         else:
@@ -72,7 +71,7 @@ def getuuid(args):
     except KeyboardInterrupt:
         pass
     finally:
-        talks.disconnect()
+        talking.disconnect()
 
 
 def showip(args):

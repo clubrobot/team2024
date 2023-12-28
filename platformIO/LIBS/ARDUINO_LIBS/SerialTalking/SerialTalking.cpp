@@ -34,7 +34,7 @@ void SerialTalking::begin(Stream& stream)
     m_transfert.begin(*m_stream, m_transfert_config);
 
 	//Déf de l'UUID
-#ifdef BOARD_UUID //<- changé en tant que option pre-compil (voir platformio.ini)
+#ifdef BOARD_UUID //<- changé en pre-compil (voir platformio.ini)
 	#define SERIALTALKING_UUID_LENGTH sizeof(BOARD_UUID)/sizeof(BOARD_UUID[0])
 	setUUID(BOARD_UUID);
 #else
@@ -53,12 +53,12 @@ void SerialTalking::begin(Stream& stream)
 	bind(SERIALTALKING_SETUUID_OPCODE,  SerialTalking::SETUUID);
 	bind(SERIALTALKING_GETEEPROM_OPCODE,SerialTalking::GETEEPROM);
 	bind(SERIALTALKING_SETEEPROM_OPCODE,SerialTalking::SETEEPROM);
-	bind(SERIALTALKING_GETBUFFERSIZE_OPCODE, SerialTalking::GETBUFFERSIZE);
+	bind(SERIALTALKING_FREE_BUFFER_OPCODE, SerialTalking::FREEBUFFER);
 }
 
 void SerialTalking::bind(byte opcode, functionPtr instruction){
-	//if(opcode>SERIALTALKING_MAX_OPCODE){return;}
-	//if(instruction==nullptr){return;}//No null function
+	if(opcode>SERIALTALKING_MAX_OPCODE){return;}
+	if(instruction==nullptr){return;}//No null function
   	//if((m_talkingTo[opcode]!=nullptr)){return;}//No overdrive
 
   	m_talkingTo[opcode] = instruction;//On affecte la fonction au callbacks
@@ -92,11 +92,20 @@ bool SerialTalking::getUUID(char* uuid){
 	return false;
 }
 
-void SerialTalking::setUUID(const char* uuid){
-	int i = 0;
+bool SerialTalking::setUUID(const char* uuid){
+	for (int i = 0; i < int(EEPROM.length()); i++){
+		EEPROM.update(SERIALTALKING_UUID_ADDRESS + i, uuid[i]);
+
+		switch(byte(uuid[i])){
+		case '\0': return true;
+		default  : continue;
+		}
+	}
+	return false;
+	/* int i = 0;
 	do
 		EEPROM.update(SERIALTALKING_UUID_ADDRESS + i, uuid[i]);
-	while(uuid[i++] != '\0');
+	while(uuid[i++] != '\0'); */
 }
 
 void SerialTalking::generateRandomUUID(char* uuid, int length){
@@ -125,9 +134,8 @@ void SerialTalking::generateRandomUUID(char* uuid, int length){
 */
 
 void SerialTalking::PING(){
-	//digitalWrite(LED_BUILTIN, HIGH);
-	char msg[5] = "pong";
-	talking.writeTable(msg);
+	char pong[5] = "pong";
+	talking.writeTable(pong);
 	talking.endTranfert();
 }
 
@@ -138,9 +146,27 @@ void SerialTalking::GETUUID(){
 	talking.endTranfert();
 }
 
-void SerialTalking::SETUUID() {
-
+void SerialTalking::SETUUID(){
+	char uuid[20];
+	talking.readTable(uuid, 20);
+	talking.setUUID(uuid);
+	talking.endTranfert();
 }
-void SerialTalking::GETEEPROM() {}
-void SerialTalking::SETEEPROM() {}
-void SerialTalking::GETBUFFERSIZE() {}
+void SerialTalking::GETEEPROM(){
+	uint16_t address = talking.read<uint16_t>();
+	uint8_t value = EEPROM.read(address);
+	talking.write(value);
+	talking.endTranfert();
+}
+
+void SerialTalking::SETEEPROM(){
+	uint16_t address = talking.read<uint16_t>();
+	uint8_t value = talking.read<uint8_t>();
+	EEPROM.update(address, value);
+	talking.endTranfert();
+}
+
+void SerialTalking::FREEBUFFER(){
+	talking.endTranfert();
+	m_transfert.reset();
+}

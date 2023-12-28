@@ -25,21 +25,11 @@ void callback_getuuid(){
 
 }
 
-void PING(){
-	//digitalWrite(LED_BUILTIN, HIGH);
-	char msg[5] = "pong";
-	talking.writeTable(msg);
-	talking.endTranfert();
-}
-
 void setup(){
   Serial.begin(SERIALTALKING_BAUDRATE);
   talking.begin(Serial);
-
-  talking.bind(0x03, PING);
 }
 
 void loop(){
-  delay(1);
   talking.execute();
 }

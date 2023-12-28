@@ -30,9 +30,7 @@
 #define SERIALTALKING_DISCONNECT_OPCODE     0x03
 #define SERIALTALKING_GETEEPROM_OPCODE      0x04
 #define SERIALTALKING_SETEEPROM_OPCODE      0x05
-#define SERIALTALKING_GETBUFFERSIZE_OPCODE  0x06
-#define SERIALTALKING_RESEND_OPCODE         0x07
-#define SERIALTALKING_FREE_BUFFER_OPCODE    0x08
+#define SERIALTALKING_FREE_BUFFER_OPCODE    0x06
 
 /** class SerialTalking
  *  \brief Object de communication serial avec un ordinateur.
@@ -104,7 +102,7 @@ public:
         m_bytesRX = m_transfert.rxObj(data_size, m_bytesRX); //On envoie la taille de la donnée!
         
         if(len<data_size){
-            digitalWrite(LED_BUILTIN, HIGH); //Erreur de taille
+            //Erreur de taille
             return;
         }
 
@@ -154,7 +152,7 @@ public:
 		\param uuid Pointeur de l'UUID à enregistrer.
 	*/
 
-    void setUUID(const char *uuid);
+    bool setUUID(const char *uuid);
     //! Génère un UUID
     /*!
 		\param uuid Pointeur pour renvoyer l'UUID.
@@ -187,12 +185,6 @@ protected: // Protected methods
 
 private:
 
-    /**
-	 * @brief Méthode interne pour demander le réenvoie de la requête.
-	 * 
-	 */
-    void launchResend(void);
-
     //! Méthode pour la requête de ping.
     static void PING();
     //! Méthode pour la requête d'UUID.
@@ -203,8 +195,8 @@ private:
     static void GETEEPROM();
     //! Méthode pour écire dans l'EEPROM.
     static void SETEEPROM();
-    //! Méthode pour récuperer la taille du Buffer.
-    static void GETBUFFERSIZE();
+    //! Méthode pour remettre à zero le Buffer.
+    void FREEBUFFER();
 };
 
 extern SerialTalking talking;

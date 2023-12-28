@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from logs.log_manager import *
+from logs.logger import *
 
-LogManager().start()
-
-setup_logger = LogManager().getlogger('Setup logger', level_disp=INFO)
+Logger.init("127.0.0.1", verbose=True, saveToFile=True)

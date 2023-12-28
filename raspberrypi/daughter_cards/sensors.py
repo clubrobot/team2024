@@ -3,8 +3,8 @@
 
 from collections.abc import Callable, Iterable, Mapping
 from typing import Any
-from common.serialutils import Deserializer
-from daughter_cards.arduino import SecureArduino, TopicHandler, USHORT, UCHAR
+from common.serialtalking import SerialTalking
+from common.serialtypes import USHORT, UCHAR
 import time
 
 UNUSED_SENSOR = 65535
@@ -24,9 +24,10 @@ CHECK_ERROR_OPCODE = 0X18
 GET_ALL_TOPIC_OPCODE = 0x01
 
 
-class Sensors(SecureArduino):
+class Sensors():
     TIMESTEP = 100
     MAX_DIST = 10000
+    """     
     DEFAULT = {GET_SENSOR1_OPCODE: Deserializer(USHORT(MAX_DIST)),
                GET_SENSOR2_OPCODE: Deserializer(USHORT(MAX_DIST)),
                GET_SENSOR3_OPCODE: Deserializer(USHORT(MAX_DIST)),
@@ -36,15 +37,13 @@ class Sensors(SecureArduino):
                GET_SENSOR7_OPCODE: Deserializer(USHORT(MAX_DIST)),
                GET_SENSOR8_OPCODE: Deserializer(USHORT(MAX_DIST)), 
                CHECK_ERROR_OPCODE: Deserializer(USHORT(MAX_DIST)), 
-              }
+              } """
 
-    def __init__(self, parent, uuid='SensorBoard'):
-        SecureArduino.__init__(self, parent, uuid, default_result=self.DEFAULT)
+    def __init__(self, uuid='SensorBoard'):
+        self.sensors = SerialTalking(uuid)
         self.last_time = None
 
         try:
-            #self.addTopic(GET_ALL_TOPIC_OPCODE,
-            #         self.get_all_sensors_handler, "sensors", self.TIMESTEP)
             if(self.execute(CHECK_ERROR_OPCODE).read(UCHAR)!=128): raise
             print("PASSE SENSORS")
         except:
