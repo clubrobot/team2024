@@ -1,3 +1,11 @@
+"""!
+@file logger.py
+
+@brief Prends en charge le log via la classe Logger
+@author Boris HILKENS
+"""
+
+#Imports
 from datetime import datetime
 import time
 import os
@@ -5,14 +13,26 @@ import os
 from utils.colors import colorise, Colors
 from logs_teleplot import Teleplot
 
+
 class Logger:
+    """! La classe Logger, responsable de tout le log
+    
+    """
+    ##Objet de Teleplot @see logs_teleplot.py
     teleplot = None
+    ##Objet de classe Archiver @see log_archiver
     archiver = None
     
+    ##Boolean pour savoir si les logs sont écrit dans un .txt
     saveToFile = False
+    ##Boolean pour afficher (ou non) les logs dans la console d'exec
     verbose = False
 
+    ##Boolean pour savoir si Teleplot a été init
     initied = False
+
+    def __init__(self, origin):
+        self.origin = origin
 
     @staticmethod
     def init(IP="127.0.0.1", verbose=False, saveToFile=False):
@@ -39,13 +59,13 @@ class Logger:
         Logger.teleplot.sendTelemetryXY(name, x, y, x1, y1, unit)
 
     @staticmethod
-    def sendLog( message, origin="", now=None):
+    def sendLogStatic(message, origin="", now=None):
         if(not Logger.initied): return #Logger not initied
 
         if(now==None): now=time.time()+3600#Pour faire +1h
         time_hr = datetime.utcfromtimestamp(now).strftime("%H:%M:%S")
 
-        if(now==None): origin_msg = ""
+        if(origin==""): origin_msg = ""
         else: origin_msg=" | " +colorise(origin, Colors.WHITE2, Colors.URL)
 
         final_message = colorise(time_hr, Colors.GREEN) + origin_msg + " | " + message
@@ -54,6 +74,9 @@ class Logger:
         if(Logger.verbose): print(final_message)
 
         Logger.teleplot.sendLog(final_message, now*1000)
+
+    def sendLog(self, message, now=None):
+        Logger.sendLogStatic(message, self.origin, now)
 
 class log_archiver:
     def __init__(self):
@@ -83,11 +106,13 @@ class log_archiver:
 if __name__ == '__main__':
     import math
 
-    Logger.init("127.0.0.1", verbose=True, saveToFile=True)
+    myLogger = Logger("sensors")
+    myLogger.init("127.0.0.1", verbose=True, saveToFile=True)
     i=0
     
     while 1:
-        Logger.sendLog("Not connected", "sensors")
+        myLogger.sendLog("Not connected")
+        Logger.sendLogStatic("test")
         Logger.sendGraph("Test", math.sin(i), "km²")
         Logger.sendXY("XY", math.cos(i), math.sin(i), "km²")
         i+=0.1

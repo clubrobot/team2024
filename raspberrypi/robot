@@ -4,13 +4,13 @@
 from argparse import ArgumentParser
 
 from common.serialtalking import *
-#from common.tcptalks import ForeverAloneError
-#from common.components import Manager, Server
-#from daughter_cards.display import SevenSegments
-#from logs.log_manager import *
+from common.tcptalks import ForeverAloneError
+from common.components import Manager, Server
+from daughter_cards.display import SevenSegments
+from logs.logger import *
 import os
 
-#from behaviours.robot_behaviour import RobotBehavior
+from behaviours.robot_behaviour import RobotBehavior
 
 DEV_MODE = True
 MATCH_MODE = False
