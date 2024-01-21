@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/DifferentialController/DifferentialController.h</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_e5db95e150018bcc3dfc1edc7ae4800d.html">LIBS</a></li><li class="navelem"><a class="el" href="dir_66ad5f74c23414a43fda982e8ac34f83.html">ARDUINO_LIBS</a></li><li class="navelem"><a class="el" href="dir_8741c20b13db2ea32cd256c084045af2.html">DifferentialController</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">DifferentialController.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef __DIFFERENTIALCONTROLLER_H__</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define __DIFFERENTIALCONTROLLER_H__</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;PeriodicProcess.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;PID.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_abstract_motor.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="class_abstract_motor.html">AbstractMotor</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_abstract_motor.html#ad63b013a8df5e57f8ab6aee3eb1a7381">   21</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="class_abstract_motor.html#ad63b013a8df5e57f8ab6aee3eb1a7381">~AbstractMotor</a>(){}</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_abstract_motor.html#ac5c1960c11e5cfe2c4c1e206e79e5bf9">   29</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_abstract_motor.html#ac5c1960c11e5cfe2c4c1e206e79e5bf9">setVelocity</a>(<span class="keywordtype">float</span> velocity) = 0;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_abstract_motor.html#acaed879fcb45e6abef565a03fd6f227d">   37</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_abstract_motor.html#acaed879fcb45e6abef565a03fd6f227d">getMaxVelocity</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_differential_controller.html">   46</a></span><span class="keyword">class </span><a class="code hl_class" href="class_differential_controller.html">DifferentialController</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_periodic_process.html">PeriodicProcess</a></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_differential_controller.html#abe1b59650832e54e3f99a5dd06815977">   53</a></span>    <a class="code hl_function" href="class_differential_controller.html#abe1b59650832e54e3f99a5dd06815977">DifferentialController</a>() : <a class="code hl_variable" href="class_differential_controller.html#acb8cf017b7739a5751d6a1ba1f7a9c20">m_linSetpoint</a>(0), <a class="code hl_variable" href="class_differential_controller.html#acde3f3c8e9fc03a22f2ce5f8e6cc8839">m_angSetpoint</a>(0), <a class="code hl_variable" href="class_differential_controller.html#a0d5fd1c1181f631ef70dadd2b9e98697">m_axleTrack</a>(1){}</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a55b87d802aa851a846ebf14f47fa84c2">   63</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_differential_controller.html#a55b87d802aa851a846ebf14f47fa84c2">setInputs</a>   (<span class="keywordtype">float</span> linInput,    <span class="keywordtype">float</span> angInput)   {<a class="code hl_variable" href="class_differential_controller.html#a4d7c08b5f63d7d064ef7b6c5477a0814">m_linInput</a>    = linInput;    <a class="code hl_variable" href="class_differential_controller.html#a6647496abaae44aac5fdea76137d4a2d">m_angInput</a>    = angInput;}</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a7768d8a091a8f49f4b85c526d89a16b6">   72</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_differential_controller.html#a7768d8a091a8f49f4b85c526d89a16b6">setSetpoints</a>(<span class="keywordtype">float</span> linSetpoint, <span class="keywordtype">float</span> angSetpoint){<a class="code hl_variable" href="class_differential_controller.html#acb8cf017b7739a5751d6a1ba1f7a9c20">m_linSetpoint</a> = linSetpoint; <a class="code hl_variable" href="class_differential_controller.html#acde3f3c8e9fc03a22f2ce5f8e6cc8839">m_angSetpoint</a> = angSetpoint;}</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_differential_controller.html#aecf1d9bcec79e50b87349d93acce8629">setAxleTrack</a>(<span class="keywordtype">float</span> axleTrack);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a4c02655086ddf0a4802ed589a694f3fb">   90</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_differential_controller.html#a4c02655086ddf0a4802ed589a694f3fb">setWheels</a>(<a class="code hl_class" href="class_abstract_motor.html">AbstractMotor</a>&amp; leftWheel, <a class="code hl_class" href="class_abstract_motor.html">AbstractMotor</a>&amp; rightWheel){<a class="code hl_variable" href="class_differential_controller.html#a6dfd394eac337a0cf45602f3df419ddf">m_leftWheel</a> = &amp;leftWheel; <a class="code hl_variable" href="class_differential_controller.html#a3457583d2dedf6294754588aab2d7f24">m_rightWheel</a> = &amp;rightWheel;}</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a93c82c46329b837a65e4cbda0cbb9854">   99</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_differential_controller.html#a93c82c46329b837a65e4cbda0cbb9854">setPID</a>(<a class="code hl_class" href="class_p_i_d.html">PID</a>&amp; linPID, <a class="code hl_class" href="class_p_i_d.html">PID</a>&amp; angPID){<a class="code hl_variable" href="class_differential_controller.html#a10db21018e6d0ac265ac26613c8ab441">m_linPID</a> = &amp;linPID; <a class="code hl_variable" href="class_differential_controller.html#a2e7b5f7dfd7cdd05c38fed991703c9cb">m_angPID</a> = &amp;angPID;}</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a2e47e4456e5462cc39e5e42d2abae27e">  106</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_differential_controller.html#a2e47e4456e5462cc39e5e42d2abae27e">getLinSetpoint</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_differential_controller.html#acb8cf017b7739a5751d6a1ba1f7a9c20">m_linSetpoint</a>;}</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a7ed62aafaed9cd64fde0ac0dfaabe497">  113</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_differential_controller.html#a7ed62aafaed9cd64fde0ac0dfaabe497">getAngSetpoint</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_differential_controller.html#acde3f3c8e9fc03a22f2ce5f8e6cc8839">m_angSetpoint</a>;}</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="class_differential_controller.html#aaeb0737ce0a28dcbe878e10e0f80d443">  120</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_differential_controller.html#aaeb0737ce0a28dcbe878e10e0f80d443">getLinOutput</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_differential_controller.html#a9a9e172d333ca628aed915af912ee9a9">m_linVelOutput</a>;}</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a084d7ad75a545ef4fdf79fc1a2ae6317">  126</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_differential_controller.html#a084d7ad75a545ef4fdf79fc1a2ae6317">getAngOutput</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_differential_controller.html#ae393096686c636ede35ca4313e9b95ba">m_angVelOutput</a>;}</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a9d8e60d438488e302a1314b3c38770c5">  132</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_differential_controller.html#a9d8e60d438488e302a1314b3c38770c5">getAxleTrack</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_differential_controller.html#a0d5fd1c1181f631ef70dadd2b9e98697">m_axleTrack</a>;}</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_differential_controller.html#a55a6eefba969449152cc6e2e0efa9aaf">load</a>(<span class="keywordtype">int</span> address);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_differential_controller.html#acbf8ab1ad14725400ab7ce4fb7f794ad">save</a>(<span class="keywordtype">int</span> address) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_differential_controller.html#a8597663d4601cd0f2d413311e85e2ccc">process</a>(<span class="keywordtype">float</span> timestep);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_differential_controller.html#a5682f99aed806c4606103d7e3992245f">onProcessEnabling</a>();</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a4d7c08b5f63d7d064ef7b6c5477a0814">  161</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_differential_controller.html#a4d7c08b5f63d7d064ef7b6c5477a0814">m_linInput</a>; </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a6647496abaae44aac5fdea76137d4a2d">  162</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_differential_controller.html#a6647496abaae44aac5fdea76137d4a2d">m_angInput</a>; </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="class_differential_controller.html#acb8cf017b7739a5751d6a1ba1f7a9c20">  163</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_differential_controller.html#acb8cf017b7739a5751d6a1ba1f7a9c20">m_linSetpoint</a>; </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="class_differential_controller.html#acde3f3c8e9fc03a22f2ce5f8e6cc8839">  164</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_differential_controller.html#acde3f3c8e9fc03a22f2ce5f8e6cc8839">m_angSetpoint</a>; </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a0d5fd1c1181f631ef70dadd2b9e98697">  165</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_differential_controller.html#a0d5fd1c1181f631ef70dadd2b9e98697">m_axleTrack</a>; </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a9a9e172d333ca628aed915af912ee9a9">  167</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_differential_controller.html#a9a9e172d333ca628aed915af912ee9a9">m_linVelOutput</a>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="class_differential_controller.html#ae393096686c636ede35ca4313e9b95ba">  168</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_differential_controller.html#ae393096686c636ede35ca4313e9b95ba">m_angVelOutput</a>;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a6dfd394eac337a0cf45602f3df419ddf">  170</a></span>    <a class="code hl_class" href="class_abstract_motor.html">AbstractMotor</a>* <a class="code hl_variable" href="class_differential_controller.html#a6dfd394eac337a0cf45602f3df419ddf">m_leftWheel</a>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a3457583d2dedf6294754588aab2d7f24">  171</a></span>    <a class="code hl_class" href="class_abstract_motor.html">AbstractMotor</a>* <a class="code hl_variable" href="class_differential_controller.html#a3457583d2dedf6294754588aab2d7f24">m_rightWheel</a>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a10db21018e6d0ac265ac26613c8ab441">  172</a></span>    <a class="code hl_class" href="class_p_i_d.html">PID</a>* <a class="code hl_variable" href="class_differential_controller.html#a10db21018e6d0ac265ac26613c8ab441">m_linPID</a>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="class_differential_controller.html#a2e7b5f7dfd7cdd05c38fed991703c9cb">  173</a></span>    <a class="code hl_class" href="class_p_i_d.html">PID</a>* <a class="code hl_variable" href="class_differential_controller.html#a2e7b5f7dfd7cdd05c38fed991703c9cb">m_angPID</a>;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>};</div>
+</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">#endif </span><span class="comment">// __DIFFERENTIALCONTROLLER_H__</span></div>
+<div class="ttc" id="aclass_abstract_motor_html"><div class="ttname"><a href="class_abstract_motor.html">AbstractMotor</a></div><div class="ttdoc">Instance de moteur.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:14</div></div>
+<div class="ttc" id="aclass_abstract_motor_html_ac5c1960c11e5cfe2c4c1e206e79e5bf9"><div class="ttname"><a href="class_abstract_motor.html#ac5c1960c11e5cfe2c4c1e206e79e5bf9">AbstractMotor::setVelocity</a></div><div class="ttdeci">virtual void setVelocity(float velocity)=0</div><div class="ttdoc">Charge une nouvelle vitesse.</div></div>
+<div class="ttc" id="aclass_abstract_motor_html_acaed879fcb45e6abef565a03fd6f227d"><div class="ttname"><a href="class_abstract_motor.html#acaed879fcb45e6abef565a03fd6f227d">AbstractMotor::getMaxVelocity</a></div><div class="ttdeci">virtual float getMaxVelocity() const =0</div><div class="ttdoc">Retourne vitesse max.</div></div>
+<div class="ttc" id="aclass_abstract_motor_html_ad63b013a8df5e57f8ab6aee3eb1a7381"><div class="ttname"><a href="class_abstract_motor.html#ad63b013a8df5e57f8ab6aee3eb1a7381">AbstractMotor::~AbstractMotor</a></div><div class="ttdeci">virtual ~AbstractMotor()</div><div class="ttdoc">Constructeur d'AbstractMotor.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:21</div></div>
+<div class="ttc" id="aclass_differential_controller_html"><div class="ttname"><a href="class_differential_controller.html">DifferentialController</a></div><div class="ttdoc">Controle les moteurs.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:47</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a084d7ad75a545ef4fdf79fc1a2ae6317"><div class="ttname"><a href="class_differential_controller.html#a084d7ad75a545ef4fdf79fc1a2ae6317">DifferentialController::getAngOutput</a></div><div class="ttdeci">float getAngOutput() const</div><div class="ttdoc">Retour la commande angulaire actuel.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:126</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a0d5fd1c1181f631ef70dadd2b9e98697"><div class="ttname"><a href="class_differential_controller.html#a0d5fd1c1181f631ef70dadd2b9e98697">DifferentialController::m_axleTrack</a></div><div class="ttdeci">float m_axleTrack</div><div class="ttdef"><b>Definition</b> DifferentialController.h:165</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a10db21018e6d0ac265ac26613c8ab441"><div class="ttname"><a href="class_differential_controller.html#a10db21018e6d0ac265ac26613c8ab441">DifferentialController::m_linPID</a></div><div class="ttdeci">PID * m_linPID</div><div class="ttdef"><b>Definition</b> DifferentialController.h:172</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a2e47e4456e5462cc39e5e42d2abae27e"><div class="ttname"><a href="class_differential_controller.html#a2e47e4456e5462cc39e5e42d2abae27e">DifferentialController::getLinSetpoint</a></div><div class="ttdeci">float getLinSetpoint() const</div><div class="ttdoc">Retourne la vitesse demandée.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:106</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a2e7b5f7dfd7cdd05c38fed991703c9cb"><div class="ttname"><a href="class_differential_controller.html#a2e7b5f7dfd7cdd05c38fed991703c9cb">DifferentialController::m_angPID</a></div><div class="ttdeci">PID * m_angPID</div><div class="ttdef"><b>Definition</b> DifferentialController.h:173</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a3457583d2dedf6294754588aab2d7f24"><div class="ttname"><a href="class_differential_controller.html#a3457583d2dedf6294754588aab2d7f24">DifferentialController::m_rightWheel</a></div><div class="ttdeci">AbstractMotor * m_rightWheel</div><div class="ttdef"><b>Definition</b> DifferentialController.h:171</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a4c02655086ddf0a4802ed589a694f3fb"><div class="ttname"><a href="class_differential_controller.html#a4c02655086ddf0a4802ed589a694f3fb">DifferentialController::setWheels</a></div><div class="ttdeci">void setWheels(AbstractMotor &amp;leftWheel, AbstractMotor &amp;rightWheel)</div><div class="ttdoc">Charge les moteurs.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:90</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a4d7c08b5f63d7d064ef7b6c5477a0814"><div class="ttname"><a href="class_differential_controller.html#a4d7c08b5f63d7d064ef7b6c5477a0814">DifferentialController::m_linInput</a></div><div class="ttdeci">float m_linInput</div><div class="ttdef"><b>Definition</b> DifferentialController.h:161</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a55a6eefba969449152cc6e2e0efa9aaf"><div class="ttname"><a href="class_differential_controller.html#a55a6eefba969449152cc6e2e0efa9aaf">DifferentialController::load</a></div><div class="ttdeci">void load(int address)</div><div class="ttdoc">Charge les paramètres.</div><div class="ttdef"><b>Definition</b> DifferentialController.cpp:25</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a55b87d802aa851a846ebf14f47fa84c2"><div class="ttname"><a href="class_differential_controller.html#a55b87d802aa851a846ebf14f47fa84c2">DifferentialController::setInputs</a></div><div class="ttdeci">void setInputs(float linInput, float angInput)</div><div class="ttdoc">Charge les vitesses actuel.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:63</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a5682f99aed806c4606103d7e3992245f"><div class="ttname"><a href="class_differential_controller.html#a5682f99aed806c4606103d7e3992245f">DifferentialController::onProcessEnabling</a></div><div class="ttdeci">virtual void onProcessEnabling()</div><div class="ttdoc">Reset les accumulateurs des asserv.</div><div class="ttdef"><b>Definition</b> DifferentialController.cpp:19</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a6647496abaae44aac5fdea76137d4a2d"><div class="ttname"><a href="class_differential_controller.html#a6647496abaae44aac5fdea76137d4a2d">DifferentialController::m_angInput</a></div><div class="ttdeci">float m_angInput</div><div class="ttdef"><b>Definition</b> DifferentialController.h:162</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a6dfd394eac337a0cf45602f3df419ddf"><div class="ttname"><a href="class_differential_controller.html#a6dfd394eac337a0cf45602f3df419ddf">DifferentialController::m_leftWheel</a></div><div class="ttdeci">AbstractMotor * m_leftWheel</div><div class="ttdef"><b>Definition</b> DifferentialController.h:170</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a7768d8a091a8f49f4b85c526d89a16b6"><div class="ttname"><a href="class_differential_controller.html#a7768d8a091a8f49f4b85c526d89a16b6">DifferentialController::setSetpoints</a></div><div class="ttdeci">void setSetpoints(float linSetpoint, float angSetpoint)</div><div class="ttdoc">Charge les vitesses désirées.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:72</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a7ed62aafaed9cd64fde0ac0dfaabe497"><div class="ttname"><a href="class_differential_controller.html#a7ed62aafaed9cd64fde0ac0dfaabe497">DifferentialController::getAngSetpoint</a></div><div class="ttdeci">float getAngSetpoint() const</div><div class="ttdoc">Retourne la vitesse demandée.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:113</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a8597663d4601cd0f2d413311e85e2ccc"><div class="ttname"><a href="class_differential_controller.html#a8597663d4601cd0f2d413311e85e2ccc">DifferentialController::process</a></div><div class="ttdeci">virtual void process(float timestep)</div><div class="ttdoc">Calcul l'asservissement</div><div class="ttdef"><b>Definition</b> DifferentialController.cpp:8</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a93c82c46329b837a65e4cbda0cbb9854"><div class="ttname"><a href="class_differential_controller.html#a93c82c46329b837a65e4cbda0cbb9854">DifferentialController::setPID</a></div><div class="ttdeci">void setPID(PID &amp;linPID, PID &amp;angPID)</div><div class="ttdoc">Charge l'asservissement.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:99</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a9a9e172d333ca628aed915af912ee9a9"><div class="ttname"><a href="class_differential_controller.html#a9a9e172d333ca628aed915af912ee9a9">DifferentialController::m_linVelOutput</a></div><div class="ttdeci">float m_linVelOutput</div><div class="ttdef"><b>Definition</b> DifferentialController.h:167</div></div>
+<div class="ttc" id="aclass_differential_controller_html_a9d8e60d438488e302a1314b3c38770c5"><div class="ttname"><a href="class_differential_controller.html#a9d8e60d438488e302a1314b3c38770c5">DifferentialController::getAxleTrack</a></div><div class="ttdeci">float getAxleTrack() const</div><div class="ttdoc">Retourne l'entraxe.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:132</div></div>
+<div class="ttc" id="aclass_differential_controller_html_aaeb0737ce0a28dcbe878e10e0f80d443"><div class="ttname"><a href="class_differential_controller.html#aaeb0737ce0a28dcbe878e10e0f80d443">DifferentialController::getLinOutput</a></div><div class="ttdeci">float getLinOutput() const</div><div class="ttdoc">Retour la commande linéaire actuel.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:120</div></div>
+<div class="ttc" id="aclass_differential_controller_html_abe1b59650832e54e3f99a5dd06815977"><div class="ttname"><a href="class_differential_controller.html#abe1b59650832e54e3f99a5dd06815977">DifferentialController::DifferentialController</a></div><div class="ttdeci">DifferentialController()</div><div class="ttdoc">Constructeur de DifferentialController Constructeur de DifferentialController qui initialise les vari...</div><div class="ttdef"><b>Definition</b> DifferentialController.h:53</div></div>
+<div class="ttc" id="aclass_differential_controller_html_acb8cf017b7739a5751d6a1ba1f7a9c20"><div class="ttname"><a href="class_differential_controller.html#acb8cf017b7739a5751d6a1ba1f7a9c20">DifferentialController::m_linSetpoint</a></div><div class="ttdeci">float m_linSetpoint</div><div class="ttdef"><b>Definition</b> DifferentialController.h:163</div></div>
+<div class="ttc" id="aclass_differential_controller_html_acbf8ab1ad14725400ab7ce4fb7f794ad"><div class="ttname"><a href="class_differential_controller.html#acbf8ab1ad14725400ab7ce4fb7f794ad">DifferentialController::save</a></div><div class="ttdeci">void save(int address) const</div><div class="ttdoc">Sauvegarde les paramètres.</div><div class="ttdef"><b>Definition</b> DifferentialController.cpp:30</div></div>
+<div class="ttc" id="aclass_differential_controller_html_acde3f3c8e9fc03a22f2ce5f8e6cc8839"><div class="ttname"><a href="class_differential_controller.html#acde3f3c8e9fc03a22f2ce5f8e6cc8839">DifferentialController::m_angSetpoint</a></div><div class="ttdeci">float m_angSetpoint</div><div class="ttdef"><b>Definition</b> DifferentialController.h:164</div></div>
+<div class="ttc" id="aclass_differential_controller_html_ae393096686c636ede35ca4313e9b95ba"><div class="ttname"><a href="class_differential_controller.html#ae393096686c636ede35ca4313e9b95ba">DifferentialController::m_angVelOutput</a></div><div class="ttdeci">float m_angVelOutput</div><div class="ttdef"><b>Definition</b> DifferentialController.h:168</div></div>
+<div class="ttc" id="aclass_differential_controller_html_aecf1d9bcec79e50b87349d93acce8629"><div class="ttname"><a href="class_differential_controller.html#aecf1d9bcec79e50b87349d93acce8629">DifferentialController::setAxleTrack</a></div><div class="ttdeci">void setAxleTrack(float axleTrack)</div><div class="ttdoc">Charge l'entraxe.</div><div class="ttdef"><b>Definition</b> DifferentialController.cpp:35</div></div>
+<div class="ttc" id="aclass_p_i_d_html"><div class="ttname"><a href="class_p_i_d.html">PID</a></div><div class="ttdoc">Classe d'asservissement.</div><div class="ttdef"><b>Definition</b> PID.h:13</div></div>
+<div class="ttc" id="aclass_periodic_process_html"><div class="ttname"><a href="class_periodic_process.html">PeriodicProcess</a></div><div class="ttdoc">Classe à implémenter pour gérer les appels dans la loop.</div><div class="ttdef"><b>Definition</b> PeriodicProcess.h:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -5,4 +5,3 @@ build
 .vsocode/settings.json
 .venv
 raspberrypi/logs/dump/
-doc/html

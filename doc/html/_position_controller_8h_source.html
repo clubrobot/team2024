@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/PositionController/PositionController.h</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_e5db95e150018bcc3dfc1edc7ae4800d.html">LIBS</a></li><li class="navelem"><a class="el" href="dir_66ad5f74c23414a43fda982e8ac34f83.html">ARDUINO_LIBS</a></li><li class="navelem"><a class="el" href="dir_eae884c9935d0fcc00c8d1f9849c3296.html">PositionController</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">PositionController.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef __POSITIONCONTROLLER_H__</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define __POSITIONCONTROLLER_H__</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;PeriodicProcess.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Odometry.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span><a class="code hl_class" href="class_abstract_move_strategy.html">AbstractMoveStrategy</a>;</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_position_controller.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="class_position_controller.html">PositionController</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_periodic_process.html">PeriodicProcess</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_position_controller.html#ab49c2052df85bbd469374bde7b664e99">   25</a></span>    <a class="code hl_function" href="class_position_controller.html#ab49c2052df85bbd469374bde7b664e99">PositionController</a>() : m_linVelKp(1), m_angVelKp(1), m_linVelMax(1000), m_angVelMax(2 * M_PI){}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_position_controller.html#abab980696c93de1f8ed67c6d96724824">   31</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#abab980696c93de1f8ed67c6d96724824">setPosInput</a>   (<span class="keyword">const</span> <a class="code hl_struct" href="struct_position.html">Position</a>&amp; posInput)   {m_posInput    = posInput;}</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_position_controller.html#a5b0a91b65ea3793cc22be0ede70ba9db">   40</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#a5b0a91b65ea3793cc22be0ede70ba9db">setPosSetpoint</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_position.html">Position</a>&amp; posSetpoint){m_posSetpoint = posSetpoint;}</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_position_controller.html#a03c9bf5a1f9f367034de6a20c59f6fab">   49</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#a03c9bf5a1f9f367034de6a20c59f6fab">setThetaSetpoint</a>(<span class="keywordtype">float</span> theta){m_posSetpoint.<a class="code hl_variable" href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">theta</a> = theta;}</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_position_controller.html#abedcaf3db7e5be1b13f9b81431e7c88d">   57</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_position_controller.html#abedcaf3db7e5be1b13f9b81431e7c88d">getLinVelSetpoint</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_linVelSetpoint;}</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_position_controller.html#a661e49f4614050f6cbe81cf95ef70231">   65</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_position_controller.html#a661e49f4614050f6cbe81cf95ef70231">getAngVelSetpoint</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_angVelSetpoint;}</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#afb42dcd96814596d1c542e0746b476da">setVelTunings</a>(<span class="keywordtype">float</span> linVelKp, <span class="keywordtype">float</span> angVelKp);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#a5305fb6ae0859709966ad38b0f74c04b">setVelLimits</a>(<span class="keywordtype">float</span> linVelMax, <span class="keywordtype">float</span> angVelMax);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#ac86a8b7aef8c1adf9d7b21ba5bbeb299">setPosThresholds</a>(<span class="keywordtype">float</span> linPosThreshold, <span class="keywordtype">float</span> angPosThreshold);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#aa2409e437ff4122f60ab91ab35e23fe9">setMoveStrategy</a>(<a class="code hl_class" href="class_abstract_move_strategy.html">AbstractMoveStrategy</a>&amp; moveStrategy);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_position_controller.html#abae1f749777eafdb277fd6bf8e0c490b">getPositionReached</a>();</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="class_position_controller.html#a9c15cf6e6a9a4d623aa9df488bfb715f">  117</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_position_controller.html#a9c15cf6e6a9a4d623aa9df488bfb715f">getLinVelKp</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_linVelKp;}</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="class_position_controller.html#a708f4c8281f2a9cf2bf7da97664860f8">  122</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_position_controller.html#a708f4c8281f2a9cf2bf7da97664860f8">getAngVelKp</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_angVelKp;}</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="class_position_controller.html#a203ca6f8cd1717aa2f8b83577104c806">  127</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_position_controller.html#a203ca6f8cd1717aa2f8b83577104c806">getLinVelMax</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_linVelMax;}</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="class_position_controller.html#a1af800daa95964056c8791842bd05054">  132</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_position_controller.html#a1af800daa95964056c8791842bd05054">getAngVelMax</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_angVelMax;}</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="class_position_controller.html#af16eedd8b937e2ca81e5b8999b100081">  138</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_position_controller.html#af16eedd8b937e2ca81e5b8999b100081">getLinPosThreshold</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_linPosThreshold;}</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="class_position_controller.html#a3f89060bb173f7937ed7f39861c8a959">  144</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_position_controller.html#a3f89060bb173f7937ed7f39861c8a959">getAngPosThreshold</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_angPosThreshold;}</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#add194236e2981067c0d3b77b7ec06d9d">load</a>(<span class="keywordtype">int</span> address);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#aa0bb7468fae84614d2e21262da997338">save</a>(<span class="keywordtype">int</span> address) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> process(<span class="keywordtype">float</span> timestep);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onProcessEnabling();</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="comment">// IO</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <a class="code hl_struct" href="struct_position.html">Position</a> m_posInput;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <a class="code hl_struct" href="struct_position.html">Position</a> m_posSetpoint;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordtype">float</span> m_linVelSetpoint;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordtype">float</span> m_angVelSetpoint;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="comment">// Engineering control tunings</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordtype">float</span> m_linVelKp; </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordtype">float</span> m_angVelKp; </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordtype">float</span> m_linVelMax;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordtype">float</span> m_angVelMax;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordtype">float</span> m_linPosThreshold;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keywordtype">float</span> m_angPosThreshold;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="comment">// Strategy Design Pattern</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <a class="code hl_class" href="class_abstract_move_strategy.html">AbstractMoveStrategy</a>* m_moveStrategy;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_abstract_move_strategy.html">AbstractMoveStrategy</a>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>};</div>
+</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="foldopen" id="foldopen00196" data-start="{" data-end="};">
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html">  196</a></span><span class="keyword">class </span><a class="code hl_class" href="class_abstract_move_strategy.html">AbstractMoveStrategy</a></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>{</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html#a8bed0fd2cf5af27a7804d1be57823a24">  207</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_abstract_move_strategy.html#a8bed0fd2cf5af27a7804d1be57823a24">computeVelSetpoints</a>(<span class="keywordtype">float</span> timestep) = 0;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html#a36fbdf31d04778a013fbbd160ff2ed07">  216</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="class_abstract_move_strategy.html#a36fbdf31d04778a013fbbd160ff2ed07">getPositionReached</a>() = 0;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html#ac833928eb8dbfd75e119f7bd0c0ba636">  224</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="struct_position.html">Position</a>&amp; <a class="code hl_function" href="class_abstract_move_strategy.html#ac833928eb8dbfd75e119f7bd0c0ba636">getPosInput</a>()<span class="keyword">    const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a>-&gt;m_posInput;}</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html#aa6d458c1d2c57cf049945927ddc5ca52">  229</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="struct_position.html">Position</a>&amp; <a class="code hl_function" href="class_abstract_move_strategy.html#aa6d458c1d2c57cf049945927ddc5ca52">getPosSetpoint</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a>-&gt;m_posSetpoint;}</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html#a9be3e48b174c6f084e84af1e903c78a4">  236</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_abstract_move_strategy.html#a9be3e48b174c6f084e84af1e903c78a4">setVelSetpoints</a>(<span class="keywordtype">float</span> linVelSetpoint, <span class="keywordtype">float</span> angVelSetpoint){<a class="code hl_variable" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a>-&gt;m_linVelSetpoint = linVelSetpoint; <a class="code hl_variable" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a>-&gt;m_angVelSetpoint = angVelSetpoint;}</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html#ad2cdd59254831d777e276c053d93e507">  241</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_abstract_move_strategy.html#ad2cdd59254831d777e276c053d93e507">getLinVelKp</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a>-&gt;m_linVelKp;}</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html#a34e828c9189a02c92889a476254d95da">  247</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_abstract_move_strategy.html#a34e828c9189a02c92889a476254d95da">getAngVelKp</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a>-&gt;m_angVelKp;}</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html#a37f4a119ef96ba81c3621d6f640039b0">  253</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_abstract_move_strategy.html#a37f4a119ef96ba81c3621d6f640039b0">getLinVelMax</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a>-&gt;m_linVelMax;}</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html#a8e71820d1f3dfea99ec35cf3aaf1319a">  259</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_abstract_move_strategy.html#a8e71820d1f3dfea99ec35cf3aaf1319a">getAngVelMax</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a>-&gt;m_angVelMax;}</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html#a4ac627813184bbde3b3031c3575f260f">  266</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_abstract_move_strategy.html#a4ac627813184bbde3b3031c3575f260f">getLinPosThreshold</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a>-&gt;m_linPosThreshold;}</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html#aeb5f02ec6bc18993066712b728d901c5">  273</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_abstract_move_strategy.html#aeb5f02ec6bc18993066712b728d901c5">getAngPosThreshold</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a>-&gt;m_angPosThreshold;}</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">  277</a></span>    <a class="code hl_class" href="class_position_controller.html">PositionController</a>* <a class="code hl_variable" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a>;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_position_controller.html">PositionController</a>;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>};</div>
+</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="preprocessor">#endif </span><span class="comment">// __POSITIONCONTROLLER_H__</span></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html"><div class="ttname"><a href="class_abstract_move_strategy.html">AbstractMoveStrategy</a></div><div class="ttdoc">Interface de Stratégie de mouvement.</div><div class="ttdef"><b>Definition</b> PositionController.h:197</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_a0a0cc07cae1127a7d7dc454d240d48ba"><div class="ttname"><a href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">AbstractMoveStrategy::m_context</a></div><div class="ttdeci">PositionController * m_context</div><div class="ttdef"><b>Definition</b> PositionController.h:277</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_a34e828c9189a02c92889a476254d95da"><div class="ttname"><a href="class_abstract_move_strategy.html#a34e828c9189a02c92889a476254d95da">AbstractMoveStrategy::getAngVelKp</a></div><div class="ttdeci">float getAngVelKp() const</div><div class="ttdoc">Retourne le coef proportionnel de vitesse angulaire.</div><div class="ttdef"><b>Definition</b> PositionController.h:247</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_a36fbdf31d04778a013fbbd160ff2ed07"><div class="ttname"><a href="class_abstract_move_strategy.html#a36fbdf31d04778a013fbbd160ff2ed07">AbstractMoveStrategy::getPositionReached</a></div><div class="ttdeci">virtual bool getPositionReached()=0</div><div class="ttdoc">Indique si la position désirée est atteinte.</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_a37f4a119ef96ba81c3621d6f640039b0"><div class="ttname"><a href="class_abstract_move_strategy.html#a37f4a119ef96ba81c3621d6f640039b0">AbstractMoveStrategy::getLinVelMax</a></div><div class="ttdeci">float getLinVelMax() const</div><div class="ttdoc">Retourne vitesse linéaire max.</div><div class="ttdef"><b>Definition</b> PositionController.h:253</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_a4ac627813184bbde3b3031c3575f260f"><div class="ttname"><a href="class_abstract_move_strategy.html#a4ac627813184bbde3b3031c3575f260f">AbstractMoveStrategy::getLinPosThreshold</a></div><div class="ttdeci">float getLinPosThreshold() const</div><div class="ttdoc">Retourne la précision cartésienne à atteindre.</div><div class="ttdef"><b>Definition</b> PositionController.h:266</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_a8bed0fd2cf5af27a7804d1be57823a24"><div class="ttname"><a href="class_abstract_move_strategy.html#a8bed0fd2cf5af27a7804d1be57823a24">AbstractMoveStrategy::computeVelSetpoints</a></div><div class="ttdeci">virtual void computeVelSetpoints(float timestep)=0</div><div class="ttdoc">Calcul les nouvelles vitesses désirer.</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_a8e71820d1f3dfea99ec35cf3aaf1319a"><div class="ttname"><a href="class_abstract_move_strategy.html#a8e71820d1f3dfea99ec35cf3aaf1319a">AbstractMoveStrategy::getAngVelMax</a></div><div class="ttdeci">float getAngVelMax() const</div><div class="ttdoc">Retourne vitesse angulaire max.</div><div class="ttdef"><b>Definition</b> PositionController.h:259</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_a9be3e48b174c6f084e84af1e903c78a4"><div class="ttname"><a href="class_abstract_move_strategy.html#a9be3e48b174c6f084e84af1e903c78a4">AbstractMoveStrategy::setVelSetpoints</a></div><div class="ttdeci">void setVelSetpoints(float linVelSetpoint, float angVelSetpoint)</div><div class="ttdoc">Charge une nouvelle vitesse pour le robot.</div><div class="ttdef"><b>Definition</b> PositionController.h:236</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_aa6d458c1d2c57cf049945927ddc5ca52"><div class="ttname"><a href="class_abstract_move_strategy.html#aa6d458c1d2c57cf049945927ddc5ca52">AbstractMoveStrategy::getPosSetpoint</a></div><div class="ttdeci">const Position &amp; getPosSetpoint() const</div><div class="ttdoc">Retourne la position à atteindre.</div><div class="ttdef"><b>Definition</b> PositionController.h:229</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_ac833928eb8dbfd75e119f7bd0c0ba636"><div class="ttname"><a href="class_abstract_move_strategy.html#ac833928eb8dbfd75e119f7bd0c0ba636">AbstractMoveStrategy::getPosInput</a></div><div class="ttdeci">const Position &amp; getPosInput() const</div><div class="ttdoc">Retourne la position du robot.</div><div class="ttdef"><b>Definition</b> PositionController.h:224</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_ad2cdd59254831d777e276c053d93e507"><div class="ttname"><a href="class_abstract_move_strategy.html#ad2cdd59254831d777e276c053d93e507">AbstractMoveStrategy::getLinVelKp</a></div><div class="ttdeci">float getLinVelKp() const</div><div class="ttdoc">Retourne le coef proportionnel de vitesse linéaire.</div><div class="ttdef"><b>Definition</b> PositionController.h:241</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_aeb5f02ec6bc18993066712b728d901c5"><div class="ttname"><a href="class_abstract_move_strategy.html#aeb5f02ec6bc18993066712b728d901c5">AbstractMoveStrategy::getAngPosThreshold</a></div><div class="ttdeci">float getAngPosThreshold() const</div><div class="ttdoc">Retourne la précision angulaire à atteindre.</div><div class="ttdef"><b>Definition</b> PositionController.h:273</div></div>
+<div class="ttc" id="aclass_periodic_process_html"><div class="ttname"><a href="class_periodic_process.html">PeriodicProcess</a></div><div class="ttdoc">Classe à implémenter pour gérer les appels dans la loop.</div><div class="ttdef"><b>Definition</b> PeriodicProcess.h:16</div></div>
+<div class="ttc" id="aclass_position_controller_html"><div class="ttname"><a href="class_position_controller.html">PositionController</a></div><div class="ttdoc">Classe support des objets AbstractMoveStrategy.</div><div class="ttdef"><b>Definition</b> PositionController.h:19</div></div>
+<div class="ttc" id="aclass_position_controller_html_a03c9bf5a1f9f367034de6a20c59f6fab"><div class="ttname"><a href="class_position_controller.html#a03c9bf5a1f9f367034de6a20c59f6fab">PositionController::setThetaSetpoint</a></div><div class="ttdeci">void setThetaSetpoint(float theta)</div><div class="ttdoc">Charge l'angle à atteindre.</div><div class="ttdef"><b>Definition</b> PositionController.h:49</div></div>
+<div class="ttc" id="aclass_position_controller_html_a1af800daa95964056c8791842bd05054"><div class="ttname"><a href="class_position_controller.html#a1af800daa95964056c8791842bd05054">PositionController::getAngVelMax</a></div><div class="ttdeci">float getAngVelMax() const</div><div class="ttdoc">Retourne la vitesse max angulaire.</div><div class="ttdef"><b>Definition</b> PositionController.h:132</div></div>
+<div class="ttc" id="aclass_position_controller_html_a203ca6f8cd1717aa2f8b83577104c806"><div class="ttname"><a href="class_position_controller.html#a203ca6f8cd1717aa2f8b83577104c806">PositionController::getLinVelMax</a></div><div class="ttdeci">float getLinVelMax() const</div><div class="ttdoc">Retourne la vitesse max linéaire.</div><div class="ttdef"><b>Definition</b> PositionController.h:127</div></div>
+<div class="ttc" id="aclass_position_controller_html_a3f89060bb173f7937ed7f39861c8a959"><div class="ttname"><a href="class_position_controller.html#a3f89060bb173f7937ed7f39861c8a959">PositionController::getAngPosThreshold</a></div><div class="ttdeci">float getAngPosThreshold() const</div><div class="ttdoc">Retourne la précision angulaire.</div><div class="ttdef"><b>Definition</b> PositionController.h:144</div></div>
+<div class="ttc" id="aclass_position_controller_html_a5305fb6ae0859709966ad38b0f74c04b"><div class="ttname"><a href="class_position_controller.html#a5305fb6ae0859709966ad38b0f74c04b">PositionController::setVelLimits</a></div><div class="ttdeci">void setVelLimits(float linVelMax, float angVelMax)</div><div class="ttdoc">Paramètre les vitesses max.</div><div class="ttdef"><b>Definition</b> PositionController.cpp:63</div></div>
+<div class="ttc" id="aclass_position_controller_html_a5b0a91b65ea3793cc22be0ede70ba9db"><div class="ttname"><a href="class_position_controller.html#a5b0a91b65ea3793cc22be0ede70ba9db">PositionController::setPosSetpoint</a></div><div class="ttdeci">void setPosSetpoint(const Position &amp;posSetpoint)</div><div class="ttdoc">Charge la position à atteindre.</div><div class="ttdef"><b>Definition</b> PositionController.h:40</div></div>
+<div class="ttc" id="aclass_position_controller_html_a661e49f4614050f6cbe81cf95ef70231"><div class="ttname"><a href="class_position_controller.html#a661e49f4614050f6cbe81cf95ef70231">PositionController::getAngVelSetpoint</a></div><div class="ttdeci">float getAngVelSetpoint() const</div><div class="ttdoc">Retourne la vitesse angulaire à atteindre.</div><div class="ttdef"><b>Definition</b> PositionController.h:65</div></div>
+<div class="ttc" id="aclass_position_controller_html_a708f4c8281f2a9cf2bf7da97664860f8"><div class="ttname"><a href="class_position_controller.html#a708f4c8281f2a9cf2bf7da97664860f8">PositionController::getAngVelKp</a></div><div class="ttdeci">float getAngVelKp() const</div><div class="ttdoc">Retourne le coef proportionnel de vitesse angulaire.</div><div class="ttdef"><b>Definition</b> PositionController.h:122</div></div>
+<div class="ttc" id="aclass_position_controller_html_a9c15cf6e6a9a4d623aa9df488bfb715f"><div class="ttname"><a href="class_position_controller.html#a9c15cf6e6a9a4d623aa9df488bfb715f">PositionController::getLinVelKp</a></div><div class="ttdeci">float getLinVelKp() const</div><div class="ttdoc">Retourne le coef proportionnel de vitesse linéaire.</div><div class="ttdef"><b>Definition</b> PositionController.h:117</div></div>
+<div class="ttc" id="aclass_position_controller_html_aa0bb7468fae84614d2e21262da997338"><div class="ttname"><a href="class_position_controller.html#aa0bb7468fae84614d2e21262da997338">PositionController::save</a></div><div class="ttdeci">void save(int address) const</div><div class="ttdoc">Sauvegarde la configuration actuel.</div><div class="ttdef"><b>Definition</b> PositionController.cpp:42</div></div>
+<div class="ttc" id="aclass_position_controller_html_aa2409e437ff4122f60ab91ab35e23fe9"><div class="ttname"><a href="class_position_controller.html#aa2409e437ff4122f60ab91ab35e23fe9">PositionController::setMoveStrategy</a></div><div class="ttdeci">void setMoveStrategy(AbstractMoveStrategy &amp;moveStrategy)</div><div class="ttdoc">Charge une stratégie de mouvement.</div><div class="ttdef"><b>Definition</b> PositionController.cpp:8</div></div>
+<div class="ttc" id="aclass_position_controller_html_ab49c2052df85bbd469374bde7b664e99"><div class="ttname"><a href="class_position_controller.html#ab49c2052df85bbd469374bde7b664e99">PositionController::PositionController</a></div><div class="ttdeci">PositionController()</div><div class="ttdoc">Constructeur de PositionController Initialise les variables de PositionController à des valeurs neutr...</div><div class="ttdef"><b>Definition</b> PositionController.h:25</div></div>
+<div class="ttc" id="aclass_position_controller_html_abab980696c93de1f8ed67c6d96724824"><div class="ttname"><a href="class_position_controller.html#abab980696c93de1f8ed67c6d96724824">PositionController::setPosInput</a></div><div class="ttdeci">void setPosInput(const Position &amp;posInput)</div><div class="ttdoc">Charge les nouvelles positions du robot. Charge les nouvelles positions du robot pour les donner à un...</div><div class="ttdef"><b>Definition</b> PositionController.h:31</div></div>
+<div class="ttc" id="aclass_position_controller_html_abae1f749777eafdb277fd6bf8e0c490b"><div class="ttname"><a href="class_position_controller.html#abae1f749777eafdb277fd6bf8e0c490b">PositionController::getPositionReached</a></div><div class="ttdeci">bool getPositionReached()</div><div class="ttdoc">Indique si la position est atteinte.</div><div class="ttdef"><b>Definition</b> PositionController.cpp:25</div></div>
+<div class="ttc" id="aclass_position_controller_html_abedcaf3db7e5be1b13f9b81431e7c88d"><div class="ttname"><a href="class_position_controller.html#abedcaf3db7e5be1b13f9b81431e7c88d">PositionController::getLinVelSetpoint</a></div><div class="ttdeci">float getLinVelSetpoint() const</div><div class="ttdoc">Retourne la vitesse linéaire à atteindre.</div><div class="ttdef"><b>Definition</b> PositionController.h:57</div></div>
+<div class="ttc" id="aclass_position_controller_html_ac86a8b7aef8c1adf9d7b21ba5bbeb299"><div class="ttname"><a href="class_position_controller.html#ac86a8b7aef8c1adf9d7b21ba5bbeb299">PositionController::setPosThresholds</a></div><div class="ttdeci">void setPosThresholds(float linPosThreshold, float angPosThreshold)</div><div class="ttdoc">Paramètre les précisions en position.</div><div class="ttdef"><b>Definition</b> PositionController.cpp:68</div></div>
+<div class="ttc" id="aclass_position_controller_html_add194236e2981067c0d3b77b7ec06d9d"><div class="ttname"><a href="class_position_controller.html#add194236e2981067c0d3b77b7ec06d9d">PositionController::load</a></div><div class="ttdeci">void load(int address)</div><div class="ttdoc">Charge les configs.</div><div class="ttdef"><b>Definition</b> PositionController.cpp:32</div></div>
+<div class="ttc" id="aclass_position_controller_html_af16eedd8b937e2ca81e5b8999b100081"><div class="ttname"><a href="class_position_controller.html#af16eedd8b937e2ca81e5b8999b100081">PositionController::getLinPosThreshold</a></div><div class="ttdeci">float getLinPosThreshold() const</div><div class="ttdoc">Retourne la précision cartésienne.</div><div class="ttdef"><b>Definition</b> PositionController.h:138</div></div>
+<div class="ttc" id="aclass_position_controller_html_afb42dcd96814596d1c542e0746b476da"><div class="ttname"><a href="class_position_controller.html#afb42dcd96814596d1c542e0746b476da">PositionController::setVelTunings</a></div><div class="ttdeci">void setVelTunings(float linVelKp, float angVelKp)</div><div class="ttdoc">Paramètre les coéfficients linéaire.</div><div class="ttdef"><b>Definition</b> PositionController.cpp:58</div></div>
+<div class="ttc" id="astruct_position_html"><div class="ttname"><a href="struct_position.html">Position</a></div><div class="ttdoc">Structure de position.</div><div class="ttdef"><b>Definition</b> Odometry.h:14</div></div>
+<div class="ttc" id="astruct_position_html_a3e8a386e068bdd371587b5e299c321d3"><div class="ttname"><a href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">Position::theta</a></div><div class="ttdeci">float theta</div><div class="ttdef"><b>Definition</b> Odometry.h:33</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

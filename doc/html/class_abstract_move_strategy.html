@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence de la classe AbstractMoveStrategy</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="#friends">Amis</a> &#124;
+<a href="class_abstract_move_strategy-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la classe AbstractMoveStrategy<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Interface de Stratégie de mouvement.  
+ <a href="#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_position_controller_8h_source.html">PositionController.h</a>&gt;</code></p>
+
+<p>Dérivée par <a class="el" href="class_pure_pursuit.html">PurePursuit</a>, et <a class="el" href="class_turn_on_the_spot.html">TurnOnTheSpot</a>.</p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr class="memitem:a8bed0fd2cf5af27a7804d1be57823a24" id="r_a8bed0fd2cf5af27a7804d1be57823a24"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bed0fd2cf5af27a7804d1be57823a24">computeVelSetpoints</a> (float timestep)=0</td></tr>
+<tr class="memdesc:a8bed0fd2cf5af27a7804d1be57823a24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcul les nouvelles vitesses désirer.  <br /></td></tr>
+<tr class="separator:a8bed0fd2cf5af27a7804d1be57823a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36fbdf31d04778a013fbbd160ff2ed07" id="r_a36fbdf31d04778a013fbbd160ff2ed07"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36fbdf31d04778a013fbbd160ff2ed07">getPositionReached</a> ()=0</td></tr>
+<tr class="memdesc:a36fbdf31d04778a013fbbd160ff2ed07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si la position désirée est atteinte.  <br /></td></tr>
+<tr class="separator:a36fbdf31d04778a013fbbd160ff2ed07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac833928eb8dbfd75e119f7bd0c0ba636" id="r_ac833928eb8dbfd75e119f7bd0c0ba636"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_position.html">Position</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac833928eb8dbfd75e119f7bd0c0ba636">getPosInput</a> () const</td></tr>
+<tr class="memdesc:ac833928eb8dbfd75e119f7bd0c0ba636"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la position du robot.  <br /></td></tr>
+<tr class="separator:ac833928eb8dbfd75e119f7bd0c0ba636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6d458c1d2c57cf049945927ddc5ca52" id="r_aa6d458c1d2c57cf049945927ddc5ca52"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_position.html">Position</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6d458c1d2c57cf049945927ddc5ca52">getPosSetpoint</a> () const</td></tr>
+<tr class="memdesc:aa6d458c1d2c57cf049945927ddc5ca52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la position à atteindre.  <br /></td></tr>
+<tr class="separator:aa6d458c1d2c57cf049945927ddc5ca52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be3e48b174c6f084e84af1e903c78a4" id="r_a9be3e48b174c6f084e84af1e903c78a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9be3e48b174c6f084e84af1e903c78a4">setVelSetpoints</a> (float linVelSetpoint, float angVelSetpoint)</td></tr>
+<tr class="memdesc:a9be3e48b174c6f084e84af1e903c78a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une nouvelle vitesse pour le robot.  <br /></td></tr>
+<tr class="separator:a9be3e48b174c6f084e84af1e903c78a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2cdd59254831d777e276c053d93e507" id="r_ad2cdd59254831d777e276c053d93e507"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2cdd59254831d777e276c053d93e507">getLinVelKp</a> () const</td></tr>
+<tr class="memdesc:ad2cdd59254831d777e276c053d93e507"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le coef proportionnel de vitesse linéaire.  <br /></td></tr>
+<tr class="separator:ad2cdd59254831d777e276c053d93e507"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34e828c9189a02c92889a476254d95da" id="r_a34e828c9189a02c92889a476254d95da"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34e828c9189a02c92889a476254d95da">getAngVelKp</a> () const</td></tr>
+<tr class="memdesc:a34e828c9189a02c92889a476254d95da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le coef proportionnel de vitesse angulaire.  <br /></td></tr>
+<tr class="separator:a34e828c9189a02c92889a476254d95da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f4a119ef96ba81c3621d6f640039b0" id="r_a37f4a119ef96ba81c3621d6f640039b0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37f4a119ef96ba81c3621d6f640039b0">getLinVelMax</a> () const</td></tr>
+<tr class="memdesc:a37f4a119ef96ba81c3621d6f640039b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne vitesse linéaire max.  <br /></td></tr>
+<tr class="separator:a37f4a119ef96ba81c3621d6f640039b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e71820d1f3dfea99ec35cf3aaf1319a" id="r_a8e71820d1f3dfea99ec35cf3aaf1319a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e71820d1f3dfea99ec35cf3aaf1319a">getAngVelMax</a> () const</td></tr>
+<tr class="memdesc:a8e71820d1f3dfea99ec35cf3aaf1319a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne vitesse angulaire max.  <br /></td></tr>
+<tr class="separator:a8e71820d1f3dfea99ec35cf3aaf1319a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ac627813184bbde3b3031c3575f260f" id="r_a4ac627813184bbde3b3031c3575f260f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ac627813184bbde3b3031c3575f260f">getLinPosThreshold</a> () const</td></tr>
+<tr class="memdesc:a4ac627813184bbde3b3031c3575f260f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la précision cartésienne à atteindre.  <br /></td></tr>
+<tr class="separator:a4ac627813184bbde3b3031c3575f260f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb5f02ec6bc18993066712b728d901c5" id="r_aeb5f02ec6bc18993066712b728d901c5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb5f02ec6bc18993066712b728d901c5">getAngPosThreshold</a> () const</td></tr>
+<tr class="memdesc:aeb5f02ec6bc18993066712b728d901c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la précision angulaire à atteindre.  <br /></td></tr>
+<tr class="separator:aeb5f02ec6bc18993066712b728d901c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a0a0cc07cae1127a7d7dc454d240d48ba" id="r_a0a0cc07cae1127a7d7dc454d240d48ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_position_controller.html">PositionController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a></td></tr>
+<tr class="separator:a0a0cc07cae1127a7d7dc454d240d48ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Amis</h2></td></tr>
+<tr class="memitem:afb9c395504cd53645dcfc10c07f33551" id="r_afb9c395504cd53645dcfc10c07f33551"><td class="memItemLeft" align="right" valign="top"><a id="afb9c395504cd53645dcfc10c07f33551" name="afb9c395504cd53645dcfc10c07f33551"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>PositionController</b></td></tr>
+<tr class="separator:afb9c395504cd53645dcfc10c07f33551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Interface de Stratégie de mouvement. </p>
+<p>Interface à implémenter pour réaliser une classe de strategie de mouvement. </p>
+</div><h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a8bed0fd2cf5af27a7804d1be57823a24" name="a8bed0fd2cf5af27a7804d1be57823a24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bed0fd2cf5af27a7804d1be57823a24">&#9670;&#160;</a></span>computeVelSetpoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void AbstractMoveStrategy::computeVelSetpoints </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>timestep</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calcul les nouvelles vitesses désirer. </p>
+<p>Méthode à implémenter pour réaliser une <a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>. Cette méthode calcul à partir de la position du robot des vitesses à suivre pour le robot.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timestep</td><td>Temps depuis le dernier appel en secondes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implémenté dans <a class="el" href="class_pure_pursuit.html#a657a00d409067352855aa685b57c6f45">PurePursuit</a>, et <a class="el" href="class_turn_on_the_spot.html#a29bd9e885029a98234ead66e3429f8f5">TurnOnTheSpot</a>.</p>
+
+</div>
+</div>
+<a id="aeb5f02ec6bc18993066712b728d901c5" name="aeb5f02ec6bc18993066712b728d901c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb5f02ec6bc18993066712b728d901c5">&#9670;&#160;</a></span>getAngPosThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AbstractMoveStrategy::getAngPosThreshold </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la précision angulaire à atteindre. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Précision en rad. </dd></dl>
+
+</div>
+</div>
+<a id="a34e828c9189a02c92889a476254d95da" name="a34e828c9189a02c92889a476254d95da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34e828c9189a02c92889a476254d95da">&#9670;&#160;</a></span>getAngVelKp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AbstractMoveStrategy::getAngVelKp </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne le coef proportionnel de vitesse angulaire. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Coefficient proportionnel (sans unité). </dd></dl>
+
+</div>
+</div>
+<a id="a8e71820d1f3dfea99ec35cf3aaf1319a" name="a8e71820d1f3dfea99ec35cf3aaf1319a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e71820d1f3dfea99ec35cf3aaf1319a">&#9670;&#160;</a></span>getAngVelMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AbstractMoveStrategy::getAngVelMax </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne vitesse angulaire max. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Vitesse en rad/s. </dd></dl>
+
+</div>
+</div>
+<a id="a4ac627813184bbde3b3031c3575f260f" name="a4ac627813184bbde3b3031c3575f260f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ac627813184bbde3b3031c3575f260f">&#9670;&#160;</a></span>getLinPosThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AbstractMoveStrategy::getLinPosThreshold </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la précision cartésienne à atteindre. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Précision en mm. </dd></dl>
+
+</div>
+</div>
+<a id="ad2cdd59254831d777e276c053d93e507" name="ad2cdd59254831d777e276c053d93e507"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2cdd59254831d777e276c053d93e507">&#9670;&#160;</a></span>getLinVelKp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AbstractMoveStrategy::getLinVelKp </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne le coef proportionnel de vitesse linéaire. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Coefficient proportionnel (sans unité). </dd></dl>
+
+</div>
+</div>
+<a id="a37f4a119ef96ba81c3621d6f640039b0" name="a37f4a119ef96ba81c3621d6f640039b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37f4a119ef96ba81c3621d6f640039b0">&#9670;&#160;</a></span>getLinVelMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AbstractMoveStrategy::getLinVelMax </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne vitesse linéaire max. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Vitesse en mm/s. </dd></dl>
+
+</div>
+</div>
+<a id="ac833928eb8dbfd75e119f7bd0c0ba636" name="ac833928eb8dbfd75e119f7bd0c0ba636"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac833928eb8dbfd75e119f7bd0c0ba636">&#9670;&#160;</a></span>getPosInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_position.html">Position</a> &amp; AbstractMoveStrategy::getPosInput </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la position du robot. </p>
+<p>Retourne la position du robot stocker dans le <a class="el" href="class_position_controller.html" title="Classe support des objets AbstractMoveStrategy.">PositionController</a>.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>La position du robot sous la struct <a class="el" href="struct_position.html" title="Structure de position.">Position</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a36fbdf31d04778a013fbbd160ff2ed07" name="a36fbdf31d04778a013fbbd160ff2ed07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36fbdf31d04778a013fbbd160ff2ed07">&#9670;&#160;</a></span>getPositionReached()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool AbstractMoveStrategy::getPositionReached </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indique si la position désirée est atteinte. </p>
+<p>Calcul la distance entre la position du robot et la position désirée selon le mode de calcul de l'<a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>true Si la position est atteinte. </dd>
+<dd>
+false Si la position n'est pas atteinte. </dd></dl>
+
+<p>Implémenté dans <a class="el" href="class_pure_pursuit.html#a6613c320f3070a1dec4e1eed14455c4d">PurePursuit</a>, et <a class="el" href="class_turn_on_the_spot.html#ab0444ade286e304c426daff7c89273db">TurnOnTheSpot</a>.</p>
+
+</div>
+</div>
+<a id="aa6d458c1d2c57cf049945927ddc5ca52" name="aa6d458c1d2c57cf049945927ddc5ca52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6d458c1d2c57cf049945927ddc5ca52">&#9670;&#160;</a></span>getPosSetpoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_position.html">Position</a> &amp; AbstractMoveStrategy::getPosSetpoint </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la position à atteindre. </p>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="struct_position.html" title="Structure de position.">Position</a> à atteindre. </dd></dl>
+
+</div>
+</div>
+<a id="a9be3e48b174c6f084e84af1e903c78a4" name="a9be3e48b174c6f084e84af1e903c78a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9be3e48b174c6f084e84af1e903c78a4">&#9670;&#160;</a></span>setVelSetpoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AbstractMoveStrategy::setVelSetpoints </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>linVelSetpoint</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angVelSetpoint</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Charge une nouvelle vitesse pour le robot. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linVelSetpoint</td><td>Vitesse linéaire en mm/s. </td></tr>
+    <tr><td class="paramname">angVelSetpoint</td><td>Vitesse angulaire en rad/s. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="a0a0cc07cae1127a7d7dc454d240d48ba" name="a0a0cc07cae1127a7d7dc454d240d48ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a0cc07cae1127a7d7dc454d240d48ba">&#9670;&#160;</a></span>m_context</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_position_controller.html">PositionController</a>* AbstractMoveStrategy::m_context</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Pointeur du PositionControlleur associé. </p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/PositionController/<a class="el" href="_position_controller_8h_source.html">PositionController.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

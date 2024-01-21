@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence de la classe SerialTalking</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-static-methods">Fonctions membres publiques statiques</a> &#124;
+<a href="#pro-types">Types protégés</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="class_serial_talking-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la classe SerialTalking</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Object de communication serial avec un ordinateur.  
+ <a href="#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_serial_talking_8h_source.html">SerialTalking.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a6e8975da3548a812946907f2cc7aa392" id="r_a6e8975da3548a812946907f2cc7aa392"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e8975da3548a812946907f2cc7aa392">begin</a> (<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">Stream</a> &amp;stream)</td></tr>
+<tr class="memdesc:a6e8975da3548a812946907f2cc7aa392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le <a class="el" href="class_serial_talking.html" title="Object de communication serial avec un ordinateur.">SerialTalking</a> avec un Stream d'&lt;arduino.h&gt;.  <br /></td></tr>
+<tr class="separator:a6e8975da3548a812946907f2cc7aa392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bbffb616107d0f4bc69476e83132cbd" id="r_a9bbffb616107d0f4bc69476e83132cbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bbffb616107d0f4bc69476e83132cbd">bind</a> (byte <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">opcode</a>, functionPtr <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">instruction</a>)</td></tr>
+<tr class="memdesc:a9bbffb616107d0f4bc69476e83132cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associe une Instruction à un OPCODE.  <br /></td></tr>
+<tr class="separator:a9bbffb616107d0f4bc69476e83132cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a75fef80d7c1f5cf057e39a698fe452" id="r_a4a75fef80d7c1f5cf057e39a698fe452"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a75fef80d7c1f5cf057e39a698fe452">isConnected</a> () <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">const</a></td></tr>
+<tr class="memdesc:a4a75fef80d7c1f5cf057e39a698fe452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si <a class="el" href="class_serial_talking.html" title="Object de communication serial avec un ordinateur.">SerialTalking</a> est bien connecté au rasp. (avec handshake)  <br /></td></tr>
+<tr class="separator:a4a75fef80d7c1f5cf057e39a698fe452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4b00004545a44b9f77269fed88e49c" id="r_a0a4b00004545a44b9f77269fed88e49c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0a4b00004545a44b9f77269fed88e49c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">write</a> (const T &amp;val)</td></tr>
+<tr class="separator:a0a4b00004545a44b9f77269fed88e49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30d6d1fd3332cca03c710a53f9d4d2b8" id="r_a30d6d1fd3332cca03c710a53f9d4d2b8"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">typename</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a> &gt; </td></tr>
+<tr class="memitem:a30d6d1fd3332cca03c710a53f9d4d2b8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a30d6d1fd3332cca03c710a53f9d4d2b8">writeTable</a> (<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">const</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a> &amp;<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">val</a>)</td></tr>
+<tr class="separator:a30d6d1fd3332cca03c710a53f9d4d2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2769f5946de00536f1a6188f747dba6b" id="r_a2769f5946de00536f1a6188f747dba6b"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">typename</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a> &gt; </td></tr>
+<tr class="memitem:a2769f5946de00536f1a6188f747dba6b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2769f5946de00536f1a6188f747dba6b">readTable</a> (<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">const</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a> &amp;<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">data</a>, <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">const</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">uint16_t</a> &amp;<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">len</a>=<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">sizeof</a>(<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a>))</td></tr>
+<tr class="separator:a2769f5946de00536f1a6188f747dba6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff13c0bc38c52f914561f81583572c0a" id="r_aff13c0bc38c52f914561f81583572c0a"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">typename</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a> &gt; </td></tr>
+<tr class="memitem:aff13c0bc38c52f914561f81583572c0a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aff13c0bc38c52f914561f81583572c0a">read</a> ()</td></tr>
+<tr class="separator:aff13c0bc38c52f914561f81583572c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2a7434ea6524bb7c72cb42517b13855" id="r_ad2a7434ea6524bb7c72cb42517b13855"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2a7434ea6524bb7c72cb42517b13855">endTranfert</a> ()</td></tr>
+<tr class="separator:ad2a7434ea6524bb7c72cb42517b13855"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ab0914942328a7dde711ea4e1812984" id="r_a8ab0914942328a7dde711ea4e1812984"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ab0914942328a7dde711ea4e1812984">waitUntilConnected</a> (float timeout=-1)</td></tr>
+<tr class="memdesc:a8ab0914942328a7dde711ea4e1812984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode bloquante jusqu'à handshake avec le raspberry ou jusqu'au timeout.  <br /></td></tr>
+<tr class="separator:a8ab0914942328a7dde711ea4e1812984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dcc7b3300539c9bbc66b0e17155daad" id="r_a6dcc7b3300539c9bbc66b0e17155daad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dcc7b3300539c9bbc66b0e17155daad">getUUID</a> (<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">char</a> *uuid)</td></tr>
+<tr class="memdesc:a6dcc7b3300539c9bbc66b0e17155daad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit sur le pointeur l'UUID enregistré dans l'EEPROM de l'Arduino.  <br /></td></tr>
+<tr class="separator:a6dcc7b3300539c9bbc66b0e17155daad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aff797d4cdce8704e523871b6922baf" id="r_a4aff797d4cdce8704e523871b6922baf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4aff797d4cdce8704e523871b6922baf">setUUID</a> (<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">const</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">char</a> *uuid)</td></tr>
+<tr class="memdesc:a4aff797d4cdce8704e523871b6922baf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enregistre l'UUID dans l'EEPROM de l'Arduino.  <br /></td></tr>
+<tr class="separator:a4aff797d4cdce8704e523871b6922baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Fonctions membres publiques statiques</h2></td></tr>
+<tr class="memitem:a54dcbe9f36ead165aec66a1095b1ff1d" id="r_a54dcbe9f36ead165aec66a1095b1ff1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">static</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54dcbe9f36ead165aec66a1095b1ff1d">generateRandomUUID</a> (<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">char</a> *uuid, <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">int</a> length)</td></tr>
+<tr class="memdesc:a54dcbe9f36ead165aec66a1095b1ff1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génère un UUID.  <br /></td></tr>
+<tr class="separator:a54dcbe9f36ead165aec66a1095b1ff1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-types" name="pro-types"></a>
+Types protégés</h2></td></tr>
+<tr class="memitem:a15ead0426519702f2ae6931e7326384f" id="r_a15ead0426519702f2ae6931e7326384f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#a15ead0426519702f2ae6931e7326384fa7682ce68645cb49126abc0a697d1478f">SERIALTALKING_ORDER</a>
+, <a class="el" href="#a15ead0426519702f2ae6931e7326384fada6271da0c9f2520a993029e1a7b2afd">SERIALTALKING_RETURN</a>
+ }</td></tr>
+<tr class="separator:a15ead0426519702f2ae6931e7326384f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a17cb46cd25e3231ec3949f0709ce0b6a" id="r_a17cb46cd25e3231ec3949f0709ce0b6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">Stream</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17cb46cd25e3231ec3949f0709ce0b6a">m_stream</a></td></tr>
+<tr class="separator:a17cb46cd25e3231ec3949f0709ce0b6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9867f285ab5d100d859a94a2677894e1" id="r_a9867f285ab5d100d859a94a2677894e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9867f285ab5d100d859a94a2677894e1">m_connected</a></td></tr>
+<tr class="separator:a9867f285ab5d100d859a94a2677894e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc7b1a5236e1471a1d04a0774638fa89" id="r_adc7b1a5236e1471a1d04a0774638fa89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc7b1a5236e1471a1d04a0774638fa89">m_bytesTX</a></td></tr>
+<tr class="memdesc:adc7b1a5236e1471a1d04a0774638fa89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type de requête reçu.  <br /></td></tr>
+<tr class="separator:adc7b1a5236e1471a1d04a0774638fa89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1d398b8b2d1dd86481d1c0f991e7896" id="r_ab1d398b8b2d1dd86481d1c0f991e7896"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1d398b8b2d1dd86481d1c0f991e7896">m_bytesRX</a></td></tr>
+<tr class="separator:ab1d398b8b2d1dd86481d1c0f991e7896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c16144673637c116fed1c1aff4c4d3d" id="r_a0c16144673637c116fed1c1aff4c4d3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">long</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c16144673637c116fed1c1aff4c4d3d">m_lastTime</a></td></tr>
+<tr class="separator:a0c16144673637c116fed1c1aff4c4d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Object de communication serial avec un ordinateur. </p>
+<p>class <a class="el" href="class_serial_talking.html" title="Object de communication serial avec un ordinateur.">SerialTalking</a> </p><dl class="section author"><dt>Auteur</dt><dd>Negrache Gibril </dd>
+<dd>
+Hilkens Boris est un outil permettant à l'arduino de pouvoir répondre aux requêtes recu depuis le serial. Il utilise donc le port serial (unsb) pour envoyer ou recevoir des données avec l'ordinateur ou la raspberry La classe est capable de lancer des methodes sur demande de l'ordinateur ou de la raspberry. Très inspiré de serialTalks mais mieux 👈(ﾟヮﾟ👈) </dd></dl>
+</div><h2 class="groupheader">Documentation des énumérations membres</h2>
+<a id="a15ead0426519702f2ae6931e7326384f" name="a15ead0426519702f2ae6931e7326384f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15ead0426519702f2ae6931e7326384f">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">anonymous</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">enum</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a15ead0426519702f2ae6931e7326384fa7682ce68645cb49126abc0a697d1478f" name="a15ead0426519702f2ae6931e7326384fa7682ce68645cb49126abc0a697d1478f"></a>SERIALTALKING_ORDER&#160;</td><td class="fielddoc"><p>Requête reçu de la raspberry. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a15ead0426519702f2ae6931e7326384fada6271da0c9f2520a993029e1a7b2afd" name="a15ead0426519702f2ae6931e7326384fada6271da0c9f2520a993029e1a7b2afd"></a>SERIALTALKING_RETURN&#160;</td><td class="fielddoc"><p>Retour de requête. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a6e8975da3548a812946907f2cc7aa392" name="a6e8975da3548a812946907f2cc7aa392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e8975da3548a812946907f2cc7aa392">&#9670;&#160;</a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">void</a> SerialTalking::begin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">Stream</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>stream</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise le <a class="el" href="class_serial_talking.html" title="Object de communication serial avec un ordinateur.">SerialTalking</a> avec un Stream d'&lt;arduino.h&gt;. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>Flux à associer pour la communication de <a class="el" href="class_serial_talking.html" title="Object de communication serial avec un ordinateur.">SerialTalking</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9bbffb616107d0f4bc69476e83132cbd" name="a9bbffb616107d0f4bc69476e83132cbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bbffb616107d0f4bc69476e83132cbd">&#9670;&#160;</a></span>bind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">void</a> SerialTalking::bind </td>
+          <td>(</td>
+          <td class="paramtype">byte</td>          <td class="paramname"><span class="paramname"><em>opcode</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">functionPtr</td>          <td class="paramname"><span class="paramname"><em>instruction</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Associe une Instruction à un OPCODE. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">opcode</td><td>Code à associer à la fonction. </td></tr>
+    <tr><td class="paramname">instruction</td><td>Fonction à répertorier dans <a class="el" href="class_serial_talking.html" title="Object de communication serial avec un ordinateur.">SerialTalking</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad2a7434ea6524bb7c72cb42517b13855" name="ad2a7434ea6524bb7c72cb42517b13855"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2a7434ea6524bb7c72cb42517b13855">&#9670;&#160;</a></span>endTranfert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">void</a> SerialTalking::endTranfert </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Envoie toutes les données du buffer transfert </p>
+
+</div>
+</div>
+<a id="a54dcbe9f36ead165aec66a1095b1ff1d" name="a54dcbe9f36ead165aec66a1095b1ff1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54dcbe9f36ead165aec66a1095b1ff1d">&#9670;&#160;</a></span>generateRandomUUID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">void</a> SerialTalking::generateRandomUUID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">char</a> *</td>          <td class="paramname"><span class="paramname"><em>uuid</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">int</a></td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Génère un UUID. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uuid</td><td>Pointeur pour renvoyer l'UUID. </td></tr>
+    <tr><td class="paramname">length</td><td>Longueur en octet de l'UUID à générer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6dcc7b3300539c9bbc66b0e17155daad" name="a6dcc7b3300539c9bbc66b0e17155daad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dcc7b3300539c9bbc66b0e17155daad">&#9670;&#160;</a></span>getUUID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">bool</a> SerialTalking::getUUID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">char</a> *</td>          <td class="paramname"><span class="paramname"><em>uuid</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ecrit sur le pointeur l'UUID enregistré dans l'EEPROM de l'Arduino. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uuid</td><td>Pointeur à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Vrai si il existe bien un UUID. </dd></dl>
+
+</div>
+</div>
+<a id="a4a75fef80d7c1f5cf057e39a698fe452" name="a4a75fef80d7c1f5cf057e39a698fe452"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a75fef80d7c1f5cf057e39a698fe452">&#9670;&#160;</a></span>isConnected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">bool</a> SerialTalking::isConnected </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indique si <a class="el" href="class_serial_talking.html" title="Object de communication serial avec un ordinateur.">SerialTalking</a> est bien connecté au rasp. (avec handshake) </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Vrai si le stream est connecté. </dd></dl>
+
+</div>
+</div>
+<a id="aff13c0bc38c52f914561f81583572c0a" name="aff13c0bc38c52f914561f81583572c0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff13c0bc38c52f914561f81583572c0a">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">typename</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a> SerialTalking::read </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Recoit une valeur et la retourne </p>
+
+</div>
+</div>
+<a id="a2769f5946de00536f1a6188f747dba6b" name="a2769f5946de00536f1a6188f747dba6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2769f5946de00536f1a6188f747dba6b">&#9670;&#160;</a></span>readTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">typename</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">void</a> SerialTalking::readTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">const</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">const</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">uint16_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>len</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">sizeof</a>(<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a>)</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Recois une liste de même donnée </p>
+
+</div>
+</div>
+<a id="a4aff797d4cdce8704e523871b6922baf" name="a4aff797d4cdce8704e523871b6922baf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aff797d4cdce8704e523871b6922baf">&#9670;&#160;</a></span>setUUID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">bool</a> SerialTalking::setUUID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">const</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">char</a> *</td>          <td class="paramname"><span class="paramname"><em>uuid</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enregistre l'UUID dans l'EEPROM de l'Arduino. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uuid</td><td>Pointeur de l'UUID à enregistrer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8ab0914942328a7dde711ea4e1812984" name="a8ab0914942328a7dde711ea4e1812984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ab0914942328a7dde711ea4e1812984">&#9670;&#160;</a></span>waitUntilConnected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">bool</a> SerialTalking::waitUntilConnected </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>timeout</em><span class="paramdefsep"> = </span><span class="paramdefval">-1</span></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode bloquante jusqu'à handshake avec le raspberry ou jusqu'au timeout. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Timeout pour la méthode </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Vrai si le Stream est connecté. </dd></dl>
+
+</div>
+</div>
+<a id="a0a4b00004545a44b9f77269fed88e49c" name="a0a4b00004545a44b9f77269fed88e49c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4b00004545a44b9f77269fed88e49c">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialTalking::write </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Ajoute un objet au buffer serial transfert </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>valeur à ajouter </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a30d6d1fd3332cca03c710a53f9d4d2b8" name="a30d6d1fd3332cca03c710a53f9d4d2b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30d6d1fd3332cca03c710a53f9d4d2b8">&#9670;&#160;</a></span>writeTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">typename</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">void</a> SerialTalking::writeTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">const</a> <a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">T</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Ajoute un buffer au buffer serial transfert </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>valeur à ajouter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>taille max du tableau est de 255 élément (suffisant mdr) </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="ab1d398b8b2d1dd86481d1c0f991e7896" name="ab1d398b8b2d1dd86481d1c0f991e7896"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1d398b8b2d1dd86481d1c0f991e7896">&#9670;&#160;</a></span>m_bytesRX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">uint16_t</a> SerialTalking::m_bytesRX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Variable d'incrementation pour la réception de données. </p>
+
+</div>
+</div>
+<a id="adc7b1a5236e1471a1d04a0774638fa89" name="adc7b1a5236e1471a1d04a0774638fa89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc7b1a5236e1471a1d04a0774638fa89">&#9670;&#160;</a></span>m_bytesTX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">uint16_t</a> SerialTalking::m_bytesTX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Type de requête reçu. </p>
+<p>Variable pour la réception de données qui correspond à la longueur de la requête en bytes (valeur donnée dans le deuxième byte d'une requête). </p>
+
+</div>
+</div>
+<a id="a9867f285ab5d100d859a94a2677894e1" name="a9867f285ab5d100d859a94a2677894e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9867f285ab5d100d859a94a2677894e1">&#9670;&#160;</a></span>m_connected</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">bool</a> SerialTalking::m_connected</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Représente l'état de connection. </p>
+
+</div>
+</div>
+<a id="a0c16144673637c116fed1c1aff4c4d3d" name="a0c16144673637c116fed1c1aff4c4d3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c16144673637c116fed1c1aff4c4d3d">&#9670;&#160;</a></span>m_lastTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">long</a> SerialTalking::m_lastTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Timeout pour la réception d'octets d'une même requête. </p>
+
+</div>
+</div>
+<a id="a17cb46cd25e3231ec3949f0709ce0b6a" name="a17cb46cd25e3231ec3949f0709ce0b6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17cb46cd25e3231ec3949f0709ce0b6a">&#9670;&#160;</a></span>m_stream</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0a4b00004545a44b9f77269fed88e49c">Stream</a>* SerialTalking::m_stream</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stream de communication utilisé par <a class="el" href="class_serial_talking.html" title="Object de communication serial avec un ordinateur.">SerialTalking</a>. </p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/SerialTalking/<a class="el" href="_serial_talking_8h_source.html">SerialTalking.h</a></li>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/SerialTalking/<b>SerialTalking.cpp</b></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

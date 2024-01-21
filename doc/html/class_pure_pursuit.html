@@ -1,0 +1,1006 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence de la classe PurePursuit</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Types publics</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="class_pure_pursuit-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la classe PurePursuit</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Trajectoire courbe le long d'une ligne brisée.  
+ <a href="#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_pure_pursuit_8h_source.html">PurePursuit.h</a>&gt;</code></p>
+
+<p>Est dérivée de <a class="el" href="class_abstract_move_strategy.html">AbstractMoveStrategy</a>.</p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure d'un point de passage de Purpursuit.  <a href="struct_pure_pursuit_1_1_waypoint.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Types publics</h2></td></tr>
+<tr class="memitem:a584048cfe1c7e025425011986b410019" id="r_a584048cfe1c7e025425011986b410019"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a584048cfe1c7e025425011986b410019">Direction</a> { <a class="el" href="#a584048cfe1c7e025425011986b410019a4cc193c61baf499695ffe17a103be9a4">FORWARD</a> =1
+, <a class="el" href="#a584048cfe1c7e025425011986b410019a008e94f456df613c2c9cd7f328fa483f">BACKWARD</a> =-1
+ }</td></tr>
+<tr class="memdesc:a584048cfe1c7e025425011986b410019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sens de déplacement pour le robot.  <a href="#a584048cfe1c7e025425011986b410019">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a584048cfe1c7e025425011986b410019"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a5f44936749173662c63f1ce60bcf5e68" id="r_a5f44936749173662c63f1ce60bcf5e68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f44936749173662c63f1ce60bcf5e68">setDirection</a> (<a class="el" href="#a584048cfe1c7e025425011986b410019">Direction</a> direction)</td></tr>
+<tr class="memdesc:a5f44936749173662c63f1ce60bcf5e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter du sens de marche du robot.  <br /></td></tr>
+<tr class="separator:a5f44936749173662c63f1ce60bcf5e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a133b1a688e0f753d791ef8d605f0510b" id="r_a133b1a688e0f753d791ef8d605f0510b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a133b1a688e0f753d791ef8d605f0510b">setFinalAngle</a> (float finalAngle)</td></tr>
+<tr class="memdesc:a133b1a688e0f753d791ef8d605f0510b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter de l'angle à atteindre en fin de trajectoire.  <br /></td></tr>
+<tr class="separator:a133b1a688e0f753d791ef8d605f0510b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8672a8ae53efe3e706f5e00e94f2554b" id="r_a8672a8ae53efe3e706f5e00e94f2554b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8672a8ae53efe3e706f5e00e94f2554b">addWaypoint</a> (const <a class="el" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a> &amp;waypoint)</td></tr>
+<tr class="memdesc:a8672a8ae53efe3e706f5e00e94f2554b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajout un point en fin de ligne brisée.  <br /></td></tr>
+<tr class="separator:a8672a8ae53efe3e706f5e00e94f2554b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fbc8b6d8116a373a438f3795f255559" id="r_a7fbc8b6d8116a373a438f3795f255559"><td class="memItemLeft" align="right" valign="top"><a id="a7fbc8b6d8116a373a438f3795f255559" name="a7fbc8b6d8116a373a438f3795f255559"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
+<tr class="memdesc:a7fbc8b6d8116a373a438f3795f255559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le Purpuisuit. Supprime les points de la ligne brisée et les paramètres temporaires. <br /></td></tr>
+<tr class="separator:a7fbc8b6d8116a373a438f3795f255559"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80a78ae6251f346b2320f24a7088b20b" id="r_a80a78ae6251f346b2320f24a7088b20b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80a78ae6251f346b2320f24a7088b20b">setLookAhead</a> (float lookAhead)</td></tr>
+<tr class="memdesc:a80a78ae6251f346b2320f24a7088b20b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter du lookAhead.  <br /></td></tr>
+<tr class="separator:a80a78ae6251f346b2320f24a7088b20b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acea4a27e9a15b22c035df1bfd3fbea6d" id="r_acea4a27e9a15b22c035df1bfd3fbea6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acea4a27e9a15b22c035df1bfd3fbea6d">setLookAheadBis</a> (float lookAheadBis)</td></tr>
+<tr class="memdesc:acea4a27e9a15b22c035df1bfd3fbea6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter du lookAheadBis.  <br /></td></tr>
+<tr class="separator:acea4a27e9a15b22c035df1bfd3fbea6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d9fdb1befa08614df6822988a85ec2a" id="r_a0d9fdb1befa08614df6822988a85ec2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a584048cfe1c7e025425011986b410019">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d9fdb1befa08614df6822988a85ec2a">getDirection</a> () const</td></tr>
+<tr class="memdesc:a0d9fdb1befa08614df6822988a85ec2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter de la direction courant.  <br /></td></tr>
+<tr class="separator:a0d9fdb1befa08614df6822988a85ec2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1209f3fec00042c0ae826c115e4fd472" id="r_a1209f3fec00042c0ae826c115e4fd472"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1209f3fec00042c0ae826c115e4fd472">getFinalAngle</a> () const</td></tr>
+<tr class="memdesc:a1209f3fec00042c0ae826c115e4fd472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter de l'angle final.  <br /></td></tr>
+<tr class="separator:a1209f3fec00042c0ae826c115e4fd472"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad650949b0a832f48159c712542a3378f" id="r_ad650949b0a832f48159c712542a3378f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad650949b0a832f48159c712542a3378f">getWaypoint</a> (int index) const</td></tr>
+<tr class="memdesc:ad650949b0a832f48159c712542a3378f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter d'un point de passage.  <br /></td></tr>
+<tr class="separator:ad650949b0a832f48159c712542a3378f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a190eec1c08b1b44777b2125de448057c" id="r_a190eec1c08b1b44777b2125de448057c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a190eec1c08b1b44777b2125de448057c">getNumWaypoints</a> () const</td></tr>
+<tr class="memdesc:a190eec1c08b1b44777b2125de448057c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter du nombre de point de passage.  <br /></td></tr>
+<tr class="separator:a190eec1c08b1b44777b2125de448057c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a549f1a5d25d08e3bf2b697483bd76f51" id="r_a549f1a5d25d08e3bf2b697483bd76f51"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a549f1a5d25d08e3bf2b697483bd76f51">getLookAhead</a> () const</td></tr>
+<tr class="memdesc:a549f1a5d25d08e3bf2b697483bd76f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter du lookahead.  <br /></td></tr>
+<tr class="separator:a549f1a5d25d08e3bf2b697483bd76f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a662353150619ad27bf3d9c5969a541f6" id="r_a662353150619ad27bf3d9c5969a541f6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a662353150619ad27bf3d9c5969a541f6">getLookAheadBis</a> () const</td></tr>
+<tr class="memdesc:a662353150619ad27bf3d9c5969a541f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter du LookAHead de fin de trajectoire.  <br /></td></tr>
+<tr class="separator:a662353150619ad27bf3d9c5969a541f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49e7628388bece06e169f9f8ff6e4841" id="r_a49e7628388bece06e169f9f8ff6e4841"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49e7628388bece06e169f9f8ff6e4841">load</a> (int address)</td></tr>
+<tr class="memdesc:a49e7628388bece06e169f9f8ff6e4841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les paramètres sauvegardés.  <br /></td></tr>
+<tr class="separator:a49e7628388bece06e169f9f8ff6e4841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94307f2ba363cdae9566f63cdb9f811b" id="r_a94307f2ba363cdae9566f63cdb9f811b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94307f2ba363cdae9566f63cdb9f811b">save</a> (int address) const</td></tr>
+<tr class="memdesc:a94307f2ba363cdae9566f63cdb9f811b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde les paramètres actuels.  <br /></td></tr>
+<tr class="separator:a94307f2ba363cdae9566f63cdb9f811b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr class="memitem:a657a00d409067352855aa685b57c6f45" id="r_a657a00d409067352855aa685b57c6f45"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a657a00d409067352855aa685b57c6f45">computeVelSetpoints</a> (float timestep)</td></tr>
+<tr class="memdesc:a657a00d409067352855aa685b57c6f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcul les nouvelles vitesses désirer.  <br /></td></tr>
+<tr class="separator:a657a00d409067352855aa685b57c6f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6613c320f3070a1dec4e1eed14455c4d" id="r_a6613c320f3070a1dec4e1eed14455c4d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6613c320f3070a1dec4e1eed14455c4d">getPositionReached</a> ()</td></tr>
+<tr class="memdesc:a6613c320f3070a1dec4e1eed14455c4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si la position désirée est atteinte.  <br /></td></tr>
+<tr class="separator:a6613c320f3070a1dec4e1eed14455c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a317d5860811b40f40909bef6cc6d8f19" id="r_a317d5860811b40f40909bef6cc6d8f19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a317d5860811b40f40909bef6cc6d8f19">checkLookAheadGoal</a> (const float x, const float y)</td></tr>
+<tr class="memdesc:a317d5860811b40f40909bef6cc6d8f19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcul le point intermediaire sur la ligne brisée.  <br /></td></tr>
+<tr class="separator:a317d5860811b40f40909bef6cc6d8f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10ddd92e112e6fc7ab5e7d817ffd9fa9" id="r_a10ddd92e112e6fc7ab5e7d817ffd9fa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10ddd92e112e6fc7ab5e7d817ffd9fa9">checkProjectionGoal</a> (const float x, const float y)</td></tr>
+<tr class="memdesc:a10ddd92e112e6fc7ab5e7d817ffd9fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule le point intermediaire sur la ligne brisée.  <br /></td></tr>
+<tr class="separator:a10ddd92e112e6fc7ab5e7d817ffd9fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae777318b78fb671d7c4a7bfdb7a8bb6c" id="r_ae777318b78fb671d7c4a7bfdb7a8bb6c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae777318b78fb671d7c4a7bfdb7a8bb6c">getDistAfterGoal</a> ()</td></tr>
+<tr class="memdesc:ae777318b78fb671d7c4a7bfdb7a8bb6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la distance restante à parcourir.  <br /></td></tr>
+<tr class="separator:ae777318b78fb671d7c4a7bfdb7a8bb6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_class_abstract_move_strategy"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_abstract_move_strategy')"><img src="closed.png" alt="-"/>&#160;Fonctions membres protégées hérités de <a class="el" href="class_abstract_move_strategy.html">AbstractMoveStrategy</a></td></tr>
+<tr class="memitem:ac833928eb8dbfd75e119f7bd0c0ba636 inherit pro_methods_class_abstract_move_strategy" id="r_ac833928eb8dbfd75e119f7bd0c0ba636"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_position.html">Position</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_move_strategy.html#ac833928eb8dbfd75e119f7bd0c0ba636">getPosInput</a> () const</td></tr>
+<tr class="memdesc:ac833928eb8dbfd75e119f7bd0c0ba636 inherit pro_methods_class_abstract_move_strategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la position du robot.  <br /></td></tr>
+<tr class="separator:ac833928eb8dbfd75e119f7bd0c0ba636 inherit pro_methods_class_abstract_move_strategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6d458c1d2c57cf049945927ddc5ca52 inherit pro_methods_class_abstract_move_strategy" id="r_aa6d458c1d2c57cf049945927ddc5ca52"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_position.html">Position</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_move_strategy.html#aa6d458c1d2c57cf049945927ddc5ca52">getPosSetpoint</a> () const</td></tr>
+<tr class="memdesc:aa6d458c1d2c57cf049945927ddc5ca52 inherit pro_methods_class_abstract_move_strategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la position à atteindre.  <br /></td></tr>
+<tr class="separator:aa6d458c1d2c57cf049945927ddc5ca52 inherit pro_methods_class_abstract_move_strategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be3e48b174c6f084e84af1e903c78a4 inherit pro_methods_class_abstract_move_strategy" id="r_a9be3e48b174c6f084e84af1e903c78a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_move_strategy.html#a9be3e48b174c6f084e84af1e903c78a4">setVelSetpoints</a> (float linVelSetpoint, float angVelSetpoint)</td></tr>
+<tr class="memdesc:a9be3e48b174c6f084e84af1e903c78a4 inherit pro_methods_class_abstract_move_strategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une nouvelle vitesse pour le robot.  <br /></td></tr>
+<tr class="separator:a9be3e48b174c6f084e84af1e903c78a4 inherit pro_methods_class_abstract_move_strategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2cdd59254831d777e276c053d93e507 inherit pro_methods_class_abstract_move_strategy" id="r_ad2cdd59254831d777e276c053d93e507"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_move_strategy.html#ad2cdd59254831d777e276c053d93e507">getLinVelKp</a> () const</td></tr>
+<tr class="memdesc:ad2cdd59254831d777e276c053d93e507 inherit pro_methods_class_abstract_move_strategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le coef proportionnel de vitesse linéaire.  <br /></td></tr>
+<tr class="separator:ad2cdd59254831d777e276c053d93e507 inherit pro_methods_class_abstract_move_strategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34e828c9189a02c92889a476254d95da inherit pro_methods_class_abstract_move_strategy" id="r_a34e828c9189a02c92889a476254d95da"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_move_strategy.html#a34e828c9189a02c92889a476254d95da">getAngVelKp</a> () const</td></tr>
+<tr class="memdesc:a34e828c9189a02c92889a476254d95da inherit pro_methods_class_abstract_move_strategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le coef proportionnel de vitesse angulaire.  <br /></td></tr>
+<tr class="separator:a34e828c9189a02c92889a476254d95da inherit pro_methods_class_abstract_move_strategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f4a119ef96ba81c3621d6f640039b0 inherit pro_methods_class_abstract_move_strategy" id="r_a37f4a119ef96ba81c3621d6f640039b0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_move_strategy.html#a37f4a119ef96ba81c3621d6f640039b0">getLinVelMax</a> () const</td></tr>
+<tr class="memdesc:a37f4a119ef96ba81c3621d6f640039b0 inherit pro_methods_class_abstract_move_strategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne vitesse linéaire max.  <br /></td></tr>
+<tr class="separator:a37f4a119ef96ba81c3621d6f640039b0 inherit pro_methods_class_abstract_move_strategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e71820d1f3dfea99ec35cf3aaf1319a inherit pro_methods_class_abstract_move_strategy" id="r_a8e71820d1f3dfea99ec35cf3aaf1319a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_move_strategy.html#a8e71820d1f3dfea99ec35cf3aaf1319a">getAngVelMax</a> () const</td></tr>
+<tr class="memdesc:a8e71820d1f3dfea99ec35cf3aaf1319a inherit pro_methods_class_abstract_move_strategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne vitesse angulaire max.  <br /></td></tr>
+<tr class="separator:a8e71820d1f3dfea99ec35cf3aaf1319a inherit pro_methods_class_abstract_move_strategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ac627813184bbde3b3031c3575f260f inherit pro_methods_class_abstract_move_strategy" id="r_a4ac627813184bbde3b3031c3575f260f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_move_strategy.html#a4ac627813184bbde3b3031c3575f260f">getLinPosThreshold</a> () const</td></tr>
+<tr class="memdesc:a4ac627813184bbde3b3031c3575f260f inherit pro_methods_class_abstract_move_strategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la précision cartésienne à atteindre.  <br /></td></tr>
+<tr class="separator:a4ac627813184bbde3b3031c3575f260f inherit pro_methods_class_abstract_move_strategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb5f02ec6bc18993066712b728d901c5 inherit pro_methods_class_abstract_move_strategy" id="r_aeb5f02ec6bc18993066712b728d901c5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_move_strategy.html#aeb5f02ec6bc18993066712b728d901c5">getAngPosThreshold</a> () const</td></tr>
+<tr class="memdesc:aeb5f02ec6bc18993066712b728d901c5 inherit pro_methods_class_abstract_move_strategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la précision angulaire à atteindre.  <br /></td></tr>
+<tr class="separator:aeb5f02ec6bc18993066712b728d901c5 inherit pro_methods_class_abstract_move_strategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:ab132b06bd778cac12c9d963a3106b0d3" id="r_ab132b06bd778cac12c9d963a3106b0d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab132b06bd778cac12c9d963a3106b0d3">m_waypoints</a> [PUREPURSUIT_MAX_WAYPOINTS]</td></tr>
+<tr class="separator:ab132b06bd778cac12c9d963a3106b0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8055a8d73d88927c39c604526e237f3e" id="r_a8055a8d73d88927c39c604526e237f3e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8055a8d73d88927c39c604526e237f3e">m_numWaypoints</a></td></tr>
+<tr class="separator:a8055a8d73d88927c39c604526e237f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e02d6cd2990105c5ec9caeda3a5ec48" id="r_a1e02d6cd2990105c5ec9caeda3a5ec48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a584048cfe1c7e025425011986b410019">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e02d6cd2990105c5ec9caeda3a5ec48">m_direction</a></td></tr>
+<tr class="separator:a1e02d6cd2990105c5ec9caeda3a5ec48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a129571770b3a61a2d13bdd22b95d82c9" id="r_a129571770b3a61a2d13bdd22b95d82c9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a129571770b3a61a2d13bdd22b95d82c9">m_finalAngle</a></td></tr>
+<tr class="separator:a129571770b3a61a2d13bdd22b95d82c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6751d0db89cf0356c9397efcba7e056e" id="r_a6751d0db89cf0356c9397efcba7e056e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6751d0db89cf0356c9397efcba7e056e">m_goalIndex</a></td></tr>
+<tr class="separator:a6751d0db89cf0356c9397efcba7e056e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cf7466f791b975cf4102e073944b5be" id="r_a1cf7466f791b975cf4102e073944b5be"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1cf7466f791b975cf4102e073944b5be">m_goalParam</a></td></tr>
+<tr class="separator:a1cf7466f791b975cf4102e073944b5be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a575a120f4d940ec95a12502c41dcbd56" id="r_a575a120f4d940ec95a12502c41dcbd56"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a575a120f4d940ec95a12502c41dcbd56">m_goalReached</a></td></tr>
+<tr class="separator:a575a120f4d940ec95a12502c41dcbd56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca4964c86c14ae5617ee5f9dd62c336" id="r_a2ca4964c86c14ae5617ee5f9dd62c336"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ca4964c86c14ae5617ee5f9dd62c336">m_lookAhead</a></td></tr>
+<tr class="separator:a2ca4964c86c14ae5617ee5f9dd62c336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76b5f246c192ab75506021aed6a2913f" id="r_a76b5f246c192ab75506021aed6a2913f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76b5f246c192ab75506021aed6a2913f">m_lookAheadBis</a></td></tr>
+<tr class="separator:a76b5f246c192ab75506021aed6a2913f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_abstract_move_strategy"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_abstract_move_strategy')"><img src="closed.png" alt="-"/>&#160;Attributs protégés hérités de <a class="el" href="class_abstract_move_strategy.html">AbstractMoveStrategy</a></td></tr>
+<tr class="memitem:a0a0cc07cae1127a7d7dc454d240d48ba inherit pro_attribs_class_abstract_move_strategy" id="r_a0a0cc07cae1127a7d7dc454d240d48ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_position_controller.html">PositionController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a></td></tr>
+<tr class="separator:a0a0cc07cae1127a7d7dc454d240d48ba inherit pro_attribs_class_abstract_move_strategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Trajectoire courbe le long d'une ligne brisée. </p>
+<p>class <a class="el" href="class_pure_pursuit.html" title="Trajectoire courbe le long d&#39;une ligne brisée.">PurePursuit</a> </p>
+<p>est un <a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>. </p>
+</div><h2 class="groupheader">Documentation des énumérations membres</h2>
+<a id="a584048cfe1c7e025425011986b410019" name="a584048cfe1c7e025425011986b410019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a584048cfe1c7e025425011986b410019">&#9670;&#160;</a></span>Direction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a584048cfe1c7e025425011986b410019">PurePursuit::Direction</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sens de déplacement pour le robot. </p>
+<p>enum Direction </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a584048cfe1c7e025425011986b410019a4cc193c61baf499695ffe17a103be9a4" name="a584048cfe1c7e025425011986b410019a4cc193c61baf499695ffe17a103be9a4"></a>FORWARD&#160;</td><td class="fielddoc"><p>Le robot avance en marche avant. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a584048cfe1c7e025425011986b410019a008e94f456df613c2c9cd7f328fa483f" name="a584048cfe1c7e025425011986b410019a008e94f456df613c2c9cd7f328fa483f"></a>BACKWARD&#160;</td><td class="fielddoc"><p>Le robot avance en marche arrière. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a8672a8ae53efe3e706f5e00e94f2554b" name="a8672a8ae53efe3e706f5e00e94f2554b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8672a8ae53efe3e706f5e00e94f2554b">&#9670;&#160;</a></span>addWaypoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PurePursuit::addWaypoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>waypoint</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajout un point en fin de ligne brisée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">waypoint</td><td>Nouveau point à ajouter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true Ajout réussi. </dd>
+<dd>
+false L'ajout a rencontré un problème. </dd></dl>
+
+</div>
+</div>
+<a id="a317d5860811b40f40909bef6cc6d8f19" name="a317d5860811b40f40909bef6cc6d8f19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a317d5860811b40f40909bef6cc6d8f19">&#9670;&#160;</a></span>checkLookAheadGoal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PurePursuit::checkLookAheadGoal </td>
+          <td>(</td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calcul le point intermediaire sur la ligne brisée. </p>
+<p>Calcul le point intermediaire sur la courbe et met à jour le segment courant.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnées x du robot (mm). </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnées y du robot (mm). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true Un point a été trouvé. </dd>
+<dd>
+false Aucun point n'a été trouvé. </dd></dl>
+
+</div>
+</div>
+<a id="a10ddd92e112e6fc7ab5e7d817ffd9fa9" name="a10ddd92e112e6fc7ab5e7d817ffd9fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10ddd92e112e6fc7ab5e7d817ffd9fa9">&#9670;&#160;</a></span>checkProjectionGoal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PurePursuit::checkProjectionGoal </td>
+          <td>(</td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calcule le point intermediaire sur la ligne brisée. </p>
+<p>Calcule le point le plus près du robot sur la ligne brisée non parcouru.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnées x du robot (mm). </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnées y du robot (mm). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a657a00d409067352855aa685b57c6f45" name="a657a00d409067352855aa685b57c6f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a657a00d409067352855aa685b57c6f45">&#9670;&#160;</a></span>computeVelSetpoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PurePursuit::computeVelSetpoints </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>timestep</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calcul les nouvelles vitesses désirer. </p>
+<p>Méthode à implémenter pour réaliser une <a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>. Cette méthode calcul à partir de la position du robot des vitesses à suivre pour le robot.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timestep</td><td>Temps depuis le dernier appel en secondes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implémente <a class="el" href="class_abstract_move_strategy.html#a8bed0fd2cf5af27a7804d1be57823a24">AbstractMoveStrategy</a>.</p>
+
+</div>
+</div>
+<a id="a0d9fdb1befa08614df6822988a85ec2a" name="a0d9fdb1befa08614df6822988a85ec2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d9fdb1befa08614df6822988a85ec2a">&#9670;&#160;</a></span>getDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a584048cfe1c7e025425011986b410019">Direction</a> PurePursuit::getDirection </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter de la direction courant. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Direction Sens utilisé. </dd></dl>
+
+</div>
+</div>
+<a id="ae777318b78fb671d7c4a7bfdb7a8bb6c" name="ae777318b78fb671d7c4a7bfdb7a8bb6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae777318b78fb671d7c4a7bfdb7a8bb6c">&#9670;&#160;</a></span>getDistAfterGoal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PurePursuit::getDistAfterGoal </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la distance restante à parcourir. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>float Distance en mm à parcourir. </dd></dl>
+
+</div>
+</div>
+<a id="a1209f3fec00042c0ae826c115e4fd472" name="a1209f3fec00042c0ae826c115e4fd472"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1209f3fec00042c0ae826c115e4fd472">&#9670;&#160;</a></span>getFinalAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PurePursuit::getFinalAngle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter de l'angle final. </p>
+<p>Retourne l'angle final que le robot va atteindre en fin de trajectoire.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>float Angle final en rad. </dd></dl>
+
+</div>
+</div>
+<a id="a549f1a5d25d08e3bf2b697483bd76f51" name="a549f1a5d25d08e3bf2b697483bd76f51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a549f1a5d25d08e3bf2b697483bd76f51">&#9670;&#160;</a></span>getLookAhead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PurePursuit::getLookAhead </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter du lookahead. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>float LookaHead en mm. </dd></dl>
+
+</div>
+</div>
+<a id="a662353150619ad27bf3d9c5969a541f6" name="a662353150619ad27bf3d9c5969a541f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a662353150619ad27bf3d9c5969a541f6">&#9670;&#160;</a></span>getLookAheadBis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PurePursuit::getLookAheadBis </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter du LookAHead de fin de trajectoire. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>float LookaHeadbis en mm. </dd></dl>
+
+</div>
+</div>
+<a id="a190eec1c08b1b44777b2125de448057c" name="a190eec1c08b1b44777b2125de448057c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a190eec1c08b1b44777b2125de448057c">&#9670;&#160;</a></span>getNumWaypoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PurePursuit::getNumWaypoints </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter du nombre de point de passage. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>int Nombre de points de la ligne brisée. </dd></dl>
+
+</div>
+</div>
+<a id="a6613c320f3070a1dec4e1eed14455c4d" name="a6613c320f3070a1dec4e1eed14455c4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6613c320f3070a1dec4e1eed14455c4d">&#9670;&#160;</a></span>getPositionReached()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PurePursuit::getPositionReached </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indique si la position désirée est atteinte. </p>
+<p>Calcul la distance entre la position du robot et la position désirée selon le mode de calcul de l'<a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>true Si la position est atteinte. </dd>
+<dd>
+false Si la position n'est pas atteinte. </dd></dl>
+
+<p>Implémente <a class="el" href="class_abstract_move_strategy.html#a36fbdf31d04778a013fbbd160ff2ed07">AbstractMoveStrategy</a>.</p>
+
+</div>
+</div>
+<a id="ad650949b0a832f48159c712542a3378f" name="ad650949b0a832f48159c712542a3378f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad650949b0a832f48159c712542a3378f">&#9670;&#160;</a></span>getWaypoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a> &amp; PurePursuit::getWaypoint </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter d'un point de passage. </p>
+<p>Retourne le point de passage sous la forme d'un <a class="el" href="struct_pure_pursuit_1_1_waypoint.html" title="Structure d&#39;un point de passage de Purpursuit.">Waypoint</a>. L'index permet d'identifier le point à retourner.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Numéro du point à retourner. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="struct_pure_pursuit_1_1_waypoint.html" title="Structure d&#39;un point de passage de Purpursuit.">Waypoint</a>&amp; Point de passage demandé. </dd></dl>
+
+</div>
+</div>
+<a id="a49e7628388bece06e169f9f8ff6e4841" name="a49e7628388bece06e169f9f8ff6e4841"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49e7628388bece06e169f9f8ff6e4841">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PurePursuit::load </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge les paramètres sauvegardés. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Adresse à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a94307f2ba363cdae9566f63cdb9f811b" name="a94307f2ba363cdae9566f63cdb9f811b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94307f2ba363cdae9566f63cdb9f811b">&#9670;&#160;</a></span>save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PurePursuit::save </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sauvegarde les paramètres actuels. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Adresse à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5f44936749173662c63f1ce60bcf5e68" name="a5f44936749173662c63f1ce60bcf5e68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f44936749173662c63f1ce60bcf5e68">&#9670;&#160;</a></span>setDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PurePursuit::setDirection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a584048cfe1c7e025425011986b410019">Direction</a></td>          <td class="paramname"><span class="paramname"><em>direction</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter du sens de marche du robot. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direction</td><td>Sens à utiliser pour le déplacement du robot. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a133b1a688e0f753d791ef8d605f0510b" name="a133b1a688e0f753d791ef8d605f0510b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a133b1a688e0f753d791ef8d605f0510b">&#9670;&#160;</a></span>setFinalAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PurePursuit::setFinalAngle </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>finalAngle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter de l'angle à atteindre en fin de trajectoire. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">finalAngle</td><td>Angle à atteindre (entre l'axe du robot et l'axe des x) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a80a78ae6251f346b2320f24a7088b20b" name="a80a78ae6251f346b2320f24a7088b20b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80a78ae6251f346b2320f24a7088b20b">&#9670;&#160;</a></span>setLookAhead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PurePursuit::setLookAhead </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>lookAhead</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter du lookAhead. </p>
+<p>Met à jour la distance entre le point intermediaire et le robot.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lookAhead</td><td>Distance en mm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acea4a27e9a15b22c035df1bfd3fbea6d" name="acea4a27e9a15b22c035df1bfd3fbea6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acea4a27e9a15b22c035df1bfd3fbea6d">&#9670;&#160;</a></span>setLookAheadBis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PurePursuit::setLookAheadBis </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>lookAheadBis</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter du lookAheadBis. </p>
+<p>Met à jour la distance entre le point intermediaire et le robot en fin de trajectoire.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lookAheadBis</td><td>Distance en mm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="a1e02d6cd2990105c5ec9caeda3a5ec48" name="a1e02d6cd2990105c5ec9caeda3a5ec48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e02d6cd2990105c5ec9caeda3a5ec48">&#9670;&#160;</a></span>m_direction</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a584048cfe1c7e025425011986b410019">Direction</a> PurePursuit::m_direction</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sens du robot pendant la trajectoire. </p>
+
+</div>
+</div>
+<a id="a129571770b3a61a2d13bdd22b95d82c9" name="a129571770b3a61a2d13bdd22b95d82c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a129571770b3a61a2d13bdd22b95d82c9">&#9670;&#160;</a></span>m_finalAngle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PurePursuit::m_finalAngle</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Angle à atteindre en fin de trajectoire. </p>
+
+</div>
+</div>
+<a id="a6751d0db89cf0356c9397efcba7e056e" name="a6751d0db89cf0356c9397efcba7e056e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6751d0db89cf0356c9397efcba7e056e">&#9670;&#160;</a></span>m_goalIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PurePursuit::m_goalIndex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Index courant. </p>
+
+</div>
+</div>
+<a id="a1cf7466f791b975cf4102e073944b5be" name="a1cf7466f791b975cf4102e073944b5be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cf7466f791b975cf4102e073944b5be">&#9670;&#160;</a></span>m_goalParam</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PurePursuit::m_goalParam</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="struct_position.html" title="Structure de position.">Position</a> relative de la projection du robot sur le segment courant. </p>
+
+</div>
+</div>
+<a id="a575a120f4d940ec95a12502c41dcbd56" name="a575a120f4d940ec95a12502c41dcbd56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a575a120f4d940ec95a12502c41dcbd56">&#9670;&#160;</a></span>m_goalReached</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PurePursuit::m_goalReached</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Arrivé ou non. </p>
+
+</div>
+</div>
+<a id="a2ca4964c86c14ae5617ee5f9dd62c336" name="a2ca4964c86c14ae5617ee5f9dd62c336"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ca4964c86c14ae5617ee5f9dd62c336">&#9670;&#160;</a></span>m_lookAhead</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PurePursuit::m_lookAhead</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Distance entre le point intermediaire et le robot. </p>
+
+</div>
+</div>
+<a id="a76b5f246c192ab75506021aed6a2913f" name="a76b5f246c192ab75506021aed6a2913f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76b5f246c192ab75506021aed6a2913f">&#9670;&#160;</a></span>m_lookAheadBis</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PurePursuit::m_lookAheadBis</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Distance entre le point intermediaire et le robot en fin de trajectoire. </p>
+
+</div>
+</div>
+<a id="a8055a8d73d88927c39c604526e237f3e" name="a8055a8d73d88927c39c604526e237f3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8055a8d73d88927c39c604526e237f3e">&#9670;&#160;</a></span>m_numWaypoints</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PurePursuit::m_numWaypoints</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Nombre de points constituant la ligne brisée. </p>
+
+</div>
+</div>
+<a id="ab132b06bd778cac12c9d963a3106b0d3" name="ab132b06bd778cac12c9d963a3106b0d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab132b06bd778cac12c9d963a3106b0d3">&#9670;&#160;</a></span>m_waypoints</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a> PurePursuit::m_waypoints[PUREPURSUIT_MAX_WAYPOINTS]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Liste des points de la ligne brisée à suivre. </p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/PurePursuit/<a class="el" href="_pure_pursuit_8h_source.html">PurePursuit.h</a></li>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/PurePursuit/<b>PurePursuit.cpp</b></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

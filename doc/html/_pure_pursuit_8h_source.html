@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/PurePursuit/PurePursuit.h</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_e5db95e150018bcc3dfc1edc7ae4800d.html">LIBS</a></li><li class="navelem"><a class="el" href="dir_66ad5f74c23414a43fda982e8ac34f83.html">ARDUINO_LIBS</a></li><li class="navelem"><a class="el" href="dir_e13c8e6c1faeeabfc0f4a12d10d1557a.html">PurePursuit</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">PurePursuit.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef __PUREPURSUIT_H__</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define __PUREPURSUIT_H__</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;PositionController.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Odometry.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef PUREPURSUIT_MAX_WAYPOINTS</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define PUREPURSUIT_MAX_WAYPOINTS 16</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="class_pure_pursuit.html">PurePursuit</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_abstract_move_strategy.html">AbstractMoveStrategy</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_pure_pursuit_1_1_waypoint.html">   26</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <a class="code hl_struct" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a>() : x(0), y(0){}</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_struct" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y) : x(x), y(y){}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <a class="code hl_struct" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_position.html">Position</a>&amp; pos) : x(pos.<a class="code hl_variable" href="struct_position.html#af684446cbf0f6d53386686283da6dcc6">x</a>), y(pos.<a class="code hl_variable" href="struct_position.html#a54a6182b5f7539295b32255808897d3f">y</a>){}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">float</span> x, y;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    };</div>
+</div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019">   37</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019">Direction</a> {<a class="code hl_enumvalue" href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019a4cc193c61baf499695ffe17a103be9a4">FORWARD</a>=1 </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019a4cc193c61baf499695ffe17a103be9a4">   38</a></span>    , <a class="code hl_enumvalue" href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019a008e94f456df613c2c9cd7f328fa483f">BACKWARD</a>=-1 </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019a008e94f456df613c2c9cd7f328fa483f">   39</a></span>    };</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="class_pure_pursuit.html">PurePursuit</a>() : <a class="code hl_variable" href="class_pure_pursuit.html#a8055a8d73d88927c39c604526e237f3e">m_numWaypoints</a>(0), <a class="code hl_variable" href="class_pure_pursuit.html#a1e02d6cd2990105c5ec9caeda3a5ec48">m_direction</a>(<a class="code hl_enumvalue" href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019a4cc193c61baf499695ffe17a103be9a4">FORWARD</a>){}</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pure_pursuit.html#a5f44936749173662c63f1ce60bcf5e68">setDirection</a>(<a class="code hl_enumeration" href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019">Direction</a> direction);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pure_pursuit.html#a133b1a688e0f753d791ef8d605f0510b">setFinalAngle</a>(<span class="keywordtype">float</span> finalAngle);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_pure_pursuit.html#a8672a8ae53efe3e706f5e00e94f2554b">addWaypoint</a>(<span class="keyword">const</span> Waypoint&amp; waypoint);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pure_pursuit.html#a7fbc8b6d8116a373a438f3795f255559">reset</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pure_pursuit.html#a80a78ae6251f346b2320f24a7088b20b">setLookAhead</a>   (<span class="keywordtype">float</span> lookAhead) ;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pure_pursuit.html#acea4a27e9a15b22c035df1bfd3fbea6d">setLookAheadBis</a>(<span class="keywordtype">float</span> lookAheadBis);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a0d9fdb1befa08614df6822988a85ec2a">   86</a></span>    <a class="code hl_enumeration" href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019">Direction</a> <a class="code hl_function" href="class_pure_pursuit.html#a0d9fdb1befa08614df6822988a85ec2a">getDirection</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_pure_pursuit.html#a1e02d6cd2990105c5ec9caeda3a5ec48">m_direction</a>;}</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a1209f3fec00042c0ae826c115e4fd472">   95</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_pure_pursuit.html#a1209f3fec00042c0ae826c115e4fd472">getFinalAngle</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_pure_pursuit.html#a129571770b3a61a2d13bdd22b95d82c9">m_finalAngle</a>;}</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#ad650949b0a832f48159c712542a3378f">  104</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a>&amp; <a class="code hl_function" href="class_pure_pursuit.html#ad650949b0a832f48159c712542a3378f">getWaypoint</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_pure_pursuit.html#ab132b06bd778cac12c9d963a3106b0d3">m_waypoints</a>[index];}</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a190eec1c08b1b44777b2125de448057c">  110</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_pure_pursuit.html#a190eec1c08b1b44777b2125de448057c">getNumWaypoints</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_pure_pursuit.html#a8055a8d73d88927c39c604526e237f3e">m_numWaypoints</a>;}</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a549f1a5d25d08e3bf2b697483bd76f51">  116</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_pure_pursuit.html#a549f1a5d25d08e3bf2b697483bd76f51">getLookAhead</a>()<span class="keyword">    const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_pure_pursuit.html#a2ca4964c86c14ae5617ee5f9dd62c336">m_lookAhead</a>;}</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a662353150619ad27bf3d9c5969a541f6">  122</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_pure_pursuit.html#a662353150619ad27bf3d9c5969a541f6">getLookAheadBis</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_pure_pursuit.html#a76b5f246c192ab75506021aed6a2913f">m_lookAheadBis</a>;}</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pure_pursuit.html#a49e7628388bece06e169f9f8ff6e4841">load</a>(<span class="keywordtype">int</span> address);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pure_pursuit.html#a94307f2ba363cdae9566f63cdb9f811b">save</a>(<span class="keywordtype">int</span> address) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_pure_pursuit.html#a657a00d409067352855aa685b57c6f45">computeVelSetpoints</a>(<span class="keywordtype">float</span> timestep);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="class_pure_pursuit.html#a6613c320f3070a1dec4e1eed14455c4d">getPositionReached</a>();</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_pure_pursuit.html#a317d5860811b40f40909bef6cc6d8f19">checkLookAheadGoal</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> x, <span class="keyword">const</span> <span class="keywordtype">float</span> y);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pure_pursuit.html#a10ddd92e112e6fc7ab5e7d817ffd9fa9">checkProjectionGoal</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> x, <span class="keyword">const</span> <span class="keywordtype">float</span> y);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_pure_pursuit.html#ae777318b78fb671d7c4a7bfdb7a8bb6c">getDistAfterGoal</a>();</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="comment">// Trajectory specifications</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#ab132b06bd778cac12c9d963a3106b0d3">  170</a></span>    <a class="code hl_struct" href="struct_pure_pursuit_1_1_waypoint.html">Waypoint</a> <a class="code hl_variable" href="class_pure_pursuit.html#ab132b06bd778cac12c9d963a3106b0d3">m_waypoints</a>[PUREPURSUIT_MAX_WAYPOINTS];</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a8055a8d73d88927c39c604526e237f3e">  171</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_pure_pursuit.html#a8055a8d73d88927c39c604526e237f3e">m_numWaypoints</a>; </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a1e02d6cd2990105c5ec9caeda3a5ec48">  172</a></span>    <a class="code hl_enumeration" href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019">Direction</a> <a class="code hl_variable" href="class_pure_pursuit.html#a1e02d6cd2990105c5ec9caeda3a5ec48">m_direction</a>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a129571770b3a61a2d13bdd22b95d82c9">  173</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_pure_pursuit.html#a129571770b3a61a2d13bdd22b95d82c9">m_finalAngle</a>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="comment">// Computation variables</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a6751d0db89cf0356c9397efcba7e056e">  176</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_pure_pursuit.html#a6751d0db89cf0356c9397efcba7e056e">m_goalIndex</a>; </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a1cf7466f791b975cf4102e073944b5be">  177</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_pure_pursuit.html#a1cf7466f791b975cf4102e073944b5be">m_goalParam</a>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a575a120f4d940ec95a12502c41dcbd56">  178</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_pure_pursuit.html#a575a120f4d940ec95a12502c41dcbd56">m_goalReached</a>;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="comment">// Path following tunings</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a2ca4964c86c14ae5617ee5f9dd62c336">  181</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_pure_pursuit.html#a2ca4964c86c14ae5617ee5f9dd62c336">m_lookAhead</a>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="class_pure_pursuit.html#a76b5f246c192ab75506021aed6a2913f">  182</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_pure_pursuit.html#a76b5f246c192ab75506021aed6a2913f">m_lookAheadBis</a>;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>};</div>
+</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="preprocessor">#endif </span><span class="comment">// __PUREPURSUIT_H__</span></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html"><div class="ttname"><a href="class_abstract_move_strategy.html">AbstractMoveStrategy</a></div><div class="ttdoc">Interface de Stratégie de mouvement.</div><div class="ttdef"><b>Definition</b> PositionController.h:197</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html"><div class="ttname"><a href="class_pure_pursuit.html">PurePursuit</a></div><div class="ttdoc">Trajectoire courbe le long d'une ligne brisée.</div><div class="ttdef"><b>Definition</b> PurePursuit.h:20</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a0d9fdb1befa08614df6822988a85ec2a"><div class="ttname"><a href="class_pure_pursuit.html#a0d9fdb1befa08614df6822988a85ec2a">PurePursuit::getDirection</a></div><div class="ttdeci">Direction getDirection() const</div><div class="ttdoc">Getter de la direction courant.</div><div class="ttdef"><b>Definition</b> PurePursuit.h:86</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a10ddd92e112e6fc7ab5e7d817ffd9fa9"><div class="ttname"><a href="class_pure_pursuit.html#a10ddd92e112e6fc7ab5e7d817ffd9fa9">PurePursuit::checkProjectionGoal</a></div><div class="ttdeci">void checkProjectionGoal(const float x, const float y)</div><div class="ttdoc">Calcule le point intermediaire sur la ligne brisée.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:99</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a1209f3fec00042c0ae826c115e4fd472"><div class="ttname"><a href="class_pure_pursuit.html#a1209f3fec00042c0ae826c115e4fd472">PurePursuit::getFinalAngle</a></div><div class="ttdeci">float getFinalAngle() const</div><div class="ttdoc">Getter de l'angle final.</div><div class="ttdef"><b>Definition</b> PurePursuit.h:95</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a129571770b3a61a2d13bdd22b95d82c9"><div class="ttname"><a href="class_pure_pursuit.html#a129571770b3a61a2d13bdd22b95d82c9">PurePursuit::m_finalAngle</a></div><div class="ttdeci">float m_finalAngle</div><div class="ttdef"><b>Definition</b> PurePursuit.h:173</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a133b1a688e0f753d791ef8d605f0510b"><div class="ttname"><a href="class_pure_pursuit.html#a133b1a688e0f753d791ef8d605f0510b">PurePursuit::setFinalAngle</a></div><div class="ttdeci">void setFinalAngle(float finalAngle)</div><div class="ttdoc">Setter de l'angle à atteindre en fin de trajectoire.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:14</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a190eec1c08b1b44777b2125de448057c"><div class="ttname"><a href="class_pure_pursuit.html#a190eec1c08b1b44777b2125de448057c">PurePursuit::getNumWaypoints</a></div><div class="ttdeci">int getNumWaypoints() const</div><div class="ttdoc">Getter du nombre de point de passage.</div><div class="ttdef"><b>Definition</b> PurePursuit.h:110</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a1cf7466f791b975cf4102e073944b5be"><div class="ttname"><a href="class_pure_pursuit.html#a1cf7466f791b975cf4102e073944b5be">PurePursuit::m_goalParam</a></div><div class="ttdeci">float m_goalParam</div><div class="ttdef"><b>Definition</b> PurePursuit.h:177</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a1e02d6cd2990105c5ec9caeda3a5ec48"><div class="ttname"><a href="class_pure_pursuit.html#a1e02d6cd2990105c5ec9caeda3a5ec48">PurePursuit::m_direction</a></div><div class="ttdeci">Direction m_direction</div><div class="ttdef"><b>Definition</b> PurePursuit.h:172</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a2ca4964c86c14ae5617ee5f9dd62c336"><div class="ttname"><a href="class_pure_pursuit.html#a2ca4964c86c14ae5617ee5f9dd62c336">PurePursuit::m_lookAhead</a></div><div class="ttdeci">float m_lookAhead</div><div class="ttdef"><b>Definition</b> PurePursuit.h:181</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a317d5860811b40f40909bef6cc6d8f19"><div class="ttname"><a href="class_pure_pursuit.html#a317d5860811b40f40909bef6cc6d8f19">PurePursuit::checkLookAheadGoal</a></div><div class="ttdeci">bool checkLookAheadGoal(const float x, const float y)</div><div class="ttdoc">Calcul le point intermediaire sur la ligne brisée.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:38</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a49e7628388bece06e169f9f8ff6e4841"><div class="ttname"><a href="class_pure_pursuit.html#a49e7628388bece06e169f9f8ff6e4841">PurePursuit::load</a></div><div class="ttdeci">void load(int address)</div><div class="ttdoc">Charge les paramètres sauvegardés.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:245</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a549f1a5d25d08e3bf2b697483bd76f51"><div class="ttname"><a href="class_pure_pursuit.html#a549f1a5d25d08e3bf2b697483bd76f51">PurePursuit::getLookAhead</a></div><div class="ttdeci">float getLookAhead() const</div><div class="ttdoc">Getter du lookahead.</div><div class="ttdef"><b>Definition</b> PurePursuit.h:116</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a575a120f4d940ec95a12502c41dcbd56"><div class="ttname"><a href="class_pure_pursuit.html#a575a120f4d940ec95a12502c41dcbd56">PurePursuit::m_goalReached</a></div><div class="ttdeci">bool m_goalReached</div><div class="ttdef"><b>Definition</b> PurePursuit.h:178</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a584048cfe1c7e025425011986b410019"><div class="ttname"><a href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019">PurePursuit::Direction</a></div><div class="ttdeci">Direction</div><div class="ttdoc">Sens de déplacement pour le robot.</div><div class="ttdef"><b>Definition</b> PurePursuit.h:37</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a584048cfe1c7e025425011986b410019a008e94f456df613c2c9cd7f328fa483f"><div class="ttname"><a href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019a008e94f456df613c2c9cd7f328fa483f">PurePursuit::BACKWARD</a></div><div class="ttdeci">@ BACKWARD</div><div class="ttdoc">Le robot avance en marche arrière.</div><div class="ttdef"><b>Definition</b> PurePursuit.h:38</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a584048cfe1c7e025425011986b410019a4cc193c61baf499695ffe17a103be9a4"><div class="ttname"><a href="class_pure_pursuit.html#a584048cfe1c7e025425011986b410019a4cc193c61baf499695ffe17a103be9a4">PurePursuit::FORWARD</a></div><div class="ttdeci">@ FORWARD</div><div class="ttdoc">Le robot avance en marche avant.</div><div class="ttdef"><b>Definition</b> PurePursuit.h:37</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a5f44936749173662c63f1ce60bcf5e68"><div class="ttname"><a href="class_pure_pursuit.html#a5f44936749173662c63f1ce60bcf5e68">PurePursuit::setDirection</a></div><div class="ttdeci">void setDirection(Direction direction)</div><div class="ttdoc">Setter du sens de marche du robot.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:9</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a657a00d409067352855aa685b57c6f45"><div class="ttname"><a href="class_pure_pursuit.html#a657a00d409067352855aa685b57c6f45">PurePursuit::computeVelSetpoints</a></div><div class="ttdeci">virtual void computeVelSetpoints(float timestep)</div><div class="ttdoc">Calcul les nouvelles vitesses désirer.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:174</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a6613c320f3070a1dec4e1eed14455c4d"><div class="ttname"><a href="class_pure_pursuit.html#a6613c320f3070a1dec4e1eed14455c4d">PurePursuit::getPositionReached</a></div><div class="ttdeci">virtual bool getPositionReached()</div><div class="ttdoc">Indique si la position désirée est atteinte.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:240</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a662353150619ad27bf3d9c5969a541f6"><div class="ttname"><a href="class_pure_pursuit.html#a662353150619ad27bf3d9c5969a541f6">PurePursuit::getLookAheadBis</a></div><div class="ttdeci">float getLookAheadBis() const</div><div class="ttdoc">Getter du LookAHead de fin de trajectoire.</div><div class="ttdef"><b>Definition</b> PurePursuit.h:122</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a6751d0db89cf0356c9397efcba7e056e"><div class="ttname"><a href="class_pure_pursuit.html#a6751d0db89cf0356c9397efcba7e056e">PurePursuit::m_goalIndex</a></div><div class="ttdeci">int m_goalIndex</div><div class="ttdef"><b>Definition</b> PurePursuit.h:176</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a76b5f246c192ab75506021aed6a2913f"><div class="ttname"><a href="class_pure_pursuit.html#a76b5f246c192ab75506021aed6a2913f">PurePursuit::m_lookAheadBis</a></div><div class="ttdeci">float m_lookAheadBis</div><div class="ttdef"><b>Definition</b> PurePursuit.h:182</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a7fbc8b6d8116a373a438f3795f255559"><div class="ttname"><a href="class_pure_pursuit.html#a7fbc8b6d8116a373a438f3795f255559">PurePursuit::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Initialise le Purpuisuit. Supprime les points de la ligne brisée et les paramètres temporaires.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:29</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a8055a8d73d88927c39c604526e237f3e"><div class="ttname"><a href="class_pure_pursuit.html#a8055a8d73d88927c39c604526e237f3e">PurePursuit::m_numWaypoints</a></div><div class="ttdeci">int m_numWaypoints</div><div class="ttdef"><b>Definition</b> PurePursuit.h:171</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a80a78ae6251f346b2320f24a7088b20b"><div class="ttname"><a href="class_pure_pursuit.html#a80a78ae6251f346b2320f24a7088b20b">PurePursuit::setLookAhead</a></div><div class="ttdeci">void setLookAhead(float lookAhead)</div><div class="ttdoc">Setter du lookAhead.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:264</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a8672a8ae53efe3e706f5e00e94f2554b"><div class="ttname"><a href="class_pure_pursuit.html#a8672a8ae53efe3e706f5e00e94f2554b">PurePursuit::addWaypoint</a></div><div class="ttdeci">bool addWaypoint(const Waypoint &amp;waypoint)</div><div class="ttdoc">Ajout un point en fin de ligne brisée.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:19</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_a94307f2ba363cdae9566f63cdb9f811b"><div class="ttname"><a href="class_pure_pursuit.html#a94307f2ba363cdae9566f63cdb9f811b">PurePursuit::save</a></div><div class="ttdeci">void save(int address) const</div><div class="ttdoc">Sauvegarde les paramètres actuels.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:251</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_ab132b06bd778cac12c9d963a3106b0d3"><div class="ttname"><a href="class_pure_pursuit.html#ab132b06bd778cac12c9d963a3106b0d3">PurePursuit::m_waypoints</a></div><div class="ttdeci">Waypoint m_waypoints[PUREPURSUIT_MAX_WAYPOINTS]</div><div class="ttdef"><b>Definition</b> PurePursuit.h:170</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_acea4a27e9a15b22c035df1bfd3fbea6d"><div class="ttname"><a href="class_pure_pursuit.html#acea4a27e9a15b22c035df1bfd3fbea6d">PurePursuit::setLookAheadBis</a></div><div class="ttdeci">void setLookAheadBis(float lookAheadBis)</div><div class="ttdoc">Setter du lookAheadBis.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:259</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_ad650949b0a832f48159c712542a3378f"><div class="ttname"><a href="class_pure_pursuit.html#ad650949b0a832f48159c712542a3378f">PurePursuit::getWaypoint</a></div><div class="ttdeci">const Waypoint &amp; getWaypoint(int index) const</div><div class="ttdoc">Getter d'un point de passage.</div><div class="ttdef"><b>Definition</b> PurePursuit.h:104</div></div>
+<div class="ttc" id="aclass_pure_pursuit_html_ae777318b78fb671d7c4a7bfdb7a8bb6c"><div class="ttname"><a href="class_pure_pursuit.html#ae777318b78fb671d7c4a7bfdb7a8bb6c">PurePursuit::getDistAfterGoal</a></div><div class="ttdeci">float getDistAfterGoal()</div><div class="ttdoc">Retourne la distance restante à parcourir.</div><div class="ttdef"><b>Definition</b> PurePursuit.cpp:147</div></div>
+<div class="ttc" id="astruct_position_html"><div class="ttname"><a href="struct_position.html">Position</a></div><div class="ttdoc">Structure de position.</div><div class="ttdef"><b>Definition</b> Odometry.h:14</div></div>
+<div class="ttc" id="astruct_position_html_a54a6182b5f7539295b32255808897d3f"><div class="ttname"><a href="struct_position.html#a54a6182b5f7539295b32255808897d3f">Position::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition</b> Odometry.h:32</div></div>
+<div class="ttc" id="astruct_position_html_af684446cbf0f6d53386686283da6dcc6"><div class="ttname"><a href="struct_position.html#af684446cbf0f6d53386686283da6dcc6">Position::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition</b> Odometry.h:31</div></div>
+<div class="ttc" id="astruct_pure_pursuit_1_1_waypoint_html"><div class="ttname"><a href="struct_pure_pursuit_1_1_waypoint.html">PurePursuit::Waypoint</a></div><div class="ttdoc">Structure d'un point de passage de Purpursuit.</div><div class="ttdef"><b>Definition</b> PurePursuit.h:27</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

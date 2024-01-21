@@ -1,0 +1,563 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence de la classe Codewheel</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="class_codewheel-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la classe Codewheel</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fait la passerelle entre les roues codeuses et le compteur.  
+ <a href="#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_codewheel_8h_source.html">Codewheel.h</a>&gt;</code></p>
+
+<p>Est dérivée de <a class="el" href="class_non_copyable.html">NonCopyable</a>, et <a class="el" href="class_abstract_codewheel.html">AbstractCodewheel</a>.</p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a75e89c5c9f6595f06491a9067ed243ef" id="r_a75e89c5c9f6595f06491a9067ed243ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75e89c5c9f6595f06491a9067ed243ef">attachCounter</a> (int XY, int AXIS, int SEL1, int SEL2, int OE, int RST)</td></tr>
+<tr class="memdesc:a75e89c5c9f6595f06491a9067ed243ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set les pins pour le compteur.  <br /></td></tr>
+<tr class="separator:a75e89c5c9f6595f06491a9067ed243ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad84ea839008f9aab86623738a9c8436a" id="r_ad84ea839008f9aab86623738a9c8436a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad84ea839008f9aab86623738a9c8436a">attachRegister</a> (int DATA, int LATCH, int CLOCK)</td></tr>
+<tr class="memdesc:ad84ea839008f9aab86623738a9c8436a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set les pins pour les registres du compteur.  <br /></td></tr>
+<tr class="separator:ad84ea839008f9aab86623738a9c8436a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1385b3e054723c02d5c6611afa822918" id="r_a1385b3e054723c02d5c6611afa822918"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1385b3e054723c02d5c6611afa822918">getCounter</a> ()</td></tr>
+<tr class="memdesc:a1385b3e054723c02d5c6611afa822918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donne le nombre de tic absolue courant.  <br /></td></tr>
+<tr class="separator:a1385b3e054723c02d5c6611afa822918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99b02d5d1cd967390db2dc0157931de6" id="r_a99b02d5d1cd967390db2dc0157931de6"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99b02d5d1cd967390db2dc0157931de6">getCountsPerRev</a> ()</td></tr>
+<tr class="memdesc:a99b02d5d1cd967390db2dc0157931de6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donne le nombre de tics par tour courant.  <br /></td></tr>
+<tr class="separator:a99b02d5d1cd967390db2dc0157931de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9093477d573ca15ef537a6521ecdc68f" id="r_a9093477d573ca15ef537a6521ecdc68f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9093477d573ca15ef537a6521ecdc68f">getWheelRadius</a> ()</td></tr>
+<tr class="memdesc:a9093477d573ca15ef537a6521ecdc68f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donne le rayon de la roue en mm.  <br /></td></tr>
+<tr class="separator:a9093477d573ca15ef537a6521ecdc68f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a548f7603cd5e3f011a2ee30850ac3650" id="r_a548f7603cd5e3f011a2ee30850ac3650"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a548f7603cd5e3f011a2ee30850ac3650">setCountsPerRev</a> (long countsPerRev)</td></tr>
+<tr class="memdesc:a548f7603cd5e3f011a2ee30850ac3650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set le nombre de tics par tour.  <br /></td></tr>
+<tr class="separator:a548f7603cd5e3f011a2ee30850ac3650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40d3e371e0ce17391135469dfacb3dea" id="r_a40d3e371e0ce17391135469dfacb3dea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40d3e371e0ce17391135469dfacb3dea">setWheelRadius</a> (float wheelRadius)</td></tr>
+<tr class="memdesc:a40d3e371e0ce17391135469dfacb3dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set le rayon en mm de la roue.  <br /></td></tr>
+<tr class="separator:a40d3e371e0ce17391135469dfacb3dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b1448233cb729d40d82ac8aafecddc5" id="r_a9b1448233cb729d40d82ac8aafecddc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b1448233cb729d40d82ac8aafecddc5">reset</a> ()</td></tr>
+<tr class="memdesc:a9b1448233cb729d40d82ac8aafecddc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réinitialise le compteur à 0.  <br /></td></tr>
+<tr class="separator:a9b1448233cb729d40d82ac8aafecddc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeebb10d23afc0761c434475d5940d1bc" id="r_aeebb10d23afc0761c434475d5940d1bc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeebb10d23afc0761c434475d5940d1bc">getTraveledDistance</a> ()</td></tr>
+<tr class="memdesc:aeebb10d23afc0761c434475d5940d1bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donne la distance parcouru.  <br /></td></tr>
+<tr class="separator:aeebb10d23afc0761c434475d5940d1bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46d7e4b6a5873f986e2ad01c31668c40" id="r_a46d7e4b6a5873f986e2ad01c31668c40"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46d7e4b6a5873f986e2ad01c31668c40">restart</a> ()</td></tr>
+<tr class="memdesc:a46d7e4b6a5873f986e2ad01c31668c40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donne la distance parcouru et reset le compteur.  <br /></td></tr>
+<tr class="separator:a46d7e4b6a5873f986e2ad01c31668c40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88723c9cbcb622a34e42aeab5bbcf63d" id="r_a88723c9cbcb622a34e42aeab5bbcf63d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88723c9cbcb622a34e42aeab5bbcf63d">load</a> (int address)</td></tr>
+<tr class="memdesc:a88723c9cbcb622a34e42aeab5bbcf63d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les données de l'EEPROM avec l'offset.  <br /></td></tr>
+<tr class="separator:a88723c9cbcb622a34e42aeab5bbcf63d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d673c743e8a6c24ada38f88ff3d0eaa" id="r_a5d673c743e8a6c24ada38f88ff3d0eaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d673c743e8a6c24ada38f88ff3d0eaa">save</a> (int address)</td></tr>
+<tr class="memdesc:a5d673c743e8a6c24ada38f88ff3d0eaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde les constantes actuelles dans l'EEPROM.  <br /></td></tr>
+<tr class="separator:a5d673c743e8a6c24ada38f88ff3d0eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr class="memitem:a481b69520445ed19be3ead3af9a777f7" id="r_a481b69520445ed19be3ead3af9a777f7"><td class="memItemLeft" align="right" valign="top"><a id="a481b69520445ed19be3ead3af9a777f7" name="a481b69520445ed19be3ead3af9a777f7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="memdesc:a481b69520445ed19be3ead3af9a777f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le nombre de tics stoqués dans le compteur. <br /></td></tr>
+<tr class="separator:a481b69520445ed19be3ead3af9a777f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:ab1e066352975cf663e4b1d1f8b04f828" id="r_ab1e066352975cf663e4b1d1f8b04f828"><td class="memItemLeft" align="right" valign="top"><a id="ab1e066352975cf663e4b1d1f8b04f828" name="ab1e066352975cf663e4b1d1f8b04f828"></a>
+long&#160;</td><td class="memItemRight" valign="bottom"><b>m_currentCounter</b></td></tr>
+<tr class="memdesc:ab1e066352975cf663e4b1d1f8b04f828"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tic courant. <br /></td></tr>
+<tr class="separator:ab1e066352975cf663e4b1d1f8b04f828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66fb9285d86b6a91865c75ecd3716033" id="r_a66fb9285d86b6a91865c75ecd3716033"><td class="memItemLeft" align="right" valign="top"><a id="a66fb9285d86b6a91865c75ecd3716033" name="a66fb9285d86b6a91865c75ecd3716033"></a>
+long&#160;</td><td class="memItemRight" valign="bottom"><b>m_startCounter</b></td></tr>
+<tr class="memdesc:a66fb9285d86b6a91865c75ecd3716033"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tic depuis le dernier reset. <br /></td></tr>
+<tr class="separator:a66fb9285d86b6a91865c75ecd3716033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af12890c745808012388cdaf39f26f352" id="r_af12890c745808012388cdaf39f26f352"><td class="memItemLeft" align="right" valign="top"><a id="af12890c745808012388cdaf39f26f352" name="af12890c745808012388cdaf39f26f352"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>m_wheelRadius</b></td></tr>
+<tr class="memdesc:af12890c745808012388cdaf39f26f352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rayon de la roue codeuse en mm. <br /></td></tr>
+<tr class="separator:af12890c745808012388cdaf39f26f352"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9112001b8bf60a033d4cdb1d2e666fb" id="r_ae9112001b8bf60a033d4cdb1d2e666fb"><td class="memItemLeft" align="right" valign="top"><a id="ae9112001b8bf60a033d4cdb1d2e666fb" name="ae9112001b8bf60a033d4cdb1d2e666fb"></a>
+long&#160;</td><td class="memItemRight" valign="bottom"><b>m_countsPerRev</b></td></tr>
+<tr class="memdesc:ae9112001b8bf60a033d4cdb1d2e666fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre de tics par tour de roue. <br /></td></tr>
+<tr class="separator:ae9112001b8bf60a033d4cdb1d2e666fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c4ef2943a6c3df124c3df3d1eae3cb3" id="r_a1c4ef2943a6c3df124c3df3d1eae3cb3"><td class="memItemLeft" align="right" valign="top"><a id="a1c4ef2943a6c3df124c3df3d1eae3cb3" name="a1c4ef2943a6c3df124c3df3d1eae3cb3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_COUNTER_XY</b></td></tr>
+<tr class="memdesc:a1c4ef2943a6c3df124c3df3d1eae3cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select one of the two quad counters. See below. <br /></td></tr>
+<tr class="separator:a1c4ef2943a6c3df124c3df3d1eae3cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a979f740a11d381295dd7a39f52e223b6" id="r_a979f740a11d381295dd7a39f52e223b6"><td class="memItemLeft" align="right" valign="top"><a id="a979f740a11d381295dd7a39f52e223b6" name="a979f740a11d381295dd7a39f52e223b6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_COUNTER_AXIS</b></td></tr>
+<tr class="memdesc:a979f740a11d381295dd7a39f52e223b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not a pin: X = 0, Y = 0. <br /></td></tr>
+<tr class="separator:a979f740a11d381295dd7a39f52e223b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd0094b8dc480406d978f29bb80e3d7e" id="r_abd0094b8dc480406d978f29bb80e3d7e"><td class="memItemLeft" align="right" valign="top"><a id="abd0094b8dc480406d978f29bb80e3d7e" name="abd0094b8dc480406d978f29bb80e3d7e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_COUNTER_SEL1</b></td></tr>
+<tr class="memdesc:abd0094b8dc480406d978f29bb80e3d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">MSB = 0, 2ND = 1, 3RD = 0, LSB = 1. <br /></td></tr>
+<tr class="separator:abd0094b8dc480406d978f29bb80e3d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fe72945463a4c84a9b4a7026aedded9" id="r_a4fe72945463a4c84a9b4a7026aedded9"><td class="memItemLeft" align="right" valign="top"><a id="a4fe72945463a4c84a9b4a7026aedded9" name="a4fe72945463a4c84a9b4a7026aedded9"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_COUNTER_SEL2</b></td></tr>
+<tr class="memdesc:a4fe72945463a4c84a9b4a7026aedded9"><td class="mdescLeft">&#160;</td><td class="mdescRight">MSB = 0, 2ND = 0, 3RD = 1, LSB = 1. <br /></td></tr>
+<tr class="separator:a4fe72945463a4c84a9b4a7026aedded9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa931fa5f4ff2f776922829e7d30e884" id="r_afa931fa5f4ff2f776922829e7d30e884"><td class="memItemLeft" align="right" valign="top"><a id="afa931fa5f4ff2f776922829e7d30e884" name="afa931fa5f4ff2f776922829e7d30e884"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_COUNTER_OE</b></td></tr>
+<tr class="memdesc:afa931fa5f4ff2f776922829e7d30e884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active LOW. Enable the tri-states output buffers. <br /></td></tr>
+<tr class="separator:afa931fa5f4ff2f776922829e7d30e884"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f3baca1d15e4ee4df226c052aba6bed" id="r_a5f3baca1d15e4ee4df226c052aba6bed"><td class="memItemLeft" align="right" valign="top"><a id="a5f3baca1d15e4ee4df226c052aba6bed" name="a5f3baca1d15e4ee4df226c052aba6bed"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_COUNTER_RST</b></td></tr>
+<tr class="memdesc:a5f3baca1d15e4ee4df226c052aba6bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active LOW. Clear the internal position counter and the position latch. <br /></td></tr>
+<tr class="separator:a5f3baca1d15e4ee4df226c052aba6bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a207590786446195ede5110989ca64115" id="r_a207590786446195ede5110989ca64115"><td class="memItemLeft" align="right" valign="top"><a id="a207590786446195ede5110989ca64115" name="a207590786446195ede5110989ca64115"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_REGISTER_DATA</b></td></tr>
+<tr class="memdesc:a207590786446195ede5110989ca64115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serial data input from the 74HC165 register. <br /></td></tr>
+<tr class="separator:a207590786446195ede5110989ca64115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e13d1893ce0d431762a1ddc4f8718e7" id="r_a1e13d1893ce0d431762a1ddc4f8718e7"><td class="memItemLeft" align="right" valign="top"><a id="a1e13d1893ce0d431762a1ddc4f8718e7" name="a1e13d1893ce0d431762a1ddc4f8718e7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_REGISTER_LATCH</b></td></tr>
+<tr class="memdesc:a1e13d1893ce0d431762a1ddc4f8718e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active LOW. Latch signal for the 74HC165 register. <br /></td></tr>
+<tr class="separator:a1e13d1893ce0d431762a1ddc4f8718e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9ff78d65fccf82c100f89f3241ec76a" id="r_ab9ff78d65fccf82c100f89f3241ec76a"><td class="memItemLeft" align="right" valign="top"><a id="ab9ff78d65fccf82c100f89f3241ec76a" name="ab9ff78d65fccf82c100f89f3241ec76a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_REGISTER_CLOCK</b></td></tr>
+<tr class="memdesc:ab9ff78d65fccf82c100f89f3241ec76a"><td class="mdescLeft">&#160;</td><td class="mdescRight">LOW-to-HIGH edge-triggered. <a class="el" href="class_clock.html" title="Utilitaire pour gérer le temps dans vos programmes Arduino.">Clock</a> signal for the 74HC165 register. <br /></td></tr>
+<tr class="separator:ab9ff78d65fccf82c100f89f3241ec76a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fait la passerelle entre les roues codeuses et le compteur. </p>
+<p>class <a class="el" href="class_codewheel.html" title="Fait la passerelle entre les roues codeuses et le compteur.">Codewheel</a> </p><dl class="section author"><dt>Auteur</dt><dd>Ulysse Darmet Cette classe permet de récupérer les tics des roues codeuses à travers la puce compteuse. </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a75e89c5c9f6595f06491a9067ed243ef" name="a75e89c5c9f6595f06491a9067ed243ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75e89c5c9f6595f06491a9067ed243ef">&#9670;&#160;</a></span>attachCounter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Codewheel::attachCounter </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>XY</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>AXIS</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>SEL1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>SEL2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>OE</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>RST</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set les pins pour le compteur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">XY</td><td>Voir doc elec </td></tr>
+    <tr><td class="paramname">AXIS</td><td>Voir doc elec </td></tr>
+    <tr><td class="paramname">SEL1</td><td>Voir doc elec </td></tr>
+    <tr><td class="paramname">SEL2</td><td>Voir doc elec </td></tr>
+    <tr><td class="paramname">OE</td><td>Voir doc elec </td></tr>
+    <tr><td class="paramname">RST</td><td>Voir doc elec </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad84ea839008f9aab86623738a9c8436a" name="ad84ea839008f9aab86623738a9c8436a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad84ea839008f9aab86623738a9c8436a">&#9670;&#160;</a></span>attachRegister()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Codewheel::attachRegister </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>DATA</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>LATCH</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>CLOCK</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set les pins pour les registres du compteur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DATA</td><td></td></tr>
+    <tr><td class="paramname">LATCH</td><td></td></tr>
+    <tr><td class="paramname">CLOCK</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1385b3e054723c02d5c6611afa822918" name="a1385b3e054723c02d5c6611afa822918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1385b3e054723c02d5c6611afa822918">&#9670;&#160;</a></span>getCounter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long Codewheel::getCounter </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Donne le nombre de tic absolue courant. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>long Le nombre de tics depuis le dernier reset. </dd></dl>
+
+</div>
+</div>
+<a id="a99b02d5d1cd967390db2dc0157931de6" name="a99b02d5d1cd967390db2dc0157931de6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99b02d5d1cd967390db2dc0157931de6">&#9670;&#160;</a></span>getCountsPerRev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long Codewheel::getCountsPerRev </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Donne le nombre de tics par tour courant. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>long Nombre de tics par tour. </dd></dl>
+
+</div>
+</div>
+<a id="aeebb10d23afc0761c434475d5940d1bc" name="aeebb10d23afc0761c434475d5940d1bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeebb10d23afc0761c434475d5940d1bc">&#9670;&#160;</a></span>getTraveledDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Codewheel::getTraveledDistance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Donne la distance parcouru. </p>
+<p>Cette méthode donne la distance parcouru par la roue depuis le dernier <a class="el" href="#a9b1448233cb729d40d82ac8aafecddc5" title="Réinitialise le compteur à 0.">Codewheel::reset</a> ou <a class="el" href="#a46d7e4b6a5873f986e2ad01c31668c40" title="Donne la distance parcouru et reset le compteur.">Codewheel::restart</a>. </p><dl class="section return"><dt>Renvoie</dt><dd>float </dd></dl>
+
+<p>Implémente <a class="el" href="class_abstract_codewheel.html#a12ac9400c8af2b0dcfb041ad114b1831">AbstractCodewheel</a>.</p>
+
+</div>
+</div>
+<a id="a9093477d573ca15ef537a6521ecdc68f" name="a9093477d573ca15ef537a6521ecdc68f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9093477d573ca15ef537a6521ecdc68f">&#9670;&#160;</a></span>getWheelRadius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Codewheel::getWheelRadius </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Donne le rayon de la roue en mm. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>float rayon en mm. </dd></dl>
+
+</div>
+</div>
+<a id="a88723c9cbcb622a34e42aeab5bbcf63d" name="a88723c9cbcb622a34e42aeab5bbcf63d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88723c9cbcb622a34e42aeab5bbcf63d">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Codewheel::load </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge les données de l'EEPROM avec l'offset. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Offset à utiliser pour lire dans l'EEPROM. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9b1448233cb729d40d82ac8aafecddc5" name="a9b1448233cb729d40d82ac8aafecddc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b1448233cb729d40d82ac8aafecddc5">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Codewheel::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Réinitialise le compteur à 0. </p>
+<p>Cette méthode peut rendre caduque le prochain <a class="el" href="#aeebb10d23afc0761c434475d5940d1bc" title="Donne la distance parcouru.">Codewheel::getTraveledDistance</a>. </p>
+
+</div>
+</div>
+<a id="a46d7e4b6a5873f986e2ad01c31668c40" name="a46d7e4b6a5873f986e2ad01c31668c40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46d7e4b6a5873f986e2ad01c31668c40">&#9670;&#160;</a></span>restart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Codewheel::restart </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Donne la distance parcouru et reset le compteur. </p>
+<p>Cette méthode appel la méthode Codewheel::getTravemedDistance avant de mettre à jour le compteur de l'arduino (pas du compteur (puce elec)).</p>
+<dl class="section return"><dt>Renvoie</dt><dd>float </dd></dl>
+
+<p>Implémente <a class="el" href="class_abstract_codewheel.html#a6298fa396bc11c0d073426ff1469f180">AbstractCodewheel</a>.</p>
+
+</div>
+</div>
+<a id="a5d673c743e8a6c24ada38f88ff3d0eaa" name="a5d673c743e8a6c24ada38f88ff3d0eaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d673c743e8a6c24ada38f88ff3d0eaa">&#9670;&#160;</a></span>save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Codewheel::save </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sauvegarde les constantes actuelles dans l'EEPROM. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Offset à utiliser pour ecrire dans l'EEPROM. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a548f7603cd5e3f011a2ee30850ac3650" name="a548f7603cd5e3f011a2ee30850ac3650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a548f7603cd5e3f011a2ee30850ac3650">&#9670;&#160;</a></span>setCountsPerRev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Codewheel::setCountsPerRev </td>
+          <td>(</td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>countsPerRev</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set le nombre de tics par tour. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">countsPerRev</td><td>nb de tics par tour. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a40d3e371e0ce17391135469dfacb3dea" name="a40d3e371e0ce17391135469dfacb3dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40d3e371e0ce17391135469dfacb3dea">&#9670;&#160;</a></span>setWheelRadius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Codewheel::setWheelRadius </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>wheelRadius</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set le rayon en mm de la roue. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wheelRadius</td><td>rayon en mm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/Codewheel/<a class="el" href="_codewheel_8h_source.html">Codewheel.h</a></li>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/Codewheel/<b>Codewheel.cpp</b></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

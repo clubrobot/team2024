@@ -1,0 +1,723 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence de la classe PositionController</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#friends">Amis</a> &#124;
+<a href="class_position_controller-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la classe PositionController</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Classe support des objets <a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>.  
+ <a href="#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_position_controller_8h_source.html">PositionController.h</a>&gt;</code></p>
+
+<p>Est dérivée de <a class="el" href="class_periodic_process.html">PeriodicProcess</a>.</p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:ab49c2052df85bbd469374bde7b664e99" id="r_ab49c2052df85bbd469374bde7b664e99"><td class="memItemLeft" align="right" valign="top"><a id="ab49c2052df85bbd469374bde7b664e99" name="ab49c2052df85bbd469374bde7b664e99"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PositionController</b> ()</td></tr>
+<tr class="memdesc:ab49c2052df85bbd469374bde7b664e99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de <a class="el" href="class_position_controller.html" title="Classe support des objets AbstractMoveStrategy.">PositionController</a> Initialise les variables de <a class="el" href="class_position_controller.html" title="Classe support des objets AbstractMoveStrategy.">PositionController</a> à des valeurs neutre. <br /></td></tr>
+<tr class="separator:ab49c2052df85bbd469374bde7b664e99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abab980696c93de1f8ed67c6d96724824" id="r_abab980696c93de1f8ed67c6d96724824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abab980696c93de1f8ed67c6d96724824">setPosInput</a> (const <a class="el" href="struct_position.html">Position</a> &amp;posInput)</td></tr>
+<tr class="memdesc:abab980696c93de1f8ed67c6d96724824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les nouvelles positions du robot. Charge les nouvelles positions du robot pour les donner à une potentiel <a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a> chargée.  <br /></td></tr>
+<tr class="separator:abab980696c93de1f8ed67c6d96724824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b0a91b65ea3793cc22be0ede70ba9db" id="r_a5b0a91b65ea3793cc22be0ede70ba9db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b0a91b65ea3793cc22be0ede70ba9db">setPosSetpoint</a> (const <a class="el" href="struct_position.html">Position</a> &amp;posSetpoint)</td></tr>
+<tr class="memdesc:a5b0a91b65ea3793cc22be0ede70ba9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge la position à atteindre.  <br /></td></tr>
+<tr class="separator:a5b0a91b65ea3793cc22be0ede70ba9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03c9bf5a1f9f367034de6a20c59f6fab" id="r_a03c9bf5a1f9f367034de6a20c59f6fab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03c9bf5a1f9f367034de6a20c59f6fab">setThetaSetpoint</a> (float theta)</td></tr>
+<tr class="memdesc:a03c9bf5a1f9f367034de6a20c59f6fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge l'angle à atteindre.  <br /></td></tr>
+<tr class="separator:a03c9bf5a1f9f367034de6a20c59f6fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abedcaf3db7e5be1b13f9b81431e7c88d" id="r_abedcaf3db7e5be1b13f9b81431e7c88d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abedcaf3db7e5be1b13f9b81431e7c88d">getLinVelSetpoint</a> () const</td></tr>
+<tr class="memdesc:abedcaf3db7e5be1b13f9b81431e7c88d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la vitesse linéaire à atteindre.  <br /></td></tr>
+<tr class="separator:abedcaf3db7e5be1b13f9b81431e7c88d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a661e49f4614050f6cbe81cf95ef70231" id="r_a661e49f4614050f6cbe81cf95ef70231"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a661e49f4614050f6cbe81cf95ef70231">getAngVelSetpoint</a> () const</td></tr>
+<tr class="memdesc:a661e49f4614050f6cbe81cf95ef70231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la vitesse angulaire à atteindre.  <br /></td></tr>
+<tr class="separator:a661e49f4614050f6cbe81cf95ef70231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb42dcd96814596d1c542e0746b476da" id="r_afb42dcd96814596d1c542e0746b476da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb42dcd96814596d1c542e0746b476da">setVelTunings</a> (float linVelKp, float angVelKp)</td></tr>
+<tr class="memdesc:afb42dcd96814596d1c542e0746b476da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paramètre les coéfficients linéaire.  <br /></td></tr>
+<tr class="separator:afb42dcd96814596d1c542e0746b476da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5305fb6ae0859709966ad38b0f74c04b" id="r_a5305fb6ae0859709966ad38b0f74c04b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5305fb6ae0859709966ad38b0f74c04b">setVelLimits</a> (float linVelMax, float angVelMax)</td></tr>
+<tr class="memdesc:a5305fb6ae0859709966ad38b0f74c04b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paramètre les vitesses max.  <br /></td></tr>
+<tr class="separator:a5305fb6ae0859709966ad38b0f74c04b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac86a8b7aef8c1adf9d7b21ba5bbeb299" id="r_ac86a8b7aef8c1adf9d7b21ba5bbeb299"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac86a8b7aef8c1adf9d7b21ba5bbeb299">setPosThresholds</a> (float linPosThreshold, float angPosThreshold)</td></tr>
+<tr class="memdesc:ac86a8b7aef8c1adf9d7b21ba5bbeb299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paramètre les précisions en position.  <br /></td></tr>
+<tr class="separator:ac86a8b7aef8c1adf9d7b21ba5bbeb299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2409e437ff4122f60ab91ab35e23fe9" id="r_aa2409e437ff4122f60ab91ab35e23fe9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2409e437ff4122f60ab91ab35e23fe9">setMoveStrategy</a> (<a class="el" href="class_abstract_move_strategy.html">AbstractMoveStrategy</a> &amp;moveStrategy)</td></tr>
+<tr class="memdesc:aa2409e437ff4122f60ab91ab35e23fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une stratégie de mouvement.  <br /></td></tr>
+<tr class="separator:aa2409e437ff4122f60ab91ab35e23fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abae1f749777eafdb277fd6bf8e0c490b" id="r_abae1f749777eafdb277fd6bf8e0c490b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abae1f749777eafdb277fd6bf8e0c490b">getPositionReached</a> ()</td></tr>
+<tr class="memdesc:abae1f749777eafdb277fd6bf8e0c490b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si la position est atteinte.  <br /></td></tr>
+<tr class="separator:abae1f749777eafdb277fd6bf8e0c490b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c15cf6e6a9a4d623aa9df488bfb715f" id="r_a9c15cf6e6a9a4d623aa9df488bfb715f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c15cf6e6a9a4d623aa9df488bfb715f">getLinVelKp</a> () const</td></tr>
+<tr class="memdesc:a9c15cf6e6a9a4d623aa9df488bfb715f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le coef proportionnel de vitesse linéaire.  <br /></td></tr>
+<tr class="separator:a9c15cf6e6a9a4d623aa9df488bfb715f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a708f4c8281f2a9cf2bf7da97664860f8" id="r_a708f4c8281f2a9cf2bf7da97664860f8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a708f4c8281f2a9cf2bf7da97664860f8">getAngVelKp</a> () const</td></tr>
+<tr class="memdesc:a708f4c8281f2a9cf2bf7da97664860f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le coef proportionnel de vitesse angulaire.  <br /></td></tr>
+<tr class="separator:a708f4c8281f2a9cf2bf7da97664860f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a203ca6f8cd1717aa2f8b83577104c806" id="r_a203ca6f8cd1717aa2f8b83577104c806"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a203ca6f8cd1717aa2f8b83577104c806">getLinVelMax</a> () const</td></tr>
+<tr class="memdesc:a203ca6f8cd1717aa2f8b83577104c806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la vitesse max linéaire.  <br /></td></tr>
+<tr class="separator:a203ca6f8cd1717aa2f8b83577104c806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1af800daa95964056c8791842bd05054" id="r_a1af800daa95964056c8791842bd05054"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1af800daa95964056c8791842bd05054">getAngVelMax</a> () const</td></tr>
+<tr class="memdesc:a1af800daa95964056c8791842bd05054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la vitesse max angulaire.  <br /></td></tr>
+<tr class="separator:a1af800daa95964056c8791842bd05054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af16eedd8b937e2ca81e5b8999b100081" id="r_af16eedd8b937e2ca81e5b8999b100081"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af16eedd8b937e2ca81e5b8999b100081">getLinPosThreshold</a> () const</td></tr>
+<tr class="memdesc:af16eedd8b937e2ca81e5b8999b100081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la précision cartésienne.  <br /></td></tr>
+<tr class="separator:af16eedd8b937e2ca81e5b8999b100081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f89060bb173f7937ed7f39861c8a959" id="r_a3f89060bb173f7937ed7f39861c8a959"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f89060bb173f7937ed7f39861c8a959">getAngPosThreshold</a> () const</td></tr>
+<tr class="memdesc:a3f89060bb173f7937ed7f39861c8a959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la précision angulaire.  <br /></td></tr>
+<tr class="separator:a3f89060bb173f7937ed7f39861c8a959"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add194236e2981067c0d3b77b7ec06d9d" id="r_add194236e2981067c0d3b77b7ec06d9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add194236e2981067c0d3b77b7ec06d9d">load</a> (int address)</td></tr>
+<tr class="memdesc:add194236e2981067c0d3b77b7ec06d9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les configs.  <br /></td></tr>
+<tr class="separator:add194236e2981067c0d3b77b7ec06d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0bb7468fae84614d2e21262da997338" id="r_aa0bb7468fae84614d2e21262da997338"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0bb7468fae84614d2e21262da997338">save</a> (int address) const</td></tr>
+<tr class="memdesc:aa0bb7468fae84614d2e21262da997338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde la configuration actuel.  <br /></td></tr>
+<tr class="separator:aa0bb7468fae84614d2e21262da997338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_periodic_process"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_periodic_process')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="class_periodic_process.html">PeriodicProcess</a></td></tr>
+<tr class="memitem:ad7b24e195dea0bb385acf3afc213b22b inherit pub_methods_class_periodic_process" id="r_ad7b24e195dea0bb385acf3afc213b22b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#ad7b24e195dea0bb385acf3afc213b22b">~PeriodicProcess</a> ()</td></tr>
+<tr class="memdesc:ad7b24e195dea0bb385acf3afc213b22b inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:ad7b24e195dea0bb385acf3afc213b22b inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae49aad8572f5b60fede0a13f0cd95d36 inherit pub_methods_class_periodic_process" id="r_ae49aad8572f5b60fede0a13f0cd95d36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#ae49aad8572f5b60fede0a13f0cd95d36">enable</a> ()</td></tr>
+<tr class="memdesc:ae49aad8572f5b60fede0a13f0cd95d36 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active le <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:ae49aad8572f5b60fede0a13f0cd95d36 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4147798b8ad01690f590d934bdd83c28 inherit pub_methods_class_periodic_process" id="r_a4147798b8ad01690f590d934bdd83c28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a4147798b8ad01690f590d934bdd83c28">disable</a> ()</td></tr>
+<tr class="memdesc:a4147798b8ad01690f590d934bdd83c28 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Désactive le <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:a4147798b8ad01690f590d934bdd83c28 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca171a0dac27356b246d359da26da104 inherit pub_methods_class_periodic_process" id="r_aca171a0dac27356b246d359da26da104"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#aca171a0dac27356b246d359da26da104">setTimestep</a> (float timestep)</td></tr>
+<tr class="memdesc:aca171a0dac27356b246d359da26da104 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sélectionne une nouvelle valeur pour timestep.  <br /></td></tr>
+<tr class="separator:aca171a0dac27356b246d359da26da104 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a910daacfe12010947ec541d3ac565867 inherit pub_methods_class_periodic_process" id="r_a910daacfe12010947ec541d3ac565867"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a910daacfe12010947ec541d3ac565867">update</a> ()</td></tr>
+<tr class="memdesc:a910daacfe12010947ec541d3ac565867 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute la méthode process.  <br /></td></tr>
+<tr class="separator:a910daacfe12010947ec541d3ac565867 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba917a9760e4df62a8e763cc43ee4c5 inherit pub_methods_class_periodic_process" id="r_a4ba917a9760e4df62a8e763cc43ee4c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a4ba917a9760e4df62a8e763cc43ee4c5">isEnabled</a> () const</td></tr>
+<tr class="memdesc:a4ba917a9760e4df62a8e763cc43ee4c5 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si le <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a> est activé.  <br /></td></tr>
+<tr class="separator:a4ba917a9760e4df62a8e763cc43ee4c5 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acafd892a946d978ea853cccfbd5e4295 inherit pub_methods_class_periodic_process" id="r_acafd892a946d978ea853cccfbd5e4295"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#acafd892a946d978ea853cccfbd5e4295">getTimestep</a> () const</td></tr>
+<tr class="memdesc:acafd892a946d978ea853cccfbd5e4295 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la valeur de m_timestep.  <br /></td></tr>
+<tr class="separator:acafd892a946d978ea853cccfbd5e4295 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Amis</h2></td></tr>
+<tr class="memitem:a89ece76b386da7b19de13122956d5f82" id="r_a89ece76b386da7b19de13122956d5f82"><td class="memItemLeft" align="right" valign="top"><a id="a89ece76b386da7b19de13122956d5f82" name="a89ece76b386da7b19de13122956d5f82"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>AbstractMoveStrategy</b></td></tr>
+<tr class="separator:a89ece76b386da7b19de13122956d5f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Membres hérités additionnels</h2></td></tr>
+<tr class="inherit_header pro_methods_class_periodic_process"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_periodic_process')"><img src="closed.png" alt="-"/>&#160;Fonctions membres protégées hérités de <a class="el" href="class_periodic_process.html">PeriodicProcess</a></td></tr>
+<tr class="memitem:a6e325cb38e20cac3164a01d89e161d90 inherit pro_methods_class_periodic_process" id="r_a6e325cb38e20cac3164a01d89e161d90"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a6e325cb38e20cac3164a01d89e161d90">onProcessDisabling</a> ()</td></tr>
+<tr class="memdesc:a6e325cb38e20cac3164a01d89e161d90 inherit pro_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode exécutée à la désactivation du <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:a6e325cb38e20cac3164a01d89e161d90 inherit pro_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Classe support des objets <a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>. </p>
+<p><a class="el" href="class_position_controller.html" title="Classe support des objets AbstractMoveStrategy.">PositionController</a> est le support des <a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>. C'est à dire qu'il permet de charger ou supprimer une stratégie. Quand <a class="el" href="class_position_controller.html" title="Classe support des objets AbstractMoveStrategy.">PositionController</a> execute une stratégie de mouvement, il va l'executé tous les time_steps pour y obtenir de nouvelles vitesses à suivre. PositionConstroller va égalemenr renseigné la position du robot à <a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a> chargée.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>class <a class="el" href="class_position_controller.html" title="Classe support des objets AbstractMoveStrategy.">PositionController</a> : public <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a> { public: </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a3f89060bb173f7937ed7f39861c8a959" name="a3f89060bb173f7937ed7f39861c8a959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f89060bb173f7937ed7f39861c8a959">&#9670;&#160;</a></span>getAngPosThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PositionController::getAngPosThreshold </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la précision angulaire. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Précision angulaire en rad. </dd></dl>
+
+</div>
+</div>
+<a id="a708f4c8281f2a9cf2bf7da97664860f8" name="a708f4c8281f2a9cf2bf7da97664860f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a708f4c8281f2a9cf2bf7da97664860f8">&#9670;&#160;</a></span>getAngVelKp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PositionController::getAngVelKp </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne le coef proportionnel de vitesse angulaire. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Coefficient proportionnel (sans unité). </dd></dl>
+
+</div>
+</div>
+<a id="a1af800daa95964056c8791842bd05054" name="a1af800daa95964056c8791842bd05054"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1af800daa95964056c8791842bd05054">&#9670;&#160;</a></span>getAngVelMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PositionController::getAngVelMax </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la vitesse max angulaire. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Vitesse angulaire max en rad/s. </dd></dl>
+
+</div>
+</div>
+<a id="a661e49f4614050f6cbe81cf95ef70231" name="a661e49f4614050f6cbe81cf95ef70231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a661e49f4614050f6cbe81cf95ef70231">&#9670;&#160;</a></span>getAngVelSetpoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PositionController::getAngVelSetpoint </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la vitesse angulaire à atteindre. </p>
+<p>Cette méthode retourne la vitesse angulaire que l'<a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a> souhaite atteindre.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>Vitesse angulaire à atteindre en rad/s. </dd></dl>
+
+</div>
+</div>
+<a id="af16eedd8b937e2ca81e5b8999b100081" name="af16eedd8b937e2ca81e5b8999b100081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af16eedd8b937e2ca81e5b8999b100081">&#9670;&#160;</a></span>getLinPosThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PositionController::getLinPosThreshold </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la précision cartésienne. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Précision cartésienne en mm. </dd></dl>
+
+</div>
+</div>
+<a id="a9c15cf6e6a9a4d623aa9df488bfb715f" name="a9c15cf6e6a9a4d623aa9df488bfb715f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c15cf6e6a9a4d623aa9df488bfb715f">&#9670;&#160;</a></span>getLinVelKp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PositionController::getLinVelKp </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne le coef proportionnel de vitesse linéaire. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Coefficient proportionnel (sans unité). </dd></dl>
+
+</div>
+</div>
+<a id="a203ca6f8cd1717aa2f8b83577104c806" name="a203ca6f8cd1717aa2f8b83577104c806"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a203ca6f8cd1717aa2f8b83577104c806">&#9670;&#160;</a></span>getLinVelMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PositionController::getLinVelMax </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la vitesse max linéaire. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Vitesse max en mm/s. </dd></dl>
+
+</div>
+</div>
+<a id="abedcaf3db7e5be1b13f9b81431e7c88d" name="abedcaf3db7e5be1b13f9b81431e7c88d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abedcaf3db7e5be1b13f9b81431e7c88d">&#9670;&#160;</a></span>getLinVelSetpoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PositionController::getLinVelSetpoint </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la vitesse linéaire à atteindre. </p>
+<p>Cette méthode retourne la vitesse linéaire que l'<a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a> souhaite atteindre.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>Vitesse à atteindre en mm/s. </dd></dl>
+
+</div>
+</div>
+<a id="abae1f749777eafdb277fd6bf8e0c490b" name="abae1f749777eafdb277fd6bf8e0c490b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abae1f749777eafdb277fd6bf8e0c490b">&#9670;&#160;</a></span>getPositionReached()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PositionController::getPositionReached </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Indique si la position est atteinte. </p>
+<p>Permet de savoir si la position objectif est atteinte avec la précision souhaitée.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>true <a class="el" href="struct_position.html" title="Structure de position.">Position</a> atteinte. </dd>
+<dd>
+false <a class="el" href="struct_position.html" title="Structure de position.">Position</a> non atteinte. </dd></dl>
+
+</div>
+</div>
+<a id="add194236e2981067c0d3b77b7ec06d9d" name="add194236e2981067c0d3b77b7ec06d9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add194236e2981067c0d3b77b7ec06d9d">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PositionController::load </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge les configs. </p>
+<p>Charge les configurations de la mémoire de l'Arduino avec l'adresse indiqué en paramètre.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Adresse à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa0bb7468fae84614d2e21262da997338" name="aa0bb7468fae84614d2e21262da997338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0bb7468fae84614d2e21262da997338">&#9670;&#160;</a></span>save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PositionController::save </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sauvegarde la configuration actuel. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Adresse à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa2409e437ff4122f60ab91ab35e23fe9" name="aa2409e437ff4122f60ab91ab35e23fe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2409e437ff4122f60ab91ab35e23fe9">&#9670;&#160;</a></span>setMoveStrategy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PositionController::setMoveStrategy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_abstract_move_strategy.html">AbstractMoveStrategy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>moveStrategy</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge une stratégie de mouvement. </p>
+<p>Charge la stratégie de mouvement (<a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>) passée en paramètre. Elle sera active après l'activation de <a class="el" href="class_position_controller.html" title="Classe support des objets AbstractMoveStrategy.">PositionController</a> ( <a class="el" href="class_periodic_process.html#ae49aad8572f5b60fede0a13f0cd95d36" title="Active le PeriodicProcess.">PositionController::enable</a>).</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moveStrategy</td><td><a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a> à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abab980696c93de1f8ed67c6d96724824" name="abab980696c93de1f8ed67c6d96724824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abab980696c93de1f8ed67c6d96724824">&#9670;&#160;</a></span>setPosInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PositionController::setPosInput </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_position.html">Position</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>posInput</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Charge les nouvelles positions du robot. Charge les nouvelles positions du robot pour les donner à une potentiel <a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a> chargée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posInput</td><td>Nouvelle objet <a class="el" href="struct_position.html" title="Structure de position.">Position</a> représentant la position du robot. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5b0a91b65ea3793cc22be0ede70ba9db" name="a5b0a91b65ea3793cc22be0ede70ba9db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b0a91b65ea3793cc22be0ede70ba9db">&#9670;&#160;</a></span>setPosSetpoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PositionController::setPosSetpoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_position.html">Position</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>posSetpoint</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Charge la position à atteindre. </p>
+<p>Charge la position à atteindre avec une <a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>. Cette variable est potentiellement utilisé par l'<a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posSetpoint</td><td><a class="el" href="struct_position.html" title="Structure de position.">Position</a> à atteindre </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac86a8b7aef8c1adf9d7b21ba5bbeb299" name="ac86a8b7aef8c1adf9d7b21ba5bbeb299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac86a8b7aef8c1adf9d7b21ba5bbeb299">&#9670;&#160;</a></span>setPosThresholds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PositionController::setPosThresholds </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>linPosThreshold</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angPosThreshold</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Paramètre les précisions en position. </p>
+<p>Paramètre les valeurs de précision pour l'<a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>. Si l'erreur de position est inférieur, l' <a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a> est arrêté.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linPosThreshold</td><td>Précision en coordonnés cartésiens (en mm). </td></tr>
+    <tr><td class="paramname">angPosThreshold</td><td>Précision d'angle (en rad). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a03c9bf5a1f9f367034de6a20c59f6fab" name="a03c9bf5a1f9f367034de6a20c59f6fab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03c9bf5a1f9f367034de6a20c59f6fab">&#9670;&#160;</a></span>setThetaSetpoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PositionController::setThetaSetpoint </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>theta</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Charge l'angle à atteindre. </p>
+<p>Change l'angle objectif de l'objet <a class="el" href="struct_position.html" title="Structure de position.">Position</a>. Remarque : les coordonnées objectif reste les mêmes.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theta</td><td>Nouvelle angle objectif. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5305fb6ae0859709966ad38b0f74c04b" name="a5305fb6ae0859709966ad38b0f74c04b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5305fb6ae0859709966ad38b0f74c04b">&#9670;&#160;</a></span>setVelLimits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PositionController::setVelLimits </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>linVelMax</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angVelMax</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Paramètre les vitesses max. </p>
+<p>Paramètre des vitesses maximals qui dois être appliquer à l'<a class="el" href="class_abstract_move_strategy.html" title="Interface de Stratégie de mouvement.">AbstractMoveStrategy</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linVelMax</td><td>Vitesse linéaire max. </td></tr>
+    <tr><td class="paramname">angVelMax</td><td>Vitesse angulaire max. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afb42dcd96814596d1c542e0746b476da" name="afb42dcd96814596d1c542e0746b476da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb42dcd96814596d1c542e0746b476da">&#9670;&#160;</a></span>setVelTunings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PositionController::setVelTunings </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>linVelKp</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angVelKp</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Paramètre les coéfficients linéaire. </p>
+<p>Paramètre de nouvelles valeurs pour les coefficients linéaire de vitesse et vitesse de rotation. Ces coefficients seront appliqués lors du calcul de vitesses à atteindre.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linVelKp</td><td>Coefficient proportionnel de vitesse linéaire. </td></tr>
+    <tr><td class="paramname">angVelKp</td><td>Coefficient proportionnel de vitesse angulaire. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/PositionController/<a class="el" href="_position_controller_8h_source.html">PositionController.h</a></li>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/PositionController/<b>PositionController.cpp</b></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -1,0 +1,826 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence de la classe VelocityController</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="class_velocity_controller-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la classe VelocityController</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Objet de controle de la vitesse.  
+ <a href="#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_velocity_controller_8h_source.html">VelocityController.h</a>&gt;</code></p>
+
+<p>Est dérivée de <a class="el" href="class_differential_controller.html">DifferentialController</a>.</p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:aa29e8e908d6e35b98b2aa945f9e6549d" id="r_aa29e8e908d6e35b98b2aa945f9e6549d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa29e8e908d6e35b98b2aa945f9e6549d">VelocityController</a> ()</td></tr>
+<tr class="memdesc:aa29e8e908d6e35b98b2aa945f9e6549d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de <a class="el" href="class_velocity_controller.html" title="Objet de controle de la vitesse.">VelocityController</a>.  <br /></td></tr>
+<tr class="separator:aa29e8e908d6e35b98b2aa945f9e6549d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b1ccf3d8e7b268301a35b0577f51f31" id="r_a7b1ccf3d8e7b268301a35b0577f51f31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b1ccf3d8e7b268301a35b0577f51f31">setMaxAngAcc</a> (float maxAngAcc)</td></tr>
+<tr class="memdesc:a7b1ccf3d8e7b268301a35b0577f51f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paramètre les accélérations max.  <br /></td></tr>
+<tr class="separator:a7b1ccf3d8e7b268301a35b0577f51f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa00bd41d5064587f3324c7b4309fd483" id="r_aa00bd41d5064587f3324c7b4309fd483"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa00bd41d5064587f3324c7b4309fd483">setMaxLinDec</a> (float maxLinDec)</td></tr>
+<tr class="memdesc:aa00bd41d5064587f3324c7b4309fd483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paramètre les décéleration max.  <br /></td></tr>
+<tr class="separator:aa00bd41d5064587f3324c7b4309fd483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a428043fcd8b930c254cf1cbd3615191d" id="r_a428043fcd8b930c254cf1cbd3615191d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a428043fcd8b930c254cf1cbd3615191d">setSpinShutdown</a> (bool spinShutdown)</td></tr>
+<tr class="memdesc:a428043fcd8b930c254cf1cbd3615191d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change l'état de l'arret d'urgence.  <br /></td></tr>
+<tr class="separator:a428043fcd8b930c254cf1cbd3615191d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a5d3013f75003fb282f68347498b51d" id="r_a4a5d3013f75003fb282f68347498b51d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a5d3013f75003fb282f68347498b51d">getMaxLinAcc</a> () const</td></tr>
+<tr class="memdesc:a4a5d3013f75003fb282f68347498b51d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'accélération max linéaire.  <br /></td></tr>
+<tr class="separator:a4a5d3013f75003fb282f68347498b51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2691871fd8b5a3522dfb671cfdb6716" id="r_ae2691871fd8b5a3522dfb671cfdb6716"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2691871fd8b5a3522dfb671cfdb6716">getMaxAngAcc</a> () const</td></tr>
+<tr class="memdesc:ae2691871fd8b5a3522dfb671cfdb6716"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'accélération max angulaire.  <br /></td></tr>
+<tr class="separator:ae2691871fd8b5a3522dfb671cfdb6716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad04193630f5a9ec64ba0eb2e5ae97ccb" id="r_ad04193630f5a9ec64ba0eb2e5ae97ccb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad04193630f5a9ec64ba0eb2e5ae97ccb">getMaxLinDec</a> () const</td></tr>
+<tr class="memdesc:ad04193630f5a9ec64ba0eb2e5ae97ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la décélération max linéaire.  <br /></td></tr>
+<tr class="separator:ad04193630f5a9ec64ba0eb2e5ae97ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73ca89c5696ecb306e12ace6013ff27c" id="r_a73ca89c5696ecb306e12ace6013ff27c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73ca89c5696ecb306e12ace6013ff27c">getMaxAngDec</a> () const</td></tr>
+<tr class="memdesc:a73ca89c5696ecb306e12ace6013ff27c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la décélération max angulaire.  <br /></td></tr>
+<tr class="separator:a73ca89c5696ecb306e12ace6013ff27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17fdf40d9913bfd63524ab3aed8ce87a" id="r_a17fdf40d9913bfd63524ab3aed8ce87a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17fdf40d9913bfd63524ab3aed8ce87a">getSpinShutdown</a> () const</td></tr>
+<tr class="memdesc:a17fdf40d9913bfd63524ab3aed8ce87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'état de spinShutDown.  <br /></td></tr>
+<tr class="separator:a17fdf40d9913bfd63524ab3aed8ce87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd38a7af98767000ef3dec6315fd74f8" id="r_acd38a7af98767000ef3dec6315fd74f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd38a7af98767000ef3dec6315fd74f8">load</a> (int address)</td></tr>
+<tr class="memdesc:acd38a7af98767000ef3dec6315fd74f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les paramètres.  <br /></td></tr>
+<tr class="separator:acd38a7af98767000ef3dec6315fd74f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13dc4c22c9c2174da77b24280c965f65" id="r_a13dc4c22c9c2174da77b24280c965f65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13dc4c22c9c2174da77b24280c965f65">save</a> (int address) const</td></tr>
+<tr class="memdesc:a13dc4c22c9c2174da77b24280c965f65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde les paramètres.  <br /></td></tr>
+<tr class="separator:a13dc4c22c9c2174da77b24280c965f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_differential_controller"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_differential_controller')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="class_differential_controller.html">DifferentialController</a></td></tr>
+<tr class="memitem:abe1b59650832e54e3f99a5dd06815977 inherit pub_methods_class_differential_controller" id="r_abe1b59650832e54e3f99a5dd06815977"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>DifferentialController</b> ()</td></tr>
+<tr class="memdesc:abe1b59650832e54e3f99a5dd06815977 inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de <a class="el" href="class_differential_controller.html" title="Controle les moteurs.">DifferentialController</a> Constructeur de <a class="el" href="class_differential_controller.html" title="Controle les moteurs.">DifferentialController</a> qui initialise les variables à des valeurs neutres. <br /></td></tr>
+<tr class="separator:abe1b59650832e54e3f99a5dd06815977 inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55b87d802aa851a846ebf14f47fa84c2 inherit pub_methods_class_differential_controller" id="r_a55b87d802aa851a846ebf14f47fa84c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a55b87d802aa851a846ebf14f47fa84c2">setInputs</a> (float linInput, float angInput)</td></tr>
+<tr class="memdesc:a55b87d802aa851a846ebf14f47fa84c2 inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les vitesses actuel.  <br /></td></tr>
+<tr class="separator:a55b87d802aa851a846ebf14f47fa84c2 inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7768d8a091a8f49f4b85c526d89a16b6 inherit pub_methods_class_differential_controller" id="r_a7768d8a091a8f49f4b85c526d89a16b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a7768d8a091a8f49f4b85c526d89a16b6">setSetpoints</a> (float linSetpoint, float angSetpoint)</td></tr>
+<tr class="memdesc:a7768d8a091a8f49f4b85c526d89a16b6 inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les vitesses désirées.  <br /></td></tr>
+<tr class="separator:a7768d8a091a8f49f4b85c526d89a16b6 inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecf1d9bcec79e50b87349d93acce8629 inherit pub_methods_class_differential_controller" id="r_aecf1d9bcec79e50b87349d93acce8629"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#aecf1d9bcec79e50b87349d93acce8629">setAxleTrack</a> (float axleTrack)</td></tr>
+<tr class="memdesc:aecf1d9bcec79e50b87349d93acce8629 inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge l'entraxe.  <br /></td></tr>
+<tr class="separator:aecf1d9bcec79e50b87349d93acce8629 inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c02655086ddf0a4802ed589a694f3fb inherit pub_methods_class_differential_controller" id="r_a4c02655086ddf0a4802ed589a694f3fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a4c02655086ddf0a4802ed589a694f3fb">setWheels</a> (<a class="el" href="class_abstract_motor.html">AbstractMotor</a> &amp;leftWheel, <a class="el" href="class_abstract_motor.html">AbstractMotor</a> &amp;rightWheel)</td></tr>
+<tr class="memdesc:a4c02655086ddf0a4802ed589a694f3fb inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les moteurs.  <br /></td></tr>
+<tr class="separator:a4c02655086ddf0a4802ed589a694f3fb inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93c82c46329b837a65e4cbda0cbb9854 inherit pub_methods_class_differential_controller" id="r_a93c82c46329b837a65e4cbda0cbb9854"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a93c82c46329b837a65e4cbda0cbb9854">setPID</a> (<a class="el" href="class_p_i_d.html">PID</a> &amp;linPID, <a class="el" href="class_p_i_d.html">PID</a> &amp;angPID)</td></tr>
+<tr class="memdesc:a93c82c46329b837a65e4cbda0cbb9854 inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge l'asservissement.  <br /></td></tr>
+<tr class="separator:a93c82c46329b837a65e4cbda0cbb9854 inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e47e4456e5462cc39e5e42d2abae27e inherit pub_methods_class_differential_controller" id="r_a2e47e4456e5462cc39e5e42d2abae27e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a2e47e4456e5462cc39e5e42d2abae27e">getLinSetpoint</a> () const</td></tr>
+<tr class="memdesc:a2e47e4456e5462cc39e5e42d2abae27e inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la vitesse demandée.  <br /></td></tr>
+<tr class="separator:a2e47e4456e5462cc39e5e42d2abae27e inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ed62aafaed9cd64fde0ac0dfaabe497 inherit pub_methods_class_differential_controller" id="r_a7ed62aafaed9cd64fde0ac0dfaabe497"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a7ed62aafaed9cd64fde0ac0dfaabe497">getAngSetpoint</a> () const</td></tr>
+<tr class="memdesc:a7ed62aafaed9cd64fde0ac0dfaabe497 inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la vitesse demandée.  <br /></td></tr>
+<tr class="separator:a7ed62aafaed9cd64fde0ac0dfaabe497 inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeb0737ce0a28dcbe878e10e0f80d443 inherit pub_methods_class_differential_controller" id="r_aaeb0737ce0a28dcbe878e10e0f80d443"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#aaeb0737ce0a28dcbe878e10e0f80d443">getLinOutput</a> () const</td></tr>
+<tr class="memdesc:aaeb0737ce0a28dcbe878e10e0f80d443 inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retour la commande linéaire actuel.  <br /></td></tr>
+<tr class="separator:aaeb0737ce0a28dcbe878e10e0f80d443 inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a084d7ad75a545ef4fdf79fc1a2ae6317 inherit pub_methods_class_differential_controller" id="r_a084d7ad75a545ef4fdf79fc1a2ae6317"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a084d7ad75a545ef4fdf79fc1a2ae6317">getAngOutput</a> () const</td></tr>
+<tr class="memdesc:a084d7ad75a545ef4fdf79fc1a2ae6317 inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retour la commande angulaire actuel.  <br /></td></tr>
+<tr class="separator:a084d7ad75a545ef4fdf79fc1a2ae6317 inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d8e60d438488e302a1314b3c38770c5 inherit pub_methods_class_differential_controller" id="r_a9d8e60d438488e302a1314b3c38770c5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a9d8e60d438488e302a1314b3c38770c5">getAxleTrack</a> () const</td></tr>
+<tr class="memdesc:a9d8e60d438488e302a1314b3c38770c5 inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'entraxe.  <br /></td></tr>
+<tr class="separator:a9d8e60d438488e302a1314b3c38770c5 inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55a6eefba969449152cc6e2e0efa9aaf inherit pub_methods_class_differential_controller" id="r_a55a6eefba969449152cc6e2e0efa9aaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a55a6eefba969449152cc6e2e0efa9aaf">load</a> (int address)</td></tr>
+<tr class="memdesc:a55a6eefba969449152cc6e2e0efa9aaf inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les paramètres.  <br /></td></tr>
+<tr class="separator:a55a6eefba969449152cc6e2e0efa9aaf inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf8ab1ad14725400ab7ce4fb7f794ad inherit pub_methods_class_differential_controller" id="r_acbf8ab1ad14725400ab7ce4fb7f794ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#acbf8ab1ad14725400ab7ce4fb7f794ad">save</a> (int address) const</td></tr>
+<tr class="memdesc:acbf8ab1ad14725400ab7ce4fb7f794ad inherit pub_methods_class_differential_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde les paramètres.  <br /></td></tr>
+<tr class="separator:acbf8ab1ad14725400ab7ce4fb7f794ad inherit pub_methods_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_periodic_process"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_periodic_process')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="class_periodic_process.html">PeriodicProcess</a></td></tr>
+<tr class="memitem:ad7b24e195dea0bb385acf3afc213b22b inherit pub_methods_class_periodic_process" id="r_ad7b24e195dea0bb385acf3afc213b22b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#ad7b24e195dea0bb385acf3afc213b22b">~PeriodicProcess</a> ()</td></tr>
+<tr class="memdesc:ad7b24e195dea0bb385acf3afc213b22b inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:ad7b24e195dea0bb385acf3afc213b22b inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae49aad8572f5b60fede0a13f0cd95d36 inherit pub_methods_class_periodic_process" id="r_ae49aad8572f5b60fede0a13f0cd95d36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#ae49aad8572f5b60fede0a13f0cd95d36">enable</a> ()</td></tr>
+<tr class="memdesc:ae49aad8572f5b60fede0a13f0cd95d36 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active le <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:ae49aad8572f5b60fede0a13f0cd95d36 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4147798b8ad01690f590d934bdd83c28 inherit pub_methods_class_periodic_process" id="r_a4147798b8ad01690f590d934bdd83c28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a4147798b8ad01690f590d934bdd83c28">disable</a> ()</td></tr>
+<tr class="memdesc:a4147798b8ad01690f590d934bdd83c28 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Désactive le <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:a4147798b8ad01690f590d934bdd83c28 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca171a0dac27356b246d359da26da104 inherit pub_methods_class_periodic_process" id="r_aca171a0dac27356b246d359da26da104"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#aca171a0dac27356b246d359da26da104">setTimestep</a> (float timestep)</td></tr>
+<tr class="memdesc:aca171a0dac27356b246d359da26da104 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sélectionne une nouvelle valeur pour timestep.  <br /></td></tr>
+<tr class="separator:aca171a0dac27356b246d359da26da104 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a910daacfe12010947ec541d3ac565867 inherit pub_methods_class_periodic_process" id="r_a910daacfe12010947ec541d3ac565867"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a910daacfe12010947ec541d3ac565867">update</a> ()</td></tr>
+<tr class="memdesc:a910daacfe12010947ec541d3ac565867 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute la méthode process.  <br /></td></tr>
+<tr class="separator:a910daacfe12010947ec541d3ac565867 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba917a9760e4df62a8e763cc43ee4c5 inherit pub_methods_class_periodic_process" id="r_a4ba917a9760e4df62a8e763cc43ee4c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a4ba917a9760e4df62a8e763cc43ee4c5">isEnabled</a> () const</td></tr>
+<tr class="memdesc:a4ba917a9760e4df62a8e763cc43ee4c5 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si le <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a> est activé.  <br /></td></tr>
+<tr class="separator:a4ba917a9760e4df62a8e763cc43ee4c5 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acafd892a946d978ea853cccfbd5e4295 inherit pub_methods_class_periodic_process" id="r_acafd892a946d978ea853cccfbd5e4295"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#acafd892a946d978ea853cccfbd5e4295">getTimestep</a> () const</td></tr>
+<tr class="memdesc:acafd892a946d978ea853cccfbd5e4295 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la valeur de m_timestep.  <br /></td></tr>
+<tr class="separator:acafd892a946d978ea853cccfbd5e4295 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr class="memitem:a0b601849cb1f8b70478f530c0d198a60" id="r_a0b601849cb1f8b70478f530c0d198a60"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b601849cb1f8b70478f530c0d198a60">genRampSetpoint</a> (float stepSetpoint, float input, float rampSetpoint, float maxAcc, float maxDec, float timestep)</td></tr>
+<tr class="memdesc:a0b601849cb1f8b70478f530c0d198a60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcul la vitesse à atteindre.  <br /></td></tr>
+<tr class="separator:a0b601849cb1f8b70478f530c0d198a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d7a68904dfe039957aea75e48a88a8" id="r_ad9d7a68904dfe039957aea75e48a88a8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9d7a68904dfe039957aea75e48a88a8">process</a> (float timestep)</td></tr>
+<tr class="memdesc:ad9d7a68904dfe039957aea75e48a88a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcul l'asservissement.  <br /></td></tr>
+<tr class="separator:ad9d7a68904dfe039957aea75e48a88a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae42d27358ff64794f8300f68489e2ca" id="r_aae42d27358ff64794f8300f68489e2ca"><td class="memItemLeft" align="right" valign="top"><a id="aae42d27358ff64794f8300f68489e2ca" name="aae42d27358ff64794f8300f68489e2ca"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onProcessEnabling</b> ()</td></tr>
+<tr class="memdesc:aae42d27358ff64794f8300f68489e2ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation de l'asservissement. <br /></td></tr>
+<tr class="separator:aae42d27358ff64794f8300f68489e2ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_class_periodic_process"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_periodic_process')"><img src="closed.png" alt="-"/>&#160;Fonctions membres protégées hérités de <a class="el" href="class_periodic_process.html">PeriodicProcess</a></td></tr>
+<tr class="memitem:a6e325cb38e20cac3164a01d89e161d90 inherit pro_methods_class_periodic_process" id="r_a6e325cb38e20cac3164a01d89e161d90"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a6e325cb38e20cac3164a01d89e161d90">onProcessDisabling</a> ()</td></tr>
+<tr class="memdesc:a6e325cb38e20cac3164a01d89e161d90 inherit pro_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode exécutée à la désactivation du <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:a6e325cb38e20cac3164a01d89e161d90 inherit pro_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a901ddfbe30dc1e3b4cedbccf111ea230" id="r_a901ddfbe30dc1e3b4cedbccf111ea230"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a901ddfbe30dc1e3b4cedbccf111ea230">m_rampLinVelSetpoint</a></td></tr>
+<tr class="separator:a901ddfbe30dc1e3b4cedbccf111ea230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade73ce4c1ff61e15ccc410f6012a90ce" id="r_ade73ce4c1ff61e15ccc410f6012a90ce"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade73ce4c1ff61e15ccc410f6012a90ce">m_rampAngVelSetpoint</a></td></tr>
+<tr class="separator:ade73ce4c1ff61e15ccc410f6012a90ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dfa99e6e5b3db82ac7a748fd249905b" id="r_a3dfa99e6e5b3db82ac7a748fd249905b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dfa99e6e5b3db82ac7a748fd249905b">m_maxLinAcc</a></td></tr>
+<tr class="separator:a3dfa99e6e5b3db82ac7a748fd249905b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa17a6ffe6541fecad48bf4a7c402bf02" id="r_aa17a6ffe6541fecad48bf4a7c402bf02"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa17a6ffe6541fecad48bf4a7c402bf02">m_maxLinDec</a></td></tr>
+<tr class="separator:aa17a6ffe6541fecad48bf4a7c402bf02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f638140f25d85ed43566abaace973f2" id="r_a6f638140f25d85ed43566abaace973f2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f638140f25d85ed43566abaace973f2">m_maxAngAcc</a></td></tr>
+<tr class="separator:a6f638140f25d85ed43566abaace973f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca656d0ffbf06d85d77999a899b402f6" id="r_aca656d0ffbf06d85d77999a899b402f6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca656d0ffbf06d85d77999a899b402f6">m_maxAngDec</a></td></tr>
+<tr class="separator:aca656d0ffbf06d85d77999a899b402f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a495736a69f35f4c91faf808df58203de" id="r_a495736a69f35f4c91faf808df58203de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a495736a69f35f4c91faf808df58203de">m_spinShutdown</a></td></tr>
+<tr class="separator:a495736a69f35f4c91faf808df58203de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_differential_controller"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_differential_controller')"><img src="closed.png" alt="-"/>&#160;Attributs protégés hérités de <a class="el" href="class_differential_controller.html">DifferentialController</a></td></tr>
+<tr class="memitem:a4d7c08b5f63d7d064ef7b6c5477a0814 inherit pro_attribs_class_differential_controller" id="r_a4d7c08b5f63d7d064ef7b6c5477a0814"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a4d7c08b5f63d7d064ef7b6c5477a0814">m_linInput</a></td></tr>
+<tr class="separator:a4d7c08b5f63d7d064ef7b6c5477a0814 inherit pro_attribs_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6647496abaae44aac5fdea76137d4a2d inherit pro_attribs_class_differential_controller" id="r_a6647496abaae44aac5fdea76137d4a2d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a6647496abaae44aac5fdea76137d4a2d">m_angInput</a></td></tr>
+<tr class="separator:a6647496abaae44aac5fdea76137d4a2d inherit pro_attribs_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb8cf017b7739a5751d6a1ba1f7a9c20 inherit pro_attribs_class_differential_controller" id="r_acb8cf017b7739a5751d6a1ba1f7a9c20"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#acb8cf017b7739a5751d6a1ba1f7a9c20">m_linSetpoint</a></td></tr>
+<tr class="separator:acb8cf017b7739a5751d6a1ba1f7a9c20 inherit pro_attribs_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acde3f3c8e9fc03a22f2ce5f8e6cc8839 inherit pro_attribs_class_differential_controller" id="r_acde3f3c8e9fc03a22f2ce5f8e6cc8839"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#acde3f3c8e9fc03a22f2ce5f8e6cc8839">m_angSetpoint</a></td></tr>
+<tr class="separator:acde3f3c8e9fc03a22f2ce5f8e6cc8839 inherit pro_attribs_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d5fd1c1181f631ef70dadd2b9e98697 inherit pro_attribs_class_differential_controller" id="r_a0d5fd1c1181f631ef70dadd2b9e98697"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a0d5fd1c1181f631ef70dadd2b9e98697">m_axleTrack</a></td></tr>
+<tr class="separator:a0d5fd1c1181f631ef70dadd2b9e98697 inherit pro_attribs_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a9e172d333ca628aed915af912ee9a9 inherit pro_attribs_class_differential_controller" id="r_a9a9e172d333ca628aed915af912ee9a9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a9a9e172d333ca628aed915af912ee9a9">m_linVelOutput</a></td></tr>
+<tr class="separator:a9a9e172d333ca628aed915af912ee9a9 inherit pro_attribs_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae393096686c636ede35ca4313e9b95ba inherit pro_attribs_class_differential_controller" id="r_ae393096686c636ede35ca4313e9b95ba"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#ae393096686c636ede35ca4313e9b95ba">m_angVelOutput</a></td></tr>
+<tr class="separator:ae393096686c636ede35ca4313e9b95ba inherit pro_attribs_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dfd394eac337a0cf45602f3df419ddf inherit pro_attribs_class_differential_controller" id="r_a6dfd394eac337a0cf45602f3df419ddf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_abstract_motor.html">AbstractMotor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a6dfd394eac337a0cf45602f3df419ddf">m_leftWheel</a></td></tr>
+<tr class="separator:a6dfd394eac337a0cf45602f3df419ddf inherit pro_attribs_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3457583d2dedf6294754588aab2d7f24 inherit pro_attribs_class_differential_controller" id="r_a3457583d2dedf6294754588aab2d7f24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_abstract_motor.html">AbstractMotor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a3457583d2dedf6294754588aab2d7f24">m_rightWheel</a></td></tr>
+<tr class="separator:a3457583d2dedf6294754588aab2d7f24 inherit pro_attribs_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10db21018e6d0ac265ac26613c8ab441 inherit pro_attribs_class_differential_controller" id="r_a10db21018e6d0ac265ac26613c8ab441"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_p_i_d.html">PID</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a10db21018e6d0ac265ac26613c8ab441">m_linPID</a></td></tr>
+<tr class="separator:a10db21018e6d0ac265ac26613c8ab441 inherit pro_attribs_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e7b5f7dfd7cdd05c38fed991703c9cb inherit pro_attribs_class_differential_controller" id="r_a2e7b5f7dfd7cdd05c38fed991703c9cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_p_i_d.html">PID</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_differential_controller.html#a2e7b5f7dfd7cdd05c38fed991703c9cb">m_angPID</a></td></tr>
+<tr class="separator:a2e7b5f7dfd7cdd05c38fed991703c9cb inherit pro_attribs_class_differential_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Objet de controle de la vitesse. </p>
+<p><a class="el" href="class_velocity_controller.html" title="Objet de controle de la vitesse.">VelocityController</a> est une version améliorée de <a class="el" href="class_differential_controller.html" title="Controle les moteurs.">DifferentialController</a> car il rajoute la gestion de Spin et les accélérations capées. </p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="aa29e8e908d6e35b98b2aa945f9e6549d" name="aa29e8e908d6e35b98b2aa945f9e6549d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa29e8e908d6e35b98b2aa945f9e6549d">&#9670;&#160;</a></span>VelocityController()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VelocityController::VelocityController </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructeur de <a class="el" href="class_velocity_controller.html" title="Objet de controle de la vitesse.">VelocityController</a>. </p>
+<p>Construteur de <a class="el" href="class_velocity_controller.html" title="Objet de controle de la vitesse.">VelocityController</a> qui initialise ces vairables sur des valeurs neutres. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a0b601849cb1f8b70478f530c0d198a60" name="a0b601849cb1f8b70478f530c0d198a60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b601849cb1f8b70478f530c0d198a60">&#9670;&#160;</a></span>genRampSetpoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VelocityController::genRampSetpoint </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>stepSetpoint</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>input</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rampSetpoint</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>maxAcc</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>maxDec</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>timestep</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calcul la vitesse à atteindre. </p>
+<p>Calcul les nouvelles vitesse à atteindre pour respecter les contraites d'accélérations.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stepSetpoint</td><td>Vitesse demandé. </td></tr>
+    <tr><td class="paramname">input</td><td>Vitesse actuel </td></tr>
+    <tr><td class="paramname">rampSetpoint</td><td>Ancienne vitesse intermédiaire calculée. </td></tr>
+    <tr><td class="paramname">maxAcc</td><td>Accélération max. </td></tr>
+    <tr><td class="paramname">maxDec</td><td>Accélération min. </td></tr>
+    <tr><td class="paramname">timestep</td><td>Temps depuis le dernier appel.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>float Nouvelle vitesse intermédiaire. </dd></dl>
+
+</div>
+</div>
+<a id="ae2691871fd8b5a3522dfb671cfdb6716" name="ae2691871fd8b5a3522dfb671cfdb6716"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2691871fd8b5a3522dfb671cfdb6716">&#9670;&#160;</a></span>getMaxAngAcc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VelocityController::getMaxAngAcc </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne l'accélération max angulaire. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Accélération en rad/s². </dd></dl>
+
+</div>
+</div>
+<a id="a73ca89c5696ecb306e12ace6013ff27c" name="a73ca89c5696ecb306e12ace6013ff27c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73ca89c5696ecb306e12ace6013ff27c">&#9670;&#160;</a></span>getMaxAngDec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VelocityController::getMaxAngDec </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la décélération max angulaire. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Décélération en rad/s². </dd></dl>
+
+</div>
+</div>
+<a id="a4a5d3013f75003fb282f68347498b51d" name="a4a5d3013f75003fb282f68347498b51d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a5d3013f75003fb282f68347498b51d">&#9670;&#160;</a></span>getMaxLinAcc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VelocityController::getMaxLinAcc </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne l'accélération max linéaire. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Accélération en mm/s². </dd></dl>
+
+</div>
+</div>
+<a id="ad04193630f5a9ec64ba0eb2e5ae97ccb" name="ad04193630f5a9ec64ba0eb2e5ae97ccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad04193630f5a9ec64ba0eb2e5ae97ccb">&#9670;&#160;</a></span>getMaxLinDec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VelocityController::getMaxLinDec </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la décélération max linéaire. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Décélération en mm/s². </dd></dl>
+
+</div>
+</div>
+<a id="a17fdf40d9913bfd63524ab3aed8ce87a" name="a17fdf40d9913bfd63524ab3aed8ce87a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17fdf40d9913bfd63524ab3aed8ce87a">&#9670;&#160;</a></span>getSpinShutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VelocityController::getSpinShutdown </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne l'état de spinShutDown. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>true Si le robot est bloqué par un obstacle. </dd>
+<dd>
+false Si le robot n'est pas bloqué. </dd></dl>
+
+</div>
+</div>
+<a id="acd38a7af98767000ef3dec6315fd74f8" name="acd38a7af98767000ef3dec6315fd74f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd38a7af98767000ef3dec6315fd74f8">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VelocityController::load </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge les paramètres. </p>
+<p>Charge les derniers paramètres sauvegarder (les acc et dec) dans l'Arduino.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Adresse à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad9d7a68904dfe039957aea75e48a88a8" name="ad9d7a68904dfe039957aea75e48a88a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9d7a68904dfe039957aea75e48a88a8">&#9670;&#160;</a></span>process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VelocityController::process </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>timestep</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calcul l'asservissement. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timestep</td><td>temps depuis le dernier appel. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Réimplémentée à partir de <a class="el" href="class_differential_controller.html#a8597663d4601cd0f2d413311e85e2ccc">DifferentialController</a>.</p>
+
+</div>
+</div>
+<a id="a13dc4c22c9c2174da77b24280c965f65" name="a13dc4c22c9c2174da77b24280c965f65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13dc4c22c9c2174da77b24280c965f65">&#9670;&#160;</a></span>save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VelocityController::save </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sauvegarde les paramètres. </p>
+<p>Sauvegarde les paramètres actuellement chargés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Adresse à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7b1ccf3d8e7b268301a35b0577f51f31" name="a7b1ccf3d8e7b268301a35b0577f51f31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b1ccf3d8e7b268301a35b0577f51f31">&#9670;&#160;</a></span>setMaxAngAcc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VelocityController::setMaxAngAcc </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>maxAngAcc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Paramètre les accélérations max. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxLinAcc</td><td>Accélération linéaire en mm/s². </td></tr>
+    <tr><td class="paramname">maxAngAcc</td><td>Accélération angulaire en rad/s². </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa00bd41d5064587f3324c7b4309fd483" name="aa00bd41d5064587f3324c7b4309fd483"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa00bd41d5064587f3324c7b4309fd483">&#9670;&#160;</a></span>setMaxLinDec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VelocityController::setMaxLinDec </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>maxLinDec</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Paramètre les décéleration max. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxLinDec</td><td>Décélération linéaire en mm/s². </td></tr>
+    <tr><td class="paramname">maxAngDec</td><td>Décélération angulaire en rad/s². </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a428043fcd8b930c254cf1cbd3615191d" name="a428043fcd8b930c254cf1cbd3615191d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a428043fcd8b930c254cf1cbd3615191d">&#9670;&#160;</a></span>setSpinShutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VelocityController::setSpinShutdown </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>spinShutdown</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change l'état de l'arret d'urgence. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spinShutdown</td><td>Etat à appliquer à la variable spinShutdown. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="a6f638140f25d85ed43566abaace973f2" name="a6f638140f25d85ed43566abaace973f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f638140f25d85ed43566abaace973f2">&#9670;&#160;</a></span>m_maxAngAcc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VelocityController::m_maxAngAcc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Décélération max linéaire en mm/s². Toujours positif. </p>
+
+</div>
+</div>
+<a id="aca656d0ffbf06d85d77999a899b402f6" name="aca656d0ffbf06d85d77999a899b402f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca656d0ffbf06d85d77999a899b402f6">&#9670;&#160;</a></span>m_maxAngDec</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VelocityController::m_maxAngDec</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Décélération max angulaire en rad/s². Toujours positif. </p>
+
+</div>
+</div>
+<a id="a3dfa99e6e5b3db82ac7a748fd249905b" name="a3dfa99e6e5b3db82ac7a748fd249905b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dfa99e6e5b3db82ac7a748fd249905b">&#9670;&#160;</a></span>m_maxLinAcc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VelocityController::m_maxLinAcc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Accélération max linéaire en mm/s². Toujours positif. </p>
+
+</div>
+</div>
+<a id="aa17a6ffe6541fecad48bf4a7c402bf02" name="aa17a6ffe6541fecad48bf4a7c402bf02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa17a6ffe6541fecad48bf4a7c402bf02">&#9670;&#160;</a></span>m_maxLinDec</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VelocityController::m_maxLinDec</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Accélération max angulaire en rad/s². Toujours positif. </p>
+
+</div>
+</div>
+<a id="ade73ce4c1ff61e15ccc410f6012a90ce" name="ade73ce4c1ff61e15ccc410f6012a90ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade73ce4c1ff61e15ccc410f6012a90ce">&#9670;&#160;</a></span>m_rampAngVelSetpoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VelocityController::m_rampAngVelSetpoint</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Vitesse angulaire intermédiaire en rad/s. <br  />
+ </p>
+
+</div>
+</div>
+<a id="a901ddfbe30dc1e3b4cedbccf111ea230" name="a901ddfbe30dc1e3b4cedbccf111ea230"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a901ddfbe30dc1e3b4cedbccf111ea230">&#9670;&#160;</a></span>m_rampLinVelSetpoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VelocityController::m_rampLinVelSetpoint</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Vitesse linéaire intermédiaire en mm/s. <br  />
+ </p>
+
+</div>
+</div>
+<a id="a495736a69f35f4c91faf808df58203de" name="a495736a69f35f4c91faf808df58203de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a495736a69f35f4c91faf808df58203de">&#9670;&#160;</a></span>m_spinShutdown</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VelocityController::m_spinShutdown</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Etat de la sécurité de patinage. </p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/VelocityController/<a class="el" href="_velocity_controller_8h_source.html">VelocityController.h</a></li>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/VelocityController/<b>VelocityController.cpp</b></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

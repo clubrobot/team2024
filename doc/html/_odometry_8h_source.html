@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/Odometry/Odometry.h</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_e5db95e150018bcc3dfc1edc7ae4800d.html">LIBS</a></li><li class="navelem"><a class="el" href="dir_66ad5f74c23414a43fda982e8ac34f83.html">ARDUINO_LIBS</a></li><li class="navelem"><a class="el" href="dir_0081f686bea58dbd7691090160a89eb1.html">Odometry</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Odometry.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef __ODOMETRY_H__</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define __ODOMETRY_H__</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;PeriodicProcess.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="struct_position.html">   13</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_position.html">Position</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="struct_position.html#a369a577425f8ba02e8750d04b6a088db">   19</a></span>    <a class="code hl_function" href="struct_position.html#a369a577425f8ba02e8750d04b6a088db">Position</a>() : <a class="code hl_variable" href="struct_position.html#af684446cbf0f6d53386686283da6dcc6">x</a>(0), <a class="code hl_variable" href="struct_position.html#a54a6182b5f7539295b32255808897d3f">y</a>(0), <a class="code hl_variable" href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">theta</a>(0){}</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_position.html#a00f1dbd8ae7764317f31b525c5aa8222">   29</a></span>    <a class="code hl_function" href="struct_position.html#a00f1dbd8ae7764317f31b525c5aa8222">Position</a>(<span class="keywordtype">float</span> <a class="code hl_variable" href="struct_position.html#af684446cbf0f6d53386686283da6dcc6">x</a>, <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_position.html#a54a6182b5f7539295b32255808897d3f">y</a>, <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">theta</a>) : <a class="code hl_variable" href="struct_position.html#af684446cbf0f6d53386686283da6dcc6">x</a>(<a class="code hl_variable" href="struct_position.html#af684446cbf0f6d53386686283da6dcc6">x</a>), <a class="code hl_variable" href="struct_position.html#a54a6182b5f7539295b32255808897d3f">y</a>(<a class="code hl_variable" href="struct_position.html#a54a6182b5f7539295b32255808897d3f">y</a>), <a class="code hl_variable" href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">theta</a>(<a class="code hl_variable" href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">theta</a>){}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="struct_position.html#af684446cbf0f6d53386686283da6dcc6">   31</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_position.html#af684446cbf0f6d53386686283da6dcc6">x</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct_position.html#a54a6182b5f7539295b32255808897d3f">   32</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_position.html#a54a6182b5f7539295b32255808897d3f">y</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">   33</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">theta</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_abstract_codewheel.html">   42</a></span><span class="keyword">class </span><a class="code hl_class" href="class_abstract_codewheel.html">AbstractCodewheel</a></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_abstract_codewheel.html">~AbstractCodewheel</a>(){}</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_abstract_codewheel.html#a12ac9400c8af2b0dcfb041ad114b1831">   55</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_abstract_codewheel.html#a12ac9400c8af2b0dcfb041ad114b1831">getTraveledDistance</a>() = 0;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_abstract_codewheel.html#a6298fa396bc11c0d073426ff1469f180">   63</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_abstract_codewheel.html#a6298fa396bc11c0d073426ff1469f180">restart</a>() = 0;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
+</div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="};">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_odometry.html">   70</a></span><span class="keyword">class </span><a class="code hl_class" href="class_odometry.html">Odometry</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_periodic_process.html">PeriodicProcess</a></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_odometry.html#a5fdede5f5fed5c8333500bbef0193a4d">   82</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_odometry.html#a5fdede5f5fed5c8333500bbef0193a4d">setPosition</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> theta){<a class="code hl_variable" href="class_odometry.html#a9a89056855952daa414bbf82ba7375d9">m_pos</a>.<a class="code hl_variable" href="struct_position.html#af684446cbf0f6d53386686283da6dcc6">x</a> = x; <a class="code hl_variable" href="class_odometry.html#a9a89056855952daa414bbf82ba7375d9">m_pos</a>.<a class="code hl_variable" href="struct_position.html#a54a6182b5f7539295b32255808897d3f">y</a> = y; <a class="code hl_variable" href="class_odometry.html#a9a89056855952daa414bbf82ba7375d9">m_pos</a>.<a class="code hl_variable" href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">theta</a> = theta;}</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_odometry.html#ae4c55db07acd9dcf1ab2197afb9623b3">setAxleTrack</a>(<span class="keywordtype">float</span> axleTrack);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_odometry.html#a0e4a3346ceae934ac0ec45c9fb8a6b22">setSlippage</a> (<span class="keywordtype">float</span> slippage);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="class_odometry.html#a11ae9169f40234cf632dafb8ae87ba6b">  107</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_odometry.html#a11ae9169f40234cf632dafb8ae87ba6b">setCodewheels</a>(<a class="code hl_class" href="class_abstract_codewheel.html">AbstractCodewheel</a>&amp; leftCodewheel, <a class="code hl_class" href="class_abstract_codewheel.html">AbstractCodewheel</a>&amp; rightCodewheel){<a class="code hl_variable" href="class_odometry.html#a0d2263acfed61d7a5928545f7d6938c7">m_leftCodewheel</a> = &amp;leftCodewheel, <a class="code hl_variable" href="class_odometry.html#a93d3a9ef8d34582a7ed1e3997091a61c">m_rightCodewheel</a> = &amp;rightCodewheel;}</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="class_odometry.html#a915bc38dea6a10a45c8dcc72651c439e">  115</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="struct_position.html">Position</a>&amp; <a class="code hl_function" href="class_odometry.html#a915bc38dea6a10a45c8dcc72651c439e">getPosition</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_odometry.html#a9a89056855952daa414bbf82ba7375d9">m_pos</a>;}</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="class_odometry.html#acd52113fbd9d32543be57843a571fa1d">  123</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_odometry.html#acd52113fbd9d32543be57843a571fa1d">getLinVel</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_odometry.html#a5624b981bd24407ee489c732a0541cd8">m_linVel</a>;}</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="class_odometry.html#a695e64e109028ec2e47c687e23d0a18e">  131</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_odometry.html#a695e64e109028ec2e47c687e23d0a18e">getAngVel</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_odometry.html#ac393c005fc0b62554c75b037f68775dc">m_angVel</a>;}</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="class_odometry.html#a960c1a744fb0370fbfeecd7223c68cbe">  136</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_odometry.html#a960c1a744fb0370fbfeecd7223c68cbe">getAxleTrack</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_odometry.html#a2f416471e2f77cf9c30baa5c9bd76392">m_axleTrack</a>;}</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="class_odometry.html#adcb37f34e1b3081a6476dee73493fc38">  141</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_odometry.html#adcb37f34e1b3081a6476dee73493fc38">getSlippage</a> ()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="class_odometry.html#a019ae0364ac0e7f53feae91f890afb2e">m_slippage</a>;}</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_odometry.html#a3d2a0cff9771cc82594ccce2f0e45bcf">load</a>(<span class="keywordtype">int</span> address);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_odometry.html#af1357578497f02fcc1ab91f109b0fe60">save</a>(<span class="keywordtype">int</span> address) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_odometry.html#a145a976de8716c7be011503a2483ceb3">process</a>(<span class="keywordtype">float</span> timestep);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="class_odometry.html#a9a89056855952daa414bbf82ba7375d9">  167</a></span>    <a class="code hl_struct" href="struct_position.html">Position</a> <a class="code hl_variable" href="class_odometry.html#a9a89056855952daa414bbf82ba7375d9">m_pos</a>; </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="class_odometry.html#a5624b981bd24407ee489c732a0541cd8">  168</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_odometry.html#a5624b981bd24407ee489c732a0541cd8">m_linVel</a>; </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="class_odometry.html#ac393c005fc0b62554c75b037f68775dc">  169</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_odometry.html#ac393c005fc0b62554c75b037f68775dc">m_angVel</a>; </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="class_odometry.html#a2f416471e2f77cf9c30baa5c9bd76392">  170</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_odometry.html#a2f416471e2f77cf9c30baa5c9bd76392">m_axleTrack</a>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="class_odometry.html#a019ae0364ac0e7f53feae91f890afb2e">  171</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_odometry.html#a019ae0364ac0e7f53feae91f890afb2e">m_slippage</a>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="class_odometry.html#a0d2263acfed61d7a5928545f7d6938c7">  173</a></span>    <a class="code hl_class" href="class_abstract_codewheel.html">AbstractCodewheel</a>* <a class="code hl_variable" href="class_odometry.html#a0d2263acfed61d7a5928545f7d6938c7">m_leftCodewheel</a>;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="class_odometry.html#a93d3a9ef8d34582a7ed1e3997091a61c">  174</a></span>    <a class="code hl_class" href="class_abstract_codewheel.html">AbstractCodewheel</a>* <a class="code hl_variable" href="class_odometry.html#a93d3a9ef8d34582a7ed1e3997091a61c">m_rightCodewheel</a>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>};</div>
+</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="preprocessor">#endif </span><span class="comment">// __ODOMETRY_H__</span></div>
+<div class="ttc" id="aclass_abstract_codewheel_html"><div class="ttname"><a href="class_abstract_codewheel.html">AbstractCodewheel</a></div><div class="ttdoc">Classe abstraite d'une roue codeuse.</div><div class="ttdef"><b>Definition</b> Odometry.h:43</div></div>
+<div class="ttc" id="aclass_abstract_codewheel_html_a12ac9400c8af2b0dcfb041ad114b1831"><div class="ttname"><a href="class_abstract_codewheel.html#a12ac9400c8af2b0dcfb041ad114b1831">AbstractCodewheel::getTraveledDistance</a></div><div class="ttdeci">virtual float getTraveledDistance()=0</div><div class="ttdoc">Calcul la distance parcourue.</div></div>
+<div class="ttc" id="aclass_abstract_codewheel_html_a6298fa396bc11c0d073426ff1469f180"><div class="ttname"><a href="class_abstract_codewheel.html#a6298fa396bc11c0d073426ff1469f180">AbstractCodewheel::restart</a></div><div class="ttdeci">virtual float restart()=0</div><div class="ttdoc">Réinitialise l'objet.</div></div>
+<div class="ttc" id="aclass_odometry_html"><div class="ttname"><a href="class_odometry.html">Odometry</a></div><div class="ttdoc">Calcule la position en temps réel du robot.</div><div class="ttdef"><b>Definition</b> Odometry.h:71</div></div>
+<div class="ttc" id="aclass_odometry_html_a019ae0364ac0e7f53feae91f890afb2e"><div class="ttname"><a href="class_odometry.html#a019ae0364ac0e7f53feae91f890afb2e">Odometry::m_slippage</a></div><div class="ttdeci">float m_slippage</div><div class="ttdef"><b>Definition</b> Odometry.h:171</div></div>
+<div class="ttc" id="aclass_odometry_html_a0d2263acfed61d7a5928545f7d6938c7"><div class="ttname"><a href="class_odometry.html#a0d2263acfed61d7a5928545f7d6938c7">Odometry::m_leftCodewheel</a></div><div class="ttdeci">AbstractCodewheel * m_leftCodewheel</div><div class="ttdef"><b>Definition</b> Odometry.h:173</div></div>
+<div class="ttc" id="aclass_odometry_html_a0e4a3346ceae934ac0ec45c9fb8a6b22"><div class="ttname"><a href="class_odometry.html#a0e4a3346ceae934ac0ec45c9fb8a6b22">Odometry::setSlippage</a></div><div class="ttdeci">void setSlippage(float slippage)</div><div class="ttdoc">Defini la nouvelle dérive orthogonal.</div><div class="ttdef"><b>Definition</b> Odometry.cpp:46</div></div>
+<div class="ttc" id="aclass_odometry_html_a11ae9169f40234cf632dafb8ae87ba6b"><div class="ttname"><a href="class_odometry.html#a11ae9169f40234cf632dafb8ae87ba6b">Odometry::setCodewheels</a></div><div class="ttdeci">void setCodewheels(AbstractCodewheel &amp;leftCodewheel, AbstractCodewheel &amp;rightCodewheel)</div><div class="ttdoc">Defini les roues codeuses de Odometry.</div><div class="ttdef"><b>Definition</b> Odometry.h:107</div></div>
+<div class="ttc" id="aclass_odometry_html_a145a976de8716c7be011503a2483ceb3"><div class="ttname"><a href="class_odometry.html#a145a976de8716c7be011503a2483ceb3">Odometry::process</a></div><div class="ttdeci">virtual void process(float timestep)</div><div class="ttdoc">Calcule la nouvelle position et la nouvelle vitesse. A partir de ses AbstractCodewheel,...</div><div class="ttdef"><b>Definition</b> Odometry.cpp:10</div></div>
+<div class="ttc" id="aclass_odometry_html_a2f416471e2f77cf9c30baa5c9bd76392"><div class="ttname"><a href="class_odometry.html#a2f416471e2f77cf9c30baa5c9bd76392">Odometry::m_axleTrack</a></div><div class="ttdeci">float m_axleTrack</div><div class="ttdef"><b>Definition</b> Odometry.h:170</div></div>
+<div class="ttc" id="aclass_odometry_html_a3d2a0cff9771cc82594ccce2f0e45bcf"><div class="ttname"><a href="class_odometry.html#a3d2a0cff9771cc82594ccce2f0e45bcf">Odometry::load</a></div><div class="ttdeci">void load(int address)</div><div class="ttdoc">Charge les paramètres.</div><div class="ttdef"><b>Definition</b> Odometry.cpp:28</div></div>
+<div class="ttc" id="aclass_odometry_html_a5624b981bd24407ee489c732a0541cd8"><div class="ttname"><a href="class_odometry.html#a5624b981bd24407ee489c732a0541cd8">Odometry::m_linVel</a></div><div class="ttdeci">float m_linVel</div><div class="ttdef"><b>Definition</b> Odometry.h:168</div></div>
+<div class="ttc" id="aclass_odometry_html_a5fdede5f5fed5c8333500bbef0193a4d"><div class="ttname"><a href="class_odometry.html#a5fdede5f5fed5c8333500bbef0193a4d">Odometry::setPosition</a></div><div class="ttdeci">void setPosition(float x, float y, float theta)</div><div class="ttdoc">Attribut une nouvelle position.</div><div class="ttdef"><b>Definition</b> Odometry.h:82</div></div>
+<div class="ttc" id="aclass_odometry_html_a695e64e109028ec2e47c687e23d0a18e"><div class="ttname"><a href="class_odometry.html#a695e64e109028ec2e47c687e23d0a18e">Odometry::getAngVel</a></div><div class="ttdeci">float getAngVel() const</div><div class="ttdoc">Retourne la vitesse angulaire.</div><div class="ttdef"><b>Definition</b> Odometry.h:131</div></div>
+<div class="ttc" id="aclass_odometry_html_a915bc38dea6a10a45c8dcc72651c439e"><div class="ttname"><a href="class_odometry.html#a915bc38dea6a10a45c8dcc72651c439e">Odometry::getPosition</a></div><div class="ttdeci">const Position &amp; getPosition() const</div><div class="ttdoc">Retourne la position.</div><div class="ttdef"><b>Definition</b> Odometry.h:115</div></div>
+<div class="ttc" id="aclass_odometry_html_a93d3a9ef8d34582a7ed1e3997091a61c"><div class="ttname"><a href="class_odometry.html#a93d3a9ef8d34582a7ed1e3997091a61c">Odometry::m_rightCodewheel</a></div><div class="ttdeci">AbstractCodewheel * m_rightCodewheel</div><div class="ttdef"><b>Definition</b> Odometry.h:174</div></div>
+<div class="ttc" id="aclass_odometry_html_a960c1a744fb0370fbfeecd7223c68cbe"><div class="ttname"><a href="class_odometry.html#a960c1a744fb0370fbfeecd7223c68cbe">Odometry::getAxleTrack</a></div><div class="ttdeci">float getAxleTrack() const</div><div class="ttdoc">Retourne l'entraxe utilisée.</div><div class="ttdef"><b>Definition</b> Odometry.h:136</div></div>
+<div class="ttc" id="aclass_odometry_html_a9a89056855952daa414bbf82ba7375d9"><div class="ttname"><a href="class_odometry.html#a9a89056855952daa414bbf82ba7375d9">Odometry::m_pos</a></div><div class="ttdeci">Position m_pos</div><div class="ttdef"><b>Definition</b> Odometry.h:167</div></div>
+<div class="ttc" id="aclass_odometry_html_ac393c005fc0b62554c75b037f68775dc"><div class="ttname"><a href="class_odometry.html#ac393c005fc0b62554c75b037f68775dc">Odometry::m_angVel</a></div><div class="ttdeci">float m_angVel</div><div class="ttdef"><b>Definition</b> Odometry.h:169</div></div>
+<div class="ttc" id="aclass_odometry_html_acd52113fbd9d32543be57843a571fa1d"><div class="ttname"><a href="class_odometry.html#acd52113fbd9d32543be57843a571fa1d">Odometry::getLinVel</a></div><div class="ttdeci">float getLinVel() const</div><div class="ttdoc">Retourne la vitesse linéaire.</div><div class="ttdef"><b>Definition</b> Odometry.h:123</div></div>
+<div class="ttc" id="aclass_odometry_html_adcb37f34e1b3081a6476dee73493fc38"><div class="ttname"><a href="class_odometry.html#adcb37f34e1b3081a6476dee73493fc38">Odometry::getSlippage</a></div><div class="ttdeci">float getSlippage() const</div><div class="ttdoc">Retourne la dérive utilisée.</div><div class="ttdef"><b>Definition</b> Odometry.h:141</div></div>
+<div class="ttc" id="aclass_odometry_html_ae4c55db07acd9dcf1ab2197afb9623b3"><div class="ttname"><a href="class_odometry.html#ae4c55db07acd9dcf1ab2197afb9623b3">Odometry::setAxleTrack</a></div><div class="ttdeci">void setAxleTrack(float axleTrack)</div><div class="ttdoc">Defini une nouvelle entraxe pour les roues codeuses.</div><div class="ttdef"><b>Definition</b> Odometry.cpp:41</div></div>
+<div class="ttc" id="aclass_odometry_html_af1357578497f02fcc1ab91f109b0fe60"><div class="ttname"><a href="class_odometry.html#af1357578497f02fcc1ab91f109b0fe60">Odometry::save</a></div><div class="ttdeci">void save(int address) const</div><div class="ttdoc">Sauvegarde les paramètres.</div><div class="ttdef"><b>Definition</b> Odometry.cpp:34</div></div>
+<div class="ttc" id="aclass_periodic_process_html"><div class="ttname"><a href="class_periodic_process.html">PeriodicProcess</a></div><div class="ttdoc">Classe à implémenter pour gérer les appels dans la loop.</div><div class="ttdef"><b>Definition</b> PeriodicProcess.h:16</div></div>
+<div class="ttc" id="astruct_position_html"><div class="ttname"><a href="struct_position.html">Position</a></div><div class="ttdoc">Structure de position.</div><div class="ttdef"><b>Definition</b> Odometry.h:14</div></div>
+<div class="ttc" id="astruct_position_html_a00f1dbd8ae7764317f31b525c5aa8222"><div class="ttname"><a href="struct_position.html#a00f1dbd8ae7764317f31b525c5aa8222">Position::Position</a></div><div class="ttdeci">Position(float x, float y, float theta)</div><div class="ttdoc">Constructeur de Position.</div><div class="ttdef"><b>Definition</b> Odometry.h:29</div></div>
+<div class="ttc" id="astruct_position_html_a369a577425f8ba02e8750d04b6a088db"><div class="ttname"><a href="struct_position.html#a369a577425f8ba02e8750d04b6a088db">Position::Position</a></div><div class="ttdeci">Position()</div><div class="ttdoc">Constructeur de Position. Constructeur de Position qui initialise la position au coordonnées (0,...</div><div class="ttdef"><b>Definition</b> Odometry.h:19</div></div>
+<div class="ttc" id="astruct_position_html_a3e8a386e068bdd371587b5e299c321d3"><div class="ttname"><a href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">Position::theta</a></div><div class="ttdeci">float theta</div><div class="ttdef"><b>Definition</b> Odometry.h:33</div></div>
+<div class="ttc" id="astruct_position_html_a54a6182b5f7539295b32255808897d3f"><div class="ttname"><a href="struct_position.html#a54a6182b5f7539295b32255808897d3f">Position::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition</b> Odometry.h:32</div></div>
+<div class="ttc" id="astruct_position_html_af684446cbf0f6d53386686283da6dcc6"><div class="ttname"><a href="struct_position.html#af684446cbf0f6d53386686283da6dcc6">Position::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition</b> Odometry.h:31</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -1,0 +1,724 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence de la classe Odometry</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="class_odometry-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la classe Odometry</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Calcule la position en temps réel du robot.  
+ <a href="#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_odometry_8h_source.html">Odometry.h</a>&gt;</code></p>
+
+<p>Est dérivée de <a class="el" href="class_periodic_process.html">PeriodicProcess</a>.</p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a5fdede5f5fed5c8333500bbef0193a4d" id="r_a5fdede5f5fed5c8333500bbef0193a4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fdede5f5fed5c8333500bbef0193a4d">setPosition</a> (float x, float y, float theta)</td></tr>
+<tr class="memdesc:a5fdede5f5fed5c8333500bbef0193a4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribut une nouvelle position.  <br /></td></tr>
+<tr class="separator:a5fdede5f5fed5c8333500bbef0193a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c55db07acd9dcf1ab2197afb9623b3" id="r_ae4c55db07acd9dcf1ab2197afb9623b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4c55db07acd9dcf1ab2197afb9623b3">setAxleTrack</a> (float axleTrack)</td></tr>
+<tr class="memdesc:ae4c55db07acd9dcf1ab2197afb9623b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defini une nouvelle entraxe pour les roues codeuses.  <br /></td></tr>
+<tr class="separator:ae4c55db07acd9dcf1ab2197afb9623b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e4a3346ceae934ac0ec45c9fb8a6b22" id="r_a0e4a3346ceae934ac0ec45c9fb8a6b22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e4a3346ceae934ac0ec45c9fb8a6b22">setSlippage</a> (float slippage)</td></tr>
+<tr class="memdesc:a0e4a3346ceae934ac0ec45c9fb8a6b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defini la nouvelle dérive orthogonal.  <br /></td></tr>
+<tr class="separator:a0e4a3346ceae934ac0ec45c9fb8a6b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11ae9169f40234cf632dafb8ae87ba6b" id="r_a11ae9169f40234cf632dafb8ae87ba6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11ae9169f40234cf632dafb8ae87ba6b">setCodewheels</a> (<a class="el" href="class_abstract_codewheel.html">AbstractCodewheel</a> &amp;leftCodewheel, <a class="el" href="class_abstract_codewheel.html">AbstractCodewheel</a> &amp;rightCodewheel)</td></tr>
+<tr class="memdesc:a11ae9169f40234cf632dafb8ae87ba6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defini les roues codeuses de <a class="el" href="class_odometry.html" title="Calcule la position en temps réel du robot.">Odometry</a>.  <br /></td></tr>
+<tr class="separator:a11ae9169f40234cf632dafb8ae87ba6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a915bc38dea6a10a45c8dcc72651c439e" id="r_a915bc38dea6a10a45c8dcc72651c439e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_position.html">Position</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a915bc38dea6a10a45c8dcc72651c439e">getPosition</a> () const</td></tr>
+<tr class="memdesc:a915bc38dea6a10a45c8dcc72651c439e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la position.  <br /></td></tr>
+<tr class="separator:a915bc38dea6a10a45c8dcc72651c439e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd52113fbd9d32543be57843a571fa1d" id="r_acd52113fbd9d32543be57843a571fa1d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd52113fbd9d32543be57843a571fa1d">getLinVel</a> () const</td></tr>
+<tr class="memdesc:acd52113fbd9d32543be57843a571fa1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la vitesse linéaire.  <br /></td></tr>
+<tr class="separator:acd52113fbd9d32543be57843a571fa1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a695e64e109028ec2e47c687e23d0a18e" id="r_a695e64e109028ec2e47c687e23d0a18e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a695e64e109028ec2e47c687e23d0a18e">getAngVel</a> () const</td></tr>
+<tr class="memdesc:a695e64e109028ec2e47c687e23d0a18e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la vitesse angulaire.  <br /></td></tr>
+<tr class="separator:a695e64e109028ec2e47c687e23d0a18e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a960c1a744fb0370fbfeecd7223c68cbe" id="r_a960c1a744fb0370fbfeecd7223c68cbe"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a960c1a744fb0370fbfeecd7223c68cbe">getAxleTrack</a> () const</td></tr>
+<tr class="memdesc:a960c1a744fb0370fbfeecd7223c68cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'entraxe utilisée.  <br /></td></tr>
+<tr class="separator:a960c1a744fb0370fbfeecd7223c68cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcb37f34e1b3081a6476dee73493fc38" id="r_adcb37f34e1b3081a6476dee73493fc38"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcb37f34e1b3081a6476dee73493fc38">getSlippage</a> () const</td></tr>
+<tr class="memdesc:adcb37f34e1b3081a6476dee73493fc38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la dérive utilisée.  <br /></td></tr>
+<tr class="separator:adcb37f34e1b3081a6476dee73493fc38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d2a0cff9771cc82594ccce2f0e45bcf" id="r_a3d2a0cff9771cc82594ccce2f0e45bcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d2a0cff9771cc82594ccce2f0e45bcf">load</a> (int address)</td></tr>
+<tr class="memdesc:a3d2a0cff9771cc82594ccce2f0e45bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les paramètres.  <br /></td></tr>
+<tr class="separator:a3d2a0cff9771cc82594ccce2f0e45bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1357578497f02fcc1ab91f109b0fe60" id="r_af1357578497f02fcc1ab91f109b0fe60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1357578497f02fcc1ab91f109b0fe60">save</a> (int address) const</td></tr>
+<tr class="memdesc:af1357578497f02fcc1ab91f109b0fe60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde les paramètres.  <br /></td></tr>
+<tr class="separator:af1357578497f02fcc1ab91f109b0fe60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_periodic_process"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_periodic_process')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="class_periodic_process.html">PeriodicProcess</a></td></tr>
+<tr class="memitem:ad7b24e195dea0bb385acf3afc213b22b inherit pub_methods_class_periodic_process" id="r_ad7b24e195dea0bb385acf3afc213b22b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#ad7b24e195dea0bb385acf3afc213b22b">~PeriodicProcess</a> ()</td></tr>
+<tr class="memdesc:ad7b24e195dea0bb385acf3afc213b22b inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:ad7b24e195dea0bb385acf3afc213b22b inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae49aad8572f5b60fede0a13f0cd95d36 inherit pub_methods_class_periodic_process" id="r_ae49aad8572f5b60fede0a13f0cd95d36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#ae49aad8572f5b60fede0a13f0cd95d36">enable</a> ()</td></tr>
+<tr class="memdesc:ae49aad8572f5b60fede0a13f0cd95d36 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active le <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:ae49aad8572f5b60fede0a13f0cd95d36 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4147798b8ad01690f590d934bdd83c28 inherit pub_methods_class_periodic_process" id="r_a4147798b8ad01690f590d934bdd83c28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a4147798b8ad01690f590d934bdd83c28">disable</a> ()</td></tr>
+<tr class="memdesc:a4147798b8ad01690f590d934bdd83c28 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Désactive le <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:a4147798b8ad01690f590d934bdd83c28 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca171a0dac27356b246d359da26da104 inherit pub_methods_class_periodic_process" id="r_aca171a0dac27356b246d359da26da104"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#aca171a0dac27356b246d359da26da104">setTimestep</a> (float timestep)</td></tr>
+<tr class="memdesc:aca171a0dac27356b246d359da26da104 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sélectionne une nouvelle valeur pour timestep.  <br /></td></tr>
+<tr class="separator:aca171a0dac27356b246d359da26da104 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a910daacfe12010947ec541d3ac565867 inherit pub_methods_class_periodic_process" id="r_a910daacfe12010947ec541d3ac565867"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a910daacfe12010947ec541d3ac565867">update</a> ()</td></tr>
+<tr class="memdesc:a910daacfe12010947ec541d3ac565867 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute la méthode process.  <br /></td></tr>
+<tr class="separator:a910daacfe12010947ec541d3ac565867 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba917a9760e4df62a8e763cc43ee4c5 inherit pub_methods_class_periodic_process" id="r_a4ba917a9760e4df62a8e763cc43ee4c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a4ba917a9760e4df62a8e763cc43ee4c5">isEnabled</a> () const</td></tr>
+<tr class="memdesc:a4ba917a9760e4df62a8e763cc43ee4c5 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si le <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a> est activé.  <br /></td></tr>
+<tr class="separator:a4ba917a9760e4df62a8e763cc43ee4c5 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acafd892a946d978ea853cccfbd5e4295 inherit pub_methods_class_periodic_process" id="r_acafd892a946d978ea853cccfbd5e4295"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#acafd892a946d978ea853cccfbd5e4295">getTimestep</a> () const</td></tr>
+<tr class="memdesc:acafd892a946d978ea853cccfbd5e4295 inherit pub_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la valeur de m_timestep.  <br /></td></tr>
+<tr class="separator:acafd892a946d978ea853cccfbd5e4295 inherit pub_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr class="memitem:a145a976de8716c7be011503a2483ceb3" id="r_a145a976de8716c7be011503a2483ceb3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a145a976de8716c7be011503a2483ceb3">process</a> (float timestep)</td></tr>
+<tr class="memdesc:a145a976de8716c7be011503a2483ceb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la nouvelle position et la nouvelle vitesse. A partir de ses <a class="el" href="class_abstract_codewheel.html" title="Classe abstraite d&#39;une roue codeuse.">AbstractCodewheel</a>, détermine la nouvelle vitesse instantanée et la nouvelle position.  <br /></td></tr>
+<tr class="separator:a145a976de8716c7be011503a2483ceb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_class_periodic_process"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_periodic_process')"><img src="closed.png" alt="-"/>&#160;Fonctions membres protégées hérités de <a class="el" href="class_periodic_process.html">PeriodicProcess</a></td></tr>
+<tr class="memitem:a9b1f1149e394348a7fd0eaac94987356 inherit pro_methods_class_periodic_process" id="r_a9b1f1149e394348a7fd0eaac94987356"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a9b1f1149e394348a7fd0eaac94987356">onProcessEnabling</a> ()</td></tr>
+<tr class="memdesc:a9b1f1149e394348a7fd0eaac94987356 inherit pro_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode exécutée à l'activation du <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:a9b1f1149e394348a7fd0eaac94987356 inherit pro_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e325cb38e20cac3164a01d89e161d90 inherit pro_methods_class_periodic_process" id="r_a6e325cb38e20cac3164a01d89e161d90"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_periodic_process.html#a6e325cb38e20cac3164a01d89e161d90">onProcessDisabling</a> ()</td></tr>
+<tr class="memdesc:a6e325cb38e20cac3164a01d89e161d90 inherit pro_methods_class_periodic_process"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode exécutée à la désactivation du <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a>.  <br /></td></tr>
+<tr class="separator:a6e325cb38e20cac3164a01d89e161d90 inherit pro_methods_class_periodic_process"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a9a89056855952daa414bbf82ba7375d9" id="r_a9a89056855952daa414bbf82ba7375d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_position.html">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a89056855952daa414bbf82ba7375d9">m_pos</a></td></tr>
+<tr class="separator:a9a89056855952daa414bbf82ba7375d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5624b981bd24407ee489c732a0541cd8" id="r_a5624b981bd24407ee489c732a0541cd8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5624b981bd24407ee489c732a0541cd8">m_linVel</a></td></tr>
+<tr class="separator:a5624b981bd24407ee489c732a0541cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac393c005fc0b62554c75b037f68775dc" id="r_ac393c005fc0b62554c75b037f68775dc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac393c005fc0b62554c75b037f68775dc">m_angVel</a></td></tr>
+<tr class="separator:ac393c005fc0b62554c75b037f68775dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f416471e2f77cf9c30baa5c9bd76392" id="r_a2f416471e2f77cf9c30baa5c9bd76392"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f416471e2f77cf9c30baa5c9bd76392">m_axleTrack</a></td></tr>
+<tr class="separator:a2f416471e2f77cf9c30baa5c9bd76392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a019ae0364ac0e7f53feae91f890afb2e" id="r_a019ae0364ac0e7f53feae91f890afb2e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a019ae0364ac0e7f53feae91f890afb2e">m_slippage</a></td></tr>
+<tr class="separator:a019ae0364ac0e7f53feae91f890afb2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d2263acfed61d7a5928545f7d6938c7" id="r_a0d2263acfed61d7a5928545f7d6938c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_abstract_codewheel.html">AbstractCodewheel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d2263acfed61d7a5928545f7d6938c7">m_leftCodewheel</a></td></tr>
+<tr class="separator:a0d2263acfed61d7a5928545f7d6938c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93d3a9ef8d34582a7ed1e3997091a61c" id="r_a93d3a9ef8d34582a7ed1e3997091a61c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_abstract_codewheel.html">AbstractCodewheel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93d3a9ef8d34582a7ed1e3997091a61c">m_rightCodewheel</a></td></tr>
+<tr class="separator:a93d3a9ef8d34582a7ed1e3997091a61c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Calcule la position en temps réel du robot. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Ulysse Darmet <a class="el" href="class_odometry.html" title="Calcule la position en temps réel du robot.">Odometry</a> est un <a class="el" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop.">PeriodicProcess</a> qui calcule la position du robot à partir des roues codeuses ( <a class="el" href="class_abstract_codewheel.html" title="Classe abstraite d&#39;une roue codeuse.">AbstractCodewheel</a> ) . </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a695e64e109028ec2e47c687e23d0a18e" name="a695e64e109028ec2e47c687e23d0a18e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a695e64e109028ec2e47c687e23d0a18e">&#9670;&#160;</a></span>getAngVel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Odometry::getAngVel </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la vitesse angulaire. </p>
+<p>Rend la dernière vitesse angulaire calculé.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>Vitesse angulaire en rad/s. </dd></dl>
+
+</div>
+</div>
+<a id="a960c1a744fb0370fbfeecd7223c68cbe" name="a960c1a744fb0370fbfeecd7223c68cbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a960c1a744fb0370fbfeecd7223c68cbe">&#9670;&#160;</a></span>getAxleTrack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Odometry::getAxleTrack </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne l'entraxe utilisée. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Entraxe en mm. </dd></dl>
+
+</div>
+</div>
+<a id="acd52113fbd9d32543be57843a571fa1d" name="acd52113fbd9d32543be57843a571fa1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd52113fbd9d32543be57843a571fa1d">&#9670;&#160;</a></span>getLinVel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Odometry::getLinVel </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la vitesse linéaire. </p>
+<p>Rend la dernière vitesse linéaire calculé.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>Vitesse lineaire en mm/s. </dd></dl>
+
+</div>
+</div>
+<a id="a915bc38dea6a10a45c8dcc72651c439e" name="a915bc38dea6a10a45c8dcc72651c439e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a915bc38dea6a10a45c8dcc72651c439e">&#9670;&#160;</a></span>getPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_position.html">Position</a> &amp; Odometry::getPosition </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la position. </p>
+<p>Retourne sa struc <a class="el" href="struct_position.html" title="Structure de position.">Position</a> avec les dernières positions calculés.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>La structure <a class="el" href="struct_position.html" title="Structure de position.">Position</a>. </dd></dl>
+
+</div>
+</div>
+<a id="adcb37f34e1b3081a6476dee73493fc38" name="adcb37f34e1b3081a6476dee73493fc38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcb37f34e1b3081a6476dee73493fc38">&#9670;&#160;</a></span>getSlippage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Odometry::getSlippage </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la dérive utilisée. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Dérive sans unité. </dd></dl>
+
+</div>
+</div>
+<a id="a3d2a0cff9771cc82594ccce2f0e45bcf" name="a3d2a0cff9771cc82594ccce2f0e45bcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d2a0cff9771cc82594ccce2f0e45bcf">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Odometry::load </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge les paramètres. </p>
+<p>Charge les paramètres depuis la mémoire de l'arduino.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Adresse à utilisé pour charger les données. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a145a976de8716c7be011503a2483ceb3" name="a145a976de8716c7be011503a2483ceb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a145a976de8716c7be011503a2483ceb3">&#9670;&#160;</a></span>process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Odometry::process </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>timestep</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calcule la nouvelle position et la nouvelle vitesse. A partir de ses <a class="el" href="class_abstract_codewheel.html" title="Classe abstraite d&#39;une roue codeuse.">AbstractCodewheel</a>, détermine la nouvelle vitesse instantanée et la nouvelle position. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timestep</td><td>Temps depuis le dernier appel de cette méthode en secondes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implémente <a class="el" href="class_periodic_process.html#a397cd93780d753f5f06335cfe9f2a7f3">PeriodicProcess</a>.</p>
+
+</div>
+</div>
+<a id="af1357578497f02fcc1ab91f109b0fe60" name="af1357578497f02fcc1ab91f109b0fe60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1357578497f02fcc1ab91f109b0fe60">&#9670;&#160;</a></span>save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Odometry::save </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sauvegarde les paramètres. </p>
+<p>Sauvegarde les paramètres actuelement utilisés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Adresse à utilisé pour la sauvegarde. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae4c55db07acd9dcf1ab2197afb9623b3" name="ae4c55db07acd9dcf1ab2197afb9623b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c55db07acd9dcf1ab2197afb9623b3">&#9670;&#160;</a></span>setAxleTrack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Odometry::setAxleTrack </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>axleTrack</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Defini une nouvelle entraxe pour les roues codeuses. </p>
+<p>Change l'entraxe actuel par celui indiqué en paramètre.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axleTrack</td><td>Nouvelle entraxe en mm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a11ae9169f40234cf632dafb8ae87ba6b" name="a11ae9169f40234cf632dafb8ae87ba6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11ae9169f40234cf632dafb8ae87ba6b">&#9670;&#160;</a></span>setCodewheels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Odometry::setCodewheels </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_abstract_codewheel.html">AbstractCodewheel</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>leftCodewheel</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_abstract_codewheel.html">AbstractCodewheel</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rightCodewheel</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Defini les roues codeuses de <a class="el" href="class_odometry.html" title="Calcule la position en temps réel du robot.">Odometry</a>. </p>
+<p>Paramètre les pointeurs sur les deux <a class="el" href="class_abstract_codewheel.html" title="Classe abstraite d&#39;une roue codeuse.">AbstractCodewheel</a> à utiliser pour le calcul d'odométrie.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leftCodewheel</td><td><a class="el" href="class_abstract_codewheel.html" title="Classe abstraite d&#39;une roue codeuse.">AbstractCodewheel</a> de la roue codeuse gauche. </td></tr>
+    <tr><td class="paramname">rightCodewheel</td><td><a class="el" href="class_abstract_codewheel.html" title="Classe abstraite d&#39;une roue codeuse.">AbstractCodewheel</a> de la roue codeuse droite. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5fdede5f5fed5c8333500bbef0193a4d" name="a5fdede5f5fed5c8333500bbef0193a4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fdede5f5fed5c8333500bbef0193a4d">&#9670;&#160;</a></span>setPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Odometry::setPosition </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>y</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>theta</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Attribut une nouvelle position. </p>
+<p>A partir des coordonnées passer en paramètre, attribut les nouvelles coordonnées à sa <a class="el" href="struct_position.html" title="Structure de position.">Position</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Nouvelle coordonnée en x. </td></tr>
+    <tr><td class="paramname">y</td><td>Nouvelle coordonnée en y. </td></tr>
+    <tr><td class="paramname">theta</td><td>Nouvelle angle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0e4a3346ceae934ac0ec45c9fb8a6b22" name="a0e4a3346ceae934ac0ec45c9fb8a6b22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4a3346ceae934ac0ec45c9fb8a6b22">&#9670;&#160;</a></span>setSlippage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Odometry::setSlippage </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>slippage</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Defini la nouvelle dérive orthogonal. </p>
+<p>Change la dérive orthogonal par celle indiquée en paramètre.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slippage</td><td>Nouvelle dérive orthogonal sans unité et signé. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="ac393c005fc0b62554c75b037f68775dc" name="ac393c005fc0b62554c75b037f68775dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac393c005fc0b62554c75b037f68775dc">&#9670;&#160;</a></span>m_angVel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Odometry::m_angVel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Vitesse angulaire en rad/s. </p>
+
+</div>
+</div>
+<a id="a2f416471e2f77cf9c30baa5c9bd76392" name="a2f416471e2f77cf9c30baa5c9bd76392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f416471e2f77cf9c30baa5c9bd76392">&#9670;&#160;</a></span>m_axleTrack</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Odometry::m_axleTrack</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Entraxe entre les deux roues codeuses. </p>
+
+</div>
+</div>
+<a id="a0d2263acfed61d7a5928545f7d6938c7" name="a0d2263acfed61d7a5928545f7d6938c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d2263acfed61d7a5928545f7d6938c7">&#9670;&#160;</a></span>m_leftCodewheel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_abstract_codewheel.html">AbstractCodewheel</a>* Odometry::m_leftCodewheel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Pointeur de l'<a class="el" href="class_abstract_codewheel.html" title="Classe abstraite d&#39;une roue codeuse.">AbstractCodewheel</a> gauche. </p>
+
+</div>
+</div>
+<a id="a5624b981bd24407ee489c732a0541cd8" name="a5624b981bd24407ee489c732a0541cd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5624b981bd24407ee489c732a0541cd8">&#9670;&#160;</a></span>m_linVel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Odometry::m_linVel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Vitesse lineaire en mm/s. </p>
+
+</div>
+</div>
+<a id="a9a89056855952daa414bbf82ba7375d9" name="a9a89056855952daa414bbf82ba7375d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a89056855952daa414bbf82ba7375d9">&#9670;&#160;</a></span>m_pos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_position.html">Position</a> Odometry::m_pos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Structure de position de <a class="el" href="class_odometry.html" title="Calcule la position en temps réel du robot.">Odometry</a>. </p>
+
+</div>
+</div>
+<a id="a93d3a9ef8d34582a7ed1e3997091a61c" name="a93d3a9ef8d34582a7ed1e3997091a61c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93d3a9ef8d34582a7ed1e3997091a61c">&#9670;&#160;</a></span>m_rightCodewheel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_abstract_codewheel.html">AbstractCodewheel</a>* Odometry::m_rightCodewheel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Pointeur de l'<a class="el" href="class_abstract_codewheel.html" title="Classe abstraite d&#39;une roue codeuse.">AbstractCodewheel</a> droite. <br  />
+ </p>
+
+</div>
+</div>
+<a id="a019ae0364ac0e7f53feae91f890afb2e" name="a019ae0364ac0e7f53feae91f890afb2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a019ae0364ac0e7f53feae91f890afb2e">&#9670;&#160;</a></span>m_slippage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Odometry::m_slippage</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constante de dérivation othogonal. </p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/Odometry/<a class="el" href="_odometry_8h_source.html">Odometry.h</a></li>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/Odometry/<b>Odometry.cpp</b></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

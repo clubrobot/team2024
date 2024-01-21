@@ -31,11 +31,18 @@ class Logger:
     ##Boolean pour savoir si Teleplot a été init
     initied = False
 
+    ##Constructeur, ne sert qu'à enregistrer l'origine
     def __init__(self, origin):
         self.origin = origin
 
     @staticmethod
     def init(IP="127.0.0.1", verbose=False, saveToFile=False):
+        """! Méthode statique pour initialiser téleplot
+
+        @param IP Ip du serveur teleplot
+        @param verbose Boolean pour afficher (ou non) les logs dans la console d'exec
+        @param saveToFile Boolean pour savoir si les logs sont écrit dans un .txt
+        """
         Logger.teleplot = Teleplot(IP)
 
         Logger.saveToFile = saveToFile
@@ -47,6 +54,12 @@ class Logger:
 
     @staticmethod
     def sendGraph(name, value, unit="", now=None):
+        """! Envoie une donnée sur un graph
+        @param name Nom du graphique
+        @param value valeur à plotter
+        @param unit unité de la valeur
+        @param now temps de l'execution, default: None
+        """
         if(not Logger.initied): return #Logger not initied
 
         if(now==None): now=(time.time()+3600)*1000
@@ -54,12 +67,25 @@ class Logger:
 
     @staticmethod
     def sendXY( name, x, y, unit="", x1=None, y1=None):
+        """! Envoie une donnée XY à Teleplot
+        @param name nom du graphique
+        @param x Valeur x
+        @param y Valeur y
+        @param unit unité des valeurs
+        @param x1 Valeur x de la deuxième serie
+        @param y1 Valeur y de la deuxième serie
+        """
         if(not Logger.initied): return #Logger not initied
 
         Logger.teleplot.sendTelemetryXY(name, x, y, x1, y1, unit)
 
     @staticmethod
     def sendLogStatic(message, origin="", now=None):
+        """! Envoie un message
+        @param message message à transmettre
+        @param origin origine du message
+        @param now temps de l'execution, default: None
+        """
         if(not Logger.initied): return #Logger not initied
 
         if(now==None): now=time.time()+3600#Pour faire +1h
@@ -76,13 +102,22 @@ class Logger:
         Logger.teleplot.sendLog(final_message, now*1000)
 
     def sendLog(self, message, now=None):
+        """! Envoie un message avec l'origine de la classe
+        @param message message à transmettre
+        @param now temps de l'execution, default: None
+        """
         Logger.sendLogStatic(message, self.origin, now)
 
 class log_archiver:
+    """! La classe log_archiver, responsable de toute la sauvegarde du log
+    
+    """
     def __init__(self):
+        """! Initie la classe en créant le ficier txt"""
         self.create_log()
 
     def create_log(self):
+        """! Crée le fichier txt"""
         i=0
         f=None
         path = os.path.dirname(os.path.abspath(__file__)) + "/dump/log_{}.txt"
@@ -99,6 +134,7 @@ class log_archiver:
                 break
 
     def save_log(self, message):
+        """! Ajoute le message au fichier"""
         if(message):
             self.log_file.write(message)
 

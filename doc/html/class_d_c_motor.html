@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence de la classe DCMotor</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="class_d_c_motor-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la classe DCMotor</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Pilotage de moteur continu.  
+ <a href="#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_d_c_motor_8h_source.html">DCMotor.h</a>&gt;</code></p>
+
+<p>Est dérivée de <a class="el" href="class_non_copyable.html">NonCopyable</a>, et <a class="el" href="class_abstract_motor.html">AbstractMotor</a>.</p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a09e0b46ab4d55aea59bc7760c6f75123" id="r_a09e0b46ab4d55aea59bc7760c6f75123"><td class="memItemLeft" align="right" valign="top"><a id="a09e0b46ab4d55aea59bc7760c6f75123" name="a09e0b46ab4d55aea59bc7760c6f75123"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>attach</b> (int EN, int PWM, int DIR)</td></tr>
+<tr class="memdesc:a09e0b46ab4d55aea59bc7760c6f75123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique quels pins de l'arduino son utilisé pour ce moteur (actuellement correspond à moteur 1 ou 2) <br /></td></tr>
+<tr class="separator:a09e0b46ab4d55aea59bc7760c6f75123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb8905c3bc527a8e08667ec596385bcb" id="r_afb8905c3bc527a8e08667ec596385bcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb8905c3bc527a8e08667ec596385bcb">setVelocity</a> (float velocity)</td></tr>
+<tr class="memdesc:afb8905c3bc527a8e08667ec596385bcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoie une commande de vitesse au moteur.  <br /></td></tr>
+<tr class="separator:afb8905c3bc527a8e08667ec596385bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cba76efb2369f482665581adcca45ce" id="r_a3cba76efb2369f482665581adcca45ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cba76efb2369f482665581adcca45ce">setConstant</a> (float constant)</td></tr>
+<tr class="memdesc:a3cba76efb2369f482665581adcca45ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paramètre la constante du moteur.  <br /></td></tr>
+<tr class="separator:a3cba76efb2369f482665581adcca45ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f4e6700183b53618a7021dceaaedaa2" id="r_a0f4e6700183b53618a7021dceaaedaa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f4e6700183b53618a7021dceaaedaa2">setWheelRadius</a> (float wheelRadius)</td></tr>
+<tr class="memdesc:a0f4e6700183b53618a7021dceaaedaa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paramètre le rayon de la roue liée au moteur.  <br /></td></tr>
+<tr class="separator:a0f4e6700183b53618a7021dceaaedaa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade804661b6e4a6e5f9b9354208cacb26" id="r_ade804661b6e4a6e5f9b9354208cacb26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade804661b6e4a6e5f9b9354208cacb26">setMaxPWM</a> (float maxPWM)</td></tr>
+<tr class="memdesc:ade804661b6e4a6e5f9b9354208cacb26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paramètre une valeur limite de PWN à ne pas dépasser.  <br /></td></tr>
+<tr class="separator:ade804661b6e4a6e5f9b9354208cacb26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1407f87d60fcf74a2dd0b77a79392bfb" id="r_a1407f87d60fcf74a2dd0b77a79392bfb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1407f87d60fcf74a2dd0b77a79392bfb">getVelocity</a> () const</td></tr>
+<tr class="memdesc:a1407f87d60fcf74a2dd0b77a79392bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie la vitesse de commande actuelle du moteur.  <br /></td></tr>
+<tr class="separator:a1407f87d60fcf74a2dd0b77a79392bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73d0d26c3b9faa8a595f1ec270678265" id="r_a73d0d26c3b9faa8a595f1ec270678265"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73d0d26c3b9faa8a595f1ec270678265">getConstant</a> () const</td></tr>
+<tr class="memdesc:a73d0d26c3b9faa8a595f1ec270678265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie la constante du moteur paramétrée.  <br /></td></tr>
+<tr class="separator:a73d0d26c3b9faa8a595f1ec270678265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ca44fbd11037bc80a8900e4b3204dc1" id="r_a4ca44fbd11037bc80a8900e4b3204dc1"><td class="memItemLeft" align="right" valign="top"><a id="a4ca44fbd11037bc80a8900e4b3204dc1" name="a4ca44fbd11037bc80a8900e4b3204dc1"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>getWheelRadius</b> () const</td></tr>
+<tr class="memdesc:a4ca44fbd11037bc80a8900e4b3204dc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie rayon de la roue du moteur. <br /></td></tr>
+<tr class="separator:a4ca44fbd11037bc80a8900e4b3204dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d8a228ea5f8301fbb2f4b1ed61e3a1f" id="r_a3d8a228ea5f8301fbb2f4b1ed61e3a1f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d8a228ea5f8301fbb2f4b1ed61e3a1f">getMaxPWM</a> () const</td></tr>
+<tr class="memdesc:a3d8a228ea5f8301fbb2f4b1ed61e3a1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie la valeur max de PWM.  <br /></td></tr>
+<tr class="separator:a3d8a228ea5f8301fbb2f4b1ed61e3a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9a3abd456d666211447a81e9f6f4a51" id="r_aa9a3abd456d666211447a81e9f6f4a51"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9a3abd456d666211447a81e9f6f4a51">getMaxVelocity</a> () const</td></tr>
+<tr class="memdesc:aa9a3abd456d666211447a81e9f6f4a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie la vitesse maximale avec les constantes actuelles.  <br /></td></tr>
+<tr class="separator:aa9a3abd456d666211447a81e9f6f4a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_abstract_motor"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_abstract_motor')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="class_abstract_motor.html">AbstractMotor</a></td></tr>
+<tr class="memitem:ad63b013a8df5e57f8ab6aee3eb1a7381 inherit pub_methods_class_abstract_motor" id="r_ad63b013a8df5e57f8ab6aee3eb1a7381"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_motor.html#ad63b013a8df5e57f8ab6aee3eb1a7381">~AbstractMotor</a> ()</td></tr>
+<tr class="memdesc:ad63b013a8df5e57f8ab6aee3eb1a7381 inherit pub_methods_class_abstract_motor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur d'<a class="el" href="class_abstract_motor.html" title="Instance de moteur.">AbstractMotor</a>.  <br /></td></tr>
+<tr class="separator:ad63b013a8df5e57f8ab6aee3eb1a7381 inherit pub_methods_class_abstract_motor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a9106d1d0eacc3421f6407b030a7d9bbd" id="r_a9106d1d0eacc3421f6407b030a7d9bbd"><td class="memItemLeft" align="right" valign="top"><a id="a9106d1d0eacc3421f6407b030a7d9bbd" name="a9106d1d0eacc3421f6407b030a7d9bbd"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>m_velocity</b></td></tr>
+<tr class="memdesc:a9106d1d0eacc3421f6407b030a7d9bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">in mm/s (millimeters per second) <br /></td></tr>
+<tr class="separator:a9106d1d0eacc3421f6407b030a7d9bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a70bd2bdc1a0db1aeb0157f9bf1e911" id="r_a4a70bd2bdc1a0db1aeb0157f9bf1e911"><td class="memItemLeft" align="right" valign="top"><a id="a4a70bd2bdc1a0db1aeb0157f9bf1e911" name="a4a70bd2bdc1a0db1aeb0157f9bf1e911"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>m_wheelRadius</b></td></tr>
+<tr class="memdesc:a4a70bd2bdc1a0db1aeb0157f9bf1e911"><td class="mdescLeft">&#160;</td><td class="mdescRight">in mm <br /></td></tr>
+<tr class="separator:a4a70bd2bdc1a0db1aeb0157f9bf1e911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50bf5cd3d20ff775dd476a79cf48dbc5" id="r_a50bf5cd3d20ff775dd476a79cf48dbc5"><td class="memItemLeft" align="right" valign="top"><a id="a50bf5cd3d20ff775dd476a79cf48dbc5" name="a50bf5cd3d20ff775dd476a79cf48dbc5"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>m_constant</b></td></tr>
+<tr class="memdesc:a50bf5cd3d20ff775dd476a79cf48dbc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">(60 * reduction_ratio / velocity_constant_in_RPM) / supplied_voltage_in_V <br /></td></tr>
+<tr class="separator:a50bf5cd3d20ff775dd476a79cf48dbc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a3cdfc30060d65f3a561c155aaafe67" id="r_a0a3cdfc30060d65f3a561c155aaafe67"><td class="memItemLeft" align="right" valign="top"><a id="a0a3cdfc30060d65f3a561c155aaafe67" name="a0a3cdfc30060d65f3a561c155aaafe67"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>m_maxPWM</b></td></tr>
+<tr class="memdesc:a0a3cdfc30060d65f3a561c155aaafe67"><td class="mdescLeft">&#160;</td><td class="mdescRight">in range ]0, 1] <br /></td></tr>
+<tr class="separator:a0a3cdfc30060d65f3a561c155aaafe67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Pilotage de moteur continu. </p>
+<p>class <a class="el" href="class_d_c_motor.html" title="Pilotage de moteur continu.">DCMotor</a> </p><dl class="section author"><dt>Auteur</dt><dd>Ulysse Darmet Cette classe permet de contrôler un moteur à courant continu par PWM via un driver Moteur</dd></dl>
+<p>Remarque : Pour les moteurs qui ne sont reliées à des roues seulement régler la constante du moteur à 1/tension_PWM. Ainsi, on peut simplement controler le moteur via <a class="el" href="#afb8905c3bc527a8e08667ec596385bcb" title="Envoie une commande de vitesse au moteur.">setVelocity()</a> en envoyant comme commande la tension de PWM souhaitée. </p>
+</div><h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a73d0d26c3b9faa8a595f1ec270678265" name="a73d0d26c3b9faa8a595f1ec270678265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73d0d26c3b9faa8a595f1ec270678265">&#9670;&#160;</a></span>getConstant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float DCMotor::getConstant </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Renvoie la constante du moteur paramétrée. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>constante : (60 * reduction_ratio / velocity_constant_in_RPM) / supplied_voltage_in_V </dd></dl>
+
+</div>
+</div>
+<a id="a3d8a228ea5f8301fbb2f4b1ed61e3a1f" name="a3d8a228ea5f8301fbb2f4b1ed61e3a1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d8a228ea5f8301fbb2f4b1ed61e3a1f">&#9670;&#160;</a></span>getMaxPWM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float DCMotor::getMaxPWM </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Renvoie la valeur max de PWM. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>valeur entre 0 et 1 </dd></dl>
+
+</div>
+</div>
+<a id="aa9a3abd456d666211447a81e9f6f4a51" name="aa9a3abd456d666211447a81e9f6f4a51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9a3abd456d666211447a81e9f6f4a51">&#9670;&#160;</a></span>getMaxVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float DCMotor::getMaxVelocity </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Renvoie la vitesse maximale avec les constantes actuelles. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>vitesse max en mm/s </dd></dl>
+
+<p>Implémente <a class="el" href="class_abstract_motor.html#acaed879fcb45e6abef565a03fd6f227d">AbstractMotor</a>.</p>
+
+</div>
+</div>
+<a id="a1407f87d60fcf74a2dd0b77a79392bfb" name="a1407f87d60fcf74a2dd0b77a79392bfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1407f87d60fcf74a2dd0b77a79392bfb">&#9670;&#160;</a></span>getVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float DCMotor::getVelocity </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Renvoie la vitesse de commande actuelle du moteur. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>vitesse en mm/s </dd></dl>
+
+</div>
+</div>
+<a id="a3cba76efb2369f482665581adcca45ce" name="a3cba76efb2369f482665581adcca45ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cba76efb2369f482665581adcca45ce">&#9670;&#160;</a></span>setConstant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DCMotor::setConstant </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>constant</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Paramètre la constante du moteur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">constant</td><td>constante en rad/s/Volt </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ade804661b6e4a6e5f9b9354208cacb26" name="ade804661b6e4a6e5f9b9354208cacb26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade804661b6e4a6e5f9b9354208cacb26">&#9670;&#160;</a></span>setMaxPWM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DCMotor::setMaxPWM </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>maxPWM</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Paramètre une valeur limite de PWN à ne pas dépasser. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxPWM</td><td>valeur limite entre 0 et 1 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afb8905c3bc527a8e08667ec596385bcb" name="afb8905c3bc527a8e08667ec596385bcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb8905c3bc527a8e08667ec596385bcb">&#9670;&#160;</a></span>setVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DCMotor::setVelocity </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>velocity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Envoie une commande de vitesse au moteur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">velocity</td><td>vitesse de commande en mm/s </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implémente <a class="el" href="class_abstract_motor.html#ac5c1960c11e5cfe2c4c1e206e79e5bf9">AbstractMotor</a>.</p>
+
+</div>
+</div>
+<a id="a0f4e6700183b53618a7021dceaaedaa2" name="a0f4e6700183b53618a7021dceaaedaa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f4e6700183b53618a7021dceaaedaa2">&#9670;&#160;</a></span>setWheelRadius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DCMotor::setWheelRadius </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>wheelRadius</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Paramètre le rayon de la roue liée au moteur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wheelRadius</td><td>rayon en mm </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/DCMotor/<a class="el" href="_d_c_motor_8h_source.html">DCMotor.h</a></li>
+<li>C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/DCMotor/<b>DCMotor.cpp</b></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

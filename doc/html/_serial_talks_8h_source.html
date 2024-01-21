@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/SerialTalks/SerialTalks.h</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_e5db95e150018bcc3dfc1edc7ae4800d.html">LIBS</a></li><li class="navelem"><a class="el" href="dir_66ad5f74c23414a43fda982e8ac34f83.html">ARDUINO_LIBS</a></li><li class="navelem"><a class="el" href="dir_90355278d629d909dad2db355847bebd.html">SerialTalks</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">SerialTalks.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef __SERIALTALKS_H__</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define __SERIALTALKS_H__</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// This library is free software from Club robot Insa Rennes sources; you can redistribute it and/or</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// License as published by the Free Software Foundation; either</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// version 2.1 of the License, or (at your option) any later version.</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// This library is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// Lesser General Public License for more details.</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;serialutils.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;CRC16.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef SERIALTALKS_BAUDRATE</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define SERIALTALKS_BAUDRATE 115200 </span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#ifndef SERIALTALKS_INPUT_BUFFER_SIZE</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define SERIALTALKS_INPUT_BUFFER_SIZE 64</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#ifndef SERIALTALKS_OUTPUT_BUFFER_SIZE</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#define SERIALTALKS_OUTPUT_BUFFER_SIZE 64</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#ifndef SERIALTALKS_UUID_ADDRESS</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#define SERIALTALKS_UUID_ADDRESS 0x0000000000</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#ifndef SERIALTALKS_UUID_LENGTH</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define SERIALTALKS_UUID_LENGTH 32</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#ifndef SERIALTALKS_MAX_PROCESSING</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#define SERIALTALKS_MAX_PROCESSING 0x4</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#ifndef SERIALTALKS_MAX_OPCODE</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#define SERIALTALKS_MAX_OPCODE 0x20</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#define SERIALTALKS_MASTER_BYTE &#39;R&#39;</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define SERIALTALKS_SLAVE_BYTE &#39;A&#39;</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define SERIALTALKS_DEFAULT_UUID_LENGTH 9</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#define SERIALTALKS_RESEVED_OPCODE_0 0X0</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define SERIALTALKS_RESEVED_OPCODE_1 0X1</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#define SERIALTALKS_RESEVED_OPCODE_2 0X2</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#define SERIALTALKS_RESEVED_OPCODE_3 0X3</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#define SERIALTALKS_RESEVED_OPCODE_4 0X4</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#define SERIALTALKS_RESEVED_OPCODE_5 0X5</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#define SERIALTALKS_RESEVED_OPCODE_6 0X6</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#define SERIALTALKS_RESEVED_OPCODE_7 0X7</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#define SERIALTALKS_RESEVED_OPCODE_8 0X8</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#define SERIALTALKS_RESEVED_OPCODE_9 0X9</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#define SERIALTALKS_PING_OPCODE (SERIALTALKS_RESEVED_OPCODE_0)</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#define SERIALTALKS_GETUUID_OPCODE (SERIALTALKS_RESEVED_OPCODE_1)</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#define SERIALTALKS_SETUUID_OPCODE (SERIALTALKS_RESEVED_OPCODE_2)</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#define SERIALTALKS_DISCONNECT_OPCODE (SERIALTALKS_RESEVED_OPCODE_3)</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#define SERIALTALKS_GETEEPROM_OPCODE (SERIALTALKS_RESEVED_OPCODE_4)</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#define SERIALTALKS_SETEEPROM_OPCODE (SERIALTALKS_RESEVED_OPCODE_5)</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#define SERIALTALKS_GETBUFFERSIZE_OPCODE (SERIALTALKS_RESEVED_OPCODE_6)</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#define SERIALTALKS_RESEND_OPCODE 0xFE</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#define SERIALTALKS_FREE_BUFFER_OPCODE 0xFA</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#define SERIALTALKS_STDOUT_RETCODE 0xFFFFFFFF</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#define SERIALTALKS_STDERR_RETCODE 0xFFFFFFFE</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#define SERIALTALKS_CRC_SIZE 2</span></div>
+<div class="foldopen" id="foldopen00082" data-start="{" data-end="};">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_serial_talks.html">   82</a></span><span class="keyword">class </span><a class="code hl_class" href="class_serial_talks.html">SerialTalks</a></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>{</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">public</span>: <span class="comment">// Public API</span></div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="};">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="class_serial_talks_1_1ostream.html">   89</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_serial_talks_1_1ostream.html">ostream</a> : <span class="keyword">public</span> Print</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keyword">virtual</span> <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_serial_talks_1_1ostream.html#a410a39193f4cd6b2de12488b8cf9bc91">write</a>(<a class="code hl_function" href="class_serial_talks_1_1ostream.html#a410a39193f4cd6b2de12488b8cf9bc91">uint8_t</a>);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keyword">virtual</span> <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_serial_talks_1_1ostream.html#a410a39193f4cd6b2de12488b8cf9bc91">write</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_serial_talks_1_1ostream.html#a410a39193f4cd6b2de12488b8cf9bc91">uint8_t</a> *buffer, <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_serial_talks_1_1ostream.html#a410a39193f4cd6b2de12488b8cf9bc91">size</a>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="class_serial_talks_1_1ostream.html#a69b4f973a94692180cae2c92d8b93ac4">  112</a></span>        <a class="code hl_class" href="class_serial_talks_1_1ostream.html">ostream</a> &amp;<a class="code hl_function" href="class_serial_talks_1_1ostream.html#a69b4f973a94692180cae2c92d8b93ac4">operator&lt;&lt;</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_serial_talks_1_1ostream.html#a410a39193f4cd6b2de12488b8cf9bc91">T</a> &amp;<span class="keywordtype">object</span>)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            print(<span class="keywordtype">object</span>);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        }</div>
+</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_talks_1_1ostream.html#a3755f0cb78f3d56b593d69b8a360057c">begin</a>(<a class="code hl_class" href="class_serial_talks.html">SerialTalks</a> &amp;parent, <span class="keywordtype">long</span> <a class="code hl_function" href="class_serial_talks_1_1ostream.html#a410a39193f4cd6b2de12488b8cf9bc91">retcode</a>);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="class_serial_talks_1_1ostream.html#af35d44c5adbf25432861c38fbfe57e41">  127</a></span>        <a class="code hl_class" href="class_serial_talks.html">SerialTalks</a> *<a class="code hl_variable" href="class_serial_talks_1_1ostream.html#af35d44c5adbf25432861c38fbfe57e41">m_parent</a>; </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="class_serial_talks_1_1ostream.html#a8e8b98c29014e66ad4d99597e7a4092b">  128</a></span>        <span class="keywordtype">long</span> <a class="code hl_variable" href="class_serial_talks_1_1ostream.html#a8e8b98c29014e66ad4d99597e7a4092b">m_retcode</a>;        </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_serial_talks.html">SerialTalks</a>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    };</div>
+</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a48ff61132dd894800def64b187558f7e">  136</a></span>    <span class="keyword">typedef</span> void (*<a class="code hl_typedef" href="class_serial_talks.html#a48ff61132dd894800def64b187558f7e">Instruction</a>)(<a class="code hl_class" href="class_serial_talks.html">SerialTalks</a> &amp;inst, <a class="code hl_struct" href="struct_deserializer.html">Deserializer</a> &amp;input, <a class="code hl_struct" href="struct_serializer.html">Serializer</a> &amp;output);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a6b68c367bcad3ff912a8c26f4e865136">  141</a></span>    <span class="keyword">typedef</span> void (*<a class="code hl_typedef" href="class_serial_talks.html#a6b68c367bcad3ff912a8c26f4e865136">Processing</a>)(<a class="code hl_class" href="class_serial_talks.html">SerialTalks</a> &amp;inst, <a class="code hl_struct" href="struct_deserializer.html">Deserializer</a> &amp;input);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_talks.html#ad66e8c5cd4d3ae3e63f70884dba3ce12">begin</a>(Stream &amp;stream);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_talks.html#a484c56fb8d8619a58435a001dca6f0ba">bind</a>(<span class="keywordtype">byte</span> opcode, <a class="code hl_typedef" href="class_serial_talks.html#a48ff61132dd894800def64b187558f7e">Instruction</a> instruction);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_talks.html#ab58a421e067870c45fe58369e159cb56">attach</a>(<span class="keywordtype">byte</span> opcode, <a class="code hl_typedef" href="class_serial_talks.html#a6b68c367bcad3ff912a8c26f4e865136">Processing</a> processing);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_serial_talks.html#a31aac8c9995468cf9b1308264bc077ae">execinstruction</a>(<span class="keywordtype">byte</span> *inputBuffer);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_serial_talks.html#a9bd8eaff71cfcf33f489e86d3326435c">execute</a>();</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a3b419f3fc57c71a5c8bf46b18bd8e3c8">  177</a></span>    <a class="code hl_struct" href="struct_serializer.html">Serializer</a> <a class="code hl_function" href="class_serial_talks.html#a3b419f3fc57c71a5c8bf46b18bd8e3c8">getSerializer</a>() { <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_serializer.html">Serializer</a>(<a class="code hl_variable" href="class_serial_talks.html#a03d177cdcaafce204cf6e39c078e72b8">m_outputBuffer</a>); }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_serial_talks.html#a777937a898dc16f47b48878fde690c86">send</a>(<span class="keywordtype">byte</span> opcode, <a class="code hl_struct" href="struct_serializer.html">Serializer</a> output);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a02d73ff9cbb4c44e2e9ba36f97714c9d">  192</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_serial_talks.html#a02d73ff9cbb4c44e2e9ba36f97714c9d">isConnected</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_serial_talks.html#a456c0512ed2ff0f34e3f389c72d51707">m_connected</a>; }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_serial_talks.html#a1cf3e5668f7a1d1cd1296535ef011528">waitUntilConnected</a>(<span class="keywordtype">float</span> timeout = -1);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_serial_talks.html#a61f0840f12d804ea107ebb98abdc5964">getUUID</a>(<span class="keywordtype">char</span> *uuid);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_talks.html#a66e896e6d974c4e4eb9ed890b15c38c1">setUUID</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *uuid);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_talks.html#ae8fd98fde99ec51ed8f0722113e59075">generateRandomUUID</a>(<span class="keywordtype">char</span> *uuid, <span class="keywordtype">int</span> length);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="comment">// Public attributes (yes we dare!)</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="class_serial_talks.html#adcce1950be020551b2acfac6c912bbb8">  219</a></span>    <a class="code hl_class" href="class_serial_talks_1_1ostream.html">ostream</a> <a class="code hl_variable" href="class_serial_talks.html#adcce1950be020551b2acfac6c912bbb8">out</a>; </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="class_serial_talks.html#ad0f3d8029336f8f3e0522c18de8206fd">  220</a></span>    <a class="code hl_class" href="class_serial_talks_1_1ostream.html">ostream</a> <a class="code hl_variable" href="class_serial_talks.html#ad0f3d8029336f8f3e0522c18de8206fd">err</a>; </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="keyword">protected</span>: <span class="comment">// Protected methods</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordtype">int</span> sendback(<span class="keywordtype">long</span> retcode, <span class="keyword">const</span> <span class="keywordtype">byte</span> *buffer, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_serial_talks.html#a294ad58b5ed875426a5a0846418f0b9d">receive</a>(<span class="keywordtype">byte</span> *inputBuffer);</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="comment">// Attributes</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a41747c976eb00f67b6bc97e9deafed18">  236</a></span>    Stream *<a class="code hl_variable" href="class_serial_talks.html#a41747c976eb00f67b6bc97e9deafed18">m_stream</a>; </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a456c0512ed2ff0f34e3f389c72d51707">  237</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_serial_talks.html#a456c0512ed2ff0f34e3f389c72d51707">m_connected</a>; </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a13d8ac072cbe0bd5c6c326f6edaa2d64">  239</a></span>    <a class="code hl_typedef" href="class_serial_talks.html#a48ff61132dd894800def64b187558f7e">Instruction</a> <a class="code hl_variable" href="class_serial_talks.html#a13d8ac072cbe0bd5c6c326f6edaa2d64">m_instructions</a>[SERIALTALKS_MAX_OPCODE]; </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <a class="code hl_typedef" href="class_serial_talks.html#a6b68c367bcad3ff912a8c26f4e865136">Processing</a> m_processings[SERIALTALKS_MAX_PROCESSING];</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    ; </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a8a462f95adc02e43325c57aceaa6f16f">  243</a></span>    <span class="keywordtype">byte</span> <a class="code hl_variable" href="class_serial_talks.html#a8a462f95adc02e43325c57aceaa6f16f">m_inputBuffer</a>[SERIALTALKS_INPUT_BUFFER_SIZE];   </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a03d177cdcaafce204cf6e39c078e72b8">  244</a></span>    <span class="keywordtype">byte</span> <a class="code hl_variable" href="class_serial_talks.html#a03d177cdcaafce204cf6e39c078e72b8">m_outputBuffer</a>[SERIALTALKS_OUTPUT_BUFFER_SIZE]; </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keyword">enum</span> <span class="comment">//     m_state</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno"><a class="line" href="class_serial_talks.html#ace48fadb85e880c0e55e1b21872fed30a07d4b82adf8bfbd008a9f02bd9f92edc">  248</a></span>        <a class="code hl_enumvalue" href="class_serial_talks.html#ace48fadb85e880c0e55e1b21872fed30a07d4b82adf8bfbd008a9f02bd9f92edc">SERIALTALKS_WAITING_STATE</a>,               </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="class_serial_talks.html#ace48fadb85e880c0e55e1b21872fed30a3f57d939c8568b615523f51378deca27">  249</a></span>        <a class="code hl_enumvalue" href="class_serial_talks.html#ace48fadb85e880c0e55e1b21872fed30a3f57d939c8568b615523f51378deca27">SERIALTALKS_INSTRUCTION_STARTING_STATE</a>,  </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="class_serial_talks.html#ace48fadb85e880c0e55e1b21872fed30aef95e23658335de84f8f8d54762b98ac">  250</a></span>        <a class="code hl_enumvalue" href="class_serial_talks.html#ace48fadb85e880c0e55e1b21872fed30aef95e23658335de84f8f8d54762b98ac">SERIALTALKS_CRC_RECIEVING_STATE</a>,         </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="class_serial_talks.html#ace48fadb85e880c0e55e1b21872fed30a3b63d11137aef55d7bc7636619609b8e">  251</a></span>        <a class="code hl_enumvalue" href="class_serial_talks.html#ace48fadb85e880c0e55e1b21872fed30a3b63d11137aef55d7bc7636619609b8e">SERIALTALKS_INSTRUCTION_RECEIVING_STATE</a>, </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    } m_state;                                   </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="keyword">enum</span> <span class="comment">// m_order</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a7966d89c8ad1f0edb3dd4a11bd919523a7bbb51d9ca950296e90ca9b33de24910">  256</a></span>        <a class="code hl_enumvalue" href="class_serial_talks.html#a7966d89c8ad1f0edb3dd4a11bd919523a7bbb51d9ca950296e90ca9b33de24910">SERIALTALKS_ORDER</a>,  </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a7966d89c8ad1f0edb3dd4a11bd919523a3daf364d26d7b2cc263eaacc8a1b599c">  257</a></span>        <a class="code hl_enumvalue" href="class_serial_talks.html#a7966d89c8ad1f0edb3dd4a11bd919523a3daf364d26d7b2cc263eaacc8a1b599c">SERIALTALKS_RETURN</a>, </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a11e687d7f331b7221a2a1e6349b06218">  258</a></span>    } <a class="code hl_variable" href="class_serial_talks.html#a11e687d7f331b7221a2a1e6349b06218">m_order</a>;              </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a57d258fa613c6d0af8f8e4b1321f45fc">  260</a></span>    <span class="keywordtype">byte</span> <a class="code hl_variable" href="class_serial_talks.html#a57d258fa613c6d0af8f8e4b1321f45fc">m_bytesNumber</a>;  </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="class_serial_talks.html#ab47d58ef0dcabdde5c0d127c0265df6a">  261</a></span>    <span class="keywordtype">byte</span> <a class="code hl_variable" href="class_serial_talks.html#ab47d58ef0dcabdde5c0d127c0265df6a">m_bytesCounter</a>; </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="class_serial_talks.html#a8c1f54ff3158f520e09670d66a9ac0ac">  262</a></span>    <span class="keywordtype">long</span> <a class="code hl_variable" href="class_serial_talks.html#a8c1f54ff3158f520e09670d66a9ac0ac">m_lastTime</a>;     </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> m_lastRetcode;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="comment">// for cyclic redundancy check</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    CRC16 m_crc;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordtype">byte</span> m_crcBytesCounter;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    uint16_t received_crc_value;</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keywordtype">byte</span> m_crc_tab[SERIALTALKS_CRC_SIZE + 1];</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keywordtype">byte</span> m_crc_tmp[SERIALTALKS_OUTPUT_BUFFER_SIZE];</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <span class="keywordtype">void</span> launchResend(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="keywordtype">void</span> freeBuffer(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> PING(<a class="code hl_class" href="class_serial_talks.html">SerialTalks</a> &amp;talks, <a class="code hl_struct" href="struct_deserializer.html">Deserializer</a> &amp;input, <a class="code hl_struct" href="struct_serializer.html">Serializer</a> &amp;output);</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> GETUUID(<a class="code hl_class" href="class_serial_talks.html">SerialTalks</a> &amp;talks, <a class="code hl_struct" href="struct_deserializer.html">Deserializer</a> &amp;input, <a class="code hl_struct" href="struct_serializer.html">Serializer</a> &amp;output);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> SETUUID(<a class="code hl_class" href="class_serial_talks.html">SerialTalks</a> &amp;talks, <a class="code hl_struct" href="struct_deserializer.html">Deserializer</a> &amp;input, <a class="code hl_struct" href="struct_serializer.html">Serializer</a> &amp;output);</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> GETEEPROM(<a class="code hl_class" href="class_serial_talks.html">SerialTalks</a> &amp;talks, <a class="code hl_struct" href="struct_deserializer.html">Deserializer</a> &amp;input, <a class="code hl_struct" href="struct_serializer.html">Serializer</a> &amp;output);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> SETEEPROM(<a class="code hl_class" href="class_serial_talks.html">SerialTalks</a> &amp;talks, <a class="code hl_struct" href="struct_deserializer.html">Deserializer</a> &amp;input, <a class="code hl_struct" href="struct_serializer.html">Serializer</a> &amp;output);</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> GETBUFFERSIZE(<a class="code hl_class" href="class_serial_talks.html">SerialTalks</a> &amp;talks, <a class="code hl_struct" href="struct_deserializer.html">Deserializer</a> &amp;input, <a class="code hl_struct" href="struct_serializer.html">Serializer</a> &amp;output);</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>};</div>
+</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="keyword">extern</span> <a class="code hl_class" href="class_serial_talks.html">SerialTalks</a> talks;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="preprocessor">#endif </span><span class="comment">// __SERIALTALKS_H__</span></div>
+<div class="ttc" id="aclass_serial_talks_1_1ostream_html"><div class="ttname"><a href="class_serial_talks_1_1ostream.html">SerialTalks::ostream</a></div><div class="ttdoc">Stream virtuel pour les erreurs et autre. est un outils pour permettre de mieux transmettre les erreu...</div><div class="ttdef"><b>Definition</b> SerialTalks.h:90</div></div>
+<div class="ttc" id="aclass_serial_talks_1_1ostream_html_a3755f0cb78f3d56b593d69b8a360057c"><div class="ttname"><a href="class_serial_talks_1_1ostream.html#a3755f0cb78f3d56b593d69b8a360057c">SerialTalks::ostream::begin</a></div><div class="ttdeci">void begin(SerialTalks &amp;parent, long retcode)</div><div class="ttdoc">Initialise le ostream. C'est à dire expliciter le pointeur du SerialTalks et le retcode à associer.</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:75</div></div>
+<div class="ttc" id="aclass_serial_talks_1_1ostream_html_a410a39193f4cd6b2de12488b8cf9bc91"><div class="ttname"><a href="class_serial_talks_1_1ostream.html#a410a39193f4cd6b2de12488b8cf9bc91">SerialTalks::ostream::write</a></div><div class="ttdeci">virtual size_t write(uint8_t)</div><div class="ttdoc">Ecrit sur le serial l'octet indiqué.</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:81</div></div>
+<div class="ttc" id="aclass_serial_talks_1_1ostream_html_a69b4f973a94692180cae2c92d8b93ac4"><div class="ttname"><a href="class_serial_talks_1_1ostream.html#a69b4f973a94692180cae2c92d8b93ac4">SerialTalks::ostream::operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(const T &amp;object)</div><div class="ttdef"><b>Definition</b> SerialTalks.h:112</div></div>
+<div class="ttc" id="aclass_serial_talks_1_1ostream_html_a8e8b98c29014e66ad4d99597e7a4092b"><div class="ttname"><a href="class_serial_talks_1_1ostream.html#a8e8b98c29014e66ad4d99597e7a4092b">SerialTalks::ostream::m_retcode</a></div><div class="ttdeci">long m_retcode</div><div class="ttdef"><b>Definition</b> SerialTalks.h:128</div></div>
+<div class="ttc" id="aclass_serial_talks_1_1ostream_html_af35d44c5adbf25432861c38fbfe57e41"><div class="ttname"><a href="class_serial_talks_1_1ostream.html#af35d44c5adbf25432861c38fbfe57e41">SerialTalks::ostream::m_parent</a></div><div class="ttdeci">SerialTalks * m_parent</div><div class="ttdef"><b>Definition</b> SerialTalks.h:127</div></div>
+<div class="ttc" id="aclass_serial_talks_html"><div class="ttname"><a href="class_serial_talks.html">SerialTalks</a></div><div class="ttdoc">Object de communication serial avec un ordinateur.</div><div class="ttdef"><b>Definition</b> SerialTalks.h:83</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a02d73ff9cbb4c44e2e9ba36f97714c9d"><div class="ttname"><a href="class_serial_talks.html#a02d73ff9cbb4c44e2e9ba36f97714c9d">SerialTalks::isConnected</a></div><div class="ttdeci">bool isConnected() const</div><div class="ttdoc">Indique si le stream de SerialTalks est bien connecté.</div><div class="ttdef"><b>Definition</b> SerialTalks.h:192</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a03d177cdcaafce204cf6e39c078e72b8"><div class="ttname"><a href="class_serial_talks.html#a03d177cdcaafce204cf6e39c078e72b8">SerialTalks::m_outputBuffer</a></div><div class="ttdeci">byte m_outputBuffer[SERIALTALKS_OUTPUT_BUFFER_SIZE]</div><div class="ttdef"><b>Definition</b> SerialTalks.h:244</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a11e687d7f331b7221a2a1e6349b06218"><div class="ttname"><a href="class_serial_talks.html#a11e687d7f331b7221a2a1e6349b06218">SerialTalks::m_order</a></div><div class="ttdeci">enum SerialTalks::@2 m_order</div><div class="ttdoc">Différents états de réception.</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a13d8ac072cbe0bd5c6c326f6edaa2d64"><div class="ttname"><a href="class_serial_talks.html#a13d8ac072cbe0bd5c6c326f6edaa2d64">SerialTalks::m_instructions</a></div><div class="ttdeci">Instruction m_instructions[SERIALTALKS_MAX_OPCODE]</div><div class="ttdef"><b>Definition</b> SerialTalks.h:239</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a1cf3e5668f7a1d1cd1296535ef011528"><div class="ttname"><a href="class_serial_talks.html#a1cf3e5668f7a1d1cd1296535ef011528">SerialTalks::waitUntilConnected</a></div><div class="ttdeci">bool waitUntilConnected(float timeout=-1)</div><div class="ttdoc">Méthode bloquante jusqu'a la connexion du Stream ou jusqu'au timeout.</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:296</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a294ad58b5ed875426a5a0846418f0b9d"><div class="ttname"><a href="class_serial_talks.html#a294ad58b5ed875426a5a0846418f0b9d">SerialTalks::receive</a></div><div class="ttdeci">bool receive(byte *inputBuffer)</div><div class="ttdoc">Méthode interme pour traiter les retours de requêtes.</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:189</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a31aac8c9995468cf9b1308264bc077ae"><div class="ttname"><a href="class_serial_talks.html#a31aac8c9995468cf9b1308264bc077ae">SerialTalks::execinstruction</a></div><div class="ttdeci">bool execinstruction(byte *inputBuffer)</div><div class="ttdoc">Lance la fonction à partir des octets reçus. La méthode lit l'OPCode et transmet à la bonne fonction ...</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:202</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a3b419f3fc57c71a5c8bf46b18bd8e3c8"><div class="ttname"><a href="class_serial_talks.html#a3b419f3fc57c71a5c8bf46b18bd8e3c8">SerialTalks::getSerializer</a></div><div class="ttdeci">Serializer getSerializer()</div><div class="ttdoc">Récupère le Serializer pour le remplir avant l'appel de la méthode SerialTalks::send.</div><div class="ttdef"><b>Definition</b> SerialTalks.h:177</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a41747c976eb00f67b6bc97e9deafed18"><div class="ttname"><a href="class_serial_talks.html#a41747c976eb00f67b6bc97e9deafed18">SerialTalks::m_stream</a></div><div class="ttdeci">Stream * m_stream</div><div class="ttdef"><b>Definition</b> SerialTalks.h:236</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a456c0512ed2ff0f34e3f389c72d51707"><div class="ttname"><a href="class_serial_talks.html#a456c0512ed2ff0f34e3f389c72d51707">SerialTalks::m_connected</a></div><div class="ttdeci">bool m_connected</div><div class="ttdef"><b>Definition</b> SerialTalks.h:237</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a484c56fb8d8619a58435a001dca6f0ba"><div class="ttname"><a href="class_serial_talks.html#a484c56fb8d8619a58435a001dca6f0ba">SerialTalks::bind</a></div><div class="ttdeci">void bind(byte opcode, Instruction instruction)</div><div class="ttdoc">Associe une Instruction à un OPCODE.</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:174</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a48ff61132dd894800def64b187558f7e"><div class="ttname"><a href="class_serial_talks.html#a48ff61132dd894800def64b187558f7e">SerialTalks::Instruction</a></div><div class="ttdeci">void(* Instruction)(SerialTalks &amp;inst, Deserializer &amp;input, Serializer &amp;output)</div><div class="ttdoc">Instruction est un pointeur de fonction dont la signature doit être de la forme : (SerialTalks&amp; inst,...</div><div class="ttdef"><b>Definition</b> SerialTalks.h:136</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a57d258fa613c6d0af8f8e4b1321f45fc"><div class="ttname"><a href="class_serial_talks.html#a57d258fa613c6d0af8f8e4b1321f45fc">SerialTalks::m_bytesNumber</a></div><div class="ttdeci">byte m_bytesNumber</div><div class="ttdoc">Type de requête reçu.</div><div class="ttdef"><b>Definition</b> SerialTalks.h:260</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a61f0840f12d804ea107ebb98abdc5964"><div class="ttname"><a href="class_serial_talks.html#a61f0840f12d804ea107ebb98abdc5964">SerialTalks::getUUID</a></div><div class="ttdeci">bool getUUID(char *uuid)</div><div class="ttdoc">Ecrit sur le pointeur l'UUID enregistré dans l'EEPROM de l'Arduino.</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:305</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a66e896e6d974c4e4eb9ed890b15c38c1"><div class="ttname"><a href="class_serial_talks.html#a66e896e6d974c4e4eb9ed890b15c38c1">SerialTalks::setUUID</a></div><div class="ttdeci">void setUUID(const char *uuid)</div><div class="ttdoc">Enregistre l'UUID dans l'EEPROM de l'Arduino.</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:320</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a6b68c367bcad3ff912a8c26f4e865136"><div class="ttname"><a href="class_serial_talks.html#a6b68c367bcad3ff912a8c26f4e865136">SerialTalks::Processing</a></div><div class="ttdeci">void(* Processing)(SerialTalks &amp;inst, Deserializer &amp;input)</div><div class="ttdoc">Processing est un pointeur de fonction dont la signature doit être de la forme : (SerialTalks&amp; inst,...</div><div class="ttdef"><b>Definition</b> SerialTalks.h:141</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a777937a898dc16f47b48878fde690c86"><div class="ttname"><a href="class_serial_talks.html#a777937a898dc16f47b48878fde690c86">SerialTalks::send</a></div><div class="ttdeci">int send(byte opcode, Serializer output)</div><div class="ttdoc">Lance la requête avec les données chargées dans le Serializer et l'OPCODE.</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:124</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a7966d89c8ad1f0edb3dd4a11bd919523a3daf364d26d7b2cc263eaacc8a1b599c"><div class="ttname"><a href="class_serial_talks.html#a7966d89c8ad1f0edb3dd4a11bd919523a3daf364d26d7b2cc263eaacc8a1b599c">SerialTalks::SERIALTALKS_RETURN</a></div><div class="ttdeci">@ SERIALTALKS_RETURN</div><div class="ttdoc">Retour de requête.</div><div class="ttdef"><b>Definition</b> SerialTalks.h:257</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a7966d89c8ad1f0edb3dd4a11bd919523a7bbb51d9ca950296e90ca9b33de24910"><div class="ttname"><a href="class_serial_talks.html#a7966d89c8ad1f0edb3dd4a11bd919523a7bbb51d9ca950296e90ca9b33de24910">SerialTalks::SERIALTALKS_ORDER</a></div><div class="ttdeci">@ SERIALTALKS_ORDER</div><div class="ttdoc">Requête reçu de la raspberry.</div><div class="ttdef"><b>Definition</b> SerialTalks.h:256</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a8a462f95adc02e43325c57aceaa6f16f"><div class="ttname"><a href="class_serial_talks.html#a8a462f95adc02e43325c57aceaa6f16f">SerialTalks::m_inputBuffer</a></div><div class="ttdeci">byte m_inputBuffer[SERIALTALKS_INPUT_BUFFER_SIZE]</div><div class="ttdef"><b>Definition</b> SerialTalks.h:243</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a8c1f54ff3158f520e09670d66a9ac0ac"><div class="ttname"><a href="class_serial_talks.html#a8c1f54ff3158f520e09670d66a9ac0ac">SerialTalks::m_lastTime</a></div><div class="ttdeci">long m_lastTime</div><div class="ttdef"><b>Definition</b> SerialTalks.h:262</div></div>
+<div class="ttc" id="aclass_serial_talks_html_a9bd8eaff71cfcf33f489e86d3326435c"><div class="ttname"><a href="class_serial_talks.html#a9bd8eaff71cfcf33f489e86d3326435c">SerialTalks::execute</a></div><div class="ttdeci">bool execute()</div><div class="ttdoc">Lit les octets reçus et les traites quand ils forment une requête complête.</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:219</div></div>
+<div class="ttc" id="aclass_serial_talks_html_ab47d58ef0dcabdde5c0d127c0265df6a"><div class="ttname"><a href="class_serial_talks.html#ab47d58ef0dcabdde5c0d127c0265df6a">SerialTalks::m_bytesCounter</a></div><div class="ttdeci">byte m_bytesCounter</div><div class="ttdef"><b>Definition</b> SerialTalks.h:261</div></div>
+<div class="ttc" id="aclass_serial_talks_html_ab58a421e067870c45fe58369e159cb56"><div class="ttname"><a href="class_serial_talks.html#ab58a421e067870c45fe58369e159cb56">SerialTalks::attach</a></div><div class="ttdeci">void attach(byte opcode, Processing processing)</div><div class="ttdoc">Associe une fonction au retour de la requête de l'OPCODE.</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:182</div></div>
+<div class="ttc" id="aclass_serial_talks_html_ace48fadb85e880c0e55e1b21872fed30a07d4b82adf8bfbd008a9f02bd9f92edc"><div class="ttname"><a href="class_serial_talks.html#ace48fadb85e880c0e55e1b21872fed30a07d4b82adf8bfbd008a9f02bd9f92edc">SerialTalks::SERIALTALKS_WAITING_STATE</a></div><div class="ttdeci">@ SERIALTALKS_WAITING_STATE</div><div class="ttdoc">En attente de l'arrivé d'un octet.</div><div class="ttdef"><b>Definition</b> SerialTalks.h:248</div></div>
+<div class="ttc" id="aclass_serial_talks_html_ace48fadb85e880c0e55e1b21872fed30a3b63d11137aef55d7bc7636619609b8e"><div class="ttname"><a href="class_serial_talks.html#ace48fadb85e880c0e55e1b21872fed30a3b63d11137aef55d7bc7636619609b8e">SerialTalks::SERIALTALKS_INSTRUCTION_RECEIVING_STATE</a></div><div class="ttdeci">@ SERIALTALKS_INSTRUCTION_RECEIVING_STATE</div><div class="ttdoc">Réception des derniers octet de la requête.</div><div class="ttdef"><b>Definition</b> SerialTalks.h:251</div></div>
+<div class="ttc" id="aclass_serial_talks_html_ace48fadb85e880c0e55e1b21872fed30a3f57d939c8568b615523f51378deca27"><div class="ttname"><a href="class_serial_talks.html#ace48fadb85e880c0e55e1b21872fed30a3f57d939c8568b615523f51378deca27">SerialTalks::SERIALTALKS_INSTRUCTION_STARTING_STATE</a></div><div class="ttdeci">@ SERIALTALKS_INSTRUCTION_STARTING_STATE</div><div class="ttdoc">En attente du prochain octet de la requête correspondant à la taille de celle-ci.</div><div class="ttdef"><b>Definition</b> SerialTalks.h:249</div></div>
+<div class="ttc" id="aclass_serial_talks_html_ace48fadb85e880c0e55e1b21872fed30aef95e23658335de84f8f8d54762b98ac"><div class="ttname"><a href="class_serial_talks.html#ace48fadb85e880c0e55e1b21872fed30aef95e23658335de84f8f8d54762b98ac">SerialTalks::SERIALTALKS_CRC_RECIEVING_STATE</a></div><div class="ttdeci">@ SERIALTALKS_CRC_RECIEVING_STATE</div><div class="ttdoc">En attente du hash d'intégrité.</div><div class="ttdef"><b>Definition</b> SerialTalks.h:250</div></div>
+<div class="ttc" id="aclass_serial_talks_html_ad0f3d8029336f8f3e0522c18de8206fd"><div class="ttname"><a href="class_serial_talks.html#ad0f3d8029336f8f3e0522c18de8206fd">SerialTalks::err</a></div><div class="ttdeci">ostream err</div><div class="ttdef"><b>Definition</b> SerialTalks.h:220</div></div>
+<div class="ttc" id="aclass_serial_talks_html_ad66e8c5cd4d3ae3e63f70884dba3ce12"><div class="ttname"><a href="class_serial_talks.html#ad66e8c5cd4d3ae3e63f70884dba3ce12">SerialTalks::begin</a></div><div class="ttdeci">void begin(Stream &amp;stream)</div><div class="ttdoc">Initialise le SerialTalks avec un Stream d'&lt;arduino.h&gt;.</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:95</div></div>
+<div class="ttc" id="aclass_serial_talks_html_adcce1950be020551b2acfac6c912bbb8"><div class="ttname"><a href="class_serial_talks.html#adcce1950be020551b2acfac6c912bbb8">SerialTalks::out</a></div><div class="ttdeci">ostream out</div><div class="ttdef"><b>Definition</b> SerialTalks.h:219</div></div>
+<div class="ttc" id="aclass_serial_talks_html_ae8fd98fde99ec51ed8f0722113e59075"><div class="ttname"><a href="class_serial_talks.html#ae8fd98fde99ec51ed8f0722113e59075">SerialTalks::generateRandomUUID</a></div><div class="ttdeci">static void generateRandomUUID(char *uuid, int length)</div><div class="ttdoc">Génère un UUID.</div><div class="ttdef"><b>Definition</b> SerialTalks.cpp:328</div></div>
+<div class="ttc" id="astruct_deserializer_html"><div class="ttname"><a href="struct_deserializer.html">Deserializer</a></div><div class="ttdoc">Objet destiné à extraire des variables d'un flux en octet.</div><div class="ttdef"><b>Definition</b> serialutils.h:102</div></div>
+<div class="ttc" id="astruct_serializer_html"><div class="ttname"><a href="struct_serializer.html">Serializer</a></div><div class="ttdoc">Objet destiné à creer un flux de sortie pour les programme cpp.</div><div class="ttdef"><b>Definition</b> serialutils.h:30</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

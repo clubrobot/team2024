@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/VelocityController/VelocityController.h</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_e5db95e150018bcc3dfc1edc7ae4800d.html">LIBS</a></li><li class="navelem"><a class="el" href="dir_66ad5f74c23414a43fda982e8ac34f83.html">ARDUINO_LIBS</a></li><li class="navelem"><a class="el" href="dir_d7662a5110ddbfe9fc066d10f9686023.html">VelocityController</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">VelocityController.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef __VELOCITYCONTROLLER_H__</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define __VELOCITYCONTROLLER_H__</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;DifferentialController.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define ENABLE_VELOCITYCONTROLLER_LOGS 0       </span><span class="comment">// for debug purposes</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define VELOCITYCONTROLLER_LOGS_TIMESTEP 50e-3 </span><span class="comment">// mm</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_velocity_controller.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="class_velocity_controller.html">VelocityController</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_differential_controller.html">DifferentialController</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#aa29e8e908d6e35b98b2aa945f9e6549d">   27</a></span>    <a class="code hl_function" href="class_velocity_controller.html#aa29e8e908d6e35b98b2aa945f9e6549d">VelocityController</a>() : <a class="code hl_variable" href="class_velocity_controller.html#a901ddfbe30dc1e3b4cedbccf111ea230">m_rampLinVelSetpoint</a>(0), <a class="code hl_variable" href="class_velocity_controller.html#ade73ce4c1ff61e15ccc410f6012a90ce">m_rampAngVelSetpoint</a>(0), <a class="code hl_variable" href="class_velocity_controller.html#a3dfa99e6e5b3db82ac7a748fd249905b">m_maxLinAcc</a>(INFINITY), <a class="code hl_variable" href="class_velocity_controller.html#aa17a6ffe6541fecad48bf4a7c402bf02">m_maxLinDec</a>(INFINITY), <a class="code hl_variable" href="class_velocity_controller.html#a6f638140f25d85ed43566abaace973f2">m_maxAngAcc</a>(INFINITY), <a class="code hl_variable" href="class_velocity_controller.html#aca656d0ffbf06d85d77999a899b402f6">m_maxAngDec</a>(INFINITY), m_linSpinGoal(0.0), m_angSpinGoal(0.0), <a class="code hl_variable" href="class_velocity_controller.html#a495736a69f35f4c91faf808df58203de">m_spinShutdown</a>(true) {}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_velocity_controller.html#a7b1ccf3d8e7b268301a35b0577f51f31">setMaxAngAcc</a>(<span class="keywordtype">float</span> maxAngAcc);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> setMaxLinAcc(<span class="keywordtype">float</span> maxLinAcc);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_velocity_controller.html#aa00bd41d5064587f3324c7b4309fd483">setMaxLinDec</a>(<span class="keywordtype">float</span> maxLinDec);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> setMaxAngDec(<span class="keywordtype">float</span> maxAngDec);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_velocity_controller.html#a428043fcd8b930c254cf1cbd3615191d">setSpinShutdown</a>(<span class="keywordtype">bool</span> spinShutdown);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#a4a5d3013f75003fb282f68347498b51d">   60</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_velocity_controller.html#a4a5d3013f75003fb282f68347498b51d">getMaxLinAcc</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_velocity_controller.html#a3dfa99e6e5b3db82ac7a748fd249905b">m_maxLinAcc</a>; }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#ae2691871fd8b5a3522dfb671cfdb6716">   66</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_velocity_controller.html#ae2691871fd8b5a3522dfb671cfdb6716">getMaxAngAcc</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_velocity_controller.html#a6f638140f25d85ed43566abaace973f2">m_maxAngAcc</a>; }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#ad04193630f5a9ec64ba0eb2e5ae97ccb">   72</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_velocity_controller.html#ad04193630f5a9ec64ba0eb2e5ae97ccb">getMaxLinDec</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_velocity_controller.html#aa17a6ffe6541fecad48bf4a7c402bf02">m_maxLinDec</a>; }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#a73ca89c5696ecb306e12ace6013ff27c">   78</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_velocity_controller.html#a73ca89c5696ecb306e12ace6013ff27c">getMaxAngDec</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_velocity_controller.html#aca656d0ffbf06d85d77999a899b402f6">m_maxAngDec</a>; }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">float</span> getLinSpinGoal()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_linSpinGoal; }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">float</span> getAngSpinGoal()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_angSpinGoal; }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#a17fdf40d9913bfd63524ab3aed8ce87a">   87</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_velocity_controller.html#a17fdf40d9913bfd63524ab3aed8ce87a">getSpinShutdown</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_velocity_controller.html#a495736a69f35f4c91faf808df58203de">m_spinShutdown</a>; }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_velocity_controller.html#acd38a7af98767000ef3dec6315fd74f8">load</a>(<span class="keywordtype">int</span> address);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_velocity_controller.html#a13dc4c22c9c2174da77b24280c965f65">save</a>(<span class="keywordtype">int</span> address) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_velocity_controller.html#a0b601849cb1f8b70478f530c0d198a60">genRampSetpoint</a>(<span class="keywordtype">float</span> stepSetpoint, <span class="keywordtype">float</span> input, <span class="keywordtype">float</span> rampSetpoint, <span class="keywordtype">float</span> maxAcc, <span class="keywordtype">float</span> maxDec, <span class="keywordtype">float</span> timestep);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_velocity_controller.html#ad9d7a68904dfe039957aea75e48a88a8">process</a>(<span class="keywordtype">float</span> timestep);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_velocity_controller.html#aae42d27358ff64794f8300f68489e2ca">onProcessEnabling</a>();</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#a901ddfbe30dc1e3b4cedbccf111ea230">  131</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_velocity_controller.html#a901ddfbe30dc1e3b4cedbccf111ea230">m_rampLinVelSetpoint</a>;       <span class="comment">// in mm/s (no longer w/e unit)</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#ade73ce4c1ff61e15ccc410f6012a90ce">  132</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_velocity_controller.html#ade73ce4c1ff61e15ccc410f6012a90ce">m_rampAngVelSetpoint</a>;     <span class="comment">// in rad/s (no longer w/e unit)</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#a3dfa99e6e5b3db82ac7a748fd249905b">  133</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_velocity_controller.html#a3dfa99e6e5b3db82ac7a748fd249905b">m_maxLinAcc</a>;   <span class="comment">// always positive, in mm/s^2</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#aa17a6ffe6541fecad48bf4a7c402bf02">  134</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_velocity_controller.html#aa17a6ffe6541fecad48bf4a7c402bf02">m_maxLinDec</a>;  <span class="comment">// always positive, in mm/s^2</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#a6f638140f25d85ed43566abaace973f2">  135</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_velocity_controller.html#a6f638140f25d85ed43566abaace973f2">m_maxAngAcc</a>;   <span class="comment">// always positive, in mm/s^2</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#aca656d0ffbf06d85d77999a899b402f6">  136</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_velocity_controller.html#aca656d0ffbf06d85d77999a899b402f6">m_maxAngDec</a>;  <span class="comment">// always positive, in mm/s^2</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="class_velocity_controller.html#a495736a69f35f4c91faf808df58203de">  137</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_velocity_controller.html#a495736a69f35f4c91faf808df58203de">m_spinShutdown</a>;                                                              </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">float</span> m_linSpinGoal;                                                              <span class="comment">// Velocity wanted before the spin alarm</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordtype">float</span> m_angSpinGoal;                                                              <span class="comment">// Velocity wanted before the spin alarm</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="preprocessor">#if ENABLE_VELOCITYCONTROLLER_LOGS</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keyword">friend</span> <span class="keyword">class </span>VelocityControllerLogs;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="preprocessor">#endif </span><span class="comment">// ENABLE_VELOCITYCONTROLLER_LOGS</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>};</div>
+</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="preprocessor">#if ENABLE_VELOCITYCONTROLLER_LOGS</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">class </span>VelocityControllerLogs : <span class="keyword">public</span> <a class="code hl_class" href="class_periodic_process.html">PeriodicProcess</a></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>{</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">void</span> setController(<span class="keyword">const</span> <a class="code hl_class" href="class_velocity_controller.html">VelocityController</a> &amp;controller) { m_controller = &amp;controller; }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_periodic_process.html#a397cd93780d753f5f06335cfe9f2a7f3">process</a>(<span class="keywordtype">float</span> timestep);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_velocity_controller.html">VelocityController</a> *m_controller;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>};</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">#endif </span><span class="comment">// ENABLE_VELOCITYCONTROLLER_LOGS</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">#endif </span><span class="comment">// __VELOCITYCONTROLLER_H__</span></div>
+<div class="ttc" id="aclass_differential_controller_html"><div class="ttname"><a href="class_differential_controller.html">DifferentialController</a></div><div class="ttdoc">Controle les moteurs.</div><div class="ttdef"><b>Definition</b> DifferentialController.h:47</div></div>
+<div class="ttc" id="aclass_periodic_process_html"><div class="ttname"><a href="class_periodic_process.html">PeriodicProcess</a></div><div class="ttdoc">Classe à implémenter pour gérer les appels dans la loop.</div><div class="ttdef"><b>Definition</b> PeriodicProcess.h:16</div></div>
+<div class="ttc" id="aclass_periodic_process_html_a397cd93780d753f5f06335cfe9f2a7f3"><div class="ttname"><a href="class_periodic_process.html#a397cd93780d753f5f06335cfe9f2a7f3">PeriodicProcess::process</a></div><div class="ttdeci">virtual void process(float timestep)=0</div><div class="ttdoc">Méthode à implémenter obligatoirement pour hériter de PeriodicProcess.</div></div>
+<div class="ttc" id="aclass_velocity_controller_html"><div class="ttname"><a href="class_velocity_controller.html">VelocityController</a></div><div class="ttdoc">Objet de controle de la vitesse.</div><div class="ttdef"><b>Definition</b> VelocityController.h:19</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_a0b601849cb1f8b70478f530c0d198a60"><div class="ttname"><a href="class_velocity_controller.html#a0b601849cb1f8b70478f530c0d198a60">VelocityController::genRampSetpoint</a></div><div class="ttdeci">float genRampSetpoint(float stepSetpoint, float input, float rampSetpoint, float maxAcc, float maxDec, float timestep)</div><div class="ttdoc">Calcul la vitesse à atteindre.</div><div class="ttdef"><b>Definition</b> VelocityController.cpp:9</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_a13dc4c22c9c2174da77b24280c965f65"><div class="ttname"><a href="class_velocity_controller.html#a13dc4c22c9c2174da77b24280c965f65">VelocityController::save</a></div><div class="ttdeci">void save(int address) const</div><div class="ttdoc">Sauvegarde les paramètres.</div><div class="ttdef"><b>Definition</b> VelocityController.cpp:82</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_a17fdf40d9913bfd63524ab3aed8ce87a"><div class="ttname"><a href="class_velocity_controller.html#a17fdf40d9913bfd63524ab3aed8ce87a">VelocityController::getSpinShutdown</a></div><div class="ttdeci">bool getSpinShutdown() const</div><div class="ttdoc">Retourne l'état de spinShutDown.</div><div class="ttdef"><b>Definition</b> VelocityController.h:87</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_a3dfa99e6e5b3db82ac7a748fd249905b"><div class="ttname"><a href="class_velocity_controller.html#a3dfa99e6e5b3db82ac7a748fd249905b">VelocityController::m_maxLinAcc</a></div><div class="ttdeci">float m_maxLinAcc</div><div class="ttdef"><b>Definition</b> VelocityController.h:133</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_a428043fcd8b930c254cf1cbd3615191d"><div class="ttname"><a href="class_velocity_controller.html#a428043fcd8b930c254cf1cbd3615191d">VelocityController::setSpinShutdown</a></div><div class="ttdeci">void setSpinShutdown(bool spinShutdown)</div><div class="ttdoc">Change l'état de l'arret d'urgence.</div><div class="ttdef"><b>Definition</b> VelocityController.cpp:120</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_a495736a69f35f4c91faf808df58203de"><div class="ttname"><a href="class_velocity_controller.html#a495736a69f35f4c91faf808df58203de">VelocityController::m_spinShutdown</a></div><div class="ttdeci">bool m_spinShutdown</div><div class="ttdef"><b>Definition</b> VelocityController.h:137</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_a4a5d3013f75003fb282f68347498b51d"><div class="ttname"><a href="class_velocity_controller.html#a4a5d3013f75003fb282f68347498b51d">VelocityController::getMaxLinAcc</a></div><div class="ttdeci">float getMaxLinAcc() const</div><div class="ttdoc">Retourne l'accélération max linéaire.</div><div class="ttdef"><b>Definition</b> VelocityController.h:60</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_a6f638140f25d85ed43566abaace973f2"><div class="ttname"><a href="class_velocity_controller.html#a6f638140f25d85ed43566abaace973f2">VelocityController::m_maxAngAcc</a></div><div class="ttdeci">float m_maxAngAcc</div><div class="ttdef"><b>Definition</b> VelocityController.h:135</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_a73ca89c5696ecb306e12ace6013ff27c"><div class="ttname"><a href="class_velocity_controller.html#a73ca89c5696ecb306e12ace6013ff27c">VelocityController::getMaxAngDec</a></div><div class="ttdeci">float getMaxAngDec() const</div><div class="ttdoc">Retourne la décélération max angulaire.</div><div class="ttdef"><b>Definition</b> VelocityController.h:78</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_a7b1ccf3d8e7b268301a35b0577f51f31"><div class="ttname"><a href="class_velocity_controller.html#a7b1ccf3d8e7b268301a35b0577f51f31">VelocityController::setMaxAngAcc</a></div><div class="ttdeci">void setMaxAngAcc(float maxAngAcc)</div><div class="ttdoc">Paramètre les accélérations max.</div><div class="ttdef"><b>Definition</b> VelocityController.cpp:110</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_a901ddfbe30dc1e3b4cedbccf111ea230"><div class="ttname"><a href="class_velocity_controller.html#a901ddfbe30dc1e3b4cedbccf111ea230">VelocityController::m_rampLinVelSetpoint</a></div><div class="ttdeci">float m_rampLinVelSetpoint</div><div class="ttdef"><b>Definition</b> VelocityController.h:131</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_aa00bd41d5064587f3324c7b4309fd483"><div class="ttname"><a href="class_velocity_controller.html#aa00bd41d5064587f3324c7b4309fd483">VelocityController::setMaxLinDec</a></div><div class="ttdeci">void setMaxLinDec(float maxLinDec)</div><div class="ttdoc">Paramètre les décéleration max.</div><div class="ttdef"><b>Definition</b> VelocityController.cpp:105</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_aa17a6ffe6541fecad48bf4a7c402bf02"><div class="ttname"><a href="class_velocity_controller.html#aa17a6ffe6541fecad48bf4a7c402bf02">VelocityController::m_maxLinDec</a></div><div class="ttdeci">float m_maxLinDec</div><div class="ttdef"><b>Definition</b> VelocityController.h:134</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_aa29e8e908d6e35b98b2aa945f9e6549d"><div class="ttname"><a href="class_velocity_controller.html#aa29e8e908d6e35b98b2aa945f9e6549d">VelocityController::VelocityController</a></div><div class="ttdeci">VelocityController()</div><div class="ttdoc">Constructeur de VelocityController.</div><div class="ttdef"><b>Definition</b> VelocityController.h:27</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_aae42d27358ff64794f8300f68489e2ca"><div class="ttname"><a href="class_velocity_controller.html#aae42d27358ff64794f8300f68489e2ca">VelocityController::onProcessEnabling</a></div><div class="ttdeci">virtual void onProcessEnabling()</div><div class="ttdoc">Initialisation de l'asservissement.</div><div class="ttdef"><b>Definition</b> VelocityController.cpp:65</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_aca656d0ffbf06d85d77999a899b402f6"><div class="ttname"><a href="class_velocity_controller.html#aca656d0ffbf06d85d77999a899b402f6">VelocityController::m_maxAngDec</a></div><div class="ttdeci">float m_maxAngDec</div><div class="ttdef"><b>Definition</b> VelocityController.h:136</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_acd38a7af98767000ef3dec6315fd74f8"><div class="ttname"><a href="class_velocity_controller.html#acd38a7af98767000ef3dec6315fd74f8">VelocityController::load</a></div><div class="ttdeci">void load(int address)</div><div class="ttdoc">Charge les paramètres.</div><div class="ttdef"><b>Definition</b> VelocityController.cpp:72</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_ad04193630f5a9ec64ba0eb2e5ae97ccb"><div class="ttname"><a href="class_velocity_controller.html#ad04193630f5a9ec64ba0eb2e5ae97ccb">VelocityController::getMaxLinDec</a></div><div class="ttdeci">float getMaxLinDec() const</div><div class="ttdoc">Retourne la décélération max linéaire.</div><div class="ttdef"><b>Definition</b> VelocityController.h:72</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_ad9d7a68904dfe039957aea75e48a88a8"><div class="ttname"><a href="class_velocity_controller.html#ad9d7a68904dfe039957aea75e48a88a8">VelocityController::process</a></div><div class="ttdeci">virtual void process(float timestep)</div><div class="ttdoc">Calcul l'asservissement.</div><div class="ttdef"><b>Definition</b> VelocityController.cpp:29</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_ade73ce4c1ff61e15ccc410f6012a90ce"><div class="ttname"><a href="class_velocity_controller.html#ade73ce4c1ff61e15ccc410f6012a90ce">VelocityController::m_rampAngVelSetpoint</a></div><div class="ttdeci">float m_rampAngVelSetpoint</div><div class="ttdef"><b>Definition</b> VelocityController.h:132</div></div>
+<div class="ttc" id="aclass_velocity_controller_html_ae2691871fd8b5a3522dfb671cfdb6716"><div class="ttname"><a href="class_velocity_controller.html#ae2691871fd8b5a3522dfb671cfdb6716">VelocityController::getMaxAngAcc</a></div><div class="ttdeci">float getMaxAngAcc() const</div><div class="ttdoc">Retourne l'accélération max angulaire.</div><div class="ttdef"><b>Definition</b> VelocityController.h:66</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

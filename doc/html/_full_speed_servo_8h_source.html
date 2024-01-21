@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/FullSpeedServo/FullSpeedServo.h</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_e5db95e150018bcc3dfc1edc7ae4800d.html">LIBS</a></li><li class="navelem"><a class="el" href="dir_66ad5f74c23414a43fda982e8ac34f83.html">ARDUINO_LIBS</a></li><li class="navelem"><a class="el" href="dir_efe24ae725e0087caf4309879503d04a.html">FullSpeedServo</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">FullSpeedServo.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef __FULLSPEEDSERVO_H__</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define __FULLSPEEDSERVO_H__</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Clock.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;Servo.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;PeriodicProcess.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_full_speed_servo.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="class_full_speed_servo.html">FullSpeedServo</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_periodic_process.html">PeriodicProcess</a>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">private</span>: </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    Servo m_servo;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">float</span> m_time;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">bool</span> m_moving;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_class" href="class_clock.html">Clock</a> m_clock;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_full_speed_servo.html#a221f58433c16eac8613fb5058e0c0526">SpeedWrite</a>(<span class="keywordtype">int</span> setpoint, <span class="keywordtype">float</span> time);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_full_speed_servo.html#aa065d2f4ce0c1110a5a84d62b4dc8385">write</a>(<span class="keywordtype">int</span> setpoint);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_full_speed_servo.html#ab5af708a2e612228faa6bed800d79ea2">attach</a>(<span class="keywordtype">int</span> pin);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_full_speed_servo.html#a159190845ac4de88fe533dc71247166f">detach</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_full_speed_servo.html#abd9583b7b5f6e918f295918eeb79a777">   46</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_full_speed_servo.html#abd9583b7b5f6e918f295918eeb79a777">attached</a>(){<span class="keywordflow">return</span> m_servo.attached();}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_full_speed_servo.html#a9877b6c705724403c10656116a6084c0">   51</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_full_speed_servo.html#a9877b6c705724403c10656116a6084c0">read</a>(){<span class="keywordflow">return</span> m_servo.read();}</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_full_speed_servo.html#a219f6a6330241256242c6c77c5fa045e">process</a>(<span class="keywordtype">float</span> timestep);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_clock_html"><div class="ttname"><a href="class_clock.html">Clock</a></div><div class="ttdoc">Utilitaire pour gérer le temps dans vos programmes Arduino.</div><div class="ttdef"><b>Definition</b> Clock.h:14</div></div>
+<div class="ttc" id="aclass_full_speed_servo_html"><div class="ttname"><a href="class_full_speed_servo.html">FullSpeedServo</a></div><div class="ttdoc">Pilotage de Servomoteur particulier.</div><div class="ttdef"><b>Definition</b> FullSpeedServo.h:14</div></div>
+<div class="ttc" id="aclass_full_speed_servo_html_a159190845ac4de88fe533dc71247166f"><div class="ttname"><a href="class_full_speed_servo.html#a159190845ac4de88fe533dc71247166f">FullSpeedServo::detach</a></div><div class="ttdeci">void detach()</div><div class="ttdoc">Fonction réciproque de attach() (permet par exemple d'avoir un servomoteur en roue libre)</div><div class="ttdef"><b>Definition</b> FullSpeedServo.cpp:20</div></div>
+<div class="ttc" id="aclass_full_speed_servo_html_a219f6a6330241256242c6c77c5fa045e"><div class="ttname"><a href="class_full_speed_servo.html#a219f6a6330241256242c6c77c5fa045e">FullSpeedServo::process</a></div><div class="ttdeci">virtual void process(float timestep)</div><div class="ttdoc">Méthode à implémenter obligatoirement pour hériter de PeriodicProcess.</div><div class="ttdef"><b>Definition</b> FullSpeedServo.cpp:24</div></div>
+<div class="ttc" id="aclass_full_speed_servo_html_a221f58433c16eac8613fb5058e0c0526"><div class="ttname"><a href="class_full_speed_servo.html#a221f58433c16eac8613fb5058e0c0526">FullSpeedServo::SpeedWrite</a></div><div class="ttdeci">void SpeedWrite(int setpoint, float time)</div><div class="ttdoc">Fait tourner le servomoteur pendant le temps donné ou jusqu'à la position demandée.</div><div class="ttdef"><b>Definition</b> FullSpeedServo.cpp:5</div></div>
+<div class="ttc" id="aclass_full_speed_servo_html_a9877b6c705724403c10656116a6084c0"><div class="ttname"><a href="class_full_speed_servo.html#a9877b6c705724403c10656116a6084c0">FullSpeedServo::read</a></div><div class="ttdeci">int read()</div><div class="ttdoc">renvoie la dernière position envoyée au servo (seulement si le servo est &quot;attached&quot;)</div><div class="ttdef"><b>Definition</b> FullSpeedServo.h:51</div></div>
+<div class="ttc" id="aclass_full_speed_servo_html_aa065d2f4ce0c1110a5a84d62b4dc8385"><div class="ttname"><a href="class_full_speed_servo.html#aa065d2f4ce0c1110a5a84d62b4dc8385">FullSpeedServo::write</a></div><div class="ttdeci">void write(int setpoint)</div><div class="ttdoc">Fait tourner le servomoteur jusqu'à la position demandée (vitesse normale)</div><div class="ttdef"><b>Definition</b> FullSpeedServo.cpp:12</div></div>
+<div class="ttc" id="aclass_full_speed_servo_html_ab5af708a2e612228faa6bed800d79ea2"><div class="ttname"><a href="class_full_speed_servo.html#ab5af708a2e612228faa6bed800d79ea2">FullSpeedServo::attach</a></div><div class="ttdeci">void attach(int pin)</div><div class="ttdoc">Définit le pin sur lequel est connecté le serovmoteur.</div><div class="ttdef"><b>Definition</b> FullSpeedServo.cpp:16</div></div>
+<div class="ttc" id="aclass_full_speed_servo_html_abd9583b7b5f6e918f295918eeb79a777"><div class="ttname"><a href="class_full_speed_servo.html#abd9583b7b5f6e918f295918eeb79a777">FullSpeedServo::attached</a></div><div class="ttdeci">bool attached()</div><div class="ttdoc">Permet de savoir si le servo est attaché ou pas (respectivement maintient sa position / roue libre)</div><div class="ttdef"><b>Definition</b> FullSpeedServo.h:46</div></div>
+<div class="ttc" id="aclass_periodic_process_html"><div class="ttname"><a href="class_periodic_process.html">PeriodicProcess</a></div><div class="ttdoc">Classe à implémenter pour gérer les appels dans la loop.</div><div class="ttdef"><b>Definition</b> PeriodicProcess.h:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>
