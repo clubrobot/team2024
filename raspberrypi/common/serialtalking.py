@@ -1,7 +1,8 @@
 '''
- SerialTalking Lib Work In progess: CRINSA 2024
+ @file serialtalking.py
+ @brief SerialTalking Lib Work In progess: CRINSA 2024
  
- Negrache Gibril et Hilkens Boris
+ @author Negrache Gibril et Hilkens Boris
 '''
 
 import math

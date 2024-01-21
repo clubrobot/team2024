@@ -26,10 +26,7 @@ var menudata={children:[
 {text:"Page principale",url:"index.html"},
 {text:"Pages associées",url:"pages.html"},
 {text:"Espaces de nommage",url:"namespaces.html",children:[
-{text:"Liste des espaces de nommage",url:"namespaces.html"},
-{text:"Membres de l'espace de nommage",url:"namespacemembers.html",children:[
-{text:"Tout",url:"namespacemembers.html"},
-{text:"Fonctions",url:"namespacemembers_func.html"}]}]},
+{text:"Liste des espaces de nommage",url:"namespaces.html"}]},
 {text:"Classes",url:"annotated.html",children:[
 {text:"Liste des classes",url:"annotated.html"},
 {text:"Index des classes",url:"classes.html"},
@@ -62,7 +59,6 @@ var menudata={children:[
 {text:"Fonctions",url:"functions_func.html",children:[
 {text:"_",url:"functions_func.html#index__5F"},
 {text:"a",url:"functions_func_a.html#index_a"},
-{text:"b",url:"functions_func_b.html#index_b"},
 {text:"c",url:"functions_func_c.html#index_c"},
 {text:"d",url:"functions_func_d.html#index_d"},
 {text:"e",url:"functions_func_e.html#index_e"},
@@ -82,16 +78,13 @@ var menudata={children:[
 {text:"Variables",url:"functions_vars.html",children:[
 {text:"a",url:"functions_vars.html#index_a"},
 {text:"b",url:"functions_vars.html#index_b"},
-{text:"e",url:"functions_vars.html#index_e"},
 {text:"i",url:"functions_vars.html#index_i"},
 {text:"m",url:"functions_vars.html#index_m"},
-{text:"o",url:"functions_vars.html#index_o"},
 {text:"s",url:"functions_vars.html#index_s"},
 {text:"t",url:"functions_vars.html#index_t"},
 {text:"v",url:"functions_vars.html#index_v"},
 {text:"x",url:"functions_vars.html#index_x"},
 {text:"y",url:"functions_vars.html#index_y"}]},
-{text:"Définitions de type",url:"functions_type.html"},
 {text:"Énumérations",url:"functions_enum.html"},
 {text:"Valeurs énumérées",url:"functions_eval.html"}]}]},
 {text:"Fichiers",url:"files.html",children:[

@@ -1,26 +1,30 @@
+/**
+ * @file SerialTalking.h
+ * @author Negrache	Gibril et Hilkens Boris
+ * @brief SerialTalking Lib Work In progess: CRINSA 2024
+ * @version 1.0
+ * @date 2024-01-21
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #ifndef __SERIALTALKING_H__
 #define __SERIALTALKING_H__
-
-/***
- * SerialTalking Lib Work In progess: CRINSA 2024
- * 
- * Negrache	Gibril et Hilkens Boris
- * 
-*/
 
 #include <Arduino.h>
 #include "SerialTransfer.h"
 
-#define SERIALTALKING_BAUDRATE 115200 /*!< Baudrate utiliser */
-#define SERIALTALKING_DEBUG true
-#define SERIALTALKING_DEBUG_PORT Serial
+#define SERIALTALKING_BAUDRATE 115200 //Baudrate utiliser
+#define SERIALTALKING_DEBUG false //Debug
+#define SERIALTALKING_DEBUG_PORT Serial //port du Debug
 
-#define SERIALTALKING_INPUT_BUFFER_SIZE 64
-#define SERIALTALKING_OUTPUT_BUFFER_SIZE 64
+#define SERIALTALKING_INPUT_BUFFER_SIZE 64 //Input buffer size
+#define SERIALTALKING_OUTPUT_BUFFER_SIZE 64 //Output buffer size
 
-#define SERIALTALKING_UUID_ADDRESS 0x0000000000
+#define SERIALTALKING_UUID_ADDRESS 0x0000000000 //Addresse de l'uuid dans l'EEPROM
 
-#define SERIALTALKING_MAX_OPCODE 0x30
+#define SERIALTALKING_MAX_OPCODE 0x30 //Maximum d'opcodes (instrcutions)
 #define SERIALTALKING_SINGLE_MAGIC 's' //comme single
 #define SERIALTALKING_MULTIPLE_MAGIC 'm' //comme multiple
 
@@ -33,16 +37,16 @@
 #define SERIALTALKING_FREE_BUFFER_OPCODE    0x06
 
 /** class SerialTalking
- *  \brief Object de communication serial avec un ordinateur.
- *	\author Negrache Gibril
-	\author Hilkens Boris
+ *  @name SerialTalking (cpp)
+ *  @brief Object de communication serial avec un ordinateur.
+ *	@author Negrache Gibril
+	@author Hilkens Boris
  *  est un outil permettant à l'arduino de pouvoir répondre aux requêtes recu depuis le serial.
  *  Il utilise donc le port serial (unsb) pour envoyer ou recevoir des données avec l'ordinateur ou la raspberry
  *  La classe est capable de lancer des methodes sur demande de l'ordinateur ou de la raspberry.
  *  Très inspiré de serialTalks mais mieux 👈(ﾟヮﾟ👈)
  */
 class SerialTalking{
-
 public:
    
     //! Initialise le SerialTalking avec un Stream d'<arduino.h>.

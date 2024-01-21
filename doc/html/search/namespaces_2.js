@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['serialtalking_0',['serialtalking',['../namespaceserialtalking.html',1,'']]]
+  ['xbeetalks_0',['xbeetalks',['../namespacexbeetalks.html',1,'']]]
 ];

@@ -1,9 +1,13 @@
-/***
- * SerialTalking Lib Work In progess: CRINSA 2024
+/**
+ * @file SerialTalking.cpp
+ * @author Boris HILKENS, NEGRACHE Gibril
+ * @brief SerialTalking CPP side, WIP
+ * @version 1.0
+ * @date 2024-01-21
  * 
- * Negrache	Gibril et Hilkens Boris
+ * @copyright Copyright (c) 2024
  * 
-*/
+ */
 
 #include "SerialTalking.h"
 #include <EEPROM.h>

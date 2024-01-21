@@ -1,7 +1,6 @@
 # Platformio
 
 En gros ça vous aide la vie.
-Ragardez la vidéo de documentation svp
 
 ## Création d'un projet:
 

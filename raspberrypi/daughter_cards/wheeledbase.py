@@ -5,7 +5,7 @@ import time
 import math
 import numpy as np
 from time import sleep
-from common.serialtalking import BYTE, LONG, FLOAT
+from common.serialtalking import BYTE, LONG, FLOAT, INT
 from common.serialtalking import SerialTalking
 
 # Instructions
@@ -177,7 +177,7 @@ class WheeledBase():
         """
 
         #Wheel and DCmotor
-        self.wheeledbase.order(RIGHTCODEWHEEL_COUNTSPERREV_ID,INT(10000))
+        self.wheeledbase.order(RIGHTCODEWHEEL_COUNTSPERREV_ID, INT(10000))
         
         self.wheeledbase.order(LEFTWHEEL_RADIUS_ID, FLOAT(23.8))
         self.wheeledbase.order(LEFTWHEEL_CONSTANT_ID, INT(622))

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['err_0',['err',['../class_serial_talks.html#ad0f3d8029336f8f3e0522c18de8206fd',1,'SerialTalks']]]
+  ['initied_0',['initied',['../classlogger_1_1_logger.html#ad684468c858ccfd8c6bedbd6ae59f8b2',1,'logger::Logger']]]
 ];
