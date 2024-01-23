@@ -57,7 +57,7 @@ void SerialTalking::begin(Stream& stream)
 	bind(SERIALTALKING_SETUUID_OPCODE,  SerialTalking::SETUUID);
 	bind(SERIALTALKING_GETEEPROM_OPCODE,SerialTalking::GETEEPROM);
 	bind(SERIALTALKING_SETEEPROM_OPCODE,SerialTalking::SETEEPROM);
-	bind(SERIALTALKING_FREE_BUFFER_OPCODE, SerialTalking::FREEBUFFER);
+	//bind(SERIALTALKING_FREE_BUFFER_OPCODE, SerialTalking::FREEBUFFER);
 }
 
 void SerialTalking::bind(byte opcode, functionPtr instruction){

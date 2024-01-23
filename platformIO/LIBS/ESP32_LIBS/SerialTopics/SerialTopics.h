@@ -2,7 +2,7 @@
 #define __SERIALTOPICS_H__
 
 #include <Arduino.h>
-#include "SerialTalks.h"
+
 
 #define SERIALTOPICS_DEFAULT_TIMING 100 //ms
 

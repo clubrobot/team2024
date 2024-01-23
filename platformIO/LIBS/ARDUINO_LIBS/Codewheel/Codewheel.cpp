@@ -2,7 +2,7 @@
 #include <EEPROM.h>
 
 #include "Codewheel.h"
-#include "SerialTalks.h"
+
 
 
 void Codewheel::attachCounter(int XY, int AXIS, int SEL1, int SEL2, int OE, int RST)

@@ -1,16 +1,14 @@
 #import imp
-from daughter_cards.wheeledbase import WheeledBase, LINVELPID_KP_ID
+from daughter_cards.wheeledbase import WheeledBase, LEFTWHEEL_RADIUS_ID
 from daughter_cards.actionneur import Actionneur
 from common.serialtypes import FLOAT, STRING, INT
 from common.serialtalking import GETUUID_OPCODE, SerialTalking
 import time
 
 
-w = SerialTalking("COM8")
+ww = WheeledBase(None, 'COM11')
 while 1:
-    a = w.getuuid()
-    if(a=="pong"):
-        print("oof")
+    print(ww.get_parameter_value())
 
 	
 #LEFTCODEWHEEL_RADIUS_VALUE              = 21.90460280828869

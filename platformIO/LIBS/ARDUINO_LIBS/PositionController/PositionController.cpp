@@ -2,7 +2,6 @@
 #include <EEPROM.h>
 
 #include "PositionController.h"
-#include "SerialTalks.h"
 
 
 void PositionController::setMoveStrategy(AbstractMoveStrategy& moveStrategy)

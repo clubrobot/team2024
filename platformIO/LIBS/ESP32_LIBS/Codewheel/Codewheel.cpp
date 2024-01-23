@@ -2,7 +2,7 @@
 #include <EEPROM.h>
 
 #include "Codewheel.h"
-#include "SerialTalks.h"
+
 
 uint8_t shiftInSlow(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder) {
     uint8_t value = 0;
