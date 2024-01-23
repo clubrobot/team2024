@@ -162,7 +162,6 @@ class WheeledBase():
         self.latch = None
         self.latch_time = None
 
-        """
         leftWheel.load(LEFTWHEEL_ADDRESS);
         rightWheel.load(RIGHTWHEEL_ADDRESS);
         leftCodewheel.load(LEFTCODEWHEEL_ADDRESS);
@@ -174,8 +173,8 @@ class WheeledBase():
         angVelPID.load(ANGVELPID_ADDRESS);
         positionControl.load(POSITIONCONTROL_ADDRESS);
         purePursuit.load(PUREPURSUIT_ADDRESS);
-        """
 
+        """
         #Wheel and DCmotor
         self.wheeledbase.order(RIGHTCODEWHEEL_COUNTSPERREV_ID, INT(10000))
         
@@ -199,6 +198,7 @@ class WheeledBase():
 
         self.wheeledbase.order(VELOCITYCONTROL_MAXANGACC_ID, FLOAT(3.14))
         self.wheeledbase.order(VELOCITYCONTROL_MAXANGDEC_ID, FLOAT(6.28))
+        """
 
 
     def set_openloop_velocities(self, left, right):

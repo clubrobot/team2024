@@ -74,6 +74,15 @@ void setup(){
     rightWheel.attach(RIGHT_MOTOR_EN, RIGHT_MOTOR_PWM, RIGHT_MOTOR_DIR);
     leftWheel.load(LEFTWHEEL_ADDRESS);
     rightWheel.load(RIGHTWHEEL_ADDRESS);
+    //settings for EEPROM
+    leftWheel.setWheelRadius(LEFT_WHEEL_RADIUS);
+    rightWheel.setWheelRadius(RIGHT_WHEEL_RADIUS);
+    leftWheel.setConstant(DCMOTORS_VELOCITY_CONSTANT);
+    rightWheel.setConstant(DCMOTORS_VELOCITY_CONSTANT);
+    //leftWheel.setMaxPWM(); <- pas trouvé de valeur
+    //rightWheel.setMaxPWM(); <- pas trouvé de valeur
+    leftWheel.save(LEFTWHEEL_ADDRESS);
+    rightWheel.save(RIGHTWHEEL_ADDRESS);
 
     // Codewheels
     leftCodewheel.attachCounter(QUAD_COUNTER_XY, QUAD_COUNTER_Y_AXIS, QUAD_COUNTER_SEL1, QUAD_COUNTER_SEL2, QUAD_COUNTER_OE, QUAD_COUNTER_RST_Y);
@@ -84,18 +93,37 @@ void setup(){
     rightCodewheel.load(RIGHTCODEWHEEL_ADDRESS);
     leftCodewheel.reset();
     rightCodewheel.reset();
+    //settings for EEPROM
+    leftCodewheel.setWheelRadius(LEFT_CODEWHEEL_RADIUS);
+    rightCodewheel.setWheelRadius(RIGHT_CODEWHEEL_RADIUS);
+    leftCodewheel.setCountsPerRev(CODEWHEELS_COUNTS_PER_REVOLUTION);
+    rightCodewheel.setCountsPerRev(CODEWHEELS_COUNTS_PER_REVOLUTION);
+    leftCodewheel.save(LEFTCODEWHEEL_ADDRESS);
+    rightCodewheel.save(RIGHTCODEWHEEL_ADDRESS);
 
     // Odometry
     odometry.load(ODOMETRY_ADDRESS);
     odometry.setCodewheels(leftCodewheel, rightCodewheel);
     odometry.setTimestep(ODOMETRY_TIMESTEP);
     odometry.enable();
+    //settings for EEPROM
+    odometry.setAxleTrack(CODEWHEELS_AXLE_TRACK);
+    //odometry.setSlippage(); <- pas trouvé de valeur
+    odometry.save(ODOMETRY_ADDRESS);
+
 
     // Engineering control
     velocityControl.load(VELOCITYCONTROL_ADDRESS);
     velocityControl.setWheels(leftWheel, rightWheel);
     velocityControl.setPID(linVelPID, angVelPID);
     velocityControl.disable();
+    //settings for EEPROM
+    velocityControl.setMaxAngAcc(MAX_ANGULAR_ACCELERATION);
+    velocityControl.setMaxAngDec(MAX_ANGULAR_DECCELERATION);
+    velocityControl.setMaxLinAcc(MAX_LINEAR_ACCELERATION);
+    velocityControl.setMaxLinDec(MAX_LINEAR_DECCELERATION);
+    //velocityControl.setSpinShutdown(); <- pas trouvé de valeur
+    velocityControl.save(VELOCITYCONTROL_ADDRESS);
 
     //const float maxLinVel = min(leftWheel.getMaxVelocity(), rightWheel.getMaxVelocity());
     //const float maxAngVel = min(leftWheel.getMaxVelocity(), rightWheel.getMaxVelocity()) * 2 / WHEELS_AXLE_TRACK;
