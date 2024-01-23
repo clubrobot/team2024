@@ -58,14 +58,16 @@ var NAVTREE =
     ] ],
     [ "Fichiers", "files.html", [
       [ "Liste des fichiers", "files.html", "files_dup" ]
-    ] ]
+    ] ],
+    [ "Exemples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
 "_a_x12_8h_source.html",
-"class_velocity_controller.html#a73ca89c5696ecb306e12ace6013ff27c"
+"class_velocity_controller.html#a4a5d3013f75003fb282f68347498b51d",
+"struct_deserializer.html#a37f4bae0d8a61c6c556ba3e90a10f0c4"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/behaviours/robot_behaviour.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('robot__behaviour_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">robot_behaviour.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="robot__behaviour_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacerobot__behaviour.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> time <span class="keyword">import</span> monotonic, sleep</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">from</span> threading <span class="keyword">import</span> Thread, Event, current_thread</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacelogs_1_1log__manager.html">logs.log_manager</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacelisteners_1_1end__game__listener.html">listeners.end_game_listener</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="" data-end="">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_access_denied.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classrobot__behaviour_1_1_access_denied.html">AccessDenied</a>(Exception):</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordflow">pass</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+</div>
+<div class="foldopen" id="foldopen00014" data-start="" data-end="">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="classrobot__behaviour_1_1_robot_behavior.html">RobotBehavior</a>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="stringliteral">&quot;&quot;&quot;This class describe the generic beahviour of the robot. How to reach an action point and how to excute the desired action</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="stringliteral">    Raises:</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="stringliteral">        TimeoutError: Timeout on communication or action</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="stringliteral">        AccessDenied: Thread is not allowed to execute on manager</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="stringliteral">        RuntimeError: Function not override</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="stringliteral">        RuntimeError: Function not override</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="stringliteral">        RuntimeError: Function not override</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="stringliteral">        RuntimeError: Function not override</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="stringliteral">        RuntimeError: Function not override</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a8016a1938795759f9afc0ac7738dbe8f">   26</a></span>    BLUE_SIDE = 0</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a711667d4aec006887ee0b52391538ac4">   27</a></span>    YELLOW_SIDE = 1</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a009fdd0f546ce8b322baab35ffd91815">   28</a></span>    UNDEFINED_SIDE = -1</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="" data-end="">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#abe58d232d7cf89f7f71acb22638529d1">   30</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#abe58d232d7cf89f7f71acb22638529d1">__init__</a>(self, manager, *args, timelimit=None, exec_param=Logger.SHOW, log_level=INFO, **kwargs):</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="stringliteral">&quot;&quot;&quot;Initialise all the useful object members</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="stringliteral">        Args:</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="stringliteral">            manager (class): The manager proxy</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="stringliteral">            timelimit (int, optional): The match time limit. Defaults to None.</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="stringliteral">            exec_param (int, optional): The logger display configuration. Defaults to Logger.SHOW.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="stringliteral">            log_level (int, optional): The logger display level. Defaults to INFO.</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a5530fb10378f438ee14d492b66d374c6">   39</a></span>        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a5530fb10378f438ee14d492b66d374c6">manager</a> = manager</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a7f155cf45088197a16302fd825ee1763">   40</a></span>        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a7f155cf45088197a16302fd825ee1763">timelimit</a> = timelimit</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a77476de3d005f906aad8178c6ef6c269">   41</a></span>        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a77476de3d005f906aad8178c6ef6c269">whitelist</a> = set()</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a482427697163fc69332587a796ab6678">   42</a></span>        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a482427697163fc69332587a796ab6678">blacklist</a> = set()</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a68a18876657dfde5e75220fe81ef3614">   43</a></span>        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a68a18876657dfde5e75220fe81ef3614">outputs</a> = dict()</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a12cad7827daf6aaf35941c154fa6c775">   44</a></span>        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a12cad7827daf6aaf35941c154fa6c775">stop_event</a> = Event()</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="comment"># Keep old manager method</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">#self.manager_send = self.manager.send</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="comment"># Override manager send method</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="comment">#self.manager.send = self.send</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="comment"># Init Logger</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#ac7d1e6ce7137df628d091406b4075bdb">   53</a></span>        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#ac7d1e6ce7137df628d091406b4075bdb">logger</a> = LogManager().getlogger(</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            self.__class__.__name__, exec_param, log_level)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+</div>
+<div class="foldopen" id="foldopen00056" data-start="" data-end="">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a462cefadbf2cb5f0d242ca5075b03516">   56</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a462cefadbf2cb5f0d242ca5075b03516">perform</a>(self, procedure, args=(), kwargs={}, timelimit=<span class="keyword">True</span>):</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="stringliteral">&quot;&quot;&quot;This method allow the robot to perform an action. It create one thread for the current action and check if this thread is allow to run</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="stringliteral">        Args:</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="stringliteral">            procedure (function): The desired action procedure</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="stringliteral">            args (tuple, optional): The procedure arguments. Defaults to ().</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="stringliteral">            kwargs (dict, optional): The procedure kwargs . Defaults to {}.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="stringliteral">            timelimit (bool, optional): The match time limit. Defaults to True.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="stringliteral">        Returns:</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="stringliteral">            Thread : Return the created thread</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        thread = Thread(args=args, kwargs=kwargs, daemon=<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        thread_id = id(thread)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keyword">def </span>target(*args, **kwargs):</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                output = procedure(*args, **kwargs)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a68a18876657dfde5e75220fe81ef3614">outputs</a>[thread_id] = output</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordflow">except</span> AccessDenied:</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a68a18876657dfde5e75220fe81ef3614">outputs</a>[thread_id] = <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">except</span>:</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a68a18876657dfde5e75220fe81ef3614">outputs</a>[thread_id] = <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                <span class="keywordflow">raise</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">finally</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                <span class="keywordflow">if</span> thread_id <span class="keywordflow">in</span> self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a482427697163fc69332587a796ab6678">blacklist</a>:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                    self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a482427697163fc69332587a796ab6678">blacklist</a>.remove(thread_id)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                <span class="keywordflow">if</span> thread_id <span class="keywordflow">in</span> self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a77476de3d005f906aad8178c6ef6c269">whitelist</a>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                    self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a77476de3d005f906aad8178c6ef6c269">whitelist</a>.remove(thread_id)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> timelimit:</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a77476de3d005f906aad8178c6ef6c269">whitelist</a>.add(thread_id)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        thread._target = target</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        thread.start()</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">return</span> thread</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+</div>
+<div class="foldopen" id="foldopen00092" data-start="" data-end="">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a159178ca11d6c90b79deadaf5808a05e">   92</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a159178ca11d6c90b79deadaf5808a05e">interrupt</a>(self, thread):</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="stringliteral">&quot;&quot;&quot;Interrupt the desired thread (Action procedure)</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="stringliteral">        Args:</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="stringliteral">            thread (Thead id): The wanted thread</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">if</span> thread.is_alive():</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            thread_id = id(thread)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a482427697163fc69332587a796ab6678">blacklist</a>.add(thread_id)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+</div>
+<div class="foldopen" id="foldopen00102" data-start="" data-end="">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a2d4e70022b01cbb2d17db32aa8b515f3">  102</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a2d4e70022b01cbb2d17db32aa8b515f3">get</a>(self, thread, timeout=None):</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="stringliteral">&quot;&quot;&quot;Wait for the current running thread(Action procedure) is end. Return the procedure result after.</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="stringliteral">        Args:</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="stringliteral">            thread (Thread id): The current action thread to perform</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="stringliteral">            timeout (int, optional): The action timeout. Defaults to None.</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="stringliteral">        Raises:</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="stringliteral">            TimeoutError: Raise this error when a timeour occur</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="stringliteral">        Returns:</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="stringliteral">            return param: the output parameter of the thread</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        thread.join(timeout=timeout)</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">if</span> thread.is_alive():</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            <span class="keywordflow">raise</span> TimeoutError(<span class="stringliteral">&#39;timeout exceeded&#39;</span>)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        thread_id = id(thread)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        output = self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a68a18876657dfde5e75220fe81ef3614">outputs</a>[thread_id]</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        del self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a68a18876657dfde5e75220fe81ef3614">outputs</a>[thread_id]</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">return</span> output</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+</div>
+<div class="foldopen" id="foldopen00123" data-start="" data-end="">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a1de9e15fa8b1acbb513ac10286005659">  123</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a1de9e15fa8b1acbb513ac10286005659">send</a>(self, *args, **kwargs):</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="stringliteral">&quot;&quot;&quot;redefine the manager send method in order to only use the proxy when the running thread is authorized</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="stringliteral">        Raises:</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="stringliteral">            AccessDenied: When the acces is denied for current thread</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="stringliteral">        Returns:</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="stringliteral">            Manager ret code</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        thread_id = id(current_thread())</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        denyaccess = thread_id <span class="keywordflow">in</span> self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a482427697163fc69332587a796ab6678">blacklist</a></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> thread_id <span class="keywordflow">in</span> self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a77476de3d005f906aad8178c6ef6c269">whitelist</a>:</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a7f155cf45088197a16302fd825ee1763">timelimit</a> <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                denyaccess |= (self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a50f97c198b72f1c5a472e107a7ae97ba">get_elapsed_time</a>() &gt; self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a7f155cf45088197a16302fd825ee1763">timelimit</a>)</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            denyaccess |= self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a12cad7827daf6aaf35941c154fa6c775">stop_event</a>.is_set()</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">if</span> denyaccess:</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="keywordflow">raise</span> <a class="code hl_class" href="classrobot__behaviour_1_1_access_denied.html">AccessDenied</a>(thread_id)</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            <span class="keywordflow">return</span> self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a5530fb10378f438ee14d492b66d374c6">manager</a>(self, *args, **kwargs)</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+</div>
+<div class="foldopen" id="foldopen00143" data-start="" data-end="">
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a06e9ac05f41c46ded166f33cce489580">  143</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a06e9ac05f41c46ded166f33cce489580">start_preparation</a>(self):</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="stringliteral">&quot;&quot;&quot;This method is called during prepartion phase in order to run the robot IHM and allow the user to setup the robot before a match.</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keyword">from</span> managers.buttons_manager <span class="keyword">import</span> ButtonsManager</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        ButtonsManager(self).begin()</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+</div>
+<div class="foldopen" id="foldopen00149" data-start="" data-end="">
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#aec9a6539a81572df3d62dc598e3f72a7">  149</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#aec9a6539a81572df3d62dc598e3f72a7">make_decision</a>(self):</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="stringliteral">&quot;&quot;&quot;This function is called to choose which action to execute. The child robot needs to override this method to choose the decision behavior</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="stringliteral">        Raises:</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="stringliteral">            RuntimeError: When the method in not override by the child class</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;the &#39;make_decision&#39; method must be overriden&quot;</span>)</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+</div>
+<div class="foldopen" id="foldopen00157" data-start="" data-end="">
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#ab55017ef783c38cfb6cc568a3d0c7e2c">  157</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#ab55017ef783c38cfb6cc568a3d0c7e2c">goto_procedure</a>(self, destination):</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <span class="stringliteral">&quot;&quot;&quot;This function is called to choose how to reach an action point. The child robot needs to override this method to choose the moving behavior</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="stringliteral">        Args:</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="stringliteral">            destination (tuple): The robot destionation coordinates x,y,theta</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="stringliteral">        Raises:</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="stringliteral">            RuntimeError: When the method in not override by the child class</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;the &#39;goto_procedure&#39; method must be overriden&quot;</span>)</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+</div>
+<div class="foldopen" id="foldopen00168" data-start="" data-end="">
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#aeb06df91352fa965b68b5349e64aae90">  168</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#aeb06df91352fa965b68b5349e64aae90">set_side</a>(self, side):</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="stringliteral">&quot;&quot;&quot;This function is called to choose the robot side. The child robot needs to override this method to choose how to attribute a side</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="stringliteral">        Args:</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="stringliteral">            side (int): the side color</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="stringliteral">        Raises:</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="stringliteral">            RuntimeError: When the method in not override by the child class</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;the &#39;set_side&#39; method must be overriden&quot;</span>)</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+</div>
+<div class="foldopen" id="foldopen00179" data-start="" data-end="">
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a34bc537e3cb9dc33143ca484aaac4696">  179</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a34bc537e3cb9dc33143ca484aaac4696">set_position</a>(self):</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="stringliteral">&quot;&quot;&quot;This function is called to setup the starting position. The child robot needs to override this method to apply the stating position</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="stringliteral">        Raises:</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="stringliteral">            RuntimeError: When the method in not override by the child class</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;the &#39;set_position&#39; method must be overriden&quot;</span>)</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+</div>
+<div class="foldopen" id="foldopen00187" data-start="" data-end="">
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#afb120ec2e9eea8430ccf7fdc9f623440">  187</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#afb120ec2e9eea8430ccf7fdc9f623440">positioning</a>(self):</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="stringliteral">&quot;&quot;&quot;Optionnal positioning method to do a small move after setting up the start position</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keywordflow">pass</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+</div>
+<div class="foldopen" id="foldopen00192" data-start="" data-end="">
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a043382fe0cd4c7a1009e3878c5c70986">  192</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a043382fe0cd4c7a1009e3878c5c70986">start_procedure</a>(self):</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="stringliteral">&quot;&quot;&quot;Optionnal function running when the robot start its match. Usually used tu put the actuators to its default position</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keywordflow">pass</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+</div>
+<div class="foldopen" id="foldopen00197" data-start="" data-end="">
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#ab6867518171e88c5949ec369c1f7cf90">  197</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#ab6867518171e88c5949ec369c1f7cf90">stop_procedure</a>(self):</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="stringliteral">&quot;&quot;&quot;Optionnal function running at the end of match. Usually used to check if the funny action is end</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="keywordflow">pass</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+</div>
+<div class="foldopen" id="foldopen00202" data-start="" data-end="">
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a06ff824420c54c961fc79c26f70d3c21">  202</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a06ff824420c54c961fc79c26f70d3c21">start</a>(self):</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="stringliteral">&quot;&quot;&quot;This method is the core of the robot. It allow the robot to go to each action and reach all action points</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a23b2fcaf33e48cf2b5f7a7077866a927">  205</a></span>        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a23b2fcaf33e48cf2b5f7a7077866a927">starttime</a> = monotonic()</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a12cad7827daf6aaf35941c154fa6c775">stop_event</a>.clear()</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#ac7d1e6ce7137df628d091406b4075bdb">logger</a>(INFO, <span class="stringliteral">&#39;Start Behaviour&#39;</span>)</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            start = self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a462cefadbf2cb5f0d242ca5075b03516">perform</a>(self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a043382fe0cd4c7a1009e3878c5c70986">start_procedure</a>, timelimit=<span class="keyword">False</span>)</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            <span class="keywordflow">while</span> (self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a7f155cf45088197a16302fd825ee1763">timelimit</a> <span class="keywordflow">is</span> <span class="keywordtype">None</span> <span class="keywordflow">or</span> self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a50f97c198b72f1c5a472e107a7ae97ba">get_elapsed_time</a>() &lt; self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a7f155cf45088197a16302fd825ee1763">timelimit</a>) <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a12cad7827daf6aaf35941c154fa6c775">stop_event</a>.is_set():</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                decision = self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#aec9a6539a81572df3d62dc598e3f72a7">make_decision</a>()</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                procedure, args, kwargs, (location, thresholds) = decision</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                <span class="keywordflow">if</span> procedure <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                    self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#ac7d1e6ce7137df628d091406b4075bdb">logger</a>(INFO, <span class="stringliteral">&#39;No decision&#39;</span>)</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                    sleep(1)</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                    <span class="keywordflow">continue</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                <span class="keywordflow">if</span> location <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                    <span class="keywordflow">if</span> location[2] <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#ac7d1e6ce7137df628d091406b4075bdb">logger</a>(</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                            INFO, <span class="stringliteral">&#39;Goto: ({0[0]:.0f}, {0[1]:.0f}, {0[2]:.2f})&#39;</span>.format(location))</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                    <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#ac7d1e6ce7137df628d091406b4075bdb">logger</a>(</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                            INFO, <span class="stringliteral">&#39;Goto: ({0[0]:.0f}, {0[1]:.0f})&#39;</span>.format(location))</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                    goto = self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a462cefadbf2cb5f0d242ca5075b03516">perform</a>(self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#ab55017ef783c38cfb6cc568a3d0c7e2c">goto_procedure</a>,</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                                        args=(location, thresholds))</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                    success = self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a2d4e70022b01cbb2d17db32aa8b515f3">get</a>(goto)</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                    success = <span class="keyword">True</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                <span class="keywordflow">if</span> success:</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                    self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#ac7d1e6ce7137df628d091406b4075bdb">logger</a>(INFO, <span class="stringliteral">&quot;Perform Action&quot;</span>)</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                    action = self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a462cefadbf2cb5f0d242ca5075b03516">perform</a>(procedure, args=args, kwargs=kwargs)</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                    self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a2d4e70022b01cbb2d17db32aa8b515f3">get</a>(action)</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                    self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#ac7d1e6ce7137df628d091406b4075bdb">logger</a>(WARNING, <span class="stringliteral">&#39;Goto failed&#39;</span>)</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        <span class="keywordflow">except</span>:</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a77476de3d005f906aad8178c6ef6c269">whitelist</a>.clear()</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            <span class="keywordflow">raise</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="keywordflow">finally</span>:</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#acbcb5ce6df785bccc8010a7afccba17f">stop</a>()</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a2d4e70022b01cbb2d17db32aa8b515f3">get</a>(start)</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a77476de3d005f906aad8178c6ef6c269">whitelist</a>.add(id(current_thread()))</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            self.<a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#ab6867518171e88c5949ec369c1f7cf90">stop_procedure</a>()</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+</div>
+<div class="foldopen" id="foldopen00244" data-start="" data-end="">
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#acbcb5ce6df785bccc8010a7afccba17f">  244</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#acbcb5ce6df785bccc8010a7afccba17f">stop</a>(self):</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="stringliteral">&quot;&quot;&quot;Stop the robot</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#ac7d1e6ce7137df628d091406b4075bdb">logger</a>(INFO, <span class="stringliteral">&#39;Stop match&#39;</span>)</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a12cad7827daf6aaf35941c154fa6c775">stop_event</a>.set()</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+</div>
+<div class="foldopen" id="foldopen00250" data-start="" data-end="">
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot_behavior.html#a50f97c198b72f1c5a472e107a7ae97ba">  250</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot_behavior.html#a50f97c198b72f1c5a472e107a7ae97ba">get_elapsed_time</a>(self):</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="stringliteral">&quot;&quot;&quot;Get the time elapsed from the start of match</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="stringliteral">        Returns:</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="stringliteral">            long: the elapsed time</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keywordflow">if</span> hasattr(self, <span class="stringliteral">&#39;starttime&#39;</span>):</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            <span class="keywordflow">return</span> monotonic() - self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a23b2fcaf33e48cf2b5f7a7077866a927">starttime</a></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>            <span class="keywordflow">return</span> 0</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+</div>
+</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keyword">from</span> math <span class="keyword">import</span> pi</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keyword">from</span> <a class="code hl_namespace" href="namespacesetups_1_1setup__serialtalks.html">setups.setup_serialtalks</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="keyword">from</span> <a class="code hl_namespace" href="namespacesetups_1_1setup__wheeledbase.html">setups.setup_wheeledbase</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keyword">from</span> <a class="code hl_namespace" href="namespacebehaviours_1_1action_1_1action.html">behaviours.action.action</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="foldopen" id="foldopen00269" data-start="" data-end="">
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_take_cup.html">  269</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classrobot__behaviour_1_1_take_cup.html">TakeCup</a>(Action):</div>
+<div class="foldopen" id="foldopen00270" data-start="" data-end="">
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_take_cup.html#a21d8b41dc5bc72126e28088b96227883">  270</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_take_cup.html#a21d8b41dc5bc72126e28088b96227883">__init__</a>(self, idx):</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_take_cup.html#a3499cfa8f695c2fb0c5e18339ffe1ed3">  271</a></span>            self.<a class="code hl_variable" href="classrobot__behaviour_1_1_take_cup.html#a3499cfa8f695c2fb0c5e18339ffe1ed3">idx</a> = idx</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_take_cup.html#a38e9a6a88caffcc197f6c14cacc4a4c5">  272</a></span>            self.<a class="code hl_variable" href="classrobot__behaviour_1_1_take_cup.html#a38e9a6a88caffcc197f6c14cacc4a4c5">actionpoint</a> = (555, 666)  <span class="comment"># geogebra.get(&#39;Point name&#39;)</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_take_cup.html#a5b50aa50f88158804727d094a584d925">  273</a></span>            self.<a class="code hl_variable" href="classrobot__behaviour_1_1_take_cup.html#a5b50aa50f88158804727d094a584d925">orientation</a> = pi</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_take_cup.html#a34fba309fd7605a858d829932e11713f">  274</a></span>            self.<a class="code hl_variable" href="classrobot__behaviour_1_1_take_cup.html#a34fba309fd7605a858d829932e11713f">actionpoint_precision</a> = 10</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
+</div>
+<div class="foldopen" id="foldopen00276" data-start="" data-end="">
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_take_cup.html#a53ca87c78a9745065cf61354d120059f">  276</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_take_cup.html#a53ca87c78a9745065cf61354d120059f">procedure</a>(self, robot):</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>            print(robot.__class__.__name__)</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            print(<span class="stringliteral">&#39;take : &#39;</span>, self.<a class="code hl_variable" href="classrobot__behaviour_1_1_take_cup.html#a3499cfa8f695c2fb0c5e18339ffe1ed3">idx</a>)</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>            sleep(1)</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot.html">  281</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classrobot__behaviour_1_1_robot.html">Robot</a>(<a class="code hl_class" href="classrobot__behaviour_1_1_robot_behavior.html">RobotBehavior</a>):</div>
+</div>
+<div class="foldopen" id="foldopen00282" data-start="" data-end="">
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot.html#a3618823c343cf23cc5e948f9f150e222">  282</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot.html#a3618823c343cf23cc5e948f9f150e222">__init__</a>(self, manager, *args, timelimit=None, **kwargs):</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            RobotBehavior.__init__(self, manager, *args,</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                                   timelimit=timelimit, **kwargs)</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>            take1 = <a class="code hl_class" href="classrobot__behaviour_1_1_take_cup.html">TakeCup</a>(1)</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            take2 = <a class="code hl_class" href="classrobot__behaviour_1_1_take_cup.html">TakeCup</a>(2)</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            take3 = <a class="code hl_class" href="classrobot__behaviour_1_1_take_cup.html">TakeCup</a>(3)</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            take4 = <a class="code hl_class" href="classrobot__behaviour_1_1_take_cup.html">TakeCup</a>(4)</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            take5 = <a class="code hl_class" href="classrobot__behaviour_1_1_take_cup.html">TakeCup</a>(5)</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot.html#a4fcfb82a6a2ab9967a6e020b107c03e1">  292</a></span>            self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot.html#a4fcfb82a6a2ab9967a6e020b107c03e1">automate</a> = [</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>                take1,</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>                take2,</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>                take3,</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>                take4,</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>                take5</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>            ]</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot.html#a7e81d28b309c962b7a42fe123d961542">  300</a></span>            self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot.html#a7e81d28b309c962b7a42fe123d961542">automatestep</a> = 0</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+</div>
+<div class="foldopen" id="foldopen00302" data-start="" data-end="">
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot.html#a39f59f78c7d77434e56aa2b0eff06962">  302</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot.html#a39f59f78c7d77434e56aa2b0eff06962">make_decision</a>(self):</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>            if(self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot.html#a7e81d28b309c962b7a42fe123d961542">automatestep</a> &lt; len(self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot.html#a4fcfb82a6a2ab9967a6e020b107c03e1">automate</a>)):</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>                action = self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot.html#a4fcfb82a6a2ab9967a6e020b107c03e1">automate</a>[self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot.html#a7e81d28b309c962b7a42fe123d961542">automatestep</a>]</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>                <span class="keywordflow">return</span> <span class="keywordtype">None</span>, (self,), {}, (<span class="keywordtype">None</span>, <span class="keywordtype">None</span>)</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>                self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot_behavior.html#a12cad7827daf6aaf35941c154fa6c775">stop_event</a>.set()</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>            <span class="keywordflow">return</span> action.procedure, (self,), {}, (action.actionpoint + (action.orientation,), (action.actionpoint_precision, <span class="keywordtype">None</span>))</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+</div>
+<div class="foldopen" id="foldopen00311" data-start="" data-end="">
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno"><a class="line" href="classrobot__behaviour_1_1_robot.html#acc8dea3e83853392d0305809254a8e80">  311</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classrobot__behaviour_1_1_robot.html#acc8dea3e83853392d0305809254a8e80">goto_procedure</a>(self, destination, thresholds=(<span class="keywordtype">None</span>, <span class="keywordtype">None</span>)):</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>            self.<a class="code hl_variable" href="classrobot__behaviour_1_1_robot.html#a7e81d28b309c962b7a42fe123d961542">automatestep</a> += 1</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>            sleep(1)</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno"><a class="line" href="namespacerobot__behaviour.html#a7d4cc95ced1aec01480ebcb1a100547f">  316</a></span>    rb = <a class="code hl_class" href="classrobot__behaviour_1_1_robot.html">Robot</a>(manager, timelimit=20)</div>
+</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    rb.start()</div>
+</div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_access_denied_html"><div class="ttname"><a href="classrobot__behaviour_1_1_access_denied.html">robot_behaviour.AccessDenied</a></div><div class="ttdef"><b>Definition</b> <a href="#l00010">robot_behaviour.py:10</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html">robot_behaviour.RobotBehavior</a></div><div class="ttdef"><b>Definition</b> <a href="#l00014">robot_behaviour.py:14</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a043382fe0cd4c7a1009e3878c5c70986"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a043382fe0cd4c7a1009e3878c5c70986">robot_behaviour.RobotBehavior.start_procedure</a></div><div class="ttdeci">start_procedure(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00192">robot_behaviour.py:192</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a06e9ac05f41c46ded166f33cce489580"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a06e9ac05f41c46ded166f33cce489580">robot_behaviour.RobotBehavior.start_preparation</a></div><div class="ttdeci">start_preparation(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00143">robot_behaviour.py:143</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a06ff824420c54c961fc79c26f70d3c21"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a06ff824420c54c961fc79c26f70d3c21">robot_behaviour.RobotBehavior.start</a></div><div class="ttdeci">start(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00202">robot_behaviour.py:202</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a12cad7827daf6aaf35941c154fa6c775"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a12cad7827daf6aaf35941c154fa6c775">robot_behaviour.RobotBehavior.stop_event</a></div><div class="ttdeci">stop_event</div><div class="ttdef"><b>Definition</b> <a href="#l00044">robot_behaviour.py:44</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a159178ca11d6c90b79deadaf5808a05e"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a159178ca11d6c90b79deadaf5808a05e">robot_behaviour.RobotBehavior.interrupt</a></div><div class="ttdeci">interrupt(self, thread)</div><div class="ttdef"><b>Definition</b> <a href="#l00092">robot_behaviour.py:92</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a1de9e15fa8b1acbb513ac10286005659"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a1de9e15fa8b1acbb513ac10286005659">robot_behaviour.RobotBehavior.send</a></div><div class="ttdeci">send(self, *args, **kwargs)</div><div class="ttdef"><b>Definition</b> <a href="#l00123">robot_behaviour.py:123</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a23b2fcaf33e48cf2b5f7a7077866a927"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a23b2fcaf33e48cf2b5f7a7077866a927">robot_behaviour.RobotBehavior.starttime</a></div><div class="ttdeci">starttime</div><div class="ttdef"><b>Definition</b> <a href="#l00205">robot_behaviour.py:205</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a2d4e70022b01cbb2d17db32aa8b515f3"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a2d4e70022b01cbb2d17db32aa8b515f3">robot_behaviour.RobotBehavior.get</a></div><div class="ttdeci">get(self, thread, timeout=None)</div><div class="ttdef"><b>Definition</b> <a href="#l00102">robot_behaviour.py:102</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a34bc537e3cb9dc33143ca484aaac4696"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a34bc537e3cb9dc33143ca484aaac4696">robot_behaviour.RobotBehavior.set_position</a></div><div class="ttdeci">set_position(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00179">robot_behaviour.py:179</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a462cefadbf2cb5f0d242ca5075b03516"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a462cefadbf2cb5f0d242ca5075b03516">robot_behaviour.RobotBehavior.perform</a></div><div class="ttdeci">perform(self, procedure, args=(), kwargs={}, timelimit=True)</div><div class="ttdef"><b>Definition</b> <a href="#l00056">robot_behaviour.py:56</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a482427697163fc69332587a796ab6678"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a482427697163fc69332587a796ab6678">robot_behaviour.RobotBehavior.blacklist</a></div><div class="ttdeci">blacklist</div><div class="ttdef"><b>Definition</b> <a href="#l00042">robot_behaviour.py:42</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a50f97c198b72f1c5a472e107a7ae97ba"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a50f97c198b72f1c5a472e107a7ae97ba">robot_behaviour.RobotBehavior.get_elapsed_time</a></div><div class="ttdeci">get_elapsed_time(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00250">robot_behaviour.py:250</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a5530fb10378f438ee14d492b66d374c6"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a5530fb10378f438ee14d492b66d374c6">robot_behaviour.RobotBehavior.manager</a></div><div class="ttdeci">manager</div><div class="ttdef"><b>Definition</b> <a href="#l00039">robot_behaviour.py:39</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a68a18876657dfde5e75220fe81ef3614"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a68a18876657dfde5e75220fe81ef3614">robot_behaviour.RobotBehavior.outputs</a></div><div class="ttdeci">outputs</div><div class="ttdef"><b>Definition</b> <a href="#l00043">robot_behaviour.py:43</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a77476de3d005f906aad8178c6ef6c269"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a77476de3d005f906aad8178c6ef6c269">robot_behaviour.RobotBehavior.whitelist</a></div><div class="ttdeci">whitelist</div><div class="ttdef"><b>Definition</b> <a href="#l00041">robot_behaviour.py:41</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_a7f155cf45088197a16302fd825ee1763"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#a7f155cf45088197a16302fd825ee1763">robot_behaviour.RobotBehavior.timelimit</a></div><div class="ttdeci">timelimit</div><div class="ttdef"><b>Definition</b> <a href="#l00040">robot_behaviour.py:40</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_ab55017ef783c38cfb6cc568a3d0c7e2c"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#ab55017ef783c38cfb6cc568a3d0c7e2c">robot_behaviour.RobotBehavior.goto_procedure</a></div><div class="ttdeci">goto_procedure(self, destination)</div><div class="ttdef"><b>Definition</b> <a href="#l00157">robot_behaviour.py:157</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_ab6867518171e88c5949ec369c1f7cf90"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#ab6867518171e88c5949ec369c1f7cf90">robot_behaviour.RobotBehavior.stop_procedure</a></div><div class="ttdeci">stop_procedure(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00197">robot_behaviour.py:197</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_abe58d232d7cf89f7f71acb22638529d1"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#abe58d232d7cf89f7f71acb22638529d1">robot_behaviour.RobotBehavior.__init__</a></div><div class="ttdeci">__init__(self, manager, *args, timelimit=None, exec_param=Logger.SHOW, log_level=INFO, **kwargs)</div><div class="ttdef"><b>Definition</b> <a href="#l00030">robot_behaviour.py:30</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_ac7d1e6ce7137df628d091406b4075bdb"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#ac7d1e6ce7137df628d091406b4075bdb">robot_behaviour.RobotBehavior.logger</a></div><div class="ttdeci">logger</div><div class="ttdef"><b>Definition</b> <a href="#l00053">robot_behaviour.py:53</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_acbcb5ce6df785bccc8010a7afccba17f"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#acbcb5ce6df785bccc8010a7afccba17f">robot_behaviour.RobotBehavior.stop</a></div><div class="ttdeci">stop(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00244">robot_behaviour.py:244</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_aeb06df91352fa965b68b5349e64aae90"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#aeb06df91352fa965b68b5349e64aae90">robot_behaviour.RobotBehavior.set_side</a></div><div class="ttdeci">set_side(self, side)</div><div class="ttdef"><b>Definition</b> <a href="#l00168">robot_behaviour.py:168</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_aec9a6539a81572df3d62dc598e3f72a7"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#aec9a6539a81572df3d62dc598e3f72a7">robot_behaviour.RobotBehavior.make_decision</a></div><div class="ttdeci">make_decision(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00149">robot_behaviour.py:149</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_behavior_html_afb120ec2e9eea8430ccf7fdc9f623440"><div class="ttname"><a href="classrobot__behaviour_1_1_robot_behavior.html#afb120ec2e9eea8430ccf7fdc9f623440">robot_behaviour.RobotBehavior.positioning</a></div><div class="ttdeci">positioning(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00187">robot_behaviour.py:187</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_html"><div class="ttname"><a href="classrobot__behaviour_1_1_robot.html">robot_behaviour.Robot</a></div><div class="ttdef"><b>Definition</b> <a href="#l00281">robot_behaviour.py:281</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_html_a3618823c343cf23cc5e948f9f150e222"><div class="ttname"><a href="classrobot__behaviour_1_1_robot.html#a3618823c343cf23cc5e948f9f150e222">robot_behaviour.Robot.__init__</a></div><div class="ttdeci">__init__(self, manager, *args, timelimit=None, **kwargs)</div><div class="ttdef"><b>Definition</b> <a href="#l00282">robot_behaviour.py:282</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_html_a39f59f78c7d77434e56aa2b0eff06962"><div class="ttname"><a href="classrobot__behaviour_1_1_robot.html#a39f59f78c7d77434e56aa2b0eff06962">robot_behaviour.Robot.make_decision</a></div><div class="ttdeci">make_decision(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00302">robot_behaviour.py:302</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_html_a4fcfb82a6a2ab9967a6e020b107c03e1"><div class="ttname"><a href="classrobot__behaviour_1_1_robot.html#a4fcfb82a6a2ab9967a6e020b107c03e1">robot_behaviour.Robot.automate</a></div><div class="ttdeci">automate</div><div class="ttdef"><b>Definition</b> <a href="#l00292">robot_behaviour.py:292</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_html_a7e81d28b309c962b7a42fe123d961542"><div class="ttname"><a href="classrobot__behaviour_1_1_robot.html#a7e81d28b309c962b7a42fe123d961542">robot_behaviour.Robot.automatestep</a></div><div class="ttdeci">automatestep</div><div class="ttdef"><b>Definition</b> <a href="#l00300">robot_behaviour.py:300</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_robot_html_acc8dea3e83853392d0305809254a8e80"><div class="ttname"><a href="classrobot__behaviour_1_1_robot.html#acc8dea3e83853392d0305809254a8e80">robot_behaviour.Robot.goto_procedure</a></div><div class="ttdeci">goto_procedure(self, destination, thresholds=(None, None))</div><div class="ttdef"><b>Definition</b> <a href="#l00311">robot_behaviour.py:311</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_take_cup_html"><div class="ttname"><a href="classrobot__behaviour_1_1_take_cup.html">robot_behaviour.TakeCup</a></div><div class="ttdef"><b>Definition</b> <a href="#l00269">robot_behaviour.py:269</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_take_cup_html_a21d8b41dc5bc72126e28088b96227883"><div class="ttname"><a href="classrobot__behaviour_1_1_take_cup.html#a21d8b41dc5bc72126e28088b96227883">robot_behaviour.TakeCup.__init__</a></div><div class="ttdeci">__init__(self, idx)</div><div class="ttdef"><b>Definition</b> <a href="#l00270">robot_behaviour.py:270</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_take_cup_html_a3499cfa8f695c2fb0c5e18339ffe1ed3"><div class="ttname"><a href="classrobot__behaviour_1_1_take_cup.html#a3499cfa8f695c2fb0c5e18339ffe1ed3">robot_behaviour.TakeCup.idx</a></div><div class="ttdeci">idx</div><div class="ttdef"><b>Definition</b> <a href="#l00271">robot_behaviour.py:271</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_take_cup_html_a34fba309fd7605a858d829932e11713f"><div class="ttname"><a href="classrobot__behaviour_1_1_take_cup.html#a34fba309fd7605a858d829932e11713f">robot_behaviour.TakeCup.actionpoint_precision</a></div><div class="ttdeci">actionpoint_precision</div><div class="ttdef"><b>Definition</b> <a href="#l00274">robot_behaviour.py:274</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_take_cup_html_a38e9a6a88caffcc197f6c14cacc4a4c5"><div class="ttname"><a href="classrobot__behaviour_1_1_take_cup.html#a38e9a6a88caffcc197f6c14cacc4a4c5">robot_behaviour.TakeCup.actionpoint</a></div><div class="ttdeci">actionpoint</div><div class="ttdef"><b>Definition</b> <a href="#l00272">robot_behaviour.py:272</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_take_cup_html_a53ca87c78a9745065cf61354d120059f"><div class="ttname"><a href="classrobot__behaviour_1_1_take_cup.html#a53ca87c78a9745065cf61354d120059f">robot_behaviour.TakeCup.procedure</a></div><div class="ttdeci">procedure(self, robot)</div><div class="ttdef"><b>Definition</b> <a href="#l00276">robot_behaviour.py:276</a></div></div>
+<div class="ttc" id="aclassrobot__behaviour_1_1_take_cup_html_a5b50aa50f88158804727d094a584d925"><div class="ttname"><a href="classrobot__behaviour_1_1_take_cup.html#a5b50aa50f88158804727d094a584d925">robot_behaviour.TakeCup.orientation</a></div><div class="ttdeci">orientation</div><div class="ttdef"><b>Definition</b> <a href="#l00273">robot_behaviour.py:273</a></div></div>
+<div class="ttc" id="anamespacebehaviours_1_1action_1_1action_html"><div class="ttname"><a href="namespacebehaviours_1_1action_1_1action.html">action</a></div></div>
+<div class="ttc" id="anamespacelisteners_1_1end__game__listener_html"><div class="ttname"><a href="namespacelisteners_1_1end__game__listener.html">end_game_listener</a></div></div>
+<div class="ttc" id="anamespacelogs_1_1log__manager_html"><div class="ttname"><a href="namespacelogs_1_1log__manager.html">log_manager</a></div></div>
+<div class="ttc" id="anamespacesetups_1_1setup__serialtalks_html"><div class="ttname"><a href="namespacesetups_1_1setup__serialtalks.html">setup_serialtalks</a></div></div>
+<div class="ttc" id="anamespacesetups_1_1setup__wheeledbase_html"><div class="ttname"><a href="namespacesetups_1_1setup__wheeledbase.html">setup_wheeledbase</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_43e7cb6cb1a673a16d5da880f46fe237.html">behaviours</a></li><li class="navelem"><a class="el" href="robot__behaviour_8py.html">robot_behaviour.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/common/parallel.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('parallel_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">parallel.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="parallel_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespaceparallel.html">    1</a></span><span class="keyword">import</span> threading <span class="keyword">as</span> th</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacelogs_1_1log__manager.html">logs.log_manager</a> <span class="keyword">import</span> LogManager, DEBUG, INFO, ERROR,CRITICAL</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> random</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> string</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> sys </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> traceback</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> common.metaclass <span class="keyword">import</span> Final</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="" data-end="">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespaceparallel.html#a2a60760170e3d767feac76379e4c3878">    9</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceparallel.html#a2a60760170e3d767feac76379e4c3878">_randomString</a>(stringLength=4):</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="stringliteral">&quot;&quot;&quot;Generate a random string of fixed length &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    letters = string.ascii_lowercase</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">return</span> <span class="stringliteral">&#39;&#39;</span>.join(random.choice(letters) <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(stringLength))</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+</div>
+<div class="foldopen" id="foldopen00015" data-start="" data-end="">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classparallel_1_1_thread.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classparallel_1_1_thread.html">Thread</a>(th.Thread, metaclass=Final):</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="stringliteral">&quot;&quot;&quot; </span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="stringliteral">        A custom Thread implementation that use log library in order to catch every crash errors.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="stringliteral">        It&#39;s prohibited to inherit this class because the run overriting destroy the error catching.</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="stringliteral">    &quot;&quot;&quot;</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="" data-end="">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classparallel_1_1_thread.html#a7f2d107842a5cb56c6532051f5b28d3d">   21</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classparallel_1_1_thread.html#a7f2d107842a5cb56c6532051f5b28d3d">__init__</a>(self, group=None, target=None, name=None,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                 args=(), kwargs=<span class="keywordtype">None</span>, log=<span class="keyword">True</span>, daemon=<span class="keywordtype">None</span>):</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="stringliteral">        This constructor should always be called with keyword arguments. Arguments are:</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="stringliteral">        *group* should be None; reserved for future extension when a ThreadGroup</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="stringliteral">        class is implemented.</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="stringliteral">        *target* is the callable object to be invoked by the run()</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="stringliteral">        method. Defaults to None, meaning nothing is called.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="stringliteral">        *name* is the thread name. By default, a unique name is constructed of</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="stringliteral">        the form &quot;Thread-N&quot; where N is a small decimal number. This name is used on the log writing.</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="stringliteral">        *args* is the argument tuple for the target invocation. Defaults to ().</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="stringliteral">        *kwargs* is a dictionary of keyword arguments for the target</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="stringliteral">        invocation. Defaults to {}.</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="stringliteral">        If a subclass overrides the constructor, it must make sure to invoke</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="stringliteral">        the base class constructor (Thread.__init__()) before doing anything</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="stringliteral">        else to the thread.</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        th.Thread.__init__(self, group=group, target=target, name=name,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                           args=args, kwargs=kwargs, daemon=daemon)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classparallel_1_1_thread.html#a64a1c0a6b2140c84fdac1bf422f272b4">   48</a></span>        self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a64a1c0a6b2140c84fdac1bf422f272b4">logger</a> = LogManager().getlogger(<span class="stringliteral">&quot;Threading&quot;</span>, LogManager.BOTH, INFO) <span class="keywordflow">if</span> log <span class="keywordflow">else</span> <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">if</span> name <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classparallel_1_1_thread.html#a02f5663e4856eda31544a8b5c66936f6">   51</a></span>            self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a02f5663e4856eda31544a8b5c66936f6">name</a> = <span class="stringliteral">&quot;thread-&quot;</span>+<a class="code hl_function" href="namespaceparallel.html#a2a60760170e3d767feac76379e4c3878">_randomString</a>(4)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a02f5663e4856eda31544a8b5c66936f6">name</a> = <span class="stringliteral">&quot;thread-&quot;</span>+name</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+</div>
+<div class="foldopen" id="foldopen00056" data-start="" data-end="">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classparallel_1_1_thread.html#a3e386d840111381292daa261d4246101">   56</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classparallel_1_1_thread.html#a3e386d840111381292daa261d4246101">start</a>(self):</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="stringliteral">        Start the thread&#39;s activity.</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="stringliteral">        It must be called at most once per thread object. It arranges for the</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="stringliteral">        object&#39;s run() method to be invoked in a separate thread of control.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="stringliteral">        This method will raise a RuntimeError if called more than once on the</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="stringliteral">        same thread object.</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a64a1c0a6b2140c84fdac1bf422f272b4">logger</a>(INFO, self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a02f5663e4856eda31544a8b5c66936f6">name</a>, <span class="stringliteral">&quot;start&quot;</span>)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        th.Thread.start(self)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+</div>
+<div class="foldopen" id="foldopen00071" data-start="" data-end="">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classparallel_1_1_thread.html#abd8990464f03fd182501a1df3672271d">   71</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classparallel_1_1_thread.html#abd8990464f03fd182501a1df3672271d">run</a>(self):</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="stringliteral">        Method representing the thread&#39;s activity.</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="stringliteral">        DO NOT OVERRIDE THIS METHOD</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="stringliteral">        You may override this method in a subclass. The standard run() method</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="stringliteral">        invokes the callable object passed to the object&#39;s constructor as the</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="stringliteral">        target argument, if any, with sequential and keyword arguments taken</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="stringliteral">        from the args and kwargs arguments, respectively.</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            th.Thread.run(self)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">except</span> (Exception, TypeError):</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            etype, value, tb = sys.exc_info()</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a64a1c0a6b2140c84fdac1bf422f272b4">logger</a>(CRITICAL,self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a02f5663e4856eda31544a8b5c66936f6">name</a>,<span class="stringliteral">&quot;Error on thread !!&quot;</span>, <span class="stringliteral">&quot;\n&quot;</span>, error=<span class="stringliteral">&#39;&#39;</span>.<a class="code hl_function" href="classparallel_1_1_thread.html#a2fcc88715f4b933c8f1eaadfbcf61a7f">join</a>(traceback.format_list(traceback.extract_tb(tb))),type= etype.__name__, value=str(value))</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+</div>
+<div class="foldopen" id="foldopen00089" data-start="" data-end="">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classparallel_1_1_thread.html#a2fcc88715f4b933c8f1eaadfbcf61a7f">   89</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classparallel_1_1_thread.html#a2fcc88715f4b933c8f1eaadfbcf61a7f">join</a>(self, timeout=None):</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="stringliteral">        Wait until the thread terminates.</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="stringliteral">        This blocks the calling thread until the thread whose join() method is</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="stringliteral">        called terminates -- either normally or through an unhandled exception</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="stringliteral">        or until the optional timeout occurs.</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="stringliteral">        When the timeout argument is present and not None, it should be a</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="stringliteral">        floating point number specifying a timeout for the operation in seconds</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="stringliteral">        (or fractions thereof). As join() always returns None, you must call</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="stringliteral">        isAlive() after join() to decide whether a timeout happened -- if the</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="stringliteral">        thread is still alive, the join() call timed out.</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="stringliteral">        When the timeout argument is not present or None, the operation will</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="stringliteral">        block until the thread terminates.</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="stringliteral">        A thread can be join()ed many times.</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="stringliteral">        join() raises a RuntimeError if an attempt is made to join the current</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="stringliteral">        thread as that would cause a deadlock. It is also an error to join() a</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="stringliteral">        thread before it has been started and attempts to do so raises the same</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="stringliteral">        exception.</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a64a1c0a6b2140c84fdac1bf422f272b4">logger</a>(DEBUG, self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a02f5663e4856eda31544a8b5c66936f6">name</a>, <span class="stringliteral">&quot;join&quot;</span>, timeout=timeout) </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">return</span> th.Thread.join(self,timeout=timeout)</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+</div>
+<div class="foldopen" id="foldopen00117" data-start="" data-end="">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classparallel_1_1_thread.html#a522eed422bdd4408ba1933b1eabb595b">  117</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classparallel_1_1_thread.html#a522eed422bdd4408ba1933b1eabb595b">is_alive</a>(self):</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="stringliteral">        Return whether the thread is alive.</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="stringliteral">        This method returns True just before the run() method starts until just</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="stringliteral">        after the run() method terminates. The module function enumerate()</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="stringliteral">        returns a list of all alive threads.</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a64a1c0a6b2140c84fdac1bf422f272b4">logger</a>(DEBUG, self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a02f5663e4856eda31544a8b5c66936f6">name</a>, <span class="stringliteral">&quot;is_alive&quot;</span>)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">return</span> th.Thread.is_alive(self)</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+</div>
+<div class="foldopen" id="foldopen00129" data-start="" data-end="">
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classparallel_1_1_thread.html#a71b304104620c56f5102734a6eda8509">  129</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classparallel_1_1_thread.html#a71b304104620c56f5102734a6eda8509">isDaemon</a>(self):</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="stringliteral">            Return if this thread is acctualy a deamond one.</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a64a1c0a6b2140c84fdac1bf422f272b4">logger</a>(DEBUG, self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a02f5663e4856eda31544a8b5c66936f6">name</a>, <span class="stringliteral">&quot;isDaemon&quot;</span>)</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordflow">return</span> th.Thread.isDaemon(self)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+</div>
+<div class="foldopen" id="foldopen00136" data-start="" data-end="">
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classparallel_1_1_thread.html#a7d5025265d54c4d88e51599ae4bb23d6">  136</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classparallel_1_1_thread.html#a7d5025265d54c4d88e51599ae4bb23d6">setDaemon</a>(self, daemonic):</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="stringliteral">            Set deamon status.</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a64a1c0a6b2140c84fdac1bf422f272b4">logger</a>(DEBUG, self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a02f5663e4856eda31544a8b5c66936f6">name</a>, <span class="stringliteral">&quot;setDaemon&quot;</span>)</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">return</span> th.Thread.setDaemon(self, daemonic)</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+</div>
+<div class="foldopen" id="foldopen00143" data-start="" data-end="">
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="classparallel_1_1_thread.html#a6018f527048a1c0691acc8ee99c0b7dd">  143</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classparallel_1_1_thread.html#a6018f527048a1c0691acc8ee99c0b7dd">getName</a>(self):</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="stringliteral">            Basic name getter.</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a64a1c0a6b2140c84fdac1bf422f272b4">logger</a>(DEBUG, self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a02f5663e4856eda31544a8b5c66936f6">name</a>, <span class="stringliteral">&quot;getName&quot;</span>)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordflow">return</span> th.Thread.getName(self)</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+</div>
+<div class="foldopen" id="foldopen00150" data-start="" data-end="">
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="classparallel_1_1_thread.html#a6ff4d7bb0876715c67258d456c45f0d6">  150</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classparallel_1_1_thread.html#a6ff4d7bb0876715c67258d456c45f0d6">setName</a>(self, name):</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="stringliteral">            Basic name setter.</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a64a1c0a6b2140c84fdac1bf422f272b4">logger</a>(DEBUG, self.<a class="code hl_variable" href="classparallel_1_1_thread.html#a02f5663e4856eda31544a8b5c66936f6">name</a>, <span class="stringliteral">&quot;setName&quot;</span>)     </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordflow">return</span> th.Thread(name)</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+</div>
+</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keyword">import</span> time </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="foldopen" id="foldopen00162" data-start="" data-end="">
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="namespaceparallel.html#ab8e0b1680982aec3e8e73fa9d4ffbb51">  162</a></span>    <span class="keyword">def </span><a class="code hl_function" href="namespaceparallel.html#ab8e0b1680982aec3e8e73fa9d4ffbb51">lol</a>():</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        time.sleep(1)</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        1/0</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="namespaceparallel.html#a8c1f2287c20a8006b597292cf85456b7">  166</a></span>    a = LogManager()</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    a.start()</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="namespaceparallel.html#a99cc709af237b480d6483a681702f4b5">  168</a></span>    b = <a class="code hl_class" href="classparallel_1_1_thread.html">Thread</a>(target=lol)</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    b.start()</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    b.join()</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    time.sleep(3)</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    a.stop()</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    </div>
+<div class="foldopen" id="foldopen00174" data-start="" data-end="">
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classparallel_1_1_b.html">  174</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classparallel_1_1_b.html">B</a>(<a class="code hl_class" href="classparallel_1_1_thread.html">Thread</a>):</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordflow">pass</span></div>
+</div>
+<div class="ttc" id="aclassparallel_1_1_b_html"><div class="ttname"><a href="classparallel_1_1_b.html">parallel.B</a></div><div class="ttdef"><b>Definition</b> <a href="#l00174">parallel.py:174</a></div></div>
+<div class="ttc" id="aclassparallel_1_1_thread_html"><div class="ttname"><a href="classparallel_1_1_thread.html">parallel.Thread</a></div><div class="ttdef"><b>Definition</b> <a href="#l00015">parallel.py:15</a></div></div>
+<div class="ttc" id="aclassparallel_1_1_thread_html_a02f5663e4856eda31544a8b5c66936f6"><div class="ttname"><a href="classparallel_1_1_thread.html#a02f5663e4856eda31544a8b5c66936f6">parallel.Thread.name</a></div><div class="ttdeci">name</div><div class="ttdef"><b>Definition</b> <a href="#l00051">parallel.py:51</a></div></div>
+<div class="ttc" id="aclassparallel_1_1_thread_html_a2fcc88715f4b933c8f1eaadfbcf61a7f"><div class="ttname"><a href="classparallel_1_1_thread.html#a2fcc88715f4b933c8f1eaadfbcf61a7f">parallel.Thread.join</a></div><div class="ttdeci">join(self, timeout=None)</div><div class="ttdef"><b>Definition</b> <a href="#l00089">parallel.py:89</a></div></div>
+<div class="ttc" id="aclassparallel_1_1_thread_html_a3e386d840111381292daa261d4246101"><div class="ttname"><a href="classparallel_1_1_thread.html#a3e386d840111381292daa261d4246101">parallel.Thread.start</a></div><div class="ttdeci">start(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00056">parallel.py:56</a></div></div>
+<div class="ttc" id="aclassparallel_1_1_thread_html_a522eed422bdd4408ba1933b1eabb595b"><div class="ttname"><a href="classparallel_1_1_thread.html#a522eed422bdd4408ba1933b1eabb595b">parallel.Thread.is_alive</a></div><div class="ttdeci">is_alive(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00117">parallel.py:117</a></div></div>
+<div class="ttc" id="aclassparallel_1_1_thread_html_a6018f527048a1c0691acc8ee99c0b7dd"><div class="ttname"><a href="classparallel_1_1_thread.html#a6018f527048a1c0691acc8ee99c0b7dd">parallel.Thread.getName</a></div><div class="ttdeci">getName(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00143">parallel.py:143</a></div></div>
+<div class="ttc" id="aclassparallel_1_1_thread_html_a64a1c0a6b2140c84fdac1bf422f272b4"><div class="ttname"><a href="classparallel_1_1_thread.html#a64a1c0a6b2140c84fdac1bf422f272b4">parallel.Thread.logger</a></div><div class="ttdeci">logger</div><div class="ttdef"><b>Definition</b> <a href="#l00048">parallel.py:48</a></div></div>
+<div class="ttc" id="aclassparallel_1_1_thread_html_a6ff4d7bb0876715c67258d456c45f0d6"><div class="ttname"><a href="classparallel_1_1_thread.html#a6ff4d7bb0876715c67258d456c45f0d6">parallel.Thread.setName</a></div><div class="ttdeci">setName(self, name)</div><div class="ttdef"><b>Definition</b> <a href="#l00150">parallel.py:150</a></div></div>
+<div class="ttc" id="aclassparallel_1_1_thread_html_a71b304104620c56f5102734a6eda8509"><div class="ttname"><a href="classparallel_1_1_thread.html#a71b304104620c56f5102734a6eda8509">parallel.Thread.isDaemon</a></div><div class="ttdeci">isDaemon(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00129">parallel.py:129</a></div></div>
+<div class="ttc" id="aclassparallel_1_1_thread_html_a7d5025265d54c4d88e51599ae4bb23d6"><div class="ttname"><a href="classparallel_1_1_thread.html#a7d5025265d54c4d88e51599ae4bb23d6">parallel.Thread.setDaemon</a></div><div class="ttdeci">setDaemon(self, daemonic)</div><div class="ttdef"><b>Definition</b> <a href="#l00136">parallel.py:136</a></div></div>
+<div class="ttc" id="aclassparallel_1_1_thread_html_a7f2d107842a5cb56c6532051f5b28d3d"><div class="ttname"><a href="classparallel_1_1_thread.html#a7f2d107842a5cb56c6532051f5b28d3d">parallel.Thread.__init__</a></div><div class="ttdeci">__init__(self, group=None, target=None, name=None, args=(), kwargs=None, log=True, daemon=None)</div><div class="ttdef"><b>Definition</b> <a href="#l00021">parallel.py:22</a></div></div>
+<div class="ttc" id="aclassparallel_1_1_thread_html_abd8990464f03fd182501a1df3672271d"><div class="ttname"><a href="classparallel_1_1_thread.html#abd8990464f03fd182501a1df3672271d">parallel.Thread.run</a></div><div class="ttdeci">run(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00071">parallel.py:71</a></div></div>
+<div class="ttc" id="anamespacelogs_1_1log__manager_html"><div class="ttname"><a href="namespacelogs_1_1log__manager.html">log_manager</a></div></div>
+<div class="ttc" id="anamespaceparallel_html_a2a60760170e3d767feac76379e4c3878"><div class="ttname"><a href="namespaceparallel.html#a2a60760170e3d767feac76379e4c3878">parallel._randomString</a></div><div class="ttdeci">_randomString(stringLength=4)</div><div class="ttdef"><b>Definition</b> <a href="#l00009">parallel.py:9</a></div></div>
+<div class="ttc" id="anamespaceparallel_html_ab8e0b1680982aec3e8e73fa9d4ffbb51"><div class="ttname"><a href="namespaceparallel.html#ab8e0b1680982aec3e8e73fa9d4ffbb51">parallel.lol</a></div><div class="ttdeci">lol()</div><div class="ttdef"><b>Definition</b> <a href="#l00162">parallel.py:162</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_b3df9f9a7fbc99f43719a864f6aef0f4.html">common</a></li><li class="navelem"><a class="el" href="parallel_8py.html">parallel.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

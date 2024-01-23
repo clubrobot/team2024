@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/daughter_cards/sensors.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('sensors_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">sensors.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="sensors_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacesensors.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> collections.abc <span class="keyword">import</span> Callable, Iterable, Mapping</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">from</span> typing <span class="keyword">import</span> Any</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">from</span> common.serialtalking <span class="keyword">import</span> SerialTalking</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacecommon_1_1serialtypes.html">common.serialtypes</a> <span class="keyword">import</span> USHORT, UCHAR</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> time</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespacesensors.html#a698b4a66573ab48ea43b1dd6a1f6a543">   10</a></span>UNUSED_SENSOR = 65535</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"># Instructions</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacesensors.html#a4aa6c111b30bd13ea3ee86d28be079f4">   13</a></span>GET_SENSOR1_OPCODE = 0x10</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespacesensors.html#ae9b726c0c4d706ddaba93b430e635121">   14</a></span>GET_SENSOR2_OPCODE = 0x11</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespacesensors.html#ad2062dbd78f7549de4333ed80db7c25b">   15</a></span>GET_SENSOR3_OPCODE = 0x12</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacesensors.html#a95b88285d86ae0452194ce757c0cb1ad">   16</a></span>GET_SENSOR4_OPCODE = 0x13</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacesensors.html#a332b04eb17f77f8f0a2f7135e757340e">   17</a></span>GET_SENSOR5_OPCODE = 0x14</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacesensors.html#a1fb7fb67946dcd3d34e683444ed785c0">   18</a></span>GET_SENSOR6_OPCODE = 0x15</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespacesensors.html#a0d5765a1095904f1af47e14ab36018bd">   19</a></span>GET_SENSOR7_OPCODE = 0x16</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespacesensors.html#a6e8853c44d07d2091f35a270dcccfa83">   20</a></span>GET_SENSOR8_OPCODE = 0x17</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacesensors.html#aa1608bb2b496b27e8ee97252138adea2">   22</a></span>CHECK_ERROR_OPCODE = 0X18</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespacesensors.html#ac9fee86362949dd04b49a871050f4ecf">   24</a></span>GET_ALL_TOPIC_OPCODE = 0x01</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="" data-end="">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html">   27</a></span><span class="keyword">class </span><a class="code hl_class" href="classsensors_1_1_sensors.html">Sensors</a>():</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#aac5adbcbf939a82fd303dc03d31972be">   28</a></span>    TIMESTEP = 100</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a348b1ef1e18f394f2c8154ce14d03890">   29</a></span>    MAX_DIST = 10000</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="stringliteral">&quot;&quot;&quot;     </span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="stringliteral">    DEFAULT = {GET_SENSOR1_OPCODE: Deserializer(USHORT(MAX_DIST)),</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="stringliteral">               GET_SENSOR2_OPCODE: Deserializer(USHORT(MAX_DIST)),</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="stringliteral">               GET_SENSOR3_OPCODE: Deserializer(USHORT(MAX_DIST)),</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="stringliteral">               GET_SENSOR4_OPCODE: Deserializer(USHORT(MAX_DIST)),</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="stringliteral">               GET_SENSOR5_OPCODE: Deserializer(USHORT(MAX_DIST)),</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="stringliteral">               GET_SENSOR6_OPCODE: Deserializer(USHORT(MAX_DIST)),</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="stringliteral">               GET_SENSOR7_OPCODE: Deserializer(USHORT(MAX_DIST)),</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="stringliteral">               GET_SENSOR8_OPCODE: Deserializer(USHORT(MAX_DIST)), </span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="stringliteral">               CHECK_ERROR_OPCODE: Deserializer(USHORT(MAX_DIST)), </span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="stringliteral">              } &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="foldopen" id="foldopen00042" data-start="" data-end="">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#ad700a9cfa2a53b854f7c7e3547f88f9f">   42</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#ad700a9cfa2a53b854f7c7e3547f88f9f">__init__</a>(self, uuid=&#39;SensorBoard&#39;):</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a95e1b177442975056d139f7639e6c046">   43</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a95e1b177442975056d139f7639e6c046">sensors</a> = SerialTalking(uuid)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a606cb684494b7f7b47420dfc0be340e7">   44</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a606cb684494b7f7b47420dfc0be340e7">last_time</a> = <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            if(self.execute(CHECK_ERROR_OPCODE).read(UCHAR)!=128): <span class="keywordflow">raise</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            print(<span class="stringliteral">&quot;PASSE SENSORS&quot;</span>)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">except</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            print(<span class="stringliteral">&quot;ERROR SENSORS&quot;</span>)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">pass</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#adee3098338af7fdb578b215446b55acb">   53</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#adee3098338af7fdb578b215446b55acb">sensor1</a> = self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a348b1ef1e18f394f2c8154ce14d03890">MAX_DIST</a></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#abacf25d138b46e1eb79c7e625c705e4d">   54</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#abacf25d138b46e1eb79c7e625c705e4d">sensor2</a> = self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a348b1ef1e18f394f2c8154ce14d03890">MAX_DIST</a></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#af7b85f47b965d068920d7b7c96a351b4">   55</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#af7b85f47b965d068920d7b7c96a351b4">sensor3</a> = self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a348b1ef1e18f394f2c8154ce14d03890">MAX_DIST</a></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#ab3394df2ff7dd84b9e44c0fcb12ebaf8">   56</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#ab3394df2ff7dd84b9e44c0fcb12ebaf8">sensor4</a> = self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a348b1ef1e18f394f2c8154ce14d03890">MAX_DIST</a></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a028ab7bd451acfdc330d4c9797805efa">   57</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a028ab7bd451acfdc330d4c9797805efa">sensor5</a> = self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a348b1ef1e18f394f2c8154ce14d03890">MAX_DIST</a></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#ad01507c77112fb539d425322e0256f6d">   58</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#ad01507c77112fb539d425322e0256f6d">sensor6</a> = self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a348b1ef1e18f394f2c8154ce14d03890">MAX_DIST</a></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a680a20a49665b97e7d84df0ea7b094ca">   59</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a680a20a49665b97e7d84df0ea7b094ca">sensor7</a> = self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a348b1ef1e18f394f2c8154ce14d03890">MAX_DIST</a></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a6d452303f9926ee1a93d49f548423d9b">   60</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a6d452303f9926ee1a93d49f548423d9b">sensor8</a> = self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a348b1ef1e18f394f2c8154ce14d03890">MAX_DIST</a></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="preprocessor">@TopicHandler(USHORT, USHORT, USHORT, USHORT, USHORT, USHORT, USHORT, USHORT)</span></div>
+<div class="foldopen" id="foldopen00065" data-start="" data-end="">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a04d2d2f2b05b511502408e082fb7cda3">   65</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a04d2d2f2b05b511502408e082fb7cda3">get_all_sensors_handler</a>(self, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7, sensor8):</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#adee3098338af7fdb578b215446b55acb">sensor1</a> = sensor1</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#abacf25d138b46e1eb79c7e625c705e4d">sensor2</a> = sensor2</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#af7b85f47b965d068920d7b7c96a351b4">sensor3</a> = sensor3</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#ab3394df2ff7dd84b9e44c0fcb12ebaf8">sensor4</a> = sensor4</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a028ab7bd451acfdc330d4c9797805efa">sensor5</a> = sensor5</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#ad01507c77112fb539d425322e0256f6d">sensor6</a> = sensor6</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a680a20a49665b97e7d84df0ea7b094ca">sensor7</a> = sensor7</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a6d452303f9926ee1a93d49f548423d9b">sensor8</a> = sensor8</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+</div>
+<div class="foldopen" id="foldopen00075" data-start="" data-end="">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a3051589ed1bf05fac49c59b4db169b5b">   75</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a3051589ed1bf05fac49c59b4db169b5b">get_all</a>(self):</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">return</span> [self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#adee3098338af7fdb578b215446b55acb">sensor1</a>, self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#abacf25d138b46e1eb79c7e625c705e4d">sensor2</a>, self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#af7b85f47b965d068920d7b7c96a351b4">sensor3</a>, self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#ab3394df2ff7dd84b9e44c0fcb12ebaf8">sensor4</a>, self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a028ab7bd451acfdc330d4c9797805efa">sensor5</a>, self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#ad01507c77112fb539d425322e0256f6d">sensor6</a>, self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a680a20a49665b97e7d84df0ea7b094ca">sensor7</a>, self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a6d452303f9926ee1a93d49f548423d9b">sensor8</a>]</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+</div>
+<div class="foldopen" id="foldopen00078" data-start="" data-end="">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a0bab9f5511d22f8da1dfaade0c2c9880">   78</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a0bab9f5511d22f8da1dfaade0c2c9880">get_range_left_front</a>(self):</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#adee3098338af7fdb578b215446b55acb">sensor1</a></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+</div>
+<div class="foldopen" id="foldopen00081" data-start="" data-end="">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a50fb616a75a0719b57084fbe2e04f462">   81</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a50fb616a75a0719b57084fbe2e04f462">get_range_mid_left_front</a>(self):</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">return</span> self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#abacf25d138b46e1eb79c7e625c705e4d">sensor2</a></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+</div>
+<div class="foldopen" id="foldopen00084" data-start="" data-end="">
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a2d86801a6528ed9d60d3a8f61dfd7d3b">   84</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a2d86801a6528ed9d60d3a8f61dfd7d3b">get_range_mid_right_front</a>(self):</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">return</span> self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#af7b85f47b965d068920d7b7c96a351b4">sensor3</a></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+</div>
+<div class="foldopen" id="foldopen00087" data-start="" data-end="">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a468a25ce2d7493651b41ef51432e4152">   87</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a468a25ce2d7493651b41ef51432e4152">get_range_right_front</a>(self):</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">return</span> self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#ab3394df2ff7dd84b9e44c0fcb12ebaf8">sensor4</a></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+</div>
+<div class="foldopen" id="foldopen00090" data-start="" data-end="">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a27e3be62c8e52c97673c218a225b8494">   90</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a27e3be62c8e52c97673c218a225b8494">get_range_left_back</a>(self):</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">return</span> self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a028ab7bd451acfdc330d4c9797805efa">sensor5</a></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+</div>
+<div class="foldopen" id="foldopen00093" data-start="" data-end="">
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a9c0de2fafe7e30a0e837fd68b91f81fa">   93</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a9c0de2fafe7e30a0e837fd68b91f81fa">get_range_mid_left_back</a>(self):</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#ad01507c77112fb539d425322e0256f6d">sensor6</a></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+</div>
+<div class="foldopen" id="foldopen00096" data-start="" data-end="">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a6a480b8978c6f2cc16fd5de448055b27">   96</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a6a480b8978c6f2cc16fd5de448055b27">get_range_mid_right_back</a>(self):</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">return</span> self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a680a20a49665b97e7d84df0ea7b094ca">sensor7</a></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+</div>
+<div class="foldopen" id="foldopen00099" data-start="" data-end="">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#afcad986f712c9897b3ded32bfd8bf735">   99</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#afcad986f712c9897b3ded32bfd8bf735">get_range_right_back</a>(self):</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">return</span> self.<a class="code hl_variable" href="classsensors_1_1_sensors.html#a6d452303f9926ee1a93d49f548423d9b">sensor8</a></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+</div>
+<div class="foldopen" id="foldopen00102" data-start="" data-end="">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a20fc6b41466000eb7f62d29539aaefae">  102</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a20fc6b41466000eb7f62d29539aaefae">get_sensor1_range</a>(self):</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">return</span> self.execute(GET_SENSOR1_OPCODE).read(USHORT)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+</div>
+<div class="foldopen" id="foldopen00105" data-start="" data-end="">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#ac1ca4e2d3549040e57bec6306ec33999">  105</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#ac1ca4e2d3549040e57bec6306ec33999">get_sensor2_range</a>(self):</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">return</span> self.execute(GET_SENSOR2_OPCODE).read(USHORT)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+</div>
+<div class="foldopen" id="foldopen00108" data-start="" data-end="">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#ad987835fd7bb970eb46b6c799d09e3d0">  108</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#ad987835fd7bb970eb46b6c799d09e3d0">get_sensor3_range</a>(self):</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">return</span> self.execute(GET_SENSOR3_OPCODE).read(USHORT)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+</div>
+<div class="foldopen" id="foldopen00111" data-start="" data-end="">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#ad0e971eda6ae11dd93028247d06d6500">  111</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#ad0e971eda6ae11dd93028247d06d6500">get_sensor4_range</a>(self):</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">return</span> self.execute(GET_SENSOR4_OPCODE).read(USHORT)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+</div>
+<div class="foldopen" id="foldopen00114" data-start="" data-end="">
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a8fcc18299972155e3c6c3e3fb3dc6d35">  114</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a8fcc18299972155e3c6c3e3fb3dc6d35">get_sensor5_range</a>(self):</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">return</span> self.execute(GET_SENSOR5_OPCODE).read(USHORT)</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+</div>
+<div class="foldopen" id="foldopen00117" data-start="" data-end="">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a9f5d4307ea2ca4f4c96022735f915ccc">  117</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a9f5d4307ea2ca4f4c96022735f915ccc">get_sensor6_range</a>(self):</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">return</span> self.execute(GET_SENSOR6_OPCODE).read(USHORT)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+</div>
+<div class="foldopen" id="foldopen00120" data-start="" data-end="">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#adfd008074f02936d545edda140050f0b">  120</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#adfd008074f02936d545edda140050f0b">get_sensor7_range</a>(self):</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">return</span> self.execute(GET_SENSOR7_OPCODE).read(USHORT)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+</div>
+<div class="foldopen" id="foldopen00123" data-start="" data-end="">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#a883e7eb93a514b4179423c3f0afe7b7c">  123</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#a883e7eb93a514b4179423c3f0afe7b7c">get_sensor8_range</a>(self):</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordflow">return</span> self.execute(GET_SENSOR8_OPCODE).read(USHORT)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+</div>
+<div class="foldopen" id="foldopen00126" data-start="" data-end="">
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#ad36f20a13ad43faad3b28068d2869dd9">  126</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#ad36f20a13ad43faad3b28068d2869dd9">is_ready</a>(self):</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            <span class="keywordflow">return</span> self.is_connected</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">except</span>:</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+</div>
+<div class="foldopen" id="foldopen00132" data-start="" data-end="">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classsensors_1_1_sensors.html#aed144bfde93a6be5b9118aa1db82d4e0">  132</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_sensors.html#aed144bfde93a6be5b9118aa1db82d4e0">check_errors</a>(self):</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">return</span> self.execute(CHECK_ERROR_OPCODE).read(UCHAR)</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+</div>
+</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keyword">import</span> threading</div>
+<div class="foldopen" id="foldopen00136" data-start="" data-end="">
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classsensors_1_1_thread_sensors.html">  136</a></span><span class="keyword">class </span><a class="code hl_class" href="classsensors_1_1_thread_sensors.html">ThreadSensors</a>():</div>
+<div class="foldopen" id="foldopen00137" data-start="" data-end="">
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classsensors_1_1_thread_sensors.html#a5de4b0400492e95b3d8084a508071c20">  137</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors_1_1_thread_sensors.html#a5de4b0400492e95b3d8084a508071c20">__init__</a>(self, sensors,robot):</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">  138</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>=sensors</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classsensors_1_1_thread_sensors.html#adc1307826dc788217b2375a1e1d3ad67">  139</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#adc1307826dc788217b2375a1e1d3ad67">robot</a>=robot</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classsensors_1_1_thread_sensors.html#ae63262cfcc1d63e6d798a5eeca93900e">  140</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#ae63262cfcc1d63e6d798a5eeca93900e">thread</a>=threading.Thread(target=self.<a class="code hl_function" href="classsensors_1_1_thread_sensors.html#a5b49e251ee8f30a8d69c509d5ffb6556">loop</a>)</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        print(<span class="stringliteral">&quot;debut2&quot;</span>)</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#ae63262cfcc1d63e6d798a5eeca93900e">thread</a>.start()</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    </div>
+</div>
+<div class="foldopen" id="foldopen00144" data-start="" data-end="">
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classsensors_1_1_thread_sensors.html#a5b49e251ee8f30a8d69c509d5ffb6556">  144</a></span>    <span class="keyword">def </span><a class="code hl_function" href="actionneurs_2src_2main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop</a>(self):</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classsensors_1_1_thread_sensors.html#a328b299960bf5a354bcf2a5e7596033e">  145</a></span>        self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a328b299960bf5a354bcf2a5e7596033e">looping</a>=<span class="keyword">True</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        while(self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a328b299960bf5a354bcf2a5e7596033e">looping</a>):</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.sensor1=self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.get_sensor1_range()</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <span class="comment">#print(self.sensors.sensor1)</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.sensor2=self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.get_sensor2_range()</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.sensor3=self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.get_sensor3_range()</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.sensor4=self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.get_sensor4_range()</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.sensor5=self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.get_sensor5_range()</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.sensor6=self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.get_sensor6_range()</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.sensor7=self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.get_sensor7_range()</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.sensor8=self.<a class="code hl_variable" href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors</a>.get_sensor8_range()</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+</div>
+</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">from</span> <a class="code hl_namespace" href="namespacesetups_1_1setup__serialtalks.html">setups.setup_serialtalks</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="namespacesensors.html#a943ceb3553cfb266a5ba250d0d2d2b8b">  163</a></span>    s = <a class="code hl_class" href="classsensors_1_1_sensors.html">Sensors</a>(manager, <span class="stringliteral">&#39;/dev/ttyUSB0&#39;</span>)</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    print(s.get_sensor1_range())</div>
+<div class="ttc" id="aactionneurs_2src_2main_8cpp_html_afe461d27b9c48d5921c00d521181f12f"><div class="ttname"><a href="actionneurs_2src_2main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop</a></div><div class="ttdeci">void loop()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2main_8cpp_source.html#l00052">main.cpp:52</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html"><div class="ttname"><a href="classsensors_1_1_sensors.html">sensors.Sensors</a></div><div class="ttdef"><b>Definition</b> <a href="#l00027">sensors.py:27</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a028ab7bd451acfdc330d4c9797805efa"><div class="ttname"><a href="classsensors_1_1_sensors.html#a028ab7bd451acfdc330d4c9797805efa">sensors.Sensors.sensor5</a></div><div class="ttdeci">sensor5</div><div class="ttdef"><b>Definition</b> <a href="#l00057">sensors.py:57</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a04d2d2f2b05b511502408e082fb7cda3"><div class="ttname"><a href="classsensors_1_1_sensors.html#a04d2d2f2b05b511502408e082fb7cda3">sensors.Sensors.get_all_sensors_handler</a></div><div class="ttdeci">get_all_sensors_handler(self, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7, sensor8)</div><div class="ttdef"><b>Definition</b> <a href="#l00065">sensors.py:65</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a0bab9f5511d22f8da1dfaade0c2c9880"><div class="ttname"><a href="classsensors_1_1_sensors.html#a0bab9f5511d22f8da1dfaade0c2c9880">sensors.Sensors.get_range_left_front</a></div><div class="ttdeci">get_range_left_front(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00078">sensors.py:78</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a20fc6b41466000eb7f62d29539aaefae"><div class="ttname"><a href="classsensors_1_1_sensors.html#a20fc6b41466000eb7f62d29539aaefae">sensors.Sensors.get_sensor1_range</a></div><div class="ttdeci">get_sensor1_range(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00102">sensors.py:102</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a27e3be62c8e52c97673c218a225b8494"><div class="ttname"><a href="classsensors_1_1_sensors.html#a27e3be62c8e52c97673c218a225b8494">sensors.Sensors.get_range_left_back</a></div><div class="ttdeci">get_range_left_back(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00090">sensors.py:90</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a2d86801a6528ed9d60d3a8f61dfd7d3b"><div class="ttname"><a href="classsensors_1_1_sensors.html#a2d86801a6528ed9d60d3a8f61dfd7d3b">sensors.Sensors.get_range_mid_right_front</a></div><div class="ttdeci">get_range_mid_right_front(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00084">sensors.py:84</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a3051589ed1bf05fac49c59b4db169b5b"><div class="ttname"><a href="classsensors_1_1_sensors.html#a3051589ed1bf05fac49c59b4db169b5b">sensors.Sensors.get_all</a></div><div class="ttdeci">get_all(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00075">sensors.py:75</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a348b1ef1e18f394f2c8154ce14d03890"><div class="ttname"><a href="classsensors_1_1_sensors.html#a348b1ef1e18f394f2c8154ce14d03890">sensors.Sensors.MAX_DIST</a></div><div class="ttdeci">int MAX_DIST</div><div class="ttdef"><b>Definition</b> <a href="#l00029">sensors.py:29</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a468a25ce2d7493651b41ef51432e4152"><div class="ttname"><a href="classsensors_1_1_sensors.html#a468a25ce2d7493651b41ef51432e4152">sensors.Sensors.get_range_right_front</a></div><div class="ttdeci">get_range_right_front(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00087">sensors.py:87</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a50fb616a75a0719b57084fbe2e04f462"><div class="ttname"><a href="classsensors_1_1_sensors.html#a50fb616a75a0719b57084fbe2e04f462">sensors.Sensors.get_range_mid_left_front</a></div><div class="ttdeci">get_range_mid_left_front(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00081">sensors.py:81</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a606cb684494b7f7b47420dfc0be340e7"><div class="ttname"><a href="classsensors_1_1_sensors.html#a606cb684494b7f7b47420dfc0be340e7">sensors.Sensors.last_time</a></div><div class="ttdeci">last_time</div><div class="ttdef"><b>Definition</b> <a href="#l00044">sensors.py:44</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a680a20a49665b97e7d84df0ea7b094ca"><div class="ttname"><a href="classsensors_1_1_sensors.html#a680a20a49665b97e7d84df0ea7b094ca">sensors.Sensors.sensor7</a></div><div class="ttdeci">sensor7</div><div class="ttdef"><b>Definition</b> <a href="#l00059">sensors.py:59</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a6a480b8978c6f2cc16fd5de448055b27"><div class="ttname"><a href="classsensors_1_1_sensors.html#a6a480b8978c6f2cc16fd5de448055b27">sensors.Sensors.get_range_mid_right_back</a></div><div class="ttdeci">get_range_mid_right_back(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00096">sensors.py:96</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a6d452303f9926ee1a93d49f548423d9b"><div class="ttname"><a href="classsensors_1_1_sensors.html#a6d452303f9926ee1a93d49f548423d9b">sensors.Sensors.sensor8</a></div><div class="ttdeci">sensor8</div><div class="ttdef"><b>Definition</b> <a href="#l00060">sensors.py:60</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a883e7eb93a514b4179423c3f0afe7b7c"><div class="ttname"><a href="classsensors_1_1_sensors.html#a883e7eb93a514b4179423c3f0afe7b7c">sensors.Sensors.get_sensor8_range</a></div><div class="ttdeci">get_sensor8_range(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00123">sensors.py:123</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a8fcc18299972155e3c6c3e3fb3dc6d35"><div class="ttname"><a href="classsensors_1_1_sensors.html#a8fcc18299972155e3c6c3e3fb3dc6d35">sensors.Sensors.get_sensor5_range</a></div><div class="ttdeci">get_sensor5_range(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00114">sensors.py:114</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a95e1b177442975056d139f7639e6c046"><div class="ttname"><a href="classsensors_1_1_sensors.html#a95e1b177442975056d139f7639e6c046">sensors.Sensors.sensors</a></div><div class="ttdeci">sensors</div><div class="ttdef"><b>Definition</b> <a href="#l00043">sensors.py:43</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a9c0de2fafe7e30a0e837fd68b91f81fa"><div class="ttname"><a href="classsensors_1_1_sensors.html#a9c0de2fafe7e30a0e837fd68b91f81fa">sensors.Sensors.get_range_mid_left_back</a></div><div class="ttdeci">get_range_mid_left_back(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00093">sensors.py:93</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_a9f5d4307ea2ca4f4c96022735f915ccc"><div class="ttname"><a href="classsensors_1_1_sensors.html#a9f5d4307ea2ca4f4c96022735f915ccc">sensors.Sensors.get_sensor6_range</a></div><div class="ttdeci">get_sensor6_range(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00117">sensors.py:117</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_ab3394df2ff7dd84b9e44c0fcb12ebaf8"><div class="ttname"><a href="classsensors_1_1_sensors.html#ab3394df2ff7dd84b9e44c0fcb12ebaf8">sensors.Sensors.sensor4</a></div><div class="ttdeci">sensor4</div><div class="ttdef"><b>Definition</b> <a href="#l00056">sensors.py:56</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_abacf25d138b46e1eb79c7e625c705e4d"><div class="ttname"><a href="classsensors_1_1_sensors.html#abacf25d138b46e1eb79c7e625c705e4d">sensors.Sensors.sensor2</a></div><div class="ttdeci">sensor2</div><div class="ttdef"><b>Definition</b> <a href="#l00054">sensors.py:54</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_ac1ca4e2d3549040e57bec6306ec33999"><div class="ttname"><a href="classsensors_1_1_sensors.html#ac1ca4e2d3549040e57bec6306ec33999">sensors.Sensors.get_sensor2_range</a></div><div class="ttdeci">get_sensor2_range(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00105">sensors.py:105</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_ad01507c77112fb539d425322e0256f6d"><div class="ttname"><a href="classsensors_1_1_sensors.html#ad01507c77112fb539d425322e0256f6d">sensors.Sensors.sensor6</a></div><div class="ttdeci">sensor6</div><div class="ttdef"><b>Definition</b> <a href="#l00058">sensors.py:58</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_ad0e971eda6ae11dd93028247d06d6500"><div class="ttname"><a href="classsensors_1_1_sensors.html#ad0e971eda6ae11dd93028247d06d6500">sensors.Sensors.get_sensor4_range</a></div><div class="ttdeci">get_sensor4_range(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00111">sensors.py:111</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_ad36f20a13ad43faad3b28068d2869dd9"><div class="ttname"><a href="classsensors_1_1_sensors.html#ad36f20a13ad43faad3b28068d2869dd9">sensors.Sensors.is_ready</a></div><div class="ttdeci">is_ready(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00126">sensors.py:126</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_ad700a9cfa2a53b854f7c7e3547f88f9f"><div class="ttname"><a href="classsensors_1_1_sensors.html#ad700a9cfa2a53b854f7c7e3547f88f9f">sensors.Sensors.__init__</a></div><div class="ttdeci">__init__(self, uuid='SensorBoard')</div><div class="ttdef"><b>Definition</b> <a href="#l00042">sensors.py:42</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_ad987835fd7bb970eb46b6c799d09e3d0"><div class="ttname"><a href="classsensors_1_1_sensors.html#ad987835fd7bb970eb46b6c799d09e3d0">sensors.Sensors.get_sensor3_range</a></div><div class="ttdeci">get_sensor3_range(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00108">sensors.py:108</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_adee3098338af7fdb578b215446b55acb"><div class="ttname"><a href="classsensors_1_1_sensors.html#adee3098338af7fdb578b215446b55acb">sensors.Sensors.sensor1</a></div><div class="ttdeci">sensor1</div><div class="ttdef"><b>Definition</b> <a href="#l00053">sensors.py:53</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_adfd008074f02936d545edda140050f0b"><div class="ttname"><a href="classsensors_1_1_sensors.html#adfd008074f02936d545edda140050f0b">sensors.Sensors.get_sensor7_range</a></div><div class="ttdeci">get_sensor7_range(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00120">sensors.py:120</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_aed144bfde93a6be5b9118aa1db82d4e0"><div class="ttname"><a href="classsensors_1_1_sensors.html#aed144bfde93a6be5b9118aa1db82d4e0">sensors.Sensors.check_errors</a></div><div class="ttdeci">check_errors(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00132">sensors.py:132</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_af7b85f47b965d068920d7b7c96a351b4"><div class="ttname"><a href="classsensors_1_1_sensors.html#af7b85f47b965d068920d7b7c96a351b4">sensors.Sensors.sensor3</a></div><div class="ttdeci">sensor3</div><div class="ttdef"><b>Definition</b> <a href="#l00055">sensors.py:55</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_sensors_html_afcad986f712c9897b3ded32bfd8bf735"><div class="ttname"><a href="classsensors_1_1_sensors.html#afcad986f712c9897b3ded32bfd8bf735">sensors.Sensors.get_range_right_back</a></div><div class="ttdeci">get_range_right_back(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00099">sensors.py:99</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_thread_sensors_html"><div class="ttname"><a href="classsensors_1_1_thread_sensors.html">sensors.ThreadSensors</a></div><div class="ttdef"><b>Definition</b> <a href="#l00136">sensors.py:136</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_thread_sensors_html_a328b299960bf5a354bcf2a5e7596033e"><div class="ttname"><a href="classsensors_1_1_thread_sensors.html#a328b299960bf5a354bcf2a5e7596033e">sensors.ThreadSensors.looping</a></div><div class="ttdeci">looping</div><div class="ttdef"><b>Definition</b> <a href="#l00145">sensors.py:145</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_thread_sensors_html_a5b49e251ee8f30a8d69c509d5ffb6556"><div class="ttname"><a href="classsensors_1_1_thread_sensors.html#a5b49e251ee8f30a8d69c509d5ffb6556">sensors.ThreadSensors.loop</a></div><div class="ttdeci">loop(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00144">sensors.py:144</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_thread_sensors_html_a5de4b0400492e95b3d8084a508071c20"><div class="ttname"><a href="classsensors_1_1_thread_sensors.html#a5de4b0400492e95b3d8084a508071c20">sensors.ThreadSensors.__init__</a></div><div class="ttdeci">__init__(self, sensors, robot)</div><div class="ttdef"><b>Definition</b> <a href="#l00137">sensors.py:137</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_thread_sensors_html_a60617da810a0f1d13b2e246120a3dd63"><div class="ttname"><a href="classsensors_1_1_thread_sensors.html#a60617da810a0f1d13b2e246120a3dd63">sensors.ThreadSensors.sensors</a></div><div class="ttdeci">sensors</div><div class="ttdef"><b>Definition</b> <a href="#l00138">sensors.py:138</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_thread_sensors_html_adc1307826dc788217b2375a1e1d3ad67"><div class="ttname"><a href="classsensors_1_1_thread_sensors.html#adc1307826dc788217b2375a1e1d3ad67">sensors.ThreadSensors.robot</a></div><div class="ttdeci">robot</div><div class="ttdef"><b>Definition</b> <a href="#l00139">sensors.py:139</a></div></div>
+<div class="ttc" id="aclasssensors_1_1_thread_sensors_html_ae63262cfcc1d63e6d798a5eeca93900e"><div class="ttname"><a href="classsensors_1_1_thread_sensors.html#ae63262cfcc1d63e6d798a5eeca93900e">sensors.ThreadSensors.thread</a></div><div class="ttdeci">thread</div><div class="ttdef"><b>Definition</b> <a href="#l00140">sensors.py:140</a></div></div>
+<div class="ttc" id="anamespacecommon_1_1serialtypes_html"><div class="ttname"><a href="namespacecommon_1_1serialtypes.html">serialtypes</a></div></div>
+<div class="ttc" id="anamespacesetups_1_1setup__serialtalks_html"><div class="ttname"><a href="namespacesetups_1_1setup__serialtalks.html">setup_serialtalks</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_c15328facfe3c0fb28ec2a0724aaaf66.html">daughter_cards</a></li><li class="navelem"><a class="el" href="sensors_8py.html">sensors.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

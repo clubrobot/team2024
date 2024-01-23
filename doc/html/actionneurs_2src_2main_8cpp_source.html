@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/platformIO/actionneurs/src/main.cpp</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('actionneurs_2src_2main_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">main.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="actionneurs_2src_2main_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;<a class="code" href="_serial_talking_8h.html">SerialTalking.h</a>&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;<a class="code" href="_a_x12_8h.html">AX12.h</a>&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;ESP32Servo.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;<a class="code" href="actionneurs_2src_2instructions_8h.html">instructions.h</a>&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="actionneurs_2src_2_p_i_n_8h.html">PIN.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="actionneurs_2src_2instructions_8cpp.html#aa284e1a0bbcb63f1bc06cdbf48e22c2c">    8</a></span><a class="code hl_class" href="class_a_x12.html">AX12</a> <a class="code hl_variable" href="actionneurs_2src_2main_8cpp.html#aa284e1a0bbcb63f1bc06cdbf48e22c2c">ax</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="actionneurs_2src_2instructions_8cpp.html#a79efceea669fb85a732c30f47cf7e59c">   10</a></span>Servo <a class="code hl_variable" href="actionneurs_2src_2main_8cpp.html#a79efceea669fb85a732c30f47cf7e59c">servo</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="actionneurs_2src_2main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">   13</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="actionneurs_2src_2main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a>()</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">//Starting SerialTalking</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">//Serial.begin(SERIALTALKING_BAUDRATE);</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">//Baud, rx, tx, control</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_function" href="class_a_x12.html#a9970b9389ac5cdacd78a1ae0d1c25a77">AX12::SerialBegin</a>(1000000, 5);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    Serial.begin(<a class="code hl_define" href="_serial_talking_8h.html#ab13a716e10b5b4f1a163cfa24fe8959d">SERIALTALKING_BAUDRATE</a>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a6e8975da3548a812946907f2cc7aa392">begin</a>(Serial);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#ace81d390e9a9b2df23096874054b0366">RESET_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#a12fd99afaddac6bcda5bcb23988b5881">RESET</a>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#a3d0495ca9ecfeb356067bd92b9cbc7d4">PING_AX_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#ab836514e4924d1812d0847a6ffff9b17">PING_AX</a>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#a0613563cc76b671580897056b4d0e351">SET_ID_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#a2f310924b5f0925ca50748634dba3da5">SET_ID</a>);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#a3546bd061d08bc6e325937e108746e1a">SET_BD_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#a6e4430971e1244b960a1b65d4ea66c71">SET_BD</a>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#a142905db069bb77aedbcc5a09cb49c6e">MOVE_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#a23f1db26337f902f052dd61d1468a940">MOVE</a>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#a871930b381e8b6dd136247ace04002cf">MOVE_SPEED_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#af1bba6c1343c141286b6f465b756eac8">MOVE_SPEED</a>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#a05089cc2506dbdcba64da5e8f472136b">TURN_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#a6f6905cc9332ca96cd4ac3f31dceb963">TURN</a>);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#a5e67e59250386e046fbe98761652812b">SET_ENDLESS_MODE_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#a8afdd1464633877f3c32b07845985a4e">SET_ENDLESS_MODE</a>);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#adeaeb6945785e4ea48e66dbeed6e521b">SET_TEMP_LIMIT_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#a9db788d77a68546362f652e34aa5c3bb">SET_TEMP_LIMIT</a>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#a0ad1c02f266ef0dc9339b4cac9f57f65">SET_ANGLE_LIMIT_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#a43ac3f95188af821d54c510c958a257d">SET_ANGLE_LIMIT</a>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#aac012b1d12f820b457273e1016ecbe43">SET_VOLTAGE_LIMIT_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#aa1d5cd5e488ba1d9959140e014dede4d">SET_VOLTAGE_LIMIT</a>);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#a3fce2fbcf51e332e0cd39e0a357c1ef9">SET_MAX_TORQUE_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#a42c9a8d1149df92daf02b2c0cad8bc52">SET_MAX_TORQUE</a>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#ae15d49354af1a00f91f662643f410851">READ_POSITION_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#a6d8dd562ffe8785258fd56673c56cacd">READ_POSITION</a>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#a0128f9b7f09546c2e8ce7cb8d8516967">READ_SPEED_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#a695ef0baa3fa5eebb96247dab060f0f1">READ_SPEED</a>);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#aa47e20ead70cc3fb829b114bb5d3db54">READ_TORQUE_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#a0aa64ac47256a80ddf7abbba09cfda88">READ_TORQUE</a>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(<a class="code hl_define" href="actionneurs_2src_2instructions_8h.html#ae78efd3e97dee243688d45bae123d428">SET_ANGLE_SERVO_OPCODE</a>, <a class="code hl_function" href="actionneurs_2src_2instructions_8cpp.html#aaac53025dddf87a489919fc07e4fae20">SET_ANGLE_SERVO</a>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_variable" href="actionneurs_2src_2main_8cpp.html#aa284e1a0bbcb63f1bc06cdbf48e22c2c">ax</a>.<a class="code hl_function" href="class_a_x12.html#a9e8ecee54bf85d3f07b5af9a727b805c">attach</a>(254);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_variable" href="actionneurs_2src_2main_8cpp.html#aa284e1a0bbcb63f1bc06cdbf48e22c2c">ax</a>.<a class="code hl_function" href="class_a_x12.html#a5fe7e1d38159023ff110a529f6a30dd7">setEndlessMode</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
+</div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="actionneurs_2src_2main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">   52</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="actionneurs_2src_2main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop</a>(){</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_variable" href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a>.<a class="code hl_function" href="class_serial_talking.html#af6ccdf3ef1852e0306441f58f1358db4">execute</a>();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+</div>
+<div class="ttc" id="a_a_x12_8h_html"><div class="ttname"><a href="_a_x12_8h.html">AX12.h</a></div></div>
+<div class="ttc" id="a_serial_talking_8cpp_html_a5d6aa784ecade7a3ea5ff0976c357434"><div class="ttname"><a href="_serial_talking_8cpp.html#a5d6aa784ecade7a3ea5ff0976c357434">talking</a></div><div class="ttdeci">SerialTalking talking</div><div class="ttdef"><b>Definition</b> <a href="_serial_talking_8cpp_source.html#l00015">SerialTalking.cpp:15</a></div></div>
+<div class="ttc" id="a_serial_talking_8h_html"><div class="ttname"><a href="_serial_talking_8h.html">SerialTalking.h</a></div><div class="ttdoc">SerialTalking Lib Work In progess: CRINSA 2024.</div></div>
+<div class="ttc" id="a_serial_talking_8h_html_ab13a716e10b5b4f1a163cfa24fe8959d"><div class="ttname"><a href="_serial_talking_8h.html#ab13a716e10b5b4f1a163cfa24fe8959d">SERIALTALKING_BAUDRATE</a></div><div class="ttdeci">#define SERIALTALKING_BAUDRATE</div><div class="ttdef"><b>Definition</b> <a href="_serial_talking_8h_source.html#l00018">SerialTalking.h:18</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2_p_i_n_8h_html"><div class="ttname"><a href="actionneurs_2src_2_p_i_n_8h.html">PIN.h</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_a0aa64ac47256a80ddf7abbba09cfda88"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#a0aa64ac47256a80ddf7abbba09cfda88">READ_TORQUE</a></div><div class="ttdeci">void READ_TORQUE()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00097">instructions.cpp:97</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_a12fd99afaddac6bcda5bcb23988b5881"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#a12fd99afaddac6bcda5bcb23988b5881">RESET</a></div><div class="ttdeci">void RESET()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00013">instructions.cpp:13</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_a23f1db26337f902f052dd61d1468a940"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#a23f1db26337f902f052dd61d1468a940">MOVE</a></div><div class="ttdeci">void MOVE()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00037">instructions.cpp:37</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_a2f310924b5f0925ca50748634dba3da5"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#a2f310924b5f0925ca50748634dba3da5">SET_ID</a></div><div class="ttdeci">void SET_ID()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00025">instructions.cpp:25</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_a42c9a8d1149df92daf02b2c0cad8bc52"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#a42c9a8d1149df92daf02b2c0cad8bc52">SET_MAX_TORQUE</a></div><div class="ttdeci">void SET_MAX_TORQUE()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00079">instructions.cpp:79</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_a43ac3f95188af821d54c510c958a257d"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#a43ac3f95188af821d54c510c958a257d">SET_ANGLE_LIMIT</a></div><div class="ttdeci">void SET_ANGLE_LIMIT()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00067">instructions.cpp:67</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_a695ef0baa3fa5eebb96247dab060f0f1"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#a695ef0baa3fa5eebb96247dab060f0f1">READ_SPEED</a></div><div class="ttdeci">void READ_SPEED()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00091">instructions.cpp:91</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_a6d8dd562ffe8785258fd56673c56cacd"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#a6d8dd562ffe8785258fd56673c56cacd">READ_POSITION</a></div><div class="ttdeci">void READ_POSITION()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00085">instructions.cpp:85</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_a6e4430971e1244b960a1b65d4ea66c71"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#a6e4430971e1244b960a1b65d4ea66c71">SET_BD</a></div><div class="ttdeci">void SET_BD()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00031">instructions.cpp:31</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_a6f6905cc9332ca96cd4ac3f31dceb963"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#a6f6905cc9332ca96cd4ac3f31dceb963">TURN</a></div><div class="ttdeci">void TURN()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00049">instructions.cpp:49</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_a8afdd1464633877f3c32b07845985a4e"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#a8afdd1464633877f3c32b07845985a4e">SET_ENDLESS_MODE</a></div><div class="ttdeci">void SET_ENDLESS_MODE()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00055">instructions.cpp:55</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_a9db788d77a68546362f652e34aa5c3bb"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#a9db788d77a68546362f652e34aa5c3bb">SET_TEMP_LIMIT</a></div><div class="ttdeci">void SET_TEMP_LIMIT()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00061">instructions.cpp:61</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_aa1d5cd5e488ba1d9959140e014dede4d"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#aa1d5cd5e488ba1d9959140e014dede4d">SET_VOLTAGE_LIMIT</a></div><div class="ttdeci">void SET_VOLTAGE_LIMIT()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00073">instructions.cpp:73</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_aaac53025dddf87a489919fc07e4fae20"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#aaac53025dddf87a489919fc07e4fae20">SET_ANGLE_SERVO</a></div><div class="ttdeci">void SET_ANGLE_SERVO()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00103">instructions.cpp:103</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_ab836514e4924d1812d0847a6ffff9b17"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#ab836514e4924d1812d0847a6ffff9b17">PING_AX</a></div><div class="ttdeci">void PING_AX()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00019">instructions.cpp:19</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8cpp_html_af1bba6c1343c141286b6f465b756eac8"><div class="ttname"><a href="actionneurs_2src_2instructions_8cpp.html#af1bba6c1343c141286b6f465b756eac8">MOVE_SPEED</a></div><div class="ttdeci">void MOVE_SPEED()</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8cpp_source.html#l00043">instructions.cpp:43</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html">instructions.h</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_a0128f9b7f09546c2e8ce7cb8d8516967"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#a0128f9b7f09546c2e8ce7cb8d8516967">READ_SPEED_OPCODE</a></div><div class="ttdeci">#define READ_SPEED_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00027">instructions.h:27</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_a05089cc2506dbdcba64da5e8f472136b"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#a05089cc2506dbdcba64da5e8f472136b">TURN_OPCODE</a></div><div class="ttdeci">#define TURN_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00017">instructions.h:17</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_a0613563cc76b671580897056b4d0e351"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#a0613563cc76b671580897056b4d0e351">SET_ID_OPCODE</a></div><div class="ttdeci">#define SET_ID_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00012">instructions.h:12</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_a0ad1c02f266ef0dc9339b4cac9f57f65"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#a0ad1c02f266ef0dc9339b4cac9f57f65">SET_ANGLE_LIMIT_OPCODE</a></div><div class="ttdeci">#define SET_ANGLE_LIMIT_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00022">instructions.h:22</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_a142905db069bb77aedbcc5a09cb49c6e"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#a142905db069bb77aedbcc5a09cb49c6e">MOVE_OPCODE</a></div><div class="ttdeci">#define MOVE_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00015">instructions.h:15</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_a3546bd061d08bc6e325937e108746e1a"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#a3546bd061d08bc6e325937e108746e1a">SET_BD_OPCODE</a></div><div class="ttdeci">#define SET_BD_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00013">instructions.h:13</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_a3d0495ca9ecfeb356067bd92b9cbc7d4"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#a3d0495ca9ecfeb356067bd92b9cbc7d4">PING_AX_OPCODE</a></div><div class="ttdeci">#define PING_AX_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00010">instructions.h:10</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_a3fce2fbcf51e332e0cd39e0a357c1ef9"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#a3fce2fbcf51e332e0cd39e0a357c1ef9">SET_MAX_TORQUE_OPCODE</a></div><div class="ttdeci">#define SET_MAX_TORQUE_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00024">instructions.h:24</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_a5e67e59250386e046fbe98761652812b"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#a5e67e59250386e046fbe98761652812b">SET_ENDLESS_MODE_OPCODE</a></div><div class="ttdeci">#define SET_ENDLESS_MODE_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00019">instructions.h:19</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_a871930b381e8b6dd136247ace04002cf"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#a871930b381e8b6dd136247ace04002cf">MOVE_SPEED_OPCODE</a></div><div class="ttdeci">#define MOVE_SPEED_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00016">instructions.h:16</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_aa47e20ead70cc3fb829b114bb5d3db54"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#aa47e20ead70cc3fb829b114bb5d3db54">READ_TORQUE_OPCODE</a></div><div class="ttdeci">#define READ_TORQUE_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00028">instructions.h:28</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_aac012b1d12f820b457273e1016ecbe43"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#aac012b1d12f820b457273e1016ecbe43">SET_VOLTAGE_LIMIT_OPCODE</a></div><div class="ttdeci">#define SET_VOLTAGE_LIMIT_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00023">instructions.h:23</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_ace81d390e9a9b2df23096874054b0366"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#ace81d390e9a9b2df23096874054b0366">RESET_OPCODE</a></div><div class="ttdeci">#define RESET_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00008">instructions.h:8</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_adeaeb6945785e4ea48e66dbeed6e521b"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#adeaeb6945785e4ea48e66dbeed6e521b">SET_TEMP_LIMIT_OPCODE</a></div><div class="ttdeci">#define SET_TEMP_LIMIT_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00021">instructions.h:21</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_ae15d49354af1a00f91f662643f410851"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#ae15d49354af1a00f91f662643f410851">READ_POSITION_OPCODE</a></div><div class="ttdeci">#define READ_POSITION_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00026">instructions.h:26</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2instructions_8h_html_ae78efd3e97dee243688d45bae123d428"><div class="ttname"><a href="actionneurs_2src_2instructions_8h.html#ae78efd3e97dee243688d45bae123d428">SET_ANGLE_SERVO_OPCODE</a></div><div class="ttdeci">#define SET_ANGLE_SERVO_OPCODE</div><div class="ttdef"><b>Definition</b> <a href="actionneurs_2src_2instructions_8h_source.html#l00030">instructions.h:30</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2main_8cpp_html_a4fc01d736fe50cf5b977f755b675f11d"><div class="ttname"><a href="actionneurs_2src_2main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a></div><div class="ttdeci">void setup()</div><div class="ttdef"><b>Definition</b> <a href="#l00013">main.cpp:13</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2main_8cpp_html_a79efceea669fb85a732c30f47cf7e59c"><div class="ttname"><a href="actionneurs_2src_2main_8cpp.html#a79efceea669fb85a732c30f47cf7e59c">servo</a></div><div class="ttdeci">Servo servo</div><div class="ttdef"><b>Definition</b> <a href="#l00010">main.cpp:10</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2main_8cpp_html_aa284e1a0bbcb63f1bc06cdbf48e22c2c"><div class="ttname"><a href="actionneurs_2src_2main_8cpp.html#aa284e1a0bbcb63f1bc06cdbf48e22c2c">ax</a></div><div class="ttdeci">AX12 ax</div><div class="ttdef"><b>Definition</b> <a href="#l00008">main.cpp:8</a></div></div>
+<div class="ttc" id="aactionneurs_2src_2main_8cpp_html_afe461d27b9c48d5921c00d521181f12f"><div class="ttname"><a href="actionneurs_2src_2main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop</a></div><div class="ttdeci">void loop()</div><div class="ttdef"><b>Definition</b> <a href="#l00052">main.cpp:52</a></div></div>
+<div class="ttc" id="aclass_a_x12_html"><div class="ttname"><a href="class_a_x12.html">AX12</a></div><div class="ttdef"><b>Definition</b> <a href="_a_x12_8h_source.html#l00023">AX12.h:23</a></div></div>
+<div class="ttc" id="aclass_a_x12_html_a5fe7e1d38159023ff110a529f6a30dd7"><div class="ttname"><a href="class_a_x12.html#a5fe7e1d38159023ff110a529f6a30dd7">AX12::setEndlessMode</a></div><div class="ttdeci">int setEndlessMode(bool Status)</div><div class="ttdef"><b>Definition</b> <a href="_a_x12_8cpp_source.html#l00049">AX12.cpp:49</a></div></div>
+<div class="ttc" id="aclass_a_x12_html_a9970b9389ac5cdacd78a1ae0d1c25a77"><div class="ttname"><a href="class_a_x12.html#a9970b9389ac5cdacd78a1ae0d1c25a77">AX12::SerialBegin</a></div><div class="ttdeci">static void SerialBegin(long baud, unsigned char rx, unsigned char tx, unsigned char control)</div><div class="ttdef"><b>Definition</b> <a href="_a_x12_8cpp_source.html#l00005">AX12.cpp:5</a></div></div>
+<div class="ttc" id="aclass_a_x12_html_a9e8ecee54bf85d3f07b5af9a727b805c"><div class="ttname"><a href="class_a_x12.html#a9e8ecee54bf85d3f07b5af9a727b805c">AX12::attach</a></div><div class="ttdeci">void attach(unsigned char id)</div><div class="ttdef"><b>Definition</b> <a href="_a_x12_8cpp_source.html#l00013">AX12.cpp:13</a></div></div>
+<div class="ttc" id="aclass_serial_talking_html_a6e8975da3548a812946907f2cc7aa392"><div class="ttname"><a href="class_serial_talking.html#a6e8975da3548a812946907f2cc7aa392">SerialTalking::begin</a></div><div class="ttdeci">void begin(Stream &amp;stream)</div><div class="ttdoc">Initialise le SerialTalking avec un Stream d'&lt;arduino.h&gt;.</div><div class="ttdef"><b>Definition</b> <a href="_serial_talking_8cpp_source.html#l00019">SerialTalking.cpp:19</a></div></div>
+<div class="ttc" id="aclass_serial_talking_html_a9bbffb616107d0f4bc69476e83132cbd"><div class="ttname"><a href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">SerialTalking::bind</a></div><div class="ttdeci">void bind(byte opcode, functionPtr instruction)</div><div class="ttdoc">Associe une Instruction à un OPCODE.</div><div class="ttdef"><b>Definition</b> <a href="_serial_talking_8cpp_source.html#l00063">SerialTalking.cpp:63</a></div></div>
+<div class="ttc" id="aclass_serial_talking_html_af6ccdf3ef1852e0306441f58f1358db4"><div class="ttname"><a href="class_serial_talking.html#af6ccdf3ef1852e0306441f58f1358db4">SerialTalking::execute</a></div><div class="ttdeci">void execute()</div><div class="ttdef"><b>Definition</b> <a href="_serial_talking_8cpp_source.html#l00073">SerialTalking.cpp:73</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_3a705cc03397210a7d294800206a5f5e.html">actionneurs</a></li><li class="navelem"><a class="el" href="dir_f0c0d71f3d275c847f620717433abed2.html">src</a></li><li class="navelem"><a class="el" href="actionneurs_2src_2main_8cpp.html">main.cpp</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

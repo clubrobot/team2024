@@ -27,6 +27,9 @@ var annotated_dup =
     [ "robot_client", null, [
       [ "RobotClient", "classrobot__client_1_1_robot_client.html", "classrobot__client_1_1_robot_client" ]
     ] ],
+    [ "serialtalking", "namespaceserialtalking.html", [
+      [ "SerialTalking", "classserialtalking_1_1_serial_talking.html", "classserialtalking_1_1_serial_talking" ]
+    ] ],
     [ "team2022Robot", null, [
       [ "Bornibus", "classteam2022_robot_1_1_bornibus.html", "classteam2022_robot_1_1_bornibus" ]
     ] ],

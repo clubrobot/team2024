@@ -10,6 +10,7 @@ var searchData=
   ['differentialcontroller_7',['DifferentialController',['../class_differential_controller.html',1,'DifferentialController'],['../class_differential_controller.html#abe1b59650832e54e3f99a5dd06815977',1,'DifferentialController::DifferentialController()']]],
   ['direction_8',['Direction',['../class_pure_pursuit.html#a584048cfe1c7e025425011986b410019',1,'PurePursuit']]],
   ['disable_9',['disable',['../class_periodic_process.html#a4147798b8ad01690f590d934bdd83c28',1,'PeriodicProcess']]],
-  ['doc_20crinsa_202024_10',['Doc CRINSA 2024',['../index.html',1,'']]],
-  ['doc_20html_20index_20html_20go_20to_20the_20wiki_20a_11',['&lt;a href=&quot;https://clubrobot.github.io/team2024/doc/html/index.html&quot; &gt;GO TO THE WIKI&lt;/a&gt;',['../md__c_1_2_users_2boris_2_desktop_2robotique_2team2024_2_r_e_a_d_m_e.html#autotoc_md6',1,'']]]
+  ['disconnect_10',['disconnect',['../classserialtalking_1_1_serial_talking.html#abea72c72701207014507cfa677090dc7',1,'serialtalking::SerialTalking']]],
+  ['doc_20crinsa_202024_11',['Doc CRINSA 2024',['../index.html',1,'']]],
+  ['doc_20html_20index_20html_20go_20to_20the_20wiki_20a_12',['&lt;a href=&quot;https://clubrobot.github.io/team2024/doc/html/index.html&quot; &gt;GO TO THE WIKI&lt;/a&gt;',['../md__c_1_2_users_2boris_2_desktop_2robotique_2team2024_2_r_e_a_d_m_e.html#autotoc_md6',1,'']]]
 ];

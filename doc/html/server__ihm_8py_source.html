@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/beacons/server_ihm.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('server__ihm_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">server_ihm.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="server__ihm_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespaceserver__ihm.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> subprocess</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> Adafruit_SSD1306   <span class="comment"># This is the driver chip for the Adafruit PiOLED</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageDraw, ImageFont</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">from</span> time <span class="keyword">import</span> sleep</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">from</span> common.parallel <span class="keyword">import</span> Thread</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">from</span> threading <span class="keyword">import</span> Event</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespaceserver__ihm.html#a4a56611131cd43fbcd58ef2ed812d0a2">   14</a></span>_BORNIBUS_ID = 1</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespaceserver__ihm.html#ae98635b874c77a47dce1364334bd59bc">   15</a></span>_R128_ID = 2</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespaceserver__ihm.html#a97bb948b9575ca99acbddba53a32682c">   16</a></span>_EYE_ID = 3</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespaceserver__ihm.html#a277477780f5cbbae026365e733252cc9">   18</a></span>_INTER_1_PIN = 26</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespaceserver__ihm.html#a62f035374c1c55c8a1b02c29093f266a">   19</a></span>_INTER_2_PIN = 19</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespaceserver__ihm.html#ae4d3fe7bdf0a2ea24e7bde56a66094ad">   20</a></span>_INTER_3_PIN = 13</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespaceserver__ihm.html#ac6ba6303dcc7e64325b5d3c225d0bb08">   21</a></span>_INTER_4_PIN = 6</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="" data-end="">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_jetson_switch.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="classserver__ihm_1_1_jetson_switch.html">JetsonSwitch</a>():</div>
+<div class="foldopen" id="foldopen00024" data-start="" data-end="">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_jetson_switch.html#ae869cb7d6ef9a32dff7d7b153d72d855">   24</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_jetson_switch.html#ae869cb7d6ef9a32dff7d7b153d72d855">__init__</a>(self, pin, attached_func):</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_jetson_switch.html#a52a614d59c4154456dcceb4b0d279e32">   25</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_jetson_switch.html#a52a614d59c4154456dcceb4b0d279e32">pin</a> = pin</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_jetson_switch.html#afd2c491ec3ccc866a4db3b56e69c858b">   26</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_jetson_switch.html#afd2c491ec3ccc866a4db3b56e69c858b">attached_func</a> = attached_func</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        GPIO.setmode(GPIO.BCM)  <span class="comment"># BCM pin-numbering scheme</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        GPIO.setup(self.<a class="code hl_variable" href="classserver__ihm_1_1_jetson_switch.html#a52a614d59c4154456dcceb4b0d279e32">pin</a>, GPIO.OUT)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        GPIO.output(self.<a class="code hl_variable" href="classserver__ihm_1_1_jetson_switch.html#a52a614d59c4154456dcceb4b0d279e32">pin</a>, GPIO.LOW)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        sleep(0.2)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        GPIO.setup(self.<a class="code hl_variable" href="classserver__ihm_1_1_jetson_switch.html#a52a614d59c4154456dcceb4b0d279e32">pin</a>, GPIO.IN)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        Thread(target=self.<a class="code hl_function" href="classserver__ihm_1_1_jetson_switch.html#a57c7e194463eab656aa35479b1fc9281">target</a>, daemon=<span class="keyword">True</span>).start()</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+</div>
+<div class="foldopen" id="foldopen00037" data-start="" data-end="">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_jetson_switch.html#a57c7e194463eab656aa35479b1fc9281">   37</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_jetson_switch.html#a57c7e194463eab656aa35479b1fc9281">target</a>(self):</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            value = GPIO.input(self.<a class="code hl_variable" href="classserver__ihm_1_1_jetson_switch.html#a52a614d59c4154456dcceb4b0d279e32">pin</a>)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">if</span> value == GPIO.HIGH:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                sleep(0.05)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                GPIO.setup(self.<a class="code hl_variable" href="classserver__ihm_1_1_jetson_switch.html#a52a614d59c4154456dcceb4b0d279e32">pin</a>, GPIO.OUT)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                sleep(0.05)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                GPIO.output(self.<a class="code hl_variable" href="classserver__ihm_1_1_jetson_switch.html#a52a614d59c4154456dcceb4b0d279e32">pin</a>, GPIO.LOW)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                sleep(0.05)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                GPIO.setup(self.<a class="code hl_variable" href="classserver__ihm_1_1_jetson_switch.html#a52a614d59c4154456dcceb4b0d279e32">pin</a>, GPIO.IN)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                self.<a class="code hl_variable" href="classserver__ihm_1_1_jetson_switch.html#afd2c491ec3ccc866a4db3b56e69c858b">attached_func</a>()</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            sleep(0.05)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+</div>
+</div>
+<div class="foldopen" id="foldopen00050" data-start="" data-end="">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html">   50</a></span><span class="keyword">class </span><a class="code hl_class" href="classserver__ihm_1_1_server_i_h_m.html">ServerIHM</a>():</div>
+<div class="foldopen" id="foldopen00051" data-start="" data-end="">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a52579094d3f79f6cfb01cb640943f32e">   51</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a52579094d3f79f6cfb01cb640943f32e">__init__</a>(self):</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">   53</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">screen</a>  = Adafruit_SSD1306.SSD1306_128_32(rst=<span class="keywordtype">None</span>, i2c_bus=1, gpio=1)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#ab4060301a4ff9a136d807e106a71daba">   55</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ab4060301a4ff9a136d807e106a71daba">green_switch</a>   = <a class="code hl_class" href="classserver__ihm_1_1_jetson_switch.html">JetsonSwitch</a>(_INTER_1_PIN, self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a396a9e17f8fafab27cca5b266b8d002f">on_green_switch</a>)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a50d622d827cad99daa60be80459e084d">   56</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a50d622d827cad99daa60be80459e084d">yellow_switch</a>  = <a class="code hl_class" href="classserver__ihm_1_1_jetson_switch.html">JetsonSwitch</a>(_INTER_2_PIN, self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a25478bfe275d0db64230cf066c058df6">on_yellow_switch</a>)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a8d92deab0b3dca9b8021a677141af3d4">   57</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a8d92deab0b3dca9b8021a677141af3d4">blue_switch</a>    = <a class="code hl_class" href="classserver__ihm_1_1_jetson_switch.html">JetsonSwitch</a>(_INTER_3_PIN, self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a5ab706d8ffa9ac62bf64ed2cfbdf0e3b">on_blue_switch</a>)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a79898f557b5b51f279328bbf74a5f9a2">   58</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a79898f557b5b51f279328bbf74a5f9a2">red_switch</a>     = <a class="code hl_class" href="classserver__ihm_1_1_jetson_switch.html">JetsonSwitch</a>(_INTER_4_PIN, self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a261dd8c2c95a01c2b6fe2c78bcd12561">on_red_switch</a>)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a01d431712185b6a1bee98e94de455ae0">   60</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a01d431712185b6a1bee98e94de455ae0">green_event</a>    = Event()</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#aaf3e190a868688f891ff4a51dbfa2dd7">   61</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aaf3e190a868688f891ff4a51dbfa2dd7">yellow_event</a>   = Event()</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a1eb994d3d77fbbc2ebab346f5ac5ec4b">   62</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a1eb994d3d77fbbc2ebab346f5ac5ec4b">blue_event</a>     = Event()</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a45cf788176c17b6a28cf061888a28397">   63</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a45cf788176c17b6a28cf061888a28397">red_event</a>      = Event()</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="comment"># Init Screen</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">screen</a>.begin()</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="comment"># Clear display.</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">screen</a>.clear()</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">screen</a>.<a class="code hl_namespace" href="namespacedisplay.html">display</a>()</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="comment"># Create blank image for drawing.</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a440e1768ec013cd4373d51953c5ac9d7">   73</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a440e1768ec013cd4373d51953c5ac9d7">image</a> = Image.new(<span class="stringliteral">&#39;1&#39;</span>, (self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">screen</a>.width, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">screen</a>.height))</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="comment"># Get drawing object to draw on image.</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">   76</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a> = ImageDraw.Draw(self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a440e1768ec013cd4373d51953c5ac9d7">image</a>)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a8827a665822014dcb5e050307dcf2e7b">   78</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a8827a665822014dcb5e050307dcf2e7b">padding</a> = -2</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">   79</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a> = self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a8827a665822014dcb5e050307dcf2e7b">padding</a></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a3562938d3fcb4009d883f1a3ae253d88">   80</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a3562938d3fcb4009d883f1a3ae253d88">bottom</a> = self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">screen</a>.height - self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a8827a665822014dcb5e050307dcf2e7b">padding</a></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">   82</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a> = 0</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="comment"># Load default font.</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">   85</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a> = ImageFont.load_default()</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="comment"># bind current message</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#ad420ae82c468feed10b1db053e277e3f">   88</a></span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad420ae82c468feed10b1db053e277e3f">current_message</a> = self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a96263c20006b1504b949de0aab6723c6">init_message</a></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#aad2d25fd5245db8e266efa5711457aab">_clear_picture</a>()</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+</div>
+<div class="foldopen" id="foldopen00092" data-start="" data-end="">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a396a9e17f8fafab27cca5b266b8d002f">   92</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a396a9e17f8fafab27cca5b266b8d002f">on_green_switch</a>(self):</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a01d431712185b6a1bee98e94de455ae0">green_event</a>.set()</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+</div>
+<div class="foldopen" id="foldopen00095" data-start="" data-end="">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a25478bfe275d0db64230cf066c058df6">   95</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a25478bfe275d0db64230cf066c058df6">on_yellow_switch</a>(self):</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aaf3e190a868688f891ff4a51dbfa2dd7">yellow_event</a>.set()</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+</div>
+<div class="foldopen" id="foldopen00098" data-start="" data-end="">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a5ab706d8ffa9ac62bf64ed2cfbdf0e3b">   98</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a5ab706d8ffa9ac62bf64ed2cfbdf0e3b">on_blue_switch</a>(self):</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a1eb994d3d77fbbc2ebab346f5ac5ec4b">blue_event</a>.set()</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+</div>
+<div class="foldopen" id="foldopen00101" data-start="" data-end="">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a261dd8c2c95a01c2b6fe2c78bcd12561">  101</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a261dd8c2c95a01c2b6fe2c78bcd12561">on_red_switch</a>(self):</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a45cf788176c17b6a28cf061888a28397">red_event</a>.set()</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+</div>
+<div class="foldopen" id="foldopen00104" data-start="" data-end="">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#aad2d25fd5245db8e266efa5711457aab">  104</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#aad2d25fd5245db8e266efa5711457aab">_clear_picture</a>(self):</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="comment"># Draw a black filled box to clear the image.</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.rectangle((0, 0, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">screen</a>.width, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">screen</a>.height), outline=0, fill=0)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+</div>
+<div class="foldopen" id="foldopen00108" data-start="" data-end="">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a2fb4f6e62926d97f85fb0f48f4116070">  108</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a2fb4f6e62926d97f85fb0f48f4116070">_get_network_interface_state</a>(self,interface):</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">return</span> subprocess.check_output(<span class="stringliteral">&#39;cat /sys/class/net/%s/operstate&#39;</span> % interface, shell=<span class="keyword">True</span>).decode(<span class="stringliteral">&#39;ascii&#39;</span>)[:-1]</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+</div>
+<div class="foldopen" id="foldopen00111" data-start="" data-end="">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a6f2a6426d3a88b947eaeff67f04f9592">  111</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a6f2a6426d3a88b947eaeff67f04f9592">_get_ip_address</a>(self, interface):</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">if</span> self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a2fb4f6e62926d97f85fb0f48f4116070">_get_network_interface_state</a>(interface) == <span class="stringliteral">&#39;down&#39;</span>:</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        cmd = <span class="stringliteral">&quot;ifconfig %s | grep -Eo &#39;inet (addr:)?([0-9]*\.){3}[0-9]*&#39; | grep -Eo &#39;([0-9]*\.){3}[0-9]*&#39; | grep -v &#39;127.0.0.1&#39;&quot;</span> % interface</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">return</span> subprocess.check_output(cmd, shell=<span class="keyword">True</span>).decode(<span class="stringliteral">&#39;ascii&#39;</span>)[:-1]</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+</div>
+<div class="foldopen" id="foldopen00117" data-start="" data-end="">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a7e65c575d8ff16f879223c60b76c31c0">  117</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a7e65c575d8ff16f879223c60b76c31c0">_get_cpu_usage</a>(self):</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="comment"># Shell scripts for system monitoring from here : https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        cmd = <span class="stringliteral">&quot;top -bn1 | grep load | awk &#39;{printf \&quot;CPU Load: %.2f\&quot;, $(NF-2)}&#39;&quot;</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        CPU = subprocess.check_output(cmd, shell=<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">return</span> CPU</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+</div>
+<div class="foldopen" id="foldopen00123" data-start="" data-end="">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a91e9c6a97c561e82041672be03d87dba">  123</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a91e9c6a97c561e82041672be03d87dba">_get_gpu_usage</a>(self):</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        GPU = 0.0</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keyword">with</span> open(<span class="stringliteral">&quot;/sys/devices/gpu.0/load&quot;</span>, encoding=<span class="stringliteral">&quot;utf-8&quot;</span>) <span class="keyword">as</span> gpu_file:</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            GPU = gpu_file.readline()</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            GPU = int(GPU)/10</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">return</span> GPU</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+</div>
+<div class="foldopen" id="foldopen00130" data-start="" data-end="">
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#abb1663bcf45c3454df91f1ffff694f38">  130</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#abb1663bcf45c3454df91f1ffff694f38">show_message</a>(self, clients):</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a01d431712185b6a1bee98e94de455ae0">green_event</a>.is_set():</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#aad2d25fd5245db8e266efa5711457aab">_clear_picture</a>()</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a01d431712185b6a1bee98e94de455ae0">green_event</a>.clear()</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad420ae82c468feed10b1db053e277e3f">current_message</a> = self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#af351e2ab6cb525d0584f548f45a64aab">choose_color_message</a></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aaf3e190a868688f891ff4a51dbfa2dd7">yellow_event</a>.is_set():</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#aad2d25fd5245db8e266efa5711457aab">_clear_picture</a>()</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aaf3e190a868688f891ff4a51dbfa2dd7">yellow_event</a>.clear()</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a1eb994d3d77fbbc2ebab346f5ac5ec4b">blue_event</a>.is_set():</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#aad2d25fd5245db8e266efa5711457aab">_clear_picture</a>()</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a1eb994d3d77fbbc2ebab346f5ac5ec4b">blue_event</a>.clear()</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a45cf788176c17b6a28cf061888a28397">red_event</a>.is_set():</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#aad2d25fd5245db8e266efa5711457aab">_clear_picture</a>()</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a45cf788176c17b6a28cf061888a28397">red_event</a>.clear()</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordflow">try</span> :</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad420ae82c468feed10b1db053e277e3f">current_message</a>()</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">screen</a>.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a440e1768ec013cd4373d51953c5ac9d7">image</a>(self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a440e1768ec013cd4373d51953c5ac9d7">image</a>)</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">screen</a>.<a class="code hl_namespace" href="namespacedisplay.html">display</a>()</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">except</span> IOError:</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            print(<span class="stringliteral">&#39;screen error&#39;</span>)</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+</div>
+<div class="foldopen" id="foldopen00155" data-start="" data-end="">
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a96263c20006b1504b949de0aab6723c6">  155</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a96263c20006b1504b949de0aab6723c6">init_message</a>(self):</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a4117cac418b55e1cd1f93cb9f23790f7">ip_message</a>()</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a> + 16), <span class="stringliteral">&quot;Supervisor&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a9a24fba7917a7f8db89d2acb0d8bf07c">begin_message</a>()</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+</div>
+<div class="foldopen" id="foldopen00160" data-start="" data-end="">
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#ad8601d24f2511cec619eac144f9689bd">  160</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#ad8601d24f2511cec619eac144f9689bd">client_status_message</a>(self, clients):</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">if</span> _BORNIBUS_ID <span class="keywordflow">in</span> list(clients):</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a>), <span class="stringliteral">&quot;Bornibus : Ok !&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a>), <span class="stringliteral">&quot;Bornibus : None&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordflow">if</span> _R128_ID <span class="keywordflow">in</span> list(clients):</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a> + 8), <span class="stringliteral">&quot;R128 Ok !&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a> + 8), <span class="stringliteral">&quot;R128 : None&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordflow">if</span> _EYE_ID <span class="keywordflow">in</span> list(clients):</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a> + 16), <span class="stringliteral">&quot;EYE Ok !&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a> + 16), <span class="stringliteral">&quot;EYE : None&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+</div>
+<div class="foldopen" id="foldopen00175" data-start="" data-end="">
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a9a24fba7917a7f8db89d2acb0d8bf07c">  175</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a9a24fba7917a7f8db89d2acb0d8bf07c">begin_message</a>(self):</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a> + 24), <span class="stringliteral">&quot;Press GREEN to start ...&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+</div>
+<div class="foldopen" id="foldopen00178" data-start="" data-end="">
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a4117cac418b55e1cd1f93cb9f23790f7">  178</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a4117cac418b55e1cd1f93cb9f23790f7">ip_message</a>(self):</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a>), <span class="stringliteral">&quot;wlan0: &quot;</span> + str(self.<a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a6f2a6426d3a88b947eaeff67f04f9592">_get_ip_address</a>(<span class="stringliteral">&#39;wlan0&#39;</span>)),  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+</div>
+<div class="foldopen" id="foldopen00181" data-start="" data-end="">
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#af41cd7a66c768b7002ec67f7b0d70a4d">  181</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#af41cd7a66c768b7002ec67f7b0d70a4d">choice_message</a>(self):</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a> + 16), <span class="stringliteral">&quot;GREEN : Save&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a> + 24), <span class="stringliteral">&quot;RED   : Cancel&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+</div>
+<div class="foldopen" id="foldopen00185" data-start="" data-end="">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#a8d5db7283696a5b99a7ecd240f3ca185">  185</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#a8d5db7283696a5b99a7ecd240f3ca185">waiting_for_calibration_message</a>(self):</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a>), <span class="stringliteral">&quot;Calibration...&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+</div>
+<div class="foldopen" id="foldopen00188" data-start="" data-end="">
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="classserver__ihm_1_1_server_i_h_m.html#af351e2ab6cb525d0584f548f45a64aab">  188</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classserver__ihm_1_1_server_i_h_m.html#af351e2ab6cb525d0584f548f45a64aab">choose_color_message</a>(self):</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a>), <span class="stringliteral">&quot;Select Color...&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">draw</a>.text((self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">x</a>, self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">top</a> + 8), <span class="stringliteral">&quot;YELLOW or BLUE&quot;</span>,  font=self.<a class="code hl_variable" href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">font</a>, fill=255)</div>
+</div>
+</div>
+<div class="ttc" id="aclassserver__ihm_1_1_jetson_switch_html"><div class="ttname"><a href="classserver__ihm_1_1_jetson_switch.html">server_ihm.JetsonSwitch</a></div><div class="ttdef"><b>Definition</b> <a href="#l00023">server_ihm.py:23</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_jetson_switch_html_a52a614d59c4154456dcceb4b0d279e32"><div class="ttname"><a href="classserver__ihm_1_1_jetson_switch.html#a52a614d59c4154456dcceb4b0d279e32">server_ihm.JetsonSwitch.pin</a></div><div class="ttdeci">pin</div><div class="ttdef"><b>Definition</b> <a href="#l00025">server_ihm.py:25</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_jetson_switch_html_a57c7e194463eab656aa35479b1fc9281"><div class="ttname"><a href="classserver__ihm_1_1_jetson_switch.html#a57c7e194463eab656aa35479b1fc9281">server_ihm.JetsonSwitch.target</a></div><div class="ttdeci">target(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00037">server_ihm.py:37</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_jetson_switch_html_ae869cb7d6ef9a32dff7d7b153d72d855"><div class="ttname"><a href="classserver__ihm_1_1_jetson_switch.html#ae869cb7d6ef9a32dff7d7b153d72d855">server_ihm.JetsonSwitch.__init__</a></div><div class="ttdeci">__init__(self, pin, attached_func)</div><div class="ttdef"><b>Definition</b> <a href="#l00024">server_ihm.py:24</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_jetson_switch_html_afd2c491ec3ccc866a4db3b56e69c858b"><div class="ttname"><a href="classserver__ihm_1_1_jetson_switch.html#afd2c491ec3ccc866a4db3b56e69c858b">server_ihm.JetsonSwitch.attached_func</a></div><div class="ttdeci">attached_func</div><div class="ttdef"><b>Definition</b> <a href="#l00026">server_ihm.py:26</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html">server_ihm.ServerIHM</a></div><div class="ttdef"><b>Definition</b> <a href="#l00050">server_ihm.py:50</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a01d431712185b6a1bee98e94de455ae0"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a01d431712185b6a1bee98e94de455ae0">server_ihm.ServerIHM.green_event</a></div><div class="ttdeci">green_event</div><div class="ttdef"><b>Definition</b> <a href="#l00060">server_ihm.py:60</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a1eb994d3d77fbbc2ebab346f5ac5ec4b"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a1eb994d3d77fbbc2ebab346f5ac5ec4b">server_ihm.ServerIHM.blue_event</a></div><div class="ttdeci">blue_event</div><div class="ttdef"><b>Definition</b> <a href="#l00062">server_ihm.py:62</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a25478bfe275d0db64230cf066c058df6"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a25478bfe275d0db64230cf066c058df6">server_ihm.ServerIHM.on_yellow_switch</a></div><div class="ttdeci">on_yellow_switch(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00095">server_ihm.py:95</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a261dd8c2c95a01c2b6fe2c78bcd12561"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a261dd8c2c95a01c2b6fe2c78bcd12561">server_ihm.ServerIHM.on_red_switch</a></div><div class="ttdeci">on_red_switch(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00101">server_ihm.py:101</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a2fb4f6e62926d97f85fb0f48f4116070"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a2fb4f6e62926d97f85fb0f48f4116070">server_ihm.ServerIHM._get_network_interface_state</a></div><div class="ttdeci">_get_network_interface_state(self, interface)</div><div class="ttdef"><b>Definition</b> <a href="#l00108">server_ihm.py:108</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a3562938d3fcb4009d883f1a3ae253d88"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a3562938d3fcb4009d883f1a3ae253d88">server_ihm.ServerIHM.bottom</a></div><div class="ttdeci">bottom</div><div class="ttdef"><b>Definition</b> <a href="#l00080">server_ihm.py:80</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a396a9e17f8fafab27cca5b266b8d002f"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a396a9e17f8fafab27cca5b266b8d002f">server_ihm.ServerIHM.on_green_switch</a></div><div class="ttdeci">on_green_switch(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00092">server_ihm.py:92</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a4117cac418b55e1cd1f93cb9f23790f7"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a4117cac418b55e1cd1f93cb9f23790f7">server_ihm.ServerIHM.ip_message</a></div><div class="ttdeci">ip_message(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00178">server_ihm.py:178</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a440e1768ec013cd4373d51953c5ac9d7"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a440e1768ec013cd4373d51953c5ac9d7">server_ihm.ServerIHM.image</a></div><div class="ttdeci">image</div><div class="ttdef"><b>Definition</b> <a href="#l00073">server_ihm.py:73</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a45cf788176c17b6a28cf061888a28397"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a45cf788176c17b6a28cf061888a28397">server_ihm.ServerIHM.red_event</a></div><div class="ttdeci">red_event</div><div class="ttdef"><b>Definition</b> <a href="#l00063">server_ihm.py:63</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a50d622d827cad99daa60be80459e084d"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a50d622d827cad99daa60be80459e084d">server_ihm.ServerIHM.yellow_switch</a></div><div class="ttdeci">yellow_switch</div><div class="ttdef"><b>Definition</b> <a href="#l00056">server_ihm.py:56</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a52579094d3f79f6cfb01cb640943f32e"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a52579094d3f79f6cfb01cb640943f32e">server_ihm.ServerIHM.__init__</a></div><div class="ttdeci">__init__(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00051">server_ihm.py:51</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a5ab706d8ffa9ac62bf64ed2cfbdf0e3b"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a5ab706d8ffa9ac62bf64ed2cfbdf0e3b">server_ihm.ServerIHM.on_blue_switch</a></div><div class="ttdeci">on_blue_switch(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00098">server_ihm.py:98</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a61f17d773cbcb2bbc52976cdd1a13876"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a61f17d773cbcb2bbc52976cdd1a13876">server_ihm.ServerIHM.top</a></div><div class="ttdeci">top</div><div class="ttdef"><b>Definition</b> <a href="#l00079">server_ihm.py:79</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a6f2a6426d3a88b947eaeff67f04f9592"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a6f2a6426d3a88b947eaeff67f04f9592">server_ihm.ServerIHM._get_ip_address</a></div><div class="ttdeci">_get_ip_address(self, interface)</div><div class="ttdef"><b>Definition</b> <a href="#l00111">server_ihm.py:111</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a752b1d02b0701a4af8c6e59120e1d12f"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a752b1d02b0701a4af8c6e59120e1d12f">server_ihm.ServerIHM.draw</a></div><div class="ttdeci">draw</div><div class="ttdef"><b>Definition</b> <a href="#l00076">server_ihm.py:76</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a79898f557b5b51f279328bbf74a5f9a2"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a79898f557b5b51f279328bbf74a5f9a2">server_ihm.ServerIHM.red_switch</a></div><div class="ttdeci">red_switch</div><div class="ttdef"><b>Definition</b> <a href="#l00058">server_ihm.py:58</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a7e65c575d8ff16f879223c60b76c31c0"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a7e65c575d8ff16f879223c60b76c31c0">server_ihm.ServerIHM._get_cpu_usage</a></div><div class="ttdeci">_get_cpu_usage(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00117">server_ihm.py:117</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a8827a665822014dcb5e050307dcf2e7b"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a8827a665822014dcb5e050307dcf2e7b">server_ihm.ServerIHM.padding</a></div><div class="ttdeci">padding</div><div class="ttdef"><b>Definition</b> <a href="#l00078">server_ihm.py:78</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a8d5db7283696a5b99a7ecd240f3ca185"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a8d5db7283696a5b99a7ecd240f3ca185">server_ihm.ServerIHM.waiting_for_calibration_message</a></div><div class="ttdeci">waiting_for_calibration_message(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00185">server_ihm.py:185</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a8d92deab0b3dca9b8021a677141af3d4"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a8d92deab0b3dca9b8021a677141af3d4">server_ihm.ServerIHM.blue_switch</a></div><div class="ttdeci">blue_switch</div><div class="ttdef"><b>Definition</b> <a href="#l00057">server_ihm.py:57</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a91e9c6a97c561e82041672be03d87dba"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a91e9c6a97c561e82041672be03d87dba">server_ihm.ServerIHM._get_gpu_usage</a></div><div class="ttdeci">_get_gpu_usage(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00123">server_ihm.py:123</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a96263c20006b1504b949de0aab6723c6"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a96263c20006b1504b949de0aab6723c6">server_ihm.ServerIHM.init_message</a></div><div class="ttdeci">init_message(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00155">server_ihm.py:155</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_a9a24fba7917a7f8db89d2acb0d8bf07c"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#a9a24fba7917a7f8db89d2acb0d8bf07c">server_ihm.ServerIHM.begin_message</a></div><div class="ttdeci">begin_message(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00175">server_ihm.py:175</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_aa65c78e05abc5feb7348d977bbabef4e"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#aa65c78e05abc5feb7348d977bbabef4e">server_ihm.ServerIHM.font</a></div><div class="ttdeci">font</div><div class="ttdef"><b>Definition</b> <a href="#l00085">server_ihm.py:85</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_aad2d25fd5245db8e266efa5711457aab"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#aad2d25fd5245db8e266efa5711457aab">server_ihm.ServerIHM._clear_picture</a></div><div class="ttdeci">_clear_picture(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00104">server_ihm.py:104</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_aaf3e190a868688f891ff4a51dbfa2dd7"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#aaf3e190a868688f891ff4a51dbfa2dd7">server_ihm.ServerIHM.yellow_event</a></div><div class="ttdeci">yellow_event</div><div class="ttdef"><b>Definition</b> <a href="#l00061">server_ihm.py:61</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_ab4060301a4ff9a136d807e106a71daba"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#ab4060301a4ff9a136d807e106a71daba">server_ihm.ServerIHM.green_switch</a></div><div class="ttdeci">green_switch</div><div class="ttdef"><b>Definition</b> <a href="#l00055">server_ihm.py:55</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_abb1663bcf45c3454df91f1ffff694f38"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#abb1663bcf45c3454df91f1ffff694f38">server_ihm.ServerIHM.show_message</a></div><div class="ttdeci">show_message(self, clients)</div><div class="ttdef"><b>Definition</b> <a href="#l00130">server_ihm.py:130</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_ad1edf7a83f90ace58b8f337208fd5e02"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#ad1edf7a83f90ace58b8f337208fd5e02">server_ihm.ServerIHM.x</a></div><div class="ttdeci">x</div><div class="ttdef"><b>Definition</b> <a href="#l00082">server_ihm.py:82</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_ad420ae82c468feed10b1db053e277e3f"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#ad420ae82c468feed10b1db053e277e3f">server_ihm.ServerIHM.current_message</a></div><div class="ttdeci">current_message</div><div class="ttdef"><b>Definition</b> <a href="#l00088">server_ihm.py:88</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_ad8601d24f2511cec619eac144f9689bd"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#ad8601d24f2511cec619eac144f9689bd">server_ihm.ServerIHM.client_status_message</a></div><div class="ttdeci">client_status_message(self, clients)</div><div class="ttdef"><b>Definition</b> <a href="#l00160">server_ihm.py:160</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_af351e2ab6cb525d0584f548f45a64aab"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#af351e2ab6cb525d0584f548f45a64aab">server_ihm.ServerIHM.choose_color_message</a></div><div class="ttdeci">choose_color_message(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00188">server_ihm.py:188</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_af41cd7a66c768b7002ec67f7b0d70a4d"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#af41cd7a66c768b7002ec67f7b0d70a4d">server_ihm.ServerIHM.choice_message</a></div><div class="ttdeci">choice_message(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00181">server_ihm.py:181</a></div></div>
+<div class="ttc" id="aclassserver__ihm_1_1_server_i_h_m_html_afc91e784c8fc292082f350a638ea5555"><div class="ttname"><a href="classserver__ihm_1_1_server_i_h_m.html#afc91e784c8fc292082f350a638ea5555">server_ihm.ServerIHM.screen</a></div><div class="ttdeci">screen</div><div class="ttdef"><b>Definition</b> <a href="#l00053">server_ihm.py:53</a></div></div>
+<div class="ttc" id="anamespacedisplay_html"><div class="ttname"><a href="namespacedisplay.html">display</a></div><div class="ttdef"><b>Definition</b> <a href="display_8py_source.html#l00001">display.py:1</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_fbe335e062bcd0bd6dcaec585745bb0c.html">beacons</a></li><li class="navelem"><a class="el" href="server__ihm_8py.html">server_ihm.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

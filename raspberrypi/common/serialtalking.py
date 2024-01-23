@@ -1,7 +1,7 @@
 '''
  @file serialtalking.py
  @brief SerialTalking Lib Work In progess: CRINSA 2024
- 
+
  @author Negrache Gibril et Hilkens Boris
 '''
 
@@ -45,7 +45,16 @@ class SerialTalksWarning(UserWarning, ConnectionError): pass
 #TODO: Timeout & connections checks 
 
 class SerialTalking:
+    '''! Serial Talking (python)
+    
+    @brief Comme SerialTalks mais autre; middleware entre pyserialTransfert et l'user
+    '''
     def __init__(self, port, timeout=5): 
+        '''!Initie une instance de SerialTalking avec un arduino
+
+        @param port port de l'arduino
+        @param timeout temps max de connection (default à 5sec)
+        '''
         self.port = port
         self.is_connected=False
 
@@ -62,6 +71,10 @@ class SerialTalking:
         self.disconnect()
 
     def connect(self, timeout=5):
+        '''! Connecte à un arduino
+
+        @param timeout timeout de bas à 5 sec
+        '''
         if self.is_connected:
             raise AlreadyConnectedError('{} is already connected'.format(self.port))
 
@@ -94,32 +107,59 @@ class SerialTalking:
                 self.is_connected = False
 
     def disconnect(self):
+        '''! Se deconnecte de l'arduino
+        '''
         self.link.close()
+        self.is_connected=False
         return
     
     def available(self):
+        '''! écoute la ligne rx et décode le message entrant
+        @return self.link.available()
+        '''
         return self.link.available()
     
     def get_status_code(self):
+        '''! Retourne le code de status de pySerialTransfert
+        @return self.link.status
+        '''
         return self.link.status
 
     def getuuid(self):
+        '''! Retourne l'uuid de l'arduino
+        @return uuid
+        '''
         return self.request(GETUUID_OPCODE, STRING)[0]
 
     def setuuid(self, uuid):
+        '''! Paramètre l'uuid
+        @param uuid l'uuid à changer
+        '''
         if uuid[-1]!='\x00': uuid=uuid+'\x00'
         self.order(SETUUID_OPCODE, STRING(uuid))
         return
     
     def getEEPROM(self, address):
+        '''! Renvoie une valeur de l'eeprom 
+        @param address adresse de la valeur
+        @return valeur à l'adresse
+        '''
         return self.request(GETEEPROM_OPCODE, BYTE, send_args=[USHORT(address)])[0]
     
     def setEEPROM(self, address, value):
+        '''! Change une valeur de l'eeprom
+        @param address adresse de la valeur à changer
+        @param value la valeur à changer
+        '''
         self.order(SETEEPROM_OPCODE, USHORT(address), BYTE(value))
         return
 
     #For each arg, on tx l'arg puis on envoie tout
     def order(self, opcode, *args):
+        '''! Envoie un ordre à l'arduino
+        @param opcode Code de l'opération
+        @param *args arguments d'envoi 
+        '''
         if(len(args)==0): args = [BYTE(0x01)] #Si pas d'args
         #Oui le string fait chier
         for arg in args:
@@ -133,6 +173,14 @@ class SerialTalking:
 
     #call order puis fait le tralala du request
     def request(self, opcode, *args, send_args=None, timeout=5):
+        '''! Requête à l'arduino
+        @param opcode Code de l'opération
+        @param *args type des éléments reçu 
+        @param send_args liste des paramètre qui vont avec l'envoi
+        @param timeout 5sec
+        
+        @return Renvoie une liste data des données reçue
+        '''
         data, data_size = ([], []) #Notre array
         if(send_args==None):
             self.order(opcode)# On envoit l'ordre pour avoir la réponse
@@ -162,18 +210,30 @@ class SerialTalking:
         return data
 
     def free_receiver(self):
+        '''! Remet à zero le compteur RX
+        '''
         self.recSize = 0
 
     def free_sender(self):
+        '''! Remet à zero le compteur TX
+        '''
         self.sendSize = 0
 
     def send_buffer(self, OPCODE):
+        '''! Envoie le buffer préconfiguré
+        @param OPCODE code de l'opération
+        @return succes de l'opération
+        '''
         success = self.link.send(self.sendSize, packet_id=OPCODE)# Opcode important
         self.free_sender()
         return success
 
     # Réception de donnée
     def read_buffer(self, obj_type):
+        '''! Lit le buffer RX
+        @param Type de l'obj
+        @return valeur
+        '''
         data_size=-1
         #On récupère la form de la donnée (liste ou valeur seule)
         data_type = self.link.rx_obj(obj_type=STRING, start_pos=self.recSize, obj_byte_size=1)
@@ -211,6 +271,8 @@ class SerialTalking:
 
     # Réception de donnée
     def write_buffer(self, data, data_size=1):
+        '''!Ecrit dans le buffer
+        '''
         self.sendSize = self.link.tx_obj(UCHAR(data_size), start_pos=self.sendSize) #1 octet (la taille est 255 ça suffit) (correspond à uint8_t en c++)
         self.sendSize = self.link.tx_obj(data, start_pos=self.sendSize)
 

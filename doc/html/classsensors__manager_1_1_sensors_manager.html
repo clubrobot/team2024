@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence de la classe sensors_manager.SensorsManager</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classsensors__manager_1_1_sensors_manager.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-attribs">Attributs publics</a> &#124;
+<a href="#pub-static-attribs">Attributs publics statiques</a> &#124;
+<a href="classsensors__manager_1_1_sensors_manager-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la classe sensors_manager.SensorsManager</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Est dérivée de Thread.</p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:afa5b97eb093d0995ae841673dd08a268" id="r_afa5b97eb093d0995ae841673dd08a268"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa5b97eb093d0995ae841673dd08a268">__init__</a> (self, wheeledbase, <a class="el" href="#a0f72c0304237f373b08b026b8fbc7a21">sensors_front</a>, <a class="el" href="#a39be3ce11e9383adf6f8e71542abbf6f">sensors_back</a>, <a class="el" href="#acb62d8630ba076cd596b61c585cc3508">sensors_lat</a>, <a class="el" href="#ab01a1243b5c5791203680779eabfe2be">threshold</a>=300)</td></tr>
+<tr class="separator:afa5b97eb093d0995ae841673dd08a268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0132b4c485daa0d83a5e97d78bd4d422" id="r_a0132b4c485daa0d83a5e97d78bd4d422"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0132b4c485daa0d83a5e97d78bd4d422">set_thresold</a> (self, thresold)</td></tr>
+<tr class="separator:a0132b4c485daa0d83a5e97d78bd4d422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab779f697cb6c021d993be5d04eb174b2" id="r_ab779f697cb6c021d993be5d04eb174b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab779f697cb6c021d993be5d04eb174b2">stop</a> (self)</td></tr>
+<tr class="separator:ab779f697cb6c021d993be5d04eb174b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:a207964756dad2579151b9864b31d9d2e" id="r_a207964756dad2579151b9864b31d9d2e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a207964756dad2579151b9864b31d9d2e">daemon</a></td></tr>
+<tr class="separator:a207964756dad2579151b9864b31d9d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6b087f32257c5bcafac7ae7c2afb408" id="r_ad6b087f32257c5bcafac7ae7c2afb408"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6b087f32257c5bcafac7ae7c2afb408">max_linvel</a></td></tr>
+<tr class="separator:ad6b087f32257c5bcafac7ae7c2afb408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ad4318b6d7e377adb5346ead7bc827f" id="r_a6ad4318b6d7e377adb5346ead7bc827f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ad4318b6d7e377adb5346ead7bc827f">max_angvel</a></td></tr>
+<tr class="separator:a6ad4318b6d7e377adb5346ead7bc827f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f72c0304237f373b08b026b8fbc7a21" id="r_a0f72c0304237f373b08b026b8fbc7a21"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f72c0304237f373b08b026b8fbc7a21">sensors_front</a></td></tr>
+<tr class="separator:a0f72c0304237f373b08b026b8fbc7a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39be3ce11e9383adf6f8e71542abbf6f" id="r_a39be3ce11e9383adf6f8e71542abbf6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39be3ce11e9383adf6f8e71542abbf6f">sensors_back</a></td></tr>
+<tr class="separator:a39be3ce11e9383adf6f8e71542abbf6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb62d8630ba076cd596b61c585cc3508" id="r_acb62d8630ba076cd596b61c585cc3508"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb62d8630ba076cd596b61c585cc3508">sensors_lat</a></td></tr>
+<tr class="separator:acb62d8630ba076cd596b61c585cc3508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa17b2e6129ef9eee6db8c61c242d8728" id="r_aa17b2e6129ef9eee6db8c61c242d8728"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa17b2e6129ef9eee6db8c61c242d8728">front_disable</a></td></tr>
+<tr class="separator:aa17b2e6129ef9eee6db8c61c242d8728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbd0148e73042061b46a377879c7e247" id="r_abbd0148e73042061b46a377879c7e247"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbd0148e73042061b46a377879c7e247">back_disable</a></td></tr>
+<tr class="separator:abbd0148e73042061b46a377879c7e247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab01a1243b5c5791203680779eabfe2be" id="r_ab01a1243b5c5791203680779eabfe2be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab01a1243b5c5791203680779eabfe2be">threshold</a></td></tr>
+<tr class="separator:ab01a1243b5c5791203680779eabfe2be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2c1eb9f2899530bf4596207eacccb75" id="r_ab2c1eb9f2899530bf4596207eacccb75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2c1eb9f2899530bf4596207eacccb75">lock</a></td></tr>
+<tr class="separator:ab2c1eb9f2899530bf4596207eacccb75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3becf17b2e36c35e666e7c60be103414" id="r_a3becf17b2e36c35e666e7c60be103414"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3becf17b2e36c35e666e7c60be103414">stopped</a></td></tr>
+<tr class="separator:a3becf17b2e36c35e666e7c60be103414"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78e5cb4c335c0119025248e621a6db1a" id="r_a78e5cb4c335c0119025248e621a6db1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78e5cb4c335c0119025248e621a6db1a">stop_thread</a></td></tr>
+<tr class="separator:a78e5cb4c335c0119025248e621a6db1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Attributs publics statiques</h2></td></tr>
+<tr class="memitem:a63a3f4c86b710de2bce3a40d45ae052b" id="r_a63a3f4c86b710de2bce3a40d45ae052b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63a3f4c86b710de2bce3a40d45ae052b">SENSORS_FREQ</a> = 0.2</td></tr>
+<tr class="separator:a63a3f4c86b710de2bce3a40d45ae052b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="afa5b97eb093d0995ae841673dd08a268" name="afa5b97eb093d0995ae841673dd08a268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa5b97eb093d0995ae841673dd08a268">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.__init__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>wheeledbase</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>sensors_front</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>sensors_back</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>sensors_lat</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>threshold</em><span class="paramdefsep"> = </span><span class="paramdefval">300</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a0132b4c485daa0d83a5e97d78bd4d422" name="a0132b4c485daa0d83a5e97d78bd4d422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0132b4c485daa0d83a5e97d78bd4d422">&#9670;&#160;</a></span>set_thresold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.set_thresold </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>thresold</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab779f697cb6c021d993be5d04eb174b2" name="ab779f697cb6c021d993be5d04eb174b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab779f697cb6c021d993be5d04eb174b2">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.stop </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="abbd0148e73042061b46a377879c7e247" name="abbd0148e73042061b46a377879c7e247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbd0148e73042061b46a377879c7e247">&#9670;&#160;</a></span>back_disable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.back_disable</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a207964756dad2579151b9864b31d9d2e" name="a207964756dad2579151b9864b31d9d2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a207964756dad2579151b9864b31d9d2e">&#9670;&#160;</a></span>daemon</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.daemon</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa17b2e6129ef9eee6db8c61c242d8728" name="aa17b2e6129ef9eee6db8c61c242d8728"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa17b2e6129ef9eee6db8c61c242d8728">&#9670;&#160;</a></span>front_disable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.front_disable</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2c1eb9f2899530bf4596207eacccb75" name="ab2c1eb9f2899530bf4596207eacccb75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2c1eb9f2899530bf4596207eacccb75">&#9670;&#160;</a></span>lock</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.lock</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ad4318b6d7e377adb5346ead7bc827f" name="a6ad4318b6d7e377adb5346ead7bc827f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ad4318b6d7e377adb5346ead7bc827f">&#9670;&#160;</a></span>max_angvel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.max_angvel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6b087f32257c5bcafac7ae7c2afb408" name="ad6b087f32257c5bcafac7ae7c2afb408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6b087f32257c5bcafac7ae7c2afb408">&#9670;&#160;</a></span>max_linvel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.max_linvel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39be3ce11e9383adf6f8e71542abbf6f" name="a39be3ce11e9383adf6f8e71542abbf6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39be3ce11e9383adf6f8e71542abbf6f">&#9670;&#160;</a></span>sensors_back</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.sensors_back</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63a3f4c86b710de2bce3a40d45ae052b" name="a63a3f4c86b710de2bce3a40d45ae052b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63a3f4c86b710de2bce3a40d45ae052b">&#9670;&#160;</a></span>SENSORS_FREQ</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float sensors_manager.SensorsManager.SENSORS_FREQ = 0.2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f72c0304237f373b08b026b8fbc7a21" name="a0f72c0304237f373b08b026b8fbc7a21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f72c0304237f373b08b026b8fbc7a21">&#9670;&#160;</a></span>sensors_front</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.sensors_front</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb62d8630ba076cd596b61c585cc3508" name="acb62d8630ba076cd596b61c585cc3508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb62d8630ba076cd596b61c585cc3508">&#9670;&#160;</a></span>sensors_lat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.sensors_lat</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78e5cb4c335c0119025248e621a6db1a" name="a78e5cb4c335c0119025248e621a6db1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78e5cb4c335c0119025248e621a6db1a">&#9670;&#160;</a></span>stop_thread</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.stop_thread</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3becf17b2e36c35e666e7c60be103414" name="a3becf17b2e36c35e666e7c60be103414"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3becf17b2e36c35e666e7c60be103414">&#9670;&#160;</a></span>stopped</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.stopped</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab01a1243b5c5791203680779eabfe2be" name="ab01a1243b5c5791203680779eabfe2be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab01a1243b5c5791203680779eabfe2be">&#9670;&#160;</a></span>threshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensors_manager.SensorsManager.threshold</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
+<li>C:/Users/boris/Desktop/robotique/team2024/raspberrypi/managers/<a class="el" href="sensors__manager_8py.html">sensors_manager.py</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacesensors__manager.html">sensors_manager</a></li><li class="navelem"><a class="el" href="classsensors__manager_1_1_sensors_manager.html">SensorsManager</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

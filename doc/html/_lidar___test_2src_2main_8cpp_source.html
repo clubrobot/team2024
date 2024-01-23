@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/platformIO/Lidar_Test/src/main.cpp</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_lidar___test_2src_2main_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">main.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_lidar___test_2src_2main_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;VL53L0X.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;Wire.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;PIN.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;constants.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;VL53L0X.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#aa76a6b3545a750ba645702942f558db6">   15</a></span>VL53L0X <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#aa76a6b3545a750ba645702942f558db6">vl53_1</a> = VL53L0X(<a class="code hl_define" href="_lidar___test_2include_2constants_8h.html#a8150cd9f06acec73fbbf2b9e907d9f82">VL53L0X_1_I2C_ADDR</a>, <a class="code hl_define" href="_lidar___test_2include_2_p_i_n_8h.html#aba787f69e39c5c97f2a44d8dbb01f195">VL53L0X_1_SHUTDOWN_PIN</a>, NULL);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#a6189b022b62ea5872e64285c3024019d">   16</a></span>VL53L0X <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a6189b022b62ea5872e64285c3024019d">vl53_2</a> = VL53L0X(<a class="code hl_define" href="_lidar___test_2include_2constants_8h.html#ab87a267e2a239b0464d78b6b3b9ba7ba">VL53L0X_2_I2C_ADDR</a>, <a class="code hl_define" href="_lidar___test_2include_2_p_i_n_8h.html#af348351070cb18d0b3d4989e99469085">VL53L0X_2_SHUTDOWN_PIN</a>, NULL);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#aa107d18cef6e97fc52ecfe6ff5ff6391">   17</a></span>VL53L0X <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#aa107d18cef6e97fc52ecfe6ff5ff6391">vl53_3</a> = VL53L0X(<a class="code hl_define" href="_lidar___test_2include_2constants_8h.html#a9da9f55e1a6797222b9c955b88b75e23">VL53L0X_3_I2C_ADDR</a>, <a class="code hl_define" href="_lidar___test_2include_2_p_i_n_8h.html#abeb5cabb3ba49592a08bfa172acda769">VL53L0X_3_SHUTDOWN_PIN</a>, NULL);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#a6b328fc6c2dcf26ec2e3e61e08346d8d">   18</a></span>VL53L0X <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a6b328fc6c2dcf26ec2e3e61e08346d8d">vl53_4</a> = VL53L0X(<a class="code hl_define" href="_lidar___test_2include_2constants_8h.html#a1f7463d53f8229fd942a9e6837f474f7">VL53L0X_4_I2C_ADDR</a>, <a class="code hl_define" href="_lidar___test_2include_2_p_i_n_8h.html#ad3b1546bc9662d666fd8648a8ec66132">VL53L0X_4_SHUTDOWN_PIN</a>, NULL);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#a7d7de43232170f358a8a2286c86fa881">   19</a></span>VL53L0X <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a7d7de43232170f358a8a2286c86fa881">vl53_5</a> = VL53L0X(<a class="code hl_define" href="_lidar___test_2include_2constants_8h.html#a0a7f7531821856b3eb84bf966bdb2d6c">VL53L0X_5_I2C_ADDR</a>, <a class="code hl_define" href="_lidar___test_2include_2_p_i_n_8h.html#a8512f373816bf015ff6408bd99cd233e">VL53L0X_5_SHUTDOWN_PIN</a>, NULL);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#aaab869baafd9e2e8ba889b0602d4d107">   20</a></span>VL53L0X <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#aaab869baafd9e2e8ba889b0602d4d107">vl53_6</a> = VL53L0X(<a class="code hl_define" href="_lidar___test_2include_2constants_8h.html#a8cff898cb88d1df81dfbd58848e405ec">VL53L0X_6_I2C_ADDR</a>, <a class="code hl_define" href="_lidar___test_2include_2_p_i_n_8h.html#a2ce9e1a884dfe8baf1bca617e42e7e14">VL53L0X_6_SHUTDOWN_PIN</a>, NULL);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#a25bd4fe3f967afac66aa80e407cf09d5">   21</a></span>VL53L0X <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a25bd4fe3f967afac66aa80e407cf09d5">vl53_7</a> = VL53L0X(<a class="code hl_define" href="_lidar___test_2include_2constants_8h.html#a7fc889ae711886e7afc29eb38e4bf235">VL53L0X_7_I2C_ADDR</a>, <a class="code hl_define" href="_lidar___test_2include_2_p_i_n_8h.html#a58fbb5bd9dd88fc8716f4f1c61dcf4dc">VL53L0X_7_SHUTDOWN_PIN</a>, NULL);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#ac196c21827c07f7f8ecd0ebc161d7182">   22</a></span>VL53L0X <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#ac196c21827c07f7f8ecd0ebc161d7182">vl53_8</a> = VL53L0X(<a class="code hl_define" href="_lidar___test_2include_2constants_8h.html#afd5220895ea0b337fec3f588f40f9c4c">VL53L0X_8_I2C_ADDR</a>, <a class="code hl_define" href="_lidar___test_2include_2_p_i_n_8h.html#aed1615804d92d3ea757ffacbb51583f7">VL53L0X_8_SHUTDOWN_PIN</a>, NULL);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#a0cc5e85913850d9729a7922001a16e2c">   24</a></span>VL53L0X * <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a0cc5e85913850d9729a7922001a16e2c">sensors_vl53</a>[] = {&amp;<a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#aa76a6b3545a750ba645702942f558db6">vl53_1</a>, &amp;<a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a6189b022b62ea5872e64285c3024019d">vl53_2</a>, &amp;<a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#aa107d18cef6e97fc52ecfe6ff5ff6391">vl53_3</a>, &amp;<a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a6b328fc6c2dcf26ec2e3e61e08346d8d">vl53_4</a>, &amp;<a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a7d7de43232170f358a8a2286c86fa881">vl53_5</a>, &amp;<a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#aaab869baafd9e2e8ba889b0602d4d107">vl53_6</a>, &amp;<a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a25bd4fe3f967afac66aa80e407cf09d5">vl53_7</a>, &amp;<a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#ac196c21827c07f7f8ecd0ebc161d7182">vl53_8</a>};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#acc8eed4cda227806e69caaf05239829d">   26</a></span>uint8_t <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#acc8eed4cda227806e69caaf05239829d">vl53_status</a>[<a class="code hl_define" href="_lidar___test_2include_2constants_8h.html#ad4b6700882525e2f5f0a1ec94d1e0f05">VL53L0X_COUNT</a>] = {0};</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#aa39dfc88c95d96c256f688a3927bdfaf">   28</a></span>uint16_t <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#aa39dfc88c95d96c256f688a3927bdfaf">vl53_measurement</a>[<a class="code hl_define" href="_lidar___test_2include_2constants_8h.html#ad4b6700882525e2f5f0a1ec94d1e0f05">VL53L0X_COUNT</a>] = {10};</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// serialtalks wrapper</span></div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#acdf69ae6d29b75de9c3f40856d8966b2">   31</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_lidar___test_2src_2main_8cpp.html#acdf69ae6d29b75de9c3f40856d8966b2">talksExecuteWrapper</a>()</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">   36</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_lidar___test_2src_2main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a>()</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  Serial.begin(115200);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> count = 0;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// I2C Communication</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    Wire.begin(<a class="code hl_define" href="_lidar___test_2include_2_p_i_n_8h.html#a46cf86af6b9554dcde527f584be16921">SENSORS_SDA</a>, <a class="code hl_define" href="_lidar___test_2include_2_p_i_n_8h.html#ac42f5baadf46c58ae20adba7daa85238">SENSORS_SCL</a>); <span class="comment">//SDA SCL</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">//bind subscription</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">//topics.bind(GET_ALL_OPCODE, GET_ALL);</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// Shutdown all VL53L0X sensors</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_define" href="_lidar___test_2include_2constants_8h.html#ad4b6700882525e2f5f0a1ec94d1e0f05">VL53L0X_COUNT</a>; i++)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a0cc5e85913850d9729a7922001a16e2c">sensors_vl53</a>[i]-&gt;shutdown();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// Set all VL53L0X timeout in ms</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;cur_sensor : <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a0cc5e85913850d9729a7922001a16e2c">sensors_vl53</a>)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        cur_sensor-&gt;setTimeout(30);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">// Starting all VL53L0X sensors</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;cur_sensor : <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a0cc5e85913850d9729a7922001a16e2c">sensors_vl53</a>)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">if</span> (!cur_sensor-&gt;begin())</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#acc8eed4cda227806e69caaf05239829d">vl53_status</a>[count++] = 1;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    count = 0;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// Starting all VL53L0X measure</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;cur_sensor : <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a0cc5e85913850d9729a7922001a16e2c">sensors_vl53</a>)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        cur_sensor-&gt;startContinuous();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">// Loop</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#a0480b812cba9c1d9c71a5fb1071bd0fc">   79</a></span>uint8_t <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a0480b812cba9c1d9c71a5fb1071bd0fc">counter</a>;</div>
+<div class="foldopen" id="foldopen00080" data-start="{" data-end="}">
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="_lidar___test_2src_2main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">   80</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_lidar___test_2src_2main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop</a>()</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a0480b812cba9c1d9c71a5fb1071bd0fc">counter</a> = 0;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;cur_sensor : <a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a0cc5e85913850d9729a7922001a16e2c">sensors_vl53</a>){</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        Serial.println(<a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#aa39dfc88c95d96c256f688a3927bdfaf">vl53_measurement</a>[<a class="code hl_variable" href="_lidar___test_2src_2main_8cpp.html#a0480b812cba9c1d9c71a5fb1071bd0fc">counter</a>++] = cur_sensor-&gt;readRangeContinuousMillimeters(<a class="code hl_function" href="_lidar___test_2src_2main_8cpp.html#acdf69ae6d29b75de9c3f40856d8966b2">talksExecuteWrapper</a>));</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
+</div>
+<div class="ttc" id="a_lidar___test_2include_2_p_i_n_8h_html_a2ce9e1a884dfe8baf1bca617e42e7e14"><div class="ttname"><a href="_lidar___test_2include_2_p_i_n_8h.html#a2ce9e1a884dfe8baf1bca617e42e7e14">VL53L0X_6_SHUTDOWN_PIN</a></div><div class="ttdeci">#define VL53L0X_6_SHUTDOWN_PIN</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2_p_i_n_8h_source.html#l00023">PIN.h:23</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2_p_i_n_8h_html_a46cf86af6b9554dcde527f584be16921"><div class="ttname"><a href="_lidar___test_2include_2_p_i_n_8h.html#a46cf86af6b9554dcde527f584be16921">SENSORS_SDA</a></div><div class="ttdeci">#define SENSORS_SDA</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2_p_i_n_8h_source.html#l00029">PIN.h:29</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2_p_i_n_8h_html_a58fbb5bd9dd88fc8716f4f1c61dcf4dc"><div class="ttname"><a href="_lidar___test_2include_2_p_i_n_8h.html#a58fbb5bd9dd88fc8716f4f1c61dcf4dc">VL53L0X_7_SHUTDOWN_PIN</a></div><div class="ttdeci">#define VL53L0X_7_SHUTDOWN_PIN</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2_p_i_n_8h_source.html#l00024">PIN.h:24</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2_p_i_n_8h_html_a8512f373816bf015ff6408bd99cd233e"><div class="ttname"><a href="_lidar___test_2include_2_p_i_n_8h.html#a8512f373816bf015ff6408bd99cd233e">VL53L0X_5_SHUTDOWN_PIN</a></div><div class="ttdeci">#define VL53L0X_5_SHUTDOWN_PIN</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2_p_i_n_8h_source.html#l00022">PIN.h:22</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2_p_i_n_8h_html_aba787f69e39c5c97f2a44d8dbb01f195"><div class="ttname"><a href="_lidar___test_2include_2_p_i_n_8h.html#aba787f69e39c5c97f2a44d8dbb01f195">VL53L0X_1_SHUTDOWN_PIN</a></div><div class="ttdeci">#define VL53L0X_1_SHUTDOWN_PIN</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2_p_i_n_8h_source.html#l00018">PIN.h:18</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2_p_i_n_8h_html_abeb5cabb3ba49592a08bfa172acda769"><div class="ttname"><a href="_lidar___test_2include_2_p_i_n_8h.html#abeb5cabb3ba49592a08bfa172acda769">VL53L0X_3_SHUTDOWN_PIN</a></div><div class="ttdeci">#define VL53L0X_3_SHUTDOWN_PIN</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2_p_i_n_8h_source.html#l00020">PIN.h:20</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2_p_i_n_8h_html_ac42f5baadf46c58ae20adba7daa85238"><div class="ttname"><a href="_lidar___test_2include_2_p_i_n_8h.html#ac42f5baadf46c58ae20adba7daa85238">SENSORS_SCL</a></div><div class="ttdeci">#define SENSORS_SCL</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2_p_i_n_8h_source.html#l00030">PIN.h:30</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2_p_i_n_8h_html_ad3b1546bc9662d666fd8648a8ec66132"><div class="ttname"><a href="_lidar___test_2include_2_p_i_n_8h.html#ad3b1546bc9662d666fd8648a8ec66132">VL53L0X_4_SHUTDOWN_PIN</a></div><div class="ttdeci">#define VL53L0X_4_SHUTDOWN_PIN</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2_p_i_n_8h_source.html#l00021">PIN.h:21</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2_p_i_n_8h_html_aed1615804d92d3ea757ffacbb51583f7"><div class="ttname"><a href="_lidar___test_2include_2_p_i_n_8h.html#aed1615804d92d3ea757ffacbb51583f7">VL53L0X_8_SHUTDOWN_PIN</a></div><div class="ttdeci">#define VL53L0X_8_SHUTDOWN_PIN</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2_p_i_n_8h_source.html#l00025">PIN.h:25</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2_p_i_n_8h_html_af348351070cb18d0b3d4989e99469085"><div class="ttname"><a href="_lidar___test_2include_2_p_i_n_8h.html#af348351070cb18d0b3d4989e99469085">VL53L0X_2_SHUTDOWN_PIN</a></div><div class="ttdeci">#define VL53L0X_2_SHUTDOWN_PIN</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2_p_i_n_8h_source.html#l00019">PIN.h:19</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2constants_8h_html_a0a7f7531821856b3eb84bf966bdb2d6c"><div class="ttname"><a href="_lidar___test_2include_2constants_8h.html#a0a7f7531821856b3eb84bf966bdb2d6c">VL53L0X_5_I2C_ADDR</a></div><div class="ttdeci">#define VL53L0X_5_I2C_ADDR</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2constants_8h_source.html#l00012">constants.h:12</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2constants_8h_html_a1f7463d53f8229fd942a9e6837f474f7"><div class="ttname"><a href="_lidar___test_2include_2constants_8h.html#a1f7463d53f8229fd942a9e6837f474f7">VL53L0X_4_I2C_ADDR</a></div><div class="ttdeci">#define VL53L0X_4_I2C_ADDR</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2constants_8h_source.html#l00011">constants.h:11</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2constants_8h_html_a7fc889ae711886e7afc29eb38e4bf235"><div class="ttname"><a href="_lidar___test_2include_2constants_8h.html#a7fc889ae711886e7afc29eb38e4bf235">VL53L0X_7_I2C_ADDR</a></div><div class="ttdeci">#define VL53L0X_7_I2C_ADDR</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2constants_8h_source.html#l00014">constants.h:14</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2constants_8h_html_a8150cd9f06acec73fbbf2b9e907d9f82"><div class="ttname"><a href="_lidar___test_2include_2constants_8h.html#a8150cd9f06acec73fbbf2b9e907d9f82">VL53L0X_1_I2C_ADDR</a></div><div class="ttdeci">#define VL53L0X_1_I2C_ADDR</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2constants_8h_source.html#l00008">constants.h:8</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2constants_8h_html_a8cff898cb88d1df81dfbd58848e405ec"><div class="ttname"><a href="_lidar___test_2include_2constants_8h.html#a8cff898cb88d1df81dfbd58848e405ec">VL53L0X_6_I2C_ADDR</a></div><div class="ttdeci">#define VL53L0X_6_I2C_ADDR</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2constants_8h_source.html#l00013">constants.h:13</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2constants_8h_html_a9da9f55e1a6797222b9c955b88b75e23"><div class="ttname"><a href="_lidar___test_2include_2constants_8h.html#a9da9f55e1a6797222b9c955b88b75e23">VL53L0X_3_I2C_ADDR</a></div><div class="ttdeci">#define VL53L0X_3_I2C_ADDR</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2constants_8h_source.html#l00010">constants.h:10</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2constants_8h_html_ab87a267e2a239b0464d78b6b3b9ba7ba"><div class="ttname"><a href="_lidar___test_2include_2constants_8h.html#ab87a267e2a239b0464d78b6b3b9ba7ba">VL53L0X_2_I2C_ADDR</a></div><div class="ttdeci">#define VL53L0X_2_I2C_ADDR</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2constants_8h_source.html#l00009">constants.h:9</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2constants_8h_html_ad4b6700882525e2f5f0a1ec94d1e0f05"><div class="ttname"><a href="_lidar___test_2include_2constants_8h.html#ad4b6700882525e2f5f0a1ec94d1e0f05">VL53L0X_COUNT</a></div><div class="ttdeci">#define VL53L0X_COUNT</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2constants_8h_source.html#l00005">constants.h:5</a></div></div>
+<div class="ttc" id="a_lidar___test_2include_2constants_8h_html_afd5220895ea0b337fec3f588f40f9c4c"><div class="ttname"><a href="_lidar___test_2include_2constants_8h.html#afd5220895ea0b337fec3f588f40f9c4c">VL53L0X_8_I2C_ADDR</a></div><div class="ttdeci">#define VL53L0X_8_I2C_ADDR</div><div class="ttdef"><b>Definition</b> <a href="_lidar___test_2include_2constants_8h_source.html#l00015">constants.h:15</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_a0480b812cba9c1d9c71a5fb1071bd0fc"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#a0480b812cba9c1d9c71a5fb1071bd0fc">counter</a></div><div class="ttdeci">uint8_t counter</div><div class="ttdef"><b>Definition</b> <a href="#l00079">main.cpp:79</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_a0cc5e85913850d9729a7922001a16e2c"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#a0cc5e85913850d9729a7922001a16e2c">sensors_vl53</a></div><div class="ttdeci">VL53L0X * sensors_vl53[]</div><div class="ttdef"><b>Definition</b> <a href="#l00024">main.cpp:24</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_a25bd4fe3f967afac66aa80e407cf09d5"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#a25bd4fe3f967afac66aa80e407cf09d5">vl53_7</a></div><div class="ttdeci">VL53L0X vl53_7</div><div class="ttdef"><b>Definition</b> <a href="#l00021">main.cpp:21</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_a4fc01d736fe50cf5b977f755b675f11d"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a></div><div class="ttdeci">void setup()</div><div class="ttdef"><b>Definition</b> <a href="#l00036">main.cpp:36</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_a6189b022b62ea5872e64285c3024019d"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#a6189b022b62ea5872e64285c3024019d">vl53_2</a></div><div class="ttdeci">VL53L0X vl53_2</div><div class="ttdef"><b>Definition</b> <a href="#l00016">main.cpp:16</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_a6b328fc6c2dcf26ec2e3e61e08346d8d"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#a6b328fc6c2dcf26ec2e3e61e08346d8d">vl53_4</a></div><div class="ttdeci">VL53L0X vl53_4</div><div class="ttdef"><b>Definition</b> <a href="#l00018">main.cpp:18</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_a7d7de43232170f358a8a2286c86fa881"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#a7d7de43232170f358a8a2286c86fa881">vl53_5</a></div><div class="ttdeci">VL53L0X vl53_5</div><div class="ttdef"><b>Definition</b> <a href="#l00019">main.cpp:19</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_aa107d18cef6e97fc52ecfe6ff5ff6391"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#aa107d18cef6e97fc52ecfe6ff5ff6391">vl53_3</a></div><div class="ttdeci">VL53L0X vl53_3</div><div class="ttdef"><b>Definition</b> <a href="#l00017">main.cpp:17</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_aa39dfc88c95d96c256f688a3927bdfaf"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#aa39dfc88c95d96c256f688a3927bdfaf">vl53_measurement</a></div><div class="ttdeci">uint16_t vl53_measurement[VL53L0X_COUNT]</div><div class="ttdef"><b>Definition</b> <a href="#l00028">main.cpp:28</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_aa76a6b3545a750ba645702942f558db6"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#aa76a6b3545a750ba645702942f558db6">vl53_1</a></div><div class="ttdeci">VL53L0X vl53_1</div><div class="ttdef"><b>Definition</b> <a href="#l00015">main.cpp:15</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_aaab869baafd9e2e8ba889b0602d4d107"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#aaab869baafd9e2e8ba889b0602d4d107">vl53_6</a></div><div class="ttdeci">VL53L0X vl53_6</div><div class="ttdef"><b>Definition</b> <a href="#l00020">main.cpp:20</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_ac196c21827c07f7f8ecd0ebc161d7182"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#ac196c21827c07f7f8ecd0ebc161d7182">vl53_8</a></div><div class="ttdeci">VL53L0X vl53_8</div><div class="ttdef"><b>Definition</b> <a href="#l00022">main.cpp:22</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_acc8eed4cda227806e69caaf05239829d"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#acc8eed4cda227806e69caaf05239829d">vl53_status</a></div><div class="ttdeci">uint8_t vl53_status[VL53L0X_COUNT]</div><div class="ttdef"><b>Definition</b> <a href="#l00026">main.cpp:26</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_acdf69ae6d29b75de9c3f40856d8966b2"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#acdf69ae6d29b75de9c3f40856d8966b2">talksExecuteWrapper</a></div><div class="ttdeci">void talksExecuteWrapper()</div><div class="ttdef"><b>Definition</b> <a href="#l00031">main.cpp:31</a></div></div>
+<div class="ttc" id="a_lidar___test_2src_2main_8cpp_html_afe461d27b9c48d5921c00d521181f12f"><div class="ttname"><a href="_lidar___test_2src_2main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop</a></div><div class="ttdeci">void loop()</div><div class="ttdef"><b>Definition</b> <a href="#l00080">main.cpp:80</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_c582ff55296894b432ef3d5a5f96f924.html">Lidar_Test</a></li><li class="navelem"><a class="el" href="dir_39ae3738f60f42646285040ba5d31f41.html">src</a></li><li class="navelem"><a class="el" href="_lidar___test_2src_2main_8cpp.html">main.cpp</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

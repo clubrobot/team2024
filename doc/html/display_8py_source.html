@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/daughter_cards/display.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('display_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">display.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="display_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacedisplay.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> time</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> math</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacecommon_1_1serialtalks.html">common.serialtalks</a> <span class="keyword">import</span> BYTE, INT, CHAR, STRING</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">from</span> daughter_cards.arduino <span class="keyword">import</span> SecureArduino</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"># Instructions</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="namespacedisplay.html#ae87423756575bdd5d23513625edb8982">   12</a></span>SET_EEPROM_DEFAULT_MESSAGE_OPCODE = 0x09</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacedisplay.html#ae368b0adce9e781723da35e742a0b97f">   13</a></span>SET_SPEED_MATRIX_OPCODE = 0x0A</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespacedisplay.html#af588009a3c4345a218c0d84a2107c610">   14</a></span>SET_EEPROM_CHAR_LEDMATRIX_OPCODE = 0x0B</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespacedisplay.html#a57abdbfbd0c2d43a8ff49b04e3c99427">   15</a></span>SET_EEPROM_CHAR_IPDISPLAY_OPCODE = 0x0C</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacedisplay.html#a09981f7b705b8d5c58abc5ff32a6a78d">   16</a></span>SET_MATRIX_MESSAGE_OPCODE = 0x0D</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacedisplay.html#a11184fac30a863f244f5045545a768c2">   17</a></span>SET_IPDISPLAY_MESSAGE_OPCODE = 0x0E</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacedisplay.html#aae6c2d0927630ad138d3ea38bdd54dd9">   18</a></span>CLEAR_IPDISPLAY_MESSAGE_OPCODE = 0x0F</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespacedisplay.html#a513526afdbb0d136f79f602647b96281">   19</a></span>SET_IPDISPLAY_UNIQUE_MESSAGE_OPCODE = 0x10</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespacedisplay.html#ab06f5937dde571c7861cf1b70839ffda">   21</a></span>SLIDE_MODE = 0</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacedisplay.html#abc138ce78b1216f3041e284c2c0583be">   22</a></span>ANIMATION_MODE = 1</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespacedisplay.html#afebea8b67fbf3240cd554846fe658789">   23</a></span>RIGHT_ROTATION_MODE = 2</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespacedisplay.html#ac6d1124f6b091db71a5abce99100867c">   24</a></span>LEFT_ROTATION_MODE = 3</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespacedisplay.html#aa557894b82605a8c07a4b7f5d22a4044">   25</a></span>UPSIDEDOWN_MODE = 4</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="" data-end="">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classdisplay_1_1_l_e_d_matrix.html">   28</a></span><span class="keyword">class </span><a class="code hl_class" href="classdisplay_1_1_l_e_d_matrix.html">LEDMatrix</a>(SecureArduino):</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="" data-end="">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classdisplay_1_1_l_e_d_matrix.html#a48c00e35a61a8775ca59551cdfcd69a9">   30</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdisplay_1_1_l_e_d_matrix.html#a48c00e35a61a8775ca59551cdfcd69a9">__init__</a>(self, parent, matrix_id, uuid=&#39;display&#39;):</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        SecureArduino.__init__(self, parent, uuid, dict())</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classdisplay_1_1_l_e_d_matrix.html#a894bcb42d1d93aab71c8483bd0113d56">   32</a></span>        self.<a class="code hl_variable" href="classdisplay_1_1_l_e_d_matrix.html#a894bcb42d1d93aab71c8483bd0113d56">matrix_id</a> = matrix_id</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+</div>
+<div class="foldopen" id="foldopen00034" data-start="" data-end="">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classdisplay_1_1_l_e_d_matrix.html#af1853f38eaab98d3b48997a382144f30">   34</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdisplay_1_1_l_e_d_matrix.html#af1853f38eaab98d3b48997a382144f30">set_message</a>(self, message, mode=None, speed=None):</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> len(message) &lt; 20:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <span class="keywordflow">raise</span> ValueError(<span class="stringliteral">&#39;message length must be less than 20 characters&#39;</span>)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">if</span> mode <span class="keywordflow">is</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> len(message) &gt; 1:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            mode = SLIDE_MODE</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">elif</span> mode <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            mode = ANIMATION_MODE</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        self.send(SET_MATRIX_MESSAGE_OPCODE, BYTE(</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            self.<a class="code hl_variable" href="classdisplay_1_1_l_e_d_matrix.html#a894bcb42d1d93aab71c8483bd0113d56">matrix_id</a>), BYTE(mode), STRING(message))</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">if</span> speed <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            self.<a class="code hl_function" href="classdisplay_1_1_l_e_d_matrix.html#a66417016356640e314055fc05f3a55fe">set_speed</a>(speed)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+</div>
+<div class="foldopen" id="foldopen00046" data-start="" data-end="">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classdisplay_1_1_l_e_d_matrix.html#a66417016356640e314055fc05f3a55fe">   46</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdisplay_1_1_l_e_d_matrix.html#a66417016356640e314055fc05f3a55fe">set_speed</a>(self, speed):  <span class="comment"># `speed` in milliseconds</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        self.send(SET_SPEED_MATRIX_OPCODE, BYTE(self.<a class="code hl_variable" href="classdisplay_1_1_l_e_d_matrix.html#a894bcb42d1d93aab71c8483bd0113d56">matrix_id</a>), INT(speed))</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+</div>
+<div class="foldopen" id="foldopen00049" data-start="" data-end="">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classdisplay_1_1_l_e_d_matrix.html#ac947dc56b1ec15fd3fa6ea3e625d81e5">   49</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdisplay_1_1_l_e_d_matrix.html#ac947dc56b1ec15fd3fa6ea3e625d81e5">set_default_message</a>(self, message, mode, speed):</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> len(message) &lt; 8:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">raise</span> ValueError(</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                <span class="stringliteral">&#39;default message length must be less than 8 characters&#39;</span>)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        self.send(SET_EEPROM_DEFAULT_MESSAGE_OPCODE, BYTE(</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            self.<a class="code hl_variable" href="classdisplay_1_1_l_e_d_matrix.html#a894bcb42d1d93aab71c8483bd0113d56">matrix_id</a>), INT(speed), BYTE(mode), STRING(message))</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+</div>
+<div class="foldopen" id="foldopen00056" data-start="" data-end="">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classdisplay_1_1_l_e_d_matrix.html#a08f811ed0e752e34d761dd106fc7ba71">   56</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdisplay_1_1_l_e_d_matrix.html#a08f811ed0e752e34d761dd106fc7ba71">upload_char_pattern</a>(self, char, pattern):</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        lines = []</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        pattern = pattern.convert(<span class="stringliteral">&#39;L&#39;</span>)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">for</span> y <span class="keywordflow">in</span> range(8):</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            line = 0</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(pattern.width):</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                digit = ~(pattern.getpixel((x, y)) // 255)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                line = (line &lt;&lt; 1) | (digit &amp; 1)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            line &lt;&lt;= 8 - pattern.width</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            lines.append(BYTE(line))</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        self.send(SET_EEPROM_CHAR_LEDMATRIX_OPCODE, CHAR(</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            ord(char)), *lines, BYTE(pattern.width))</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+</div>
+<div class="foldopen" id="foldopen00069" data-start="" data-end="">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classdisplay_1_1_l_e_d_matrix.html#a79b848a0e2ed68cc70e5672fceb80449">   69</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdisplay_1_1_l_e_d_matrix.html#a79b848a0e2ed68cc70e5672fceb80449">upload_charset</a>(self, charset):</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">if</span> isinstance(charset, str):</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            charset = Image.open(charset)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        charset = charset.convert(<span class="stringliteral">&#39;L&#39;</span>)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(16):</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(6):</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                x0, y0 = 8 * i, 8 * j</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                x1, y1 = x0 + 8, y0 + 8</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                <span class="keywordflow">while</span> charset.getpixel((x1 - 1, y0)) <span class="keywordflow">not</span> <span class="keywordflow">in</span> (0, 255):</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                    x1 -= 1</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                <span class="keywordflow">while</span> charset.getpixel((x0, y1 - 1)) <span class="keywordflow">not</span> <span class="keywordflow">in</span> (0, 255):</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                    y1 -= 1</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                pattern = charset.crop((x0, y0, x1, y1))</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                char = chr(i + 16 * j + ord(<span class="stringliteral">&#39; &#39;</span>))</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                self.<a class="code hl_function" href="classdisplay_1_1_l_e_d_matrix.html#a08f811ed0e752e34d761dd106fc7ba71">upload_char_pattern</a>(char, pattern)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                time.sleep(0.1)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(7):  <span class="comment"># Bad upload for the seven first characters</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            j = 0</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            x0, y0 = 8 * i, 8 * j</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            x1, y1 = x0 + 8, y0 + 8</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordflow">while</span> charset.getpixel((x1 - 1, y0)) <span class="keywordflow">not</span> <span class="keywordflow">in</span> (0, 255):</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                x1 -= 1</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keywordflow">while</span> charset.getpixel((x0, y1 - 1)) <span class="keywordflow">not</span> <span class="keywordflow">in</span> (0, 255):</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                y1 -= 1</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            pattern = charset.crop((x0, y0, x1, y1))</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            char = chr(i + 16 * j + ord(<span class="stringliteral">&#39; &#39;</span>))</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            self.<a class="code hl_function" href="classdisplay_1_1_l_e_d_matrix.html#a08f811ed0e752e34d761dd106fc7ba71">upload_char_pattern</a>(char, pattern)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            time.sleep(0.1)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+</div>
+</div>
+<div class="foldopen" id="foldopen00100" data-start="" data-end="">
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classdisplay_1_1_seven_segments.html">  100</a></span><span class="keyword">class </span><a class="code hl_class" href="classdisplay_1_1_seven_segments.html">SevenSegments</a>(SecureArduino):</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="foldopen" id="foldopen00102" data-start="" data-end="">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classdisplay_1_1_seven_segments.html#a01389c111f03dc19688999936d93f93f">  102</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdisplay_1_1_seven_segments.html#a01389c111f03dc19688999936d93f93f">__init__</a>(self, parent, uuid=&#39;display&#39;):</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        SecureArduino.__init__(self, parent, uuid, dict())</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+</div>
+<div class="foldopen" id="foldopen00105" data-start="" data-end="">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classdisplay_1_1_seven_segments.html#a489956d2555c6948eb6b23c2b9bab239">  105</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdisplay_1_1_seven_segments.html#a489956d2555c6948eb6b23c2b9bab239">set_message</a>(self, message):</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">if</span> len(message.replace(<span class="stringliteral">&#39;.&#39;</span>, <span class="stringliteral">&#39;&#39;</span>)) &gt; 12:</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <span class="keywordflow">raise</span> ValueError(<span class="stringliteral">&#39;message length must 12 characters or less&#39;</span>)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        self.send(SET_IPDISPLAY_UNIQUE_MESSAGE_OPCODE, STRING(message))</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+</div>
+<div class="foldopen" id="foldopen00110" data-start="" data-end="">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classdisplay_1_1_seven_segments.html#a69dda3f1930473fe05636e81c9aed2f9">  110</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdisplay_1_1_seven_segments.html#a69dda3f1930473fe05636e81c9aed2f9">set_multi_message</a>(self, message):</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordflow">if</span> len(message.replace(<span class="stringliteral">&#39;.&#39;</span>, <span class="stringliteral">&#39;&#39;</span>)) &gt; 12:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keywordflow">raise</span> ValueError(<span class="stringliteral">&#39;message length must 12 characters or less&#39;</span>)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        self.send(SET_IPDISPLAY_MESSAGE_OPCODE, STRING(message))</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+</div>
+<div class="foldopen" id="foldopen00115" data-start="" data-end="">
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classdisplay_1_1_seven_segments.html#a00e0a8d4768aecff6b07d572548be729">  115</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdisplay_1_1_seven_segments.html#a00e0a8d4768aecff6b07d572548be729">upload_char_pattern</a>(self, char, pattern):</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        segments = 0</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        pattern = pattern.convert(<span class="stringliteral">&#39;L&#39;</span>)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">for</span> i, (x, y) <span class="keywordflow">in</span> enumerate([(1, 0), (2, 1), (2, 3), (1, 4), (0, 3), (0, 1), (1, 2)]):</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            digit = ~(pattern.getpixel((x, y)) // 255)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            segments = (segments &lt;&lt; 1) | (digit &amp; 1)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        segments = (segments &lt;&lt; 1) | (char == <span class="stringliteral">&#39;.&#39;</span>)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        self.send(SET_EEPROM_CHAR_IPDISPLAY_OPCODE,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                  CHAR(ord(char)), BYTE(segments))</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+</div>
+<div class="foldopen" id="foldopen00125" data-start="" data-end="">
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classdisplay_1_1_seven_segments.html#aa6c1713c17364454345325dde34751e8">  125</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdisplay_1_1_seven_segments.html#aa6c1713c17364454345325dde34751e8">upload_charset</a>(self, charset):</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">if</span> isinstance(charset, str):</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            <span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            charset = Image.open(charset)</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(16):</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(6):</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                pattern = charset.crop(</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                    (4 * i, 6 * j, 4 * (i + 1), 6 * (j + 1)))</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                char = chr(i + 16 * j + ord(<span class="stringliteral">&#39; &#39;</span>))</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                self.<a class="code hl_function" href="classdisplay_1_1_seven_segments.html#a00e0a8d4768aecff6b07d572548be729">upload_char_pattern</a>(char, pattern)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+</div>
+<div class="foldopen" id="foldopen00136" data-start="" data-end="">
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classdisplay_1_1_seven_segments.html#a6e42d075a75db7bc8f5c784d2f0b6d33">  136</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdisplay_1_1_seven_segments.html#a6e42d075a75db7bc8f5c784d2f0b6d33">clear_messages</a>(self):</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        self.send(CLEAR_IPDISPLAY_MESSAGE_OPCODE)</div>
+</div>
+</div>
+<div class="ttc" id="aclassdisplay_1_1_l_e_d_matrix_html"><div class="ttname"><a href="classdisplay_1_1_l_e_d_matrix.html">display.LEDMatrix</a></div><div class="ttdef"><b>Definition</b> <a href="#l00028">display.py:28</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_l_e_d_matrix_html_a08f811ed0e752e34d761dd106fc7ba71"><div class="ttname"><a href="classdisplay_1_1_l_e_d_matrix.html#a08f811ed0e752e34d761dd106fc7ba71">display.LEDMatrix.upload_char_pattern</a></div><div class="ttdeci">upload_char_pattern(self, char, pattern)</div><div class="ttdef"><b>Definition</b> <a href="#l00056">display.py:56</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_l_e_d_matrix_html_a48c00e35a61a8775ca59551cdfcd69a9"><div class="ttname"><a href="classdisplay_1_1_l_e_d_matrix.html#a48c00e35a61a8775ca59551cdfcd69a9">display.LEDMatrix.__init__</a></div><div class="ttdeci">__init__(self, parent, matrix_id, uuid='display')</div><div class="ttdef"><b>Definition</b> <a href="#l00030">display.py:30</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_l_e_d_matrix_html_a66417016356640e314055fc05f3a55fe"><div class="ttname"><a href="classdisplay_1_1_l_e_d_matrix.html#a66417016356640e314055fc05f3a55fe">display.LEDMatrix.set_speed</a></div><div class="ttdeci">set_speed(self, speed)</div><div class="ttdef"><b>Definition</b> <a href="#l00046">display.py:46</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_l_e_d_matrix_html_a79b848a0e2ed68cc70e5672fceb80449"><div class="ttname"><a href="classdisplay_1_1_l_e_d_matrix.html#a79b848a0e2ed68cc70e5672fceb80449">display.LEDMatrix.upload_charset</a></div><div class="ttdeci">upload_charset(self, charset)</div><div class="ttdef"><b>Definition</b> <a href="#l00069">display.py:69</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_l_e_d_matrix_html_a894bcb42d1d93aab71c8483bd0113d56"><div class="ttname"><a href="classdisplay_1_1_l_e_d_matrix.html#a894bcb42d1d93aab71c8483bd0113d56">display.LEDMatrix.matrix_id</a></div><div class="ttdeci">matrix_id</div><div class="ttdef"><b>Definition</b> <a href="#l00032">display.py:32</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_l_e_d_matrix_html_ac947dc56b1ec15fd3fa6ea3e625d81e5"><div class="ttname"><a href="classdisplay_1_1_l_e_d_matrix.html#ac947dc56b1ec15fd3fa6ea3e625d81e5">display.LEDMatrix.set_default_message</a></div><div class="ttdeci">set_default_message(self, message, mode, speed)</div><div class="ttdef"><b>Definition</b> <a href="#l00049">display.py:49</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_l_e_d_matrix_html_af1853f38eaab98d3b48997a382144f30"><div class="ttname"><a href="classdisplay_1_1_l_e_d_matrix.html#af1853f38eaab98d3b48997a382144f30">display.LEDMatrix.set_message</a></div><div class="ttdeci">set_message(self, message, mode=None, speed=None)</div><div class="ttdef"><b>Definition</b> <a href="#l00034">display.py:34</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_seven_segments_html"><div class="ttname"><a href="classdisplay_1_1_seven_segments.html">display.SevenSegments</a></div><div class="ttdef"><b>Definition</b> <a href="#l00100">display.py:100</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_seven_segments_html_a00e0a8d4768aecff6b07d572548be729"><div class="ttname"><a href="classdisplay_1_1_seven_segments.html#a00e0a8d4768aecff6b07d572548be729">display.SevenSegments.upload_char_pattern</a></div><div class="ttdeci">upload_char_pattern(self, char, pattern)</div><div class="ttdef"><b>Definition</b> <a href="#l00115">display.py:115</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_seven_segments_html_a01389c111f03dc19688999936d93f93f"><div class="ttname"><a href="classdisplay_1_1_seven_segments.html#a01389c111f03dc19688999936d93f93f">display.SevenSegments.__init__</a></div><div class="ttdeci">__init__(self, parent, uuid='display')</div><div class="ttdef"><b>Definition</b> <a href="#l00102">display.py:102</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_seven_segments_html_a489956d2555c6948eb6b23c2b9bab239"><div class="ttname"><a href="classdisplay_1_1_seven_segments.html#a489956d2555c6948eb6b23c2b9bab239">display.SevenSegments.set_message</a></div><div class="ttdeci">set_message(self, message)</div><div class="ttdef"><b>Definition</b> <a href="#l00105">display.py:105</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_seven_segments_html_a69dda3f1930473fe05636e81c9aed2f9"><div class="ttname"><a href="classdisplay_1_1_seven_segments.html#a69dda3f1930473fe05636e81c9aed2f9">display.SevenSegments.set_multi_message</a></div><div class="ttdeci">set_multi_message(self, message)</div><div class="ttdef"><b>Definition</b> <a href="#l00110">display.py:110</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_seven_segments_html_a6e42d075a75db7bc8f5c784d2f0b6d33"><div class="ttname"><a href="classdisplay_1_1_seven_segments.html#a6e42d075a75db7bc8f5c784d2f0b6d33">display.SevenSegments.clear_messages</a></div><div class="ttdeci">clear_messages(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00136">display.py:136</a></div></div>
+<div class="ttc" id="aclassdisplay_1_1_seven_segments_html_aa6c1713c17364454345325dde34751e8"><div class="ttname"><a href="classdisplay_1_1_seven_segments.html#aa6c1713c17364454345325dde34751e8">display.SevenSegments.upload_charset</a></div><div class="ttdeci">upload_charset(self, charset)</div><div class="ttdef"><b>Definition</b> <a href="#l00125">display.py:125</a></div></div>
+<div class="ttc" id="anamespacecommon_1_1serialtalks_html"><div class="ttname"><a href="namespacecommon_1_1serialtalks.html">serialtalks</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_c15328facfe3c0fb28ec2a0724aaaf66.html">daughter_cards</a></li><li class="navelem"><a class="el" href="display_8py.html">display.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

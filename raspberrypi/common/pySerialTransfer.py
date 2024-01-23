@@ -521,7 +521,7 @@ class SerialTransfer(object):
                         return self.bytesRead
 
                     else:
-                        print('ERROR: Undefined state: {}'["format"](self.state))
+                        print('ERROR: Undefined state: {}'.format(self.state))
 
                         self.bytesRead = 0
                         self.state = find_start_byte
@@ -551,7 +551,7 @@ class SerialTransfer(object):
             if self.idByte < len(self.callbacks):
                 self.callbacks[self.idByte]()
             elif self.debug:
-                print('ERROR: No callback available for packet ID {}'["format"](self.idByte))
+                print('ERROR: No callback available for packet ID {}'.format(self.idByte))
             
             return True
         
@@ -565,6 +565,6 @@ class SerialTransfer(object):
             else:
                 err_str = str(self.status)
                 
-            print('ERROR: {}'["format"](err_str))
+            print('ERROR: {}'.format(err_str))
         
         return False

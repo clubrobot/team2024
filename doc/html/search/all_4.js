@@ -11,7 +11,8 @@ var searchData=
   ['codewheel_8',['Codewheel',['../class_codewheel.html',1,'']]],
   ['compute_9',['compute',['../class_p_i_d.html#a9982ecaf693e2b3b3873f749983814dd',1,'PID']]],
   ['computevelsetpoints_10',['computeVelSetpoints',['../class_abstract_move_strategy.html#a8bed0fd2cf5af27a7804d1be57823a24',1,'AbstractMoveStrategy::computeVelSetpoints()'],['../class_pure_pursuit.html#a657a00d409067352855aa685b57c6f45',1,'PurePursuit::computeVelSetpoints()'],['../class_turn_on_the_spot.html#a29bd9e885029a98234ead66e3429f8f5',1,'TurnOnTheSpot::computeVelSetpoints()']]],
-  ['création_20d_20un_20projet_3a_11',['Création d&apos;un projet:',['../md__c_1_2_users_2boris_2_desktop_2robotique_2team2024_2platform_i_o_2_r_e_a_d_m_e.html#autotoc_md2',1,'']]],
-  ['create_5flog_12',['create_log',['../classlogger_1_1log__archiver.html#ae932b79920acec72ad91d4b667e4b716',1,'logger::log_archiver']]],
-  ['crinsa_202024_13',['Doc CRINSA 2024',['../index.html',1,'']]]
+  ['connect_11',['connect',['../classserialtalking_1_1_serial_talking.html#ac38f721a1ac6c72e30e46fd37da11c81',1,'serialtalking::SerialTalking']]],
+  ['création_20d_20un_20projet_3a_12',['Création d&apos;un projet:',['../md__c_1_2_users_2boris_2_desktop_2robotique_2team2024_2platform_i_o_2_r_e_a_d_m_e.html#autotoc_md2',1,'']]],
+  ['create_5flog_13',['create_log',['../classlogger_1_1log__archiver.html#ae932b79920acec72ad91d4b667e4b716',1,'logger::log_archiver']]],
+  ['crinsa_202024_14',['Doc CRINSA 2024',['../index.html',1,'']]]
 ];

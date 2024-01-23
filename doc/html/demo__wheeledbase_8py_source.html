@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/robots/demo/demo_wheeledbase.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('demo__wheeledbase_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">demo_wheeledbase.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="demo__wheeledbase_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> pygame</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacepygame_1_1locals.html">pygame.locals</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesetups_1_1setup__wheeledbase.html">setups.setup_wheeledbase</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"># l.set_motor_velocity(0)</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#aa95f74453f536d862f3e66eefe5bfa18">    9</a></span>BLACK = (0, 0, 0)</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a4d34c5d98c5183403545bdbd3c863145">   10</a></span>WHITE = (255, 255, 255)</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="" data-end="">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classdemo__wheeledbase_1_1_text_print.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classdemo__wheeledbase_1_1_text_print.html">TextPrint</a>:</div>
+<div class="foldopen" id="foldopen00014" data-start="" data-end="">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classdemo__wheeledbase_1_1_text_print.html#aed2d58317bbedbdd92a6425c7e42d239">   14</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdemo__wheeledbase_1_1_text_print.html#aed2d58317bbedbdd92a6425c7e42d239">__init__</a>(self):</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        self.<a class="code hl_function" href="classdemo__wheeledbase_1_1_text_print.html#a662677ef6bf58e16bcfe0bfe093d53d2">reset</a>()</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classdemo__wheeledbase_1_1_text_print.html#add7c834a9b31e2114add795b4e70b9f1">   16</a></span>        self.<a class="code hl_variable" href="classdemo__wheeledbase_1_1_text_print.html#add7c834a9b31e2114add795b4e70b9f1">font</a> = pygame.font.Font(<span class="keywordtype">None</span>, 20)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+</div>
+<div class="foldopen" id="foldopen00018" data-start="" data-end="">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classdemo__wheeledbase_1_1_text_print.html#a6de3d66ce51226d67a934f5be7664178">   18</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdemo__wheeledbase_1_1_text_print.html#a6de3d66ce51226d67a934f5be7664178">print</a>(self, screen, textString):</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        textBitmap = self.<a class="code hl_variable" href="classdemo__wheeledbase_1_1_text_print.html#add7c834a9b31e2114add795b4e70b9f1">font</a>.render(textString, <span class="keyword">True</span>, BLACK)</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classdemo__wheeledbase_1_1_text_print.html#aee5226abd98e0b5329dfc61817c710a7">   20</a></span>        screen.blit(textBitmap, [self.<a class="code hl_variable" href="classdemo__wheeledbase_1_1_text_print.html#aee5226abd98e0b5329dfc61817c710a7">x</a>, self.<a class="code hl_variable" href="classdemo__wheeledbase_1_1_text_print.html#af5827e02d3d2675110cbd58e17cdd6c5">y</a>])</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        self.<a class="code hl_variable" href="classdemo__wheeledbase_1_1_text_print.html#af5827e02d3d2675110cbd58e17cdd6c5">y</a> += self.<a class="code hl_variable" href="classdemo__wheeledbase_1_1_text_print.html#aa3ae25bc9685c16ae9850d4aab320641">line_height</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+</div>
+<div class="foldopen" id="foldopen00023" data-start="" data-end="">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classdemo__wheeledbase_1_1_text_print.html#a662677ef6bf58e16bcfe0bfe093d53d2">   23</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdemo__wheeledbase_1_1_text_print.html#a662677ef6bf58e16bcfe0bfe093d53d2">reset</a>(self):</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        self.<a class="code hl_variable" href="classdemo__wheeledbase_1_1_text_print.html#aee5226abd98e0b5329dfc61817c710a7">x</a> = 10</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classdemo__wheeledbase_1_1_text_print.html#af5827e02d3d2675110cbd58e17cdd6c5">   25</a></span>        self.<a class="code hl_variable" href="classdemo__wheeledbase_1_1_text_print.html#af5827e02d3d2675110cbd58e17cdd6c5">y</a> = 10</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classdemo__wheeledbase_1_1_text_print.html#aa3ae25bc9685c16ae9850d4aab320641">   26</a></span>        self.<a class="code hl_variable" href="classdemo__wheeledbase_1_1_text_print.html#aa3ae25bc9685c16ae9850d4aab320641">line_height</a> = 15</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+</div>
+<div class="foldopen" id="foldopen00028" data-start="" data-end="">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classdemo__wheeledbase_1_1_text_print.html#ab23362fa8d7d966ae3fa81ce20190e4b">   28</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdemo__wheeledbase_1_1_text_print.html#ab23362fa8d7d966ae3fa81ce20190e4b">indent</a>(self):</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        self.<a class="code hl_variable" href="classdemo__wheeledbase_1_1_text_print.html#aee5226abd98e0b5329dfc61817c710a7">x</a> += 10</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+</div>
+<div class="foldopen" id="foldopen00031" data-start="" data-end="">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classdemo__wheeledbase_1_1_text_print.html#a3d1baf11d95920ca9fcad0e0efa8ff92">   31</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classdemo__wheeledbase_1_1_text_print.html#a3d1baf11d95920ca9fcad0e0efa8ff92">unindent</a>(self):</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        self.<a class="code hl_variable" href="classdemo__wheeledbase_1_1_text_print.html#aee5226abd98e0b5329dfc61817c710a7">x</a> -= 10</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"># Constants</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+</div>
+</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#ae0631dc455f437d1ed2a2953714da0f6">   37</a></span>linvel = wheeledbase.get_parameter_value(POSITIONCONTROL_LINVELMAX_ID, FLOAT)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a10b3202936c98fd934cb12c273158ec7">   38</a></span>angvel = wheeledbase.get_parameter_value(POSITIONCONTROL_ANGVELMAX_ID, FLOAT)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a30fd0f1ddee7d9722de426fff7768029">   39</a></span>linearVelocityActual = 0</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#ac8b29f6119b211f4ee0ba66252c54171">   40</a></span>angularVelocityActual = 0</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"># set of key currently pressed,</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"># the functions which can&#39;t be call at the same time will be in the same list</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"># can be generated by a function with CategoryFunction</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#ae8ef30700262420362c1fdfb3141e040">   45</a></span>functionCurrentlyPressed = {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="stringliteral">&quot;wheeledbase&quot;</span>: {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="stringliteral">&quot;move&quot;</span>: list(),</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="stringliteral">&quot;rotate&quot;</span>: list()</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"># def main functions</span></div>
+<div class="foldopen" id="foldopen00054" data-start="" data-end="">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a382836dcb2b0608578db2efdb64d62af">   54</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacedemo__wheeledbase.html#a382836dcb2b0608578db2efdb64d62af">addFunctionToStack</a>(fct):</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    cat, underCat = CategoryFunction[fct]</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    functionCurrentlyPressed[cat][underCat].append(fct)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+</div>
+<div class="foldopen" id="foldopen00059" data-start="" data-end="">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a3216fe27aaaaeee7a6594e7c53c9737a">   59</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacedemo__wheeledbase.html#a3216fe27aaaaeee7a6594e7c53c9737a">avancer</a>(coef=1):</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">global</span> linearVelocityActual</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">global</span> angularVelocityActual</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_function" href="namespacedemo__wheeledbase.html#a382836dcb2b0608578db2efdb64d62af">addFunctionToStack</a>(avancer)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    l = coef * linvel</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">if</span> (linearVelocityActual * l &lt; 0):</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        angularVelocityActual *= -1</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    wheeledbase.set_velocities(l, angularVelocityActual)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    linearVelocityActual = l</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+</div>
+<div class="foldopen" id="foldopen00070" data-start="" data-end="">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a553dd910c0e7317094d90b0ed21c40bf">   70</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacedemo__wheeledbase.html#a553dd910c0e7317094d90b0ed21c40bf">reculer</a>(coef=1):</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">global</span> linearVelocityActual</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">global</span> angularVelocityActual</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_function" href="namespacedemo__wheeledbase.html#a382836dcb2b0608578db2efdb64d62af">addFunctionToStack</a>(reculer)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    l = coef * (-linvel)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">if</span> (linearVelocityActual * l &lt; 0):</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        angularVelocityActual *= -1</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    wheeledbase.set_velocities(l, angularVelocityActual)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    linearVelocityActual = l</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+</div>
+<div class="foldopen" id="foldopen00081" data-start="" data-end="">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a9cee5d3cfb6975addb2329ba6d022255">   81</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacedemo__wheeledbase.html#a9cee5d3cfb6975addb2329ba6d022255">gauche</a>(coef=1):</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">global</span> linearVelocityActual</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">global</span> angularVelocityActual</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_function" href="namespacedemo__wheeledbase.html#a382836dcb2b0608578db2efdb64d62af">addFunctionToStack</a>(gauche)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    a = coef * angvel * math.copysign(1, linearVelocityActual)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    wheeledbase.set_velocities(linearVelocityActual, a)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    angularVelocityActual = a</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+</div>
+<div class="foldopen" id="foldopen00090" data-start="" data-end="">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#ad923afc316f4690fc143743c0cd29132">   90</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacedemo__wheeledbase.html#ad923afc316f4690fc143743c0cd29132">droite</a>(coef=1):</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">global</span> linearVelocityActual</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keyword">global</span> angularVelocityActual</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_function" href="namespacedemo__wheeledbase.html#a382836dcb2b0608578db2efdb64d62af">addFunctionToStack</a>(droite)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    a = coef * (-angvel) * math.copysign(1, linearVelocityActual)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    wheeledbase.set_velocities(linearVelocityActual, a)</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    angularVelocityActual = a</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+</div>
+<div class="foldopen" id="foldopen00099" data-start="" data-end="">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a430613cc30becb63cff7d91f693a91b4">   99</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacedemo__wheeledbase.html#a430613cc30becb63cff7d91f693a91b4">stop</a>():</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    wheeledbase.stop()</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+</div>
+<div class="foldopen" id="foldopen00103" data-start="" data-end="">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#af8a5c57df2db671db7e4a8da885b359a">  103</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacedemo__wheeledbase.html#af8a5c57df2db671db7e4a8da885b359a">stopMove</a>():</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">global</span> linearVelocityActual</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keyword">global</span> angularVelocityActual</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    wheeledbase.set_velocities(0, angularVelocityActual)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    linearVelocityActual = 0</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+</div>
+<div class="foldopen" id="foldopen00110" data-start="" data-end="">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a411241a081aca96bd2fc7389574e51d5">  110</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacedemo__wheeledbase.html#a411241a081aca96bd2fc7389574e51d5">stopRotate</a>():</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">global</span> linearVelocityActual</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keyword">global</span> angularVelocityActual</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    wheeledbase.set_velocities(linearVelocityActual, 0)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    angularVelocityActual = 0</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+</div>
+<div class="foldopen" id="foldopen00117" data-start="" data-end="">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a615f39c522c1de5ec66d9b99a4b20012">  117</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacedemo__wheeledbase.html#a615f39c522c1de5ec66d9b99a4b20012">stopCdt</a>(fct):</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    cat, underCat = CategoryFunction[fct]</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordflow">if</span> len(functionCurrentlyPressed[cat][underCat]) &gt; 0:</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="comment"># on recupere la derniere fonction, qu on appelle</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        functionCurrentlyPressed[cat][underCat].pop()()</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">if</span> (cat, underCat) <span class="keywordflow">in</span> whatToDoToStopInCategory:</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            whatToDoToStopInCategory[(cat, underCat)]()</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+</div>
+<div class="foldopen" id="foldopen00127" data-start="" data-end="">
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#ad049753feb078b58f9144e0eca5b88aa">  127</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacedemo__wheeledbase.html#ad049753feb078b58f9144e0eca5b88aa">removeFromListAndEventuallyStop</a>(fct):</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    cat, underCat = CategoryFunction[fct]</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    functionCurrentlyPressed[cat][underCat].remove(fct)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <a class="code hl_function" href="namespacedemo__wheeledbase.html#a615f39c522c1de5ec66d9b99a4b20012">stopCdt</a>(fct)</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment"># define the category of each method,</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"># two method in the same category can&#39;t be executed at the same time</span></div>
+</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#ae88afe46d7f35ae4a264c82ad66bc9d0">  135</a></span>CategoryFunction = {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    avancer: (<span class="stringliteral">&quot;wheeledbase&quot;</span>, <span class="stringliteral">&quot;move&quot;</span>),</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    reculer: (<span class="stringliteral">&quot;wheeledbase&quot;</span>, <span class="stringliteral">&quot;move&quot;</span>),</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    gauche: (<span class="stringliteral">&quot;wheeledbase&quot;</span>, <span class="stringliteral">&quot;rotate&quot;</span>),</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    droite: (<span class="stringliteral">&quot;wheeledbase&quot;</span>, <span class="stringliteral">&quot;rotate&quot;</span>),</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>}</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment"># which function call when there is no event to do for each category</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a7ec06e33cb20185983b69e6653279ef3">  143</a></span>whatToDoToStopInCategory = {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    (<span class="stringliteral">&quot;wheeledbase&quot;</span>, <span class="stringliteral">&quot;move&quot;</span>): stopMove,</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    (<span class="stringliteral">&quot;wheeledbase&quot;</span>, <span class="stringliteral">&quot;rotate&quot;</span>): stopRotate</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>}</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"># define controls</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a12bf828185e75c02ce745782a8aa219c">  149</a></span>controller_keys = {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    K_q: {KEYDOWN: stop, KEYUP: stop},</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    K_UP: {KEYDOWN: avancer, KEYUP: <span class="keyword">lambda</span>: <a class="code hl_function" href="namespacedemo__wheeledbase.html#ad049753feb078b58f9144e0eca5b88aa">removeFromListAndEventuallyStop</a>(avancer)},</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    K_DOWN: {KEYDOWN: reculer, KEYUP: <span class="keyword">lambda</span>: <a class="code hl_function" href="namespacedemo__wheeledbase.html#ad049753feb078b58f9144e0eca5b88aa">removeFromListAndEventuallyStop</a>(reculer)},</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    K_LEFT: {KEYDOWN: gauche, KEYUP: <span class="keyword">lambda</span>: <a class="code hl_function" href="namespacedemo__wheeledbase.html#ad049753feb078b58f9144e0eca5b88aa">removeFromListAndEventuallyStop</a>(gauche)},</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    K_RIGHT: {KEYDOWN: droite, KEYUP: <span class="keyword">lambda</span>: <a class="code hl_function" href="namespacedemo__wheeledbase.html#ad049753feb078b58f9144e0eca5b88aa">removeFromListAndEventuallyStop</a>(droite)},</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>}</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>pygame.joystick.init()</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a772e0e341026149aebbc52a3109c1c1e">  159</a></span>joystick_count = pygame.joystick.get_count()</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>print(<span class="stringliteral">&quot;Joystick count : &quot;</span>, joystick_count)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="keywordflow">if</span> joystick_count &gt; 1:</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    print(<span class="stringliteral">&quot;Multiples Joystick&quot;</span>)</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="keywordflow">elif</span> joystick_count == 1:</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#adac8d5f2abb567075bae1ccaf7ad7937">  164</a></span>    joystick = pygame.joystick.Joystick(0)</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    joystick.init()</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#acd1c4074fbfb6859bd609224fdd6af86">  167</a></span>axis_tol = 0.2</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a7c835891be17d32aeaac7f61639ae612">  168</a></span>rotate_coeff = 0.3</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a8ab1a06389812cae4e2dfc53f2d4f9f2">  169</a></span>controller_joyaxis = {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="comment"># 1: lambda val: avancer(-val) if val &lt; -axis_tol else (reculer(val) if val &gt; axis_tol else stopMove()),</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    0: <span class="keyword">lambda</span> val: <a class="code hl_function" href="namespacedemo__wheeledbase.html#ad923afc316f4690fc143743c0cd29132">droite</a>(val*rotate_coeff) <span class="keywordflow">if</span> val &gt; axis_tol <span class="keywordflow">else</span> (<a class="code hl_function" href="namespacedemo__wheeledbase.html#a9cee5d3cfb6975addb2329ba6d022255">gauche</a>(-val*rotate_coeff) <span class="keywordflow">if</span> val &lt; -axis_tol <span class="keywordflow">else</span> <a class="code hl_function" href="namespacedemo__wheeledbase.html#a411241a081aca96bd2fc7389574e51d5">stopRotate</a>()),</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    5: <span class="keyword">lambda</span> val: <a class="code hl_function" href="namespacedemo__wheeledbase.html#a3216fe27aaaaeee7a6594e7c53c9737a">avancer</a>((val+1)/2) <span class="keywordflow">if</span> (val+1) &gt; axis_tol <span class="keywordflow">else</span> <a class="code hl_function" href="namespacedemo__wheeledbase.html#af8a5c57df2db671db7e4a8da885b359a">stopMove</a>(),</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    2: <span class="keyword">lambda</span> val: <a class="code hl_function" href="namespacedemo__wheeledbase.html#a553dd910c0e7317094d90b0ed21c40bf">reculer</a>((val+1)/2) <span class="keywordflow">if</span> (val+1) &gt; axis_tol <span class="keywordflow">else</span> <a class="code hl_function" href="namespacedemo__wheeledbase.html#af8a5c57df2db671db7e4a8da885b359a">stopMove</a>()</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>}</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a2249fa83f74c708e3b08816cf35dd706">  176</a></span>controller_joybuttons = {}</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment"># Setup and launch the user interface</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>pygame.init()</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a0774ab5c9022975e40b3f9b468bf4ae0">  181</a></span>window = pygame.display.set_mode((640, 480), RESIZABLE)</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a62d89e0b03a7dca143cd0736bd01b927">  182</a></span>printer = <a class="code hl_class" href="classdemo__wheeledbase_1_1_text_print.html">TextPrint</a>()</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="foldopen" id="foldopen00185" data-start="" data-end="">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#abc25069078eb69557721bf9b9b0d2298">  185</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacedemo__wheeledbase.html#abc25069078eb69557721bf9b9b0d2298">update_text</a>(text):</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    window.fill(WHITE)</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    printer.reset()</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    [printer.print(window, t) <span class="keywordflow">for</span> t <span class="keywordflow">in</span> text.split(<span class="stringliteral">&quot;\n&quot;</span>)]</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    pygame.display.flip()</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+</div>
+<div class="foldopen" id="foldopen00192" data-start="" data-end="">
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="namespacedemo__wheeledbase.html#a416e1d519e68992d312ffce6c4278f76">  192</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacedemo__wheeledbase.html#a416e1d519e68992d312ffce6c4278f76">controlEvent</a>():</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        event = pygame.event.wait()</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keywordflow">if</span> event.type == QUIT:</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keywordflow">break</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="keywordflow">if</span> event.type == KEYDOWN <span class="keywordflow">or</span> event.type == KEYUP:</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            <span class="keywordflow">if</span> event.key <span class="keywordflow">in</span> controller_keys <span class="keywordflow">and</span> event.type <span class="keywordflow">in</span> controller_keys[event.key]:</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                controller_keys[event.key][event.type]()</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="keywordflow">if</span> event.type == JOYAXISMOTION:</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>            <span class="keywordflow">if</span> event.axis <span class="keywordflow">in</span> controller_joyaxis:</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                controller_joyaxis[event.axis](event.value)</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="keywordflow">if</span> event.type == JOYBUTTONDOWN <span class="keywordflow">or</span> event.type == JOYBUTTONUP:</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            <span class="keywordflow">if</span> event.button <span class="keywordflow">in</span> controller_joybuttons <span class="keywordflow">and</span> event.type <span class="keywordflow">in</span> controller_joybuttons[event.button]:</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                controller_joybuttons[event.button][event.type]()</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <a class="code hl_function" href="namespacedemo__wheeledbase.html#abc25069078eb69557721bf9b9b0d2298">update_text</a>(<span class="stringliteral">&quot;Demo Wheeledbase&quot;</span>)</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <a class="code hl_function" href="namespacedemo__wheeledbase.html#a416e1d519e68992d312ffce6c4278f76">controlEvent</a>()</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <a class="code hl_function" href="namespacedemo__wheeledbase.html#a430613cc30becb63cff7d91f693a91b4">stop</a>()</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    pygame.quit()</div>
+<div class="ttc" id="aclassdemo__wheeledbase_1_1_text_print_html"><div class="ttname"><a href="classdemo__wheeledbase_1_1_text_print.html">demo_wheeledbase.TextPrint</a></div><div class="ttdef"><b>Definition</b> <a href="#l00013">demo_wheeledbase.py:13</a></div></div>
+<div class="ttc" id="aclassdemo__wheeledbase_1_1_text_print_html_a3d1baf11d95920ca9fcad0e0efa8ff92"><div class="ttname"><a href="classdemo__wheeledbase_1_1_text_print.html#a3d1baf11d95920ca9fcad0e0efa8ff92">demo_wheeledbase.TextPrint.unindent</a></div><div class="ttdeci">unindent(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00031">demo_wheeledbase.py:31</a></div></div>
+<div class="ttc" id="aclassdemo__wheeledbase_1_1_text_print_html_a662677ef6bf58e16bcfe0bfe093d53d2"><div class="ttname"><a href="classdemo__wheeledbase_1_1_text_print.html#a662677ef6bf58e16bcfe0bfe093d53d2">demo_wheeledbase.TextPrint.reset</a></div><div class="ttdeci">reset(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00023">demo_wheeledbase.py:23</a></div></div>
+<div class="ttc" id="aclassdemo__wheeledbase_1_1_text_print_html_a6de3d66ce51226d67a934f5be7664178"><div class="ttname"><a href="classdemo__wheeledbase_1_1_text_print.html#a6de3d66ce51226d67a934f5be7664178">demo_wheeledbase.TextPrint.print</a></div><div class="ttdeci">print(self, screen, textString)</div><div class="ttdef"><b>Definition</b> <a href="#l00018">demo_wheeledbase.py:18</a></div></div>
+<div class="ttc" id="aclassdemo__wheeledbase_1_1_text_print_html_aa3ae25bc9685c16ae9850d4aab320641"><div class="ttname"><a href="classdemo__wheeledbase_1_1_text_print.html#aa3ae25bc9685c16ae9850d4aab320641">demo_wheeledbase.TextPrint.line_height</a></div><div class="ttdeci">line_height</div><div class="ttdef"><b>Definition</b> <a href="#l00026">demo_wheeledbase.py:26</a></div></div>
+<div class="ttc" id="aclassdemo__wheeledbase_1_1_text_print_html_ab23362fa8d7d966ae3fa81ce20190e4b"><div class="ttname"><a href="classdemo__wheeledbase_1_1_text_print.html#ab23362fa8d7d966ae3fa81ce20190e4b">demo_wheeledbase.TextPrint.indent</a></div><div class="ttdeci">indent(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00028">demo_wheeledbase.py:28</a></div></div>
+<div class="ttc" id="aclassdemo__wheeledbase_1_1_text_print_html_add7c834a9b31e2114add795b4e70b9f1"><div class="ttname"><a href="classdemo__wheeledbase_1_1_text_print.html#add7c834a9b31e2114add795b4e70b9f1">demo_wheeledbase.TextPrint.font</a></div><div class="ttdeci">font</div><div class="ttdef"><b>Definition</b> <a href="#l00016">demo_wheeledbase.py:16</a></div></div>
+<div class="ttc" id="aclassdemo__wheeledbase_1_1_text_print_html_aed2d58317bbedbdd92a6425c7e42d239"><div class="ttname"><a href="classdemo__wheeledbase_1_1_text_print.html#aed2d58317bbedbdd92a6425c7e42d239">demo_wheeledbase.TextPrint.__init__</a></div><div class="ttdeci">__init__(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00014">demo_wheeledbase.py:14</a></div></div>
+<div class="ttc" id="aclassdemo__wheeledbase_1_1_text_print_html_aee5226abd98e0b5329dfc61817c710a7"><div class="ttname"><a href="classdemo__wheeledbase_1_1_text_print.html#aee5226abd98e0b5329dfc61817c710a7">demo_wheeledbase.TextPrint.x</a></div><div class="ttdeci">x</div><div class="ttdef"><b>Definition</b> <a href="#l00020">demo_wheeledbase.py:20</a></div></div>
+<div class="ttc" id="aclassdemo__wheeledbase_1_1_text_print_html_af5827e02d3d2675110cbd58e17cdd6c5"><div class="ttname"><a href="classdemo__wheeledbase_1_1_text_print.html#af5827e02d3d2675110cbd58e17cdd6c5">demo_wheeledbase.TextPrint.y</a></div><div class="ttdeci">y</div><div class="ttdef"><b>Definition</b> <a href="#l00025">demo_wheeledbase.py:25</a></div></div>
+<div class="ttc" id="anamespacedemo__wheeledbase_html_a3216fe27aaaaeee7a6594e7c53c9737a"><div class="ttname"><a href="namespacedemo__wheeledbase.html#a3216fe27aaaaeee7a6594e7c53c9737a">demo_wheeledbase.avancer</a></div><div class="ttdeci">avancer(coef=1)</div><div class="ttdef"><b>Definition</b> <a href="#l00059">demo_wheeledbase.py:59</a></div></div>
+<div class="ttc" id="anamespacedemo__wheeledbase_html_a382836dcb2b0608578db2efdb64d62af"><div class="ttname"><a href="namespacedemo__wheeledbase.html#a382836dcb2b0608578db2efdb64d62af">demo_wheeledbase.addFunctionToStack</a></div><div class="ttdeci">addFunctionToStack(fct)</div><div class="ttdef"><b>Definition</b> <a href="#l00054">demo_wheeledbase.py:54</a></div></div>
+<div class="ttc" id="anamespacedemo__wheeledbase_html_a411241a081aca96bd2fc7389574e51d5"><div class="ttname"><a href="namespacedemo__wheeledbase.html#a411241a081aca96bd2fc7389574e51d5">demo_wheeledbase.stopRotate</a></div><div class="ttdeci">stopRotate()</div><div class="ttdef"><b>Definition</b> <a href="#l00110">demo_wheeledbase.py:110</a></div></div>
+<div class="ttc" id="anamespacedemo__wheeledbase_html_a416e1d519e68992d312ffce6c4278f76"><div class="ttname"><a href="namespacedemo__wheeledbase.html#a416e1d519e68992d312ffce6c4278f76">demo_wheeledbase.controlEvent</a></div><div class="ttdeci">controlEvent()</div><div class="ttdef"><b>Definition</b> <a href="#l00192">demo_wheeledbase.py:192</a></div></div>
+<div class="ttc" id="anamespacedemo__wheeledbase_html_a430613cc30becb63cff7d91f693a91b4"><div class="ttname"><a href="namespacedemo__wheeledbase.html#a430613cc30becb63cff7d91f693a91b4">demo_wheeledbase.stop</a></div><div class="ttdeci">stop()</div><div class="ttdef"><b>Definition</b> <a href="#l00099">demo_wheeledbase.py:99</a></div></div>
+<div class="ttc" id="anamespacedemo__wheeledbase_html_a553dd910c0e7317094d90b0ed21c40bf"><div class="ttname"><a href="namespacedemo__wheeledbase.html#a553dd910c0e7317094d90b0ed21c40bf">demo_wheeledbase.reculer</a></div><div class="ttdeci">reculer(coef=1)</div><div class="ttdef"><b>Definition</b> <a href="#l00070">demo_wheeledbase.py:70</a></div></div>
+<div class="ttc" id="anamespacedemo__wheeledbase_html_a615f39c522c1de5ec66d9b99a4b20012"><div class="ttname"><a href="namespacedemo__wheeledbase.html#a615f39c522c1de5ec66d9b99a4b20012">demo_wheeledbase.stopCdt</a></div><div class="ttdeci">stopCdt(fct)</div><div class="ttdef"><b>Definition</b> <a href="#l00117">demo_wheeledbase.py:117</a></div></div>
+<div class="ttc" id="anamespacedemo__wheeledbase_html_a9cee5d3cfb6975addb2329ba6d022255"><div class="ttname"><a href="namespacedemo__wheeledbase.html#a9cee5d3cfb6975addb2329ba6d022255">demo_wheeledbase.gauche</a></div><div class="ttdeci">gauche(coef=1)</div><div class="ttdef"><b>Definition</b> <a href="#l00081">demo_wheeledbase.py:81</a></div></div>
+<div class="ttc" id="anamespacedemo__wheeledbase_html_abc25069078eb69557721bf9b9b0d2298"><div class="ttname"><a href="namespacedemo__wheeledbase.html#abc25069078eb69557721bf9b9b0d2298">demo_wheeledbase.update_text</a></div><div class="ttdeci">update_text(text)</div><div class="ttdef"><b>Definition</b> <a href="#l00185">demo_wheeledbase.py:185</a></div></div>
+<div class="ttc" id="anamespacedemo__wheeledbase_html_ad049753feb078b58f9144e0eca5b88aa"><div class="ttname"><a href="namespacedemo__wheeledbase.html#ad049753feb078b58f9144e0eca5b88aa">demo_wheeledbase.removeFromListAndEventuallyStop</a></div><div class="ttdeci">removeFromListAndEventuallyStop(fct)</div><div class="ttdef"><b>Definition</b> <a href="#l00127">demo_wheeledbase.py:127</a></div></div>
+<div class="ttc" id="anamespacedemo__wheeledbase_html_ad923afc316f4690fc143743c0cd29132"><div class="ttname"><a href="namespacedemo__wheeledbase.html#ad923afc316f4690fc143743c0cd29132">demo_wheeledbase.droite</a></div><div class="ttdeci">droite(coef=1)</div><div class="ttdef"><b>Definition</b> <a href="#l00090">demo_wheeledbase.py:90</a></div></div>
+<div class="ttc" id="anamespacedemo__wheeledbase_html_af8a5c57df2db671db7e4a8da885b359a"><div class="ttname"><a href="namespacedemo__wheeledbase.html#af8a5c57df2db671db7e4a8da885b359a">demo_wheeledbase.stopMove</a></div><div class="ttdeci">stopMove()</div><div class="ttdef"><b>Definition</b> <a href="#l00103">demo_wheeledbase.py:103</a></div></div>
+<div class="ttc" id="anamespacepygame_1_1locals_html"><div class="ttname"><a href="namespacepygame_1_1locals.html">locals</a></div></div>
+<div class="ttc" id="anamespacesetups_1_1setup__wheeledbase_html"><div class="ttname"><a href="namespacesetups_1_1setup__wheeledbase.html">setup_wheeledbase</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_0ed5160175873dda433e3dfd6da604c3.html">robots</a></li><li class="navelem"><a class="el" href="dir_f6d9e04fe90e67e4c61b9c240e7fe03e.html">demo</a></li><li class="navelem"><a class="el" href="demo__wheeledbase_8py.html">demo_wheeledbase.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

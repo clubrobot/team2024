@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/PositionController/PositionController.cpp</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_position_controller_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PositionController.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_position_controller_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;EEPROM.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_position_controller_8h.html">PositionController.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;SerialTalks.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_position_controller.html#aa2409e437ff4122f60ab91ab35e23fe9">    8</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#aa2409e437ff4122f60ab91ab35e23fe9">PositionController::setMoveStrategy</a>(<a class="code hl_class" href="class_abstract_move_strategy.html">AbstractMoveStrategy</a>&amp; moveStrategy)</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    m_moveStrategy = &amp;moveStrategy;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    m_moveStrategy-&gt;<a class="code hl_variable" href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">m_context</a> = <span class="keyword">this</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>}</div>
+</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keywordtype">void</span> PositionController::process(<span class="keywordtype">float</span> timestep)</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">if</span> (m_moveStrategy != 0)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        m_moveStrategy-&gt;<a class="code hl_function" href="class_abstract_move_strategy.html#a8bed0fd2cf5af27a7804d1be57823a24">computeVelSetpoints</a>(timestep);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> PositionController::onProcessEnabling()</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="comment">//m_posSetpoint = m_posInput;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_position_controller.html#abae1f749777eafdb277fd6bf8e0c490b">   25</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_position_controller.html#abae1f749777eafdb277fd6bf8e0c490b">PositionController::getPositionReached</a>()</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">if</span> (m_moveStrategy != 0)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordflow">return</span> m_moveStrategy-&gt;<a class="code hl_function" href="class_abstract_move_strategy.html#a36fbdf31d04778a013fbbd160ff2ed07">getPositionReached</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_position_controller.html#add194236e2981067c0d3b77b7ec06d9d">   32</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#add194236e2981067c0d3b77b7ec06d9d">PositionController::load</a>(<span class="keywordtype">int</span> address)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    EEPROM.get(address, m_linVelKp); address += <span class="keyword">sizeof</span>(m_linVelKp);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    EEPROM.get(address, m_angVelKp); address += <span class="keyword">sizeof</span>(m_angVelKp);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    EEPROM.get(address, m_linVelMax); address += <span class="keyword">sizeof</span>(m_linVelMax);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    EEPROM.get(address, m_angVelMax); address += <span class="keyword">sizeof</span>(m_angVelMax);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    EEPROM.get(address, m_linPosThreshold); address += <span class="keyword">sizeof</span>(m_linPosThreshold);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    EEPROM.get(address, m_angPosThreshold); address += <span class="keyword">sizeof</span>(m_angPosThreshold);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_position_controller.html#aa0bb7468fae84614d2e21262da997338">   42</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#aa0bb7468fae84614d2e21262da997338">PositionController::save</a>(<span class="keywordtype">int</span> address)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    EEPROM.put(address, m_linVelKp);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    address += <span class="keyword">sizeof</span>(m_linVelKp);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    EEPROM.put(address, m_angVelKp);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    address += <span class="keyword">sizeof</span>(m_angVelKp);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    EEPROM.put(address, m_linVelMax);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    address += <span class="keyword">sizeof</span>(m_linVelMax);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>;       EEPROM.put(address, m_angVelMax);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    address += <span class="keyword">sizeof</span>(m_angVelMax);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    EEPROM.put(address, m_linPosThreshold);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    address += <span class="keyword">sizeof</span>(m_linPosThreshold);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    EEPROM.put(address, m_angPosThreshold);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    address += <span class="keyword">sizeof</span>(m_angPosThreshold);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_position_controller.html#afb42dcd96814596d1c542e0746b476da">   58</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#afb42dcd96814596d1c542e0746b476da">PositionController::setVelTunings</a>(<span class="keywordtype">float</span> linVelKp, <span class="keywordtype">float</span> angVelKp) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    m_linVelKp = linVelKp;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    m_angVelKp = angVelKp;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_position_controller.html#a5305fb6ae0859709966ad38b0f74c04b">   63</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#a5305fb6ae0859709966ad38b0f74c04b">PositionController::setVelLimits</a>(<span class="keywordtype">float</span> linVelMax, <span class="keywordtype">float</span> angVelMax){</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    m_linVelMax = linVelMax;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    m_angVelMax = angVelMax;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_position_controller.html#ac86a8b7aef8c1adf9d7b21ba5bbeb299">   68</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_position_controller.html#ac86a8b7aef8c1adf9d7b21ba5bbeb299">PositionController::setPosThresholds</a>(<span class="keywordtype">float</span> linPosThreshold, <span class="keywordtype">float</span> angPosThreshold) {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    m_linPosThreshold = linPosThreshold;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    m_angPosThreshold = angPosThreshold;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+</div>
+<div class="ttc" id="a_position_controller_8h_html"><div class="ttname"><a href="_position_controller_8h.html">PositionController.h</a></div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html"><div class="ttname"><a href="class_abstract_move_strategy.html">AbstractMoveStrategy</a></div><div class="ttdoc">Interface de Stratégie de mouvement.</div><div class="ttdef"><b>Definition</b> <a href="_position_controller_8h_source.html#l00196">PositionController.h:197</a></div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_a0a0cc07cae1127a7d7dc454d240d48ba"><div class="ttname"><a href="class_abstract_move_strategy.html#a0a0cc07cae1127a7d7dc454d240d48ba">AbstractMoveStrategy::m_context</a></div><div class="ttdeci">PositionController * m_context</div><div class="ttdef"><b>Definition</b> <a href="_position_controller_8h_source.html#l00277">PositionController.h:277</a></div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_a36fbdf31d04778a013fbbd160ff2ed07"><div class="ttname"><a href="class_abstract_move_strategy.html#a36fbdf31d04778a013fbbd160ff2ed07">AbstractMoveStrategy::getPositionReached</a></div><div class="ttdeci">virtual bool getPositionReached()=0</div><div class="ttdoc">Indique si la position désirée est atteinte.</div></div>
+<div class="ttc" id="aclass_abstract_move_strategy_html_a8bed0fd2cf5af27a7804d1be57823a24"><div class="ttname"><a href="class_abstract_move_strategy.html#a8bed0fd2cf5af27a7804d1be57823a24">AbstractMoveStrategy::computeVelSetpoints</a></div><div class="ttdeci">virtual void computeVelSetpoints(float timestep)=0</div><div class="ttdoc">Calcul les nouvelles vitesses désirer.</div></div>
+<div class="ttc" id="aclass_position_controller_html_a5305fb6ae0859709966ad38b0f74c04b"><div class="ttname"><a href="class_position_controller.html#a5305fb6ae0859709966ad38b0f74c04b">PositionController::setVelLimits</a></div><div class="ttdeci">void setVelLimits(float linVelMax, float angVelMax)</div><div class="ttdoc">Paramètre les vitesses max.</div><div class="ttdef"><b>Definition</b> <a href="#l00063">PositionController.cpp:63</a></div></div>
+<div class="ttc" id="aclass_position_controller_html_aa0bb7468fae84614d2e21262da997338"><div class="ttname"><a href="class_position_controller.html#aa0bb7468fae84614d2e21262da997338">PositionController::save</a></div><div class="ttdeci">void save(int address) const</div><div class="ttdoc">Sauvegarde la configuration actuel.</div><div class="ttdef"><b>Definition</b> <a href="#l00042">PositionController.cpp:42</a></div></div>
+<div class="ttc" id="aclass_position_controller_html_aa2409e437ff4122f60ab91ab35e23fe9"><div class="ttname"><a href="class_position_controller.html#aa2409e437ff4122f60ab91ab35e23fe9">PositionController::setMoveStrategy</a></div><div class="ttdeci">void setMoveStrategy(AbstractMoveStrategy &amp;moveStrategy)</div><div class="ttdoc">Charge une stratégie de mouvement.</div><div class="ttdef"><b>Definition</b> <a href="#l00008">PositionController.cpp:8</a></div></div>
+<div class="ttc" id="aclass_position_controller_html_abae1f749777eafdb277fd6bf8e0c490b"><div class="ttname"><a href="class_position_controller.html#abae1f749777eafdb277fd6bf8e0c490b">PositionController::getPositionReached</a></div><div class="ttdeci">bool getPositionReached()</div><div class="ttdoc">Indique si la position est atteinte.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">PositionController.cpp:25</a></div></div>
+<div class="ttc" id="aclass_position_controller_html_ac86a8b7aef8c1adf9d7b21ba5bbeb299"><div class="ttname"><a href="class_position_controller.html#ac86a8b7aef8c1adf9d7b21ba5bbeb299">PositionController::setPosThresholds</a></div><div class="ttdeci">void setPosThresholds(float linPosThreshold, float angPosThreshold)</div><div class="ttdoc">Paramètre les précisions en position.</div><div class="ttdef"><b>Definition</b> <a href="#l00068">PositionController.cpp:68</a></div></div>
+<div class="ttc" id="aclass_position_controller_html_add194236e2981067c0d3b77b7ec06d9d"><div class="ttname"><a href="class_position_controller.html#add194236e2981067c0d3b77b7ec06d9d">PositionController::load</a></div><div class="ttdeci">void load(int address)</div><div class="ttdoc">Charge les configs.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">PositionController.cpp:32</a></div></div>
+<div class="ttc" id="aclass_position_controller_html_afb42dcd96814596d1c542e0746b476da"><div class="ttname"><a href="class_position_controller.html#afb42dcd96814596d1c542e0746b476da">PositionController::setVelTunings</a></div><div class="ttdeci">void setVelTunings(float linVelKp, float angVelKp)</div><div class="ttdoc">Paramètre les coéfficients linéaire.</div><div class="ttdef"><b>Definition</b> <a href="#l00058">PositionController.cpp:58</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_e5db95e150018bcc3dfc1edc7ae4800d.html">LIBS</a></li><li class="navelem"><a class="el" href="dir_66ad5f74c23414a43fda982e8ac34f83.html">ARDUINO_LIBS</a></li><li class="navelem"><a class="el" href="dir_eae884c9935d0fcc00c8d1f9849c3296.html">PositionController</a></li><li class="navelem"><a class="el" href="_position_controller_8cpp.html">PositionController.cpp</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/tunings/tunings_bornibus.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('tunings__bornibus_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">tunings_bornibus.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="tunings__bornibus_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesetups_1_1setup__wheeledbase.html">setups.setup_wheeledbase</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#aa0cfef368728b9ba91113ab4e2b5b535">    6</a></span>LEFTWHEEL_RADIUS_VALUE = 35</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a15cae49b37c85493c0b087c6f6589cd0">    7</a></span>LEFTWHEEL_CONSTANT_VALUE = 0.16661794483661652</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a7b459086e33bc0b83753705834847ad8">    8</a></span>LEFTWHEEL_MAXPWM_VALUE = 1</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a51c515a777632344f58299f5670b4421">    9</a></span>RIGHTWHEEL_RADIUS_VALUE = 35</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a4c53ed72d1f1c6144658cc464705d8db">   10</a></span>RIGHTWHEEL_CONSTANT_VALUE = -0.16661794483661652</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#af05eed5e90cae132ee4ea1ed4e1108c7">   11</a></span>RIGHTWHEEL_MAXPWM_VALUE = 1</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#afd5c980276d55477f521a1cb596bec22">   13</a></span>RIGHTCODEWHEEL_COUNTSPERREV_VALUE = 10000</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a1ca3f3157d1655095ab30060a025f5e0">   14</a></span>LEFTCODEWHEEL_COUNTSPERREV_VALUE = -10000</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"># ---- ODOMETRY CONSTANTS ----</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#acd66e979fdcc5f762697cc8b2623854b">   17</a></span>LEFTCODEWHEEL_RADIUS_VALUE = 26.94067510427093</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a4b79c6a7f9c2ed70480a3e5984e6afa2">   18</a></span>RIGHTCODEWHEEL_RADIUS_VALUE = 23.60799</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a6e26ab4e308be4f92fd56bbdacb2a9fa">   19</a></span>ODOMETRY_AXLETRACK_VALUE = 185<span class="comment">#environ 120 normalement</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a80c0d6a2dd4493b564a9ad36bfc8db4c">   22</a></span>ODOMETRY_SLIPPAGE_VALUE = 0</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a08491fcb01d9b0b6affccdf7f08ee863">   23</a></span>VELOCITYCONTROL_AXLETRACK_VALUE = 125.0</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#ae698852284fda3f4398e8a590fd8faad">   24</a></span>VELOCITYCONTROL_MAXLINACC_VALUE = 500.0</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a1ec58a5a27003dbb6ecbd864a25e6488">   25</a></span>VELOCITYCONTROL_MAXLINDEC_VALUE = 700.0</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a686a8bbaaeb336db23cb9ca443d9ebfa">   26</a></span>VELOCITYCONTROL_MAXANGACC_VALUE = 5</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a5497b29886f6d0744c9e687222dc10da">   27</a></span>VELOCITYCONTROL_MAXANGDEC_VALUE = 10</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a75beb5ca9584e78ad167af8b39604b99">   28</a></span>VELOCITYCONTROL_SPINSHUTDOWN_VALUE = 1</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"># ---- LINEAR VELOCITIES PID  ----</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#ac8ac66b353809879361711de4942bf26">   31</a></span>LINVELPID_KP_VALUE = 1.6</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#ae70972178e17d45b2b05c36d61a42a48">   32</a></span>LINVELPID_KI_VALUE = 15.0</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#aae7d4cf18ade4117b2949951c26cb4f8">   33</a></span>LINVELPID_KD_VALUE = 0.0</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a072ea15bdb5c09b4c04380b89988bc31">   35</a></span>LINVELPID_MINOUTPUT_VALUE = -897.501220703125</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#ae4724e8c59338a254330d27b47173185">   36</a></span>LINVELPID_MAXOUTPUT_VALUE = 897.501220703125</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"># ---- ANGULAR VELOCITIES PID ----</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a25380009aeec2f78e439ef2458fd2e15">   39</a></span>ANGVELPID_KP_VALUE = 2.2</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#aed44aece387ba318df7afed69f83921e">   40</a></span>ANGVELPID_KI_VALUE = 15.0</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#ae3e490a1ca970c15024c994b0c7c3370">   41</a></span>ANGVELPID_KD_VALUE = 0.0</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#afeed5cd26a13bd0c0ca7abe4859c9143">   43</a></span>ANGVELPID_MINOUTPUT_VALUE = -14.36001968383789</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a4423270090d4139c98d6d080ce8f58fa">   44</a></span>ANGVELPID_MAXOUTPUT_VALUE = 14.36001968383789</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"># ---- POSITION PID ----</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#afd8d83c77438ae52427509dba2a971fe">   47</a></span>POSITIONCONTROL_LINVELKP_VALUE = 1.4</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a75f51c8a6e0c42423ac8db4aa00bf88c">   48</a></span>POSITIONCONTROL_ANGVELKP_VALUE = 2.4</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a8a796260f05adc7df08b319c27290064">   50</a></span>POSITIONCONTROL_LINVELMAX_VALUE = 400</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#ad63c1f2c41f03488c8da3a08bc0cdb3c">   51</a></span>POSITIONCONTROL_ANGVELMAX_VALUE = 6</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a25c0c448353e4cd9cf63f9a5aa5572e6">   52</a></span>POSITIONCONTROL_LINPOSTHRESHOLD_VALUE = 3</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#ac1c1f86ccd85ac1fe7d72db920fa4321">   53</a></span>POSITIONCONTROL_ANGPOSTHRESHOLD_VALUE = 0.10000000149011612</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#a07e63e77d04536de5539626aaf2743ba">   54</a></span>PUREPURSUIT_LOOKAHEAD_VALUE = 150.0</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="namespacetunings__bornibus.html#aab5ee8daca9eb99fe62d3361feb73131">   55</a></span>PUREPURSUIT_LOOKAHEADBIS_VALUE = 150.0</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    LEFTWHEEL_RADIUS_ID, LEFTWHEEL_RADIUS_VALUE, FLOAT)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    LEFTWHEEL_CONSTANT_ID, LEFTWHEEL_CONSTANT_VALUE, FLOAT)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    LEFTWHEEL_MAXPWM_ID, LEFTWHEEL_MAXPWM_VALUE, FLOAT)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    RIGHTWHEEL_RADIUS_ID, RIGHTWHEEL_RADIUS_VALUE, FLOAT)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    RIGHTWHEEL_CONSTANT_ID, RIGHTWHEEL_CONSTANT_VALUE, FLOAT)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    RIGHTWHEEL_MAXPWM_ID, RIGHTWHEEL_MAXPWM_VALUE, FLOAT)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    LEFTCODEWHEEL_RADIUS_ID, LEFTCODEWHEEL_RADIUS_VALUE, FLOAT)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    LEFTCODEWHEEL_COUNTSPERREV_ID, LEFTCODEWHEEL_COUNTSPERREV_VALUE, LONG)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    RIGHTCODEWHEEL_RADIUS_ID, RIGHTCODEWHEEL_RADIUS_VALUE, FLOAT)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    RIGHTCODEWHEEL_COUNTSPERREV_ID, RIGHTCODEWHEEL_COUNTSPERREV_VALUE, LONG)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    ODOMETRY_AXLETRACK_ID, ODOMETRY_AXLETRACK_VALUE, FLOAT)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    ODOMETRY_SLIPPAGE_ID, ODOMETRY_SLIPPAGE_VALUE, FLOAT)</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    VELOCITYCONTROL_AXLETRACK_ID, VELOCITYCONTROL_AXLETRACK_VALUE, FLOAT)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    VELOCITYCONTROL_MAXLINACC_ID, VELOCITYCONTROL_MAXLINACC_VALUE, FLOAT)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    VELOCITYCONTROL_MAXLINDEC_ID, VELOCITYCONTROL_MAXLINDEC_VALUE, FLOAT)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    VELOCITYCONTROL_MAXANGACC_ID, VELOCITYCONTROL_MAXANGACC_VALUE, FLOAT)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    VELOCITYCONTROL_MAXANGDEC_ID, VELOCITYCONTROL_MAXANGDEC_VALUE, FLOAT)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    VELOCITYCONTROL_SPINSHUTDOWN_ID, VELOCITYCONTROL_SPINSHUTDOWN_VALUE, BYTE)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>wheeledbase.set_parameter_value(LINVELPID_KP_ID, LINVELPID_KP_VALUE, FLOAT)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>wheeledbase.set_parameter_value(LINVELPID_KI_ID, LINVELPID_KI_VALUE, FLOAT)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>wheeledbase.set_parameter_value(LINVELPID_KD_ID, LINVELPID_KD_VALUE, FLOAT)</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    LINVELPID_MINOUTPUT_ID, LINVELPID_MINOUTPUT_VALUE, FLOAT)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    LINVELPID_MAXOUTPUT_ID, LINVELPID_MAXOUTPUT_VALUE, FLOAT)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>wheeledbase.set_parameter_value(ANGVELPID_KP_ID, ANGVELPID_KP_VALUE, FLOAT)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>wheeledbase.set_parameter_value(ANGVELPID_KI_ID, ANGVELPID_KI_VALUE, FLOAT)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>wheeledbase.set_parameter_value(ANGVELPID_KD_ID, ANGVELPID_KD_VALUE, FLOAT)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    ANGVELPID_MINOUTPUT_ID, ANGVELPID_MINOUTPUT_VALUE, FLOAT)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    ANGVELPID_MAXOUTPUT_ID, ANGVELPID_MAXOUTPUT_VALUE, FLOAT)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    POSITIONCONTROL_LINVELKP_ID, POSITIONCONTROL_LINVELKP_VALUE, FLOAT)</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    POSITIONCONTROL_ANGVELKP_ID, POSITIONCONTROL_ANGVELKP_VALUE, FLOAT)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    POSITIONCONTROL_LINVELMAX_ID, POSITIONCONTROL_LINVELMAX_VALUE, FLOAT)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    POSITIONCONTROL_ANGVELMAX_ID, POSITIONCONTROL_ANGVELMAX_VALUE, FLOAT)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    POSITIONCONTROL_LINPOSTHRESHOLD_ID, POSITIONCONTROL_LINPOSTHRESHOLD_VALUE, FLOAT)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    POSITIONCONTROL_ANGPOSTHRESHOLD_ID, POSITIONCONTROL_ANGPOSTHRESHOLD_VALUE, FLOAT)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    PUREPURSUIT_LOOKAHEAD_ID, PUREPURSUIT_LOOKAHEAD_VALUE, FLOAT)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    PUREPURSUIT_LOOKAHEADBIS_ID, PUREPURSUIT_LOOKAHEADBIS_VALUE, FLOAT)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>wheeledbase.save_parameters()</div>
+<div class="ttc" id="anamespacesetups_1_1setup__wheeledbase_html"><div class="ttname"><a href="namespacesetups_1_1setup__wheeledbase.html">setup_wheeledbase</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_6f8a6af734a7559967f67ae3ef82d69c.html">tunings</a></li><li class="navelem"><a class="el" href="tunings__bornibus_8py.html">tunings_bornibus.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

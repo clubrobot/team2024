@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/managers/buttons_manager.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('buttons__manager_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">buttons_manager.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="buttons__manager_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacebuttons__manager.html">    1</a></span><span class="comment">#from setups.setup_display import *</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">from</span> behaviours.robot_behaviour <span class="keyword">import</span> RobotBehavior</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">#from common.components import LightButtonProxy, SwitchProxy</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> threading <span class="keyword">import</span> Semaphore</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">from</span> common.gpiodevices <span class="keyword">import</span> Switch, LightButton, gpio_pins</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacelogs_1_1log__manager.html">logs.log_manager</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="" data-end="">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="classbuttons__manager_1_1_buttons_manager.html">ButtonsManager</a>:</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#ad9c2d5c496b60e20ba14ce6f9e554786">   10</a></span>    RED_PIN = 18  <span class="comment"># 1</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a29c3d56e1d92bb4b2557fae59d6d0dab">   11</a></span>    RED_LIGHT = 23</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#ae8c479f30f356c1d3b66ab2fd5446dc5">   12</a></span>    BLUE_PIN = 12  <span class="comment"># 2</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a29d3fefef30e745eae15bcf8721284a1">   13</a></span>    BLUE_LIGHT = 4</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a4470984b34e83d1a355cab36a559ab4d">   14</a></span>    GREEN_PIN = 6  <span class="comment"># 3</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#ad495610d1323d641d21aebbc2e58143e">   15</a></span>    GREEN_LIGHT = 21</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a9127fb1aff436905e41c0a74b23ef00d">   16</a></span>    ORANGE_PIN = 5  <span class="comment"># 4</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a74d8dc002f3b5690b82af74d7dd56324">   17</a></span>    ORANGE_LIGHT = 16</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a1e20fada39eb74bab0747876e90a639c">   18</a></span>    TIRETTE_PIN = 26</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a476b7fc15c91ee2d3b5037d5e3736e9a">   19</a></span>    URGENCY_PIN = 20</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="" data-end="">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a8ff07c24a36b90e5fddb1978ff6f0984">   21</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#a8ff07c24a36b90e5fddb1978ff6f0984">begin</a>(self):</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Start&quot;</span>)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        Thread(target=self.<a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#acec3b8f0c15453afa97fa768438b7165">team_stage</a>, daemon=<span class="keyword">True</span>).start()</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a92df053002ab92b54b8c83cb39a9a63b">red</a>.set_function(</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            Thread(target=self.<a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#acec3b8f0c15453afa97fa768438b7165">team_stage</a>, daemon=<span class="keyword">True</span>).start)</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#aee2dddf5d0581da5870cceb4aa61d7bc">p</a>.acquire()</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+</div>
+<div class="foldopen" id="foldopen00028" data-start="" data-end="">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#acec3b8f0c15453afa97fa768438b7165">   28</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#acec3b8f0c15453afa97fa768438b7165">team_stage</a>(self):</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Team Stage&quot;</span>)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="comment">#ssd.set_message(&quot;set team&quot;)</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a007453956c249095f1d6c33f570feeed">blue</a>.set_function(</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            Thread(target=self.<a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#a67ada574c0a50de2e43795b49afab5d0">set_team_blue</a>, daemon=<span class="keyword">True</span>).start)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#af4a1ca1112949b98bc692cc17dc4c2e0">orange</a>.set_function(</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            Thread(target=self.<a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#a145c7a23da33e1dd68e284b2e6ff41b7">set_team_yellow</a>, daemon=<span class="keyword">True</span>).start)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+</div>
+<div class="foldopen" id="foldopen00036" data-start="" data-end="">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a145c7a23da33e1dd68e284b2e6ff41b7">   36</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#a145c7a23da33e1dd68e284b2e6ff41b7">set_team_yellow</a>(self):</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Yellow Team&quot;</span>)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#aca0bcbad3ecd89857b418a111f4753f5">   38</a></span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#aca0bcbad3ecd89857b418a111f4753f5">side</a> = RobotBehavior.YELLOW_SIDE</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="comment">#ssd.set_message(&quot;team : y&quot;)</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#ad60656574797e473b19e2b1a901c4d0a">green</a>.set_function(</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            Thread(target=self.<a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#a4025ca8ea0dee876d7df44dd10112fa5">odometry_stage</a>, daemon=<span class="keyword">True</span>).start)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+</div>
+<div class="foldopen" id="foldopen00043" data-start="" data-end="">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a67ada574c0a50de2e43795b49afab5d0">   43</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#a67ada574c0a50de2e43795b49afab5d0">set_team_blue</a>(self):</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Blue Team&quot;</span>)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#aca0bcbad3ecd89857b418a111f4753f5">side</a> = RobotBehavior.BLUE_SIDE</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="comment">#ssd.set_message(&quot;team : b&quot;)</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#ad60656574797e473b19e2b1a901c4d0a">green</a>.set_function(</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            Thread(target=self.<a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#a4025ca8ea0dee876d7df44dd10112fa5">odometry_stage</a>, daemon=<span class="keyword">True</span>).start)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+</div>
+<div class="foldopen" id="foldopen00050" data-start="" data-end="">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a4025ca8ea0dee876d7df44dd10112fa5">   50</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#a4025ca8ea0dee876d7df44dd10112fa5">odometry_stage</a>(self):</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Team Validation&quot;</span>)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Odometry Stage&quot;</span>)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#ac3a9d68a5e7de49fe66b2e71475ed540">auto</a>.set_side(self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#aca0bcbad3ecd89857b418a111f4753f5">side</a>)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="comment">#ssd.set_message(&quot;set pos&quot;)</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a007453956c249095f1d6c33f570feeed">blue</a>.set_function(<span class="keywordtype">None</span>)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#af4a1ca1112949b98bc692cc17dc4c2e0">orange</a>.set_function(<span class="keywordtype">None</span>)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#ad60656574797e473b19e2b1a901c4d0a">green</a>.set_function(</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            Thread(target=self.<a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#ad406c73277dbaf7a8660395d9df82b70">tirette_stage</a>, daemon=<span class="keyword">True</span>).start)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+</div>
+<div class="foldopen" id="foldopen00060" data-start="" data-end="">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#ad406c73277dbaf7a8660395d9df82b70">   60</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#ad406c73277dbaf7a8660395d9df82b70">tirette_stage</a>(self):</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Odometry Validation&quot;</span>)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#ac3a9d68a5e7de49fe66b2e71475ed540">auto</a>.set_position()</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Tirret Stage&quot;</span>)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="comment">#ssd.set_message(&quot;tirret&quot;)</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#af784c956b4ceff603330a7b01c7a39c9">tirette</a>.set_function(</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            Thread(target=self.<a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#afb13eafca89d3e965d214baefe8f7fca">urgency_stage</a>, daemon=<span class="keyword">True</span>).start)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#ad60656574797e473b19e2b1a901c4d0a">green</a>.set_function(<span class="keywordtype">None</span>)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+</div>
+<div class="foldopen" id="foldopen00070" data-start="" data-end="">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#afb13eafca89d3e965d214baefe8f7fca">   70</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#afb13eafca89d3e965d214baefe8f7fca">urgency_stage</a>(self):</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Tirret Validation&quot;</span>)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Urgency Button Stage&quot;</span>)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="comment">#ssd.set_message(&quot;urgency&quot;)</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        self.urgency.set_function(</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            Thread(target=self.<a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#aecb3cafc22ce91d740e6bf8b3f4bd13d">positioning_stage</a>, daemon=<span class="keyword">True</span>).start)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+</div>
+<div class="foldopen" id="foldopen00077" data-start="" data-end="">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#aecb3cafc22ce91d740e6bf8b3f4bd13d">   77</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#aecb3cafc22ce91d740e6bf8b3f4bd13d">positioning_stage</a>(self):</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Urgency Button Validation&quot;</span>)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Robot Positionning&quot;</span>)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#ac3a9d68a5e7de49fe66b2e71475ed540">auto</a>.positioning()</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        self.<a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#af5659814c4c0386e242bf69717d6e75f">ready_stage</a>()</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+</div>
+<div class="foldopen" id="foldopen00083" data-start="" data-end="">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#af5659814c4c0386e242bf69717d6e75f">   83</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#af5659814c4c0386e242bf69717d6e75f">ready_stage</a>(self):</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a>(INFO, <span class="stringliteral">&quot;Robot Ready !&quot;</span>)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        print(<span class="stringliteral">&quot;ready&quot;</span>)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#af784c956b4ceff603330a7b01c7a39c9">tirette</a>.set_function(</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            Thread(target=self.<a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#a2b8bedd4788bac00855abf0212e0c7f2">run_match</a>, daemon=<span class="keyword">True</span>).start)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#af784c956b4ceff603330a7b01c7a39c9">tirette</a>.set_active_high(<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+</div>
+<div class="foldopen" id="foldopen00090" data-start="" data-end="">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a2b8bedd4788bac00855abf0212e0c7f2">   90</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#a2b8bedd4788bac00855abf0212e0c7f2">run_match</a>(self):</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="comment">#self.logger(INFO, &quot;MATCH LAUNCHED !!!&quot;)</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#af784c956b4ceff603330a7b01c7a39c9">tirette</a>.close();print(<span class="stringliteral">&quot;MATCH&quot;</span>)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        self.urgency.close()</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a92df053002ab92b54b8c83cb39a9a63b">red</a>.close()</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a007453956c249095f1d6c33f570feeed">blue</a>.close()</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#af4a1ca1112949b98bc692cc17dc4c2e0">orange</a>.close()</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#ad60656574797e473b19e2b1a901c4d0a">green</a>.close()</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        Thread(target=self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#ac3a9d68a5e7de49fe66b2e71475ed540">auto</a>.start(), daemon=<span class="keyword">True</span>).start()</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#aee2dddf5d0581da5870cceb4aa61d7bc">p</a>.release()</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+</div>
+<div class="foldopen" id="foldopen00102" data-start="" data-end="">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a93553860735f8d9377437352199b9bbd">  102</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classbuttons__manager_1_1_buttons_manager.html#a93553860735f8d9377437352199b9bbd">__init__</a>(self, auto):</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#ac3a9d68a5e7de49fe66b2e71475ed540">  103</a></span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#ac3a9d68a5e7de49fe66b2e71475ed540">auto</a> = auto</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#aca0bcbad3ecd89857b418a111f4753f5">side</a> = <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="comment">#self.red = LightButton(gpio_pins.INTER_1_PIN, gpio_pins.LED1_PIN, print(&quot;BTN1&quot;))</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="comment">#self.green = LightButton(gpio_pins.INTER_2_PIN, gpio_pins.LED2_PIN, print(&quot;BTN1&quot;));</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="comment">#self.blue = LightButton(gpio_pins.INTER_3_PIN, gpio_pins.LED3_PIN, print(&quot;BTN1&quot;));</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="comment">#self.orange = LightButton(gpio_pins.INTER_4_PIN, gpio_pins.LED4_PIN, print(&quot;BTN1&quot;));</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        print(<span class="stringliteral">&quot;INIT&quot;</span>)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a92df053002ab92b54b8c83cb39a9a63b">  111</a></span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a92df053002ab92b54b8c83cb39a9a63b">red</a> = LightButton(gpio_pins.INTER_1_PIN, gpio_pins.LED1_PIN, print(<span class="stringliteral">&quot;BTN1&quot;</span>))</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#ad60656574797e473b19e2b1a901c4d0a">  112</a></span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#ad60656574797e473b19e2b1a901c4d0a">green</a> = LightButton(gpio_pins.INTER_2_PIN, gpio_pins.LED2_PIN, print(<span class="stringliteral">&quot;BTN2&quot;</span>))</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a007453956c249095f1d6c33f570feeed">  113</a></span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a007453956c249095f1d6c33f570feeed">blue</a> = LightButton(gpio_pins.INTER_3_PIN, gpio_pins.LED3_PIN, print(<span class="stringliteral">&quot;BTN3&quot;</span>))</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#af4a1ca1112949b98bc692cc17dc4c2e0">  114</a></span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#af4a1ca1112949b98bc692cc17dc4c2e0">orange</a> = LightButton(gpio_pins.INTER_4_PIN, gpio_pins.LED4_PIN, print(<span class="stringliteral">&quot;BTN4&quot;</span>))</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#af784c956b4ceff603330a7b01c7a39c9">  115</a></span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#af784c956b4ceff603330a7b01c7a39c9">tirette</a> = Switch(gpio_pins.TIRETTE_PIN, print(<span class="stringliteral">&quot;tirette&quot;</span>))</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a92df053002ab92b54b8c83cb39a9a63b">red</a>.on()</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#ad60656574797e473b19e2b1a901c4d0a">green</a>.on()</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a007453956c249095f1d6c33f570feeed">blue</a>.on()</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#af4a1ca1112949b98bc692cc17dc4c2e0">orange</a>.on()</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        print(<span class="stringliteral">&quot;ALLUME&quot;</span>)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="comment">#self.urgency = Switch(gpio_pins., print(&quot;tirette&quot;))</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="comment"># Init Logger</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">  124</a></span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a> = LogManager().getlogger(self.__class__.__name__, Logger.SHOW, INFO)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classbuttons__manager_1_1_buttons_manager.html#aee2dddf5d0581da5870cceb4aa61d7bc">  126</a></span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#aee2dddf5d0581da5870cceb4aa61d7bc">p</a> = Semaphore(0)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="comment"># Init Logger</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">logger</a> = LogManager().getlogger(self.__class__.__name__, Logger.SHOW, INFO)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        self.<a class="code hl_variable" href="classbuttons__manager_1_1_buttons_manager.html#aee2dddf5d0581da5870cceb4aa61d7bc">p</a> = Semaphore(0)</div>
+</div>
+</div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html">buttons_manager.ButtonsManager</a></div><div class="ttdef"><b>Definition</b> <a href="#l00009">buttons_manager.py:9</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_a007453956c249095f1d6c33f570feeed"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#a007453956c249095f1d6c33f570feeed">buttons_manager.ButtonsManager.blue</a></div><div class="ttdeci">blue</div><div class="ttdef"><b>Definition</b> <a href="#l00113">buttons_manager.py:113</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_a145c7a23da33e1dd68e284b2e6ff41b7"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#a145c7a23da33e1dd68e284b2e6ff41b7">buttons_manager.ButtonsManager.set_team_yellow</a></div><div class="ttdeci">set_team_yellow(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00036">buttons_manager.py:36</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_a2b8bedd4788bac00855abf0212e0c7f2"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#a2b8bedd4788bac00855abf0212e0c7f2">buttons_manager.ButtonsManager.run_match</a></div><div class="ttdeci">run_match(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00090">buttons_manager.py:90</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_a4025ca8ea0dee876d7df44dd10112fa5"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#a4025ca8ea0dee876d7df44dd10112fa5">buttons_manager.ButtonsManager.odometry_stage</a></div><div class="ttdeci">odometry_stage(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00050">buttons_manager.py:50</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_a67ada574c0a50de2e43795b49afab5d0"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#a67ada574c0a50de2e43795b49afab5d0">buttons_manager.ButtonsManager.set_team_blue</a></div><div class="ttdeci">set_team_blue(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00043">buttons_manager.py:43</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_a7a1ac371a82dc8f6765816bfbf8c9c0d"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#a7a1ac371a82dc8f6765816bfbf8c9c0d">buttons_manager.ButtonsManager.logger</a></div><div class="ttdeci">logger</div><div class="ttdef"><b>Definition</b> <a href="#l00124">buttons_manager.py:124</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_a8ff07c24a36b90e5fddb1978ff6f0984"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#a8ff07c24a36b90e5fddb1978ff6f0984">buttons_manager.ButtonsManager.begin</a></div><div class="ttdeci">begin(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00021">buttons_manager.py:21</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_a92df053002ab92b54b8c83cb39a9a63b"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#a92df053002ab92b54b8c83cb39a9a63b">buttons_manager.ButtonsManager.red</a></div><div class="ttdeci">red</div><div class="ttdef"><b>Definition</b> <a href="#l00111">buttons_manager.py:111</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_a93553860735f8d9377437352199b9bbd"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#a93553860735f8d9377437352199b9bbd">buttons_manager.ButtonsManager.__init__</a></div><div class="ttdeci">__init__(self, auto)</div><div class="ttdef"><b>Definition</b> <a href="#l00102">buttons_manager.py:102</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_ac3a9d68a5e7de49fe66b2e71475ed540"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#ac3a9d68a5e7de49fe66b2e71475ed540">buttons_manager.ButtonsManager.auto</a></div><div class="ttdeci">auto</div><div class="ttdef"><b>Definition</b> <a href="#l00103">buttons_manager.py:103</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_aca0bcbad3ecd89857b418a111f4753f5"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#aca0bcbad3ecd89857b418a111f4753f5">buttons_manager.ButtonsManager.side</a></div><div class="ttdeci">side</div><div class="ttdef"><b>Definition</b> <a href="#l00038">buttons_manager.py:38</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_acec3b8f0c15453afa97fa768438b7165"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#acec3b8f0c15453afa97fa768438b7165">buttons_manager.ButtonsManager.team_stage</a></div><div class="ttdeci">team_stage(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00028">buttons_manager.py:28</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_ad406c73277dbaf7a8660395d9df82b70"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#ad406c73277dbaf7a8660395d9df82b70">buttons_manager.ButtonsManager.tirette_stage</a></div><div class="ttdeci">tirette_stage(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00060">buttons_manager.py:60</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_ad60656574797e473b19e2b1a901c4d0a"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#ad60656574797e473b19e2b1a901c4d0a">buttons_manager.ButtonsManager.green</a></div><div class="ttdeci">green</div><div class="ttdef"><b>Definition</b> <a href="#l00112">buttons_manager.py:112</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_aecb3cafc22ce91d740e6bf8b3f4bd13d"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#aecb3cafc22ce91d740e6bf8b3f4bd13d">buttons_manager.ButtonsManager.positioning_stage</a></div><div class="ttdeci">positioning_stage(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00077">buttons_manager.py:77</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_aee2dddf5d0581da5870cceb4aa61d7bc"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#aee2dddf5d0581da5870cceb4aa61d7bc">buttons_manager.ButtonsManager.p</a></div><div class="ttdeci">p</div><div class="ttdef"><b>Definition</b> <a href="#l00126">buttons_manager.py:126</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_af4a1ca1112949b98bc692cc17dc4c2e0"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#af4a1ca1112949b98bc692cc17dc4c2e0">buttons_manager.ButtonsManager.orange</a></div><div class="ttdeci">orange</div><div class="ttdef"><b>Definition</b> <a href="#l00114">buttons_manager.py:114</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_af5659814c4c0386e242bf69717d6e75f"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#af5659814c4c0386e242bf69717d6e75f">buttons_manager.ButtonsManager.ready_stage</a></div><div class="ttdeci">ready_stage(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00083">buttons_manager.py:83</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_af784c956b4ceff603330a7b01c7a39c9"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#af784c956b4ceff603330a7b01c7a39c9">buttons_manager.ButtonsManager.tirette</a></div><div class="ttdeci">tirette</div><div class="ttdef"><b>Definition</b> <a href="#l00115">buttons_manager.py:115</a></div></div>
+<div class="ttc" id="aclassbuttons__manager_1_1_buttons_manager_html_afb13eafca89d3e965d214baefe8f7fca"><div class="ttname"><a href="classbuttons__manager_1_1_buttons_manager.html#afb13eafca89d3e965d214baefe8f7fca">buttons_manager.ButtonsManager.urgency_stage</a></div><div class="ttdeci">urgency_stage(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00070">buttons_manager.py:70</a></div></div>
+<div class="ttc" id="anamespacelogs_1_1log__manager_html"><div class="ttname"><a href="namespacelogs_1_1log__manager.html">log_manager</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_b2551f8d66d18543a8c1bf3a4ce23ee7.html">managers</a></li><li class="navelem"><a class="el" href="buttons__manager_8py.html">buttons_manager.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

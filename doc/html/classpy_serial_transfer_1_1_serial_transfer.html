@@ -1,0 +1,879 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence de la classe pySerialTransfer.SerialTransfer</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classpy_serial_transfer_1_1_serial_transfer.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-attribs">Attributs publics</a> &#124;
+<a href="classpy_serial_transfer_1_1_serial_transfer-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la classe pySerialTransfer.SerialTransfer</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Est dérivée de object.</p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:ae8eb39e66eb5845bd46787bb84f1f3f2" id="r_ae8eb39e66eb5845bd46787bb84f1f3f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8eb39e66eb5845bd46787bb84f1f3f2">__init__</a> (self, port, baud=115200, restrict_ports=True, <a class="el" href="#a75a725cf3c01cc5cacf71676c2308243">debug</a>=True, <a class="el" href="#ac4dbb0d16a1af803389138e624f7a717">byte_format</a>=<a class="el" href="namespacepy_serial_transfer.html#a0d99f242f5eb91bd6cc2fc9a5032ade1">BYTE_FORMATS</a>['little-endian'], timeout=0.05)</td></tr>
+<tr class="separator:ae8eb39e66eb5845bd46787bb84f1f3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2556d33ce136f14e95de7a6a92979f44" id="r_a2556d33ce136f14e95de7a6a92979f44"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2556d33ce136f14e95de7a6a92979f44">open</a> (self)</td></tr>
+<tr class="separator:a2556d33ce136f14e95de7a6a92979f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fe3bddd8014d2920d366fdc4a9c875b" id="r_a8fe3bddd8014d2920d366fdc4a9c875b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fe3bddd8014d2920d366fdc4a9c875b">set_callbacks</a> (self, <a class="el" href="#a5b41271398803e1481795ac62200b7bf">callbacks</a>)</td></tr>
+<tr class="separator:a8fe3bddd8014d2920d366fdc4a9c875b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d0535f139e20bb07d466cb05dfa35f9" id="r_a9d0535f139e20bb07d466cb05dfa35f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d0535f139e20bb07d466cb05dfa35f9">close</a> (self)</td></tr>
+<tr class="separator:a9d0535f139e20bb07d466cb05dfa35f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a217322e5ca7955a009c69378640698c8" id="r_a217322e5ca7955a009c69378640698c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a217322e5ca7955a009c69378640698c8">tx_obj</a> (self, val, start_pos=0)</td></tr>
+<tr class="separator:a217322e5ca7955a009c69378640698c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac5cf41e2f7bd3d65521a7423f977e78" id="r_aac5cf41e2f7bd3d65521a7423f977e78"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac5cf41e2f7bd3d65521a7423f977e78">tx_struct_obj</a> (self, val_bytes, start_pos=0)</td></tr>
+<tr class="separator:aac5cf41e2f7bd3d65521a7423f977e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a618c8865cd5c27bb1b495e0a8e5e15d6" id="r_a618c8865cd5c27bb1b495e0a8e5e15d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a618c8865cd5c27bb1b495e0a8e5e15d6">rx_obj</a> (self, obj_type, start_pos=0, obj_byte_size=0, list_format=None)</td></tr>
+<tr class="separator:a618c8865cd5c27bb1b495e0a8e5e15d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ca652235fd1920a0fed9bd9c2e17998" id="r_a0ca652235fd1920a0fed9bd9c2e17998"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ca652235fd1920a0fed9bd9c2e17998">calc_overhead</a> (self, pay_len)</td></tr>
+<tr class="separator:a0ca652235fd1920a0fed9bd9c2e17998"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51aa5f7c3721f4ab47725f0754fd0ba6" id="r_a51aa5f7c3721f4ab47725f0754fd0ba6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51aa5f7c3721f4ab47725f0754fd0ba6">find_last</a> (self, pay_len)</td></tr>
+<tr class="separator:a51aa5f7c3721f4ab47725f0754fd0ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa74616cbc7707796a1b62d55f535a8d0" id="r_aa74616cbc7707796a1b62d55f535a8d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa74616cbc7707796a1b62d55f535a8d0">stuff_packet</a> (self, pay_len)</td></tr>
+<tr class="separator:aa74616cbc7707796a1b62d55f535a8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a580ffea43844a83c6909ba5d907da90a" id="r_a580ffea43844a83c6909ba5d907da90a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a580ffea43844a83c6909ba5d907da90a">send</a> (self, message_len, packet_id=0)</td></tr>
+<tr class="separator:a580ffea43844a83c6909ba5d907da90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06c47e41e9b4b624be9449ef4c089ce1" id="r_a06c47e41e9b4b624be9449ef4c089ce1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06c47e41e9b4b624be9449ef4c089ce1">unpack_packet</a> (self, pay_len)</td></tr>
+<tr class="separator:a06c47e41e9b4b624be9449ef4c089ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5998d0b4767a8f6a76cfac8d4439ddd" id="r_ad5998d0b4767a8f6a76cfac8d4439ddd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5998d0b4767a8f6a76cfac8d4439ddd">available</a> (self)</td></tr>
+<tr class="separator:ad5998d0b4767a8f6a76cfac8d4439ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf2b6a7f6270308d09dc09cd44b72837" id="r_abf2b6a7f6270308d09dc09cd44b72837"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf2b6a7f6270308d09dc09cd44b72837">tick</a> (self)</td></tr>
+<tr class="separator:abf2b6a7f6270308d09dc09cd44b72837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:a604df84bf6d9fd86667a9a5c84a090fe" id="r_a604df84bf6d9fd86667a9a5c84a090fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a604df84bf6d9fd86667a9a5c84a090fe">txBuff</a></td></tr>
+<tr class="separator:a604df84bf6d9fd86667a9a5c84a090fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a85fd3abb8d107e48a8ac287f04fd3b" id="r_a8a85fd3abb8d107e48a8ac287f04fd3b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a85fd3abb8d107e48a8ac287f04fd3b">rxBuff</a></td></tr>
+<tr class="separator:a8a85fd3abb8d107e48a8ac287f04fd3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75a725cf3c01cc5cacf71676c2308243" id="r_a75a725cf3c01cc5cacf71676c2308243"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75a725cf3c01cc5cacf71676c2308243">debug</a></td></tr>
+<tr class="separator:a75a725cf3c01cc5cacf71676c2308243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a054f4931eef81520fd3497031e08383d" id="r_a054f4931eef81520fd3497031e08383d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a054f4931eef81520fd3497031e08383d">idByte</a></td></tr>
+<tr class="separator:a054f4931eef81520fd3497031e08383d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acecb4c8a85cb1a9bb26a43fd69221aff" id="r_acecb4c8a85cb1a9bb26a43fd69221aff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acecb4c8a85cb1a9bb26a43fd69221aff">bytesRead</a></td></tr>
+<tr class="separator:acecb4c8a85cb1a9bb26a43fd69221aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acce22a9b973d3134c012d91d5e543086" id="r_acce22a9b973d3134c012d91d5e543086"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acce22a9b973d3134c012d91d5e543086">status</a></td></tr>
+<tr class="separator:acce22a9b973d3134c012d91d5e543086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae585e4f13948ae3fce99c6dced70e4e6" id="r_ae585e4f13948ae3fce99c6dced70e4e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae585e4f13948ae3fce99c6dced70e4e6">overheadByte</a></td></tr>
+<tr class="separator:ae585e4f13948ae3fce99c6dced70e4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b41271398803e1481795ac62200b7bf" id="r_a5b41271398803e1481795ac62200b7bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b41271398803e1481795ac62200b7bf">callbacks</a></td></tr>
+<tr class="separator:a5b41271398803e1481795ac62200b7bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4dbb0d16a1af803389138e624f7a717" id="r_ac4dbb0d16a1af803389138e624f7a717"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4dbb0d16a1af803389138e624f7a717">byte_format</a></td></tr>
+<tr class="separator:ac4dbb0d16a1af803389138e624f7a717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a49807e1fc73a148986b2a1d22813d1" id="r_a2a49807e1fc73a148986b2a1d22813d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a49807e1fc73a148986b2a1d22813d1">state</a></td></tr>
+<tr class="separator:a2a49807e1fc73a148986b2a1d22813d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac262a2288a32b6417fce60340fe3ea2d" id="r_ac262a2288a32b6417fce60340fe3ea2d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac262a2288a32b6417fce60340fe3ea2d">port_name</a></td></tr>
+<tr class="separator:ac262a2288a32b6417fce60340fe3ea2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3fd05aff71d5583a81f65ced17a0a26" id="r_ad3fd05aff71d5583a81f65ced17a0a26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3fd05aff71d5583a81f65ced17a0a26">crc</a></td></tr>
+<tr class="separator:ad3fd05aff71d5583a81f65ced17a0a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee3eb941b324493cd6578f6512888787" id="r_aee3eb941b324493cd6578f6512888787"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee3eb941b324493cd6578f6512888787">connection</a></td></tr>
+<tr class="separator:aee3eb941b324493cd6578f6512888787"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ed340451a3e2cef0d2416b5b49f5c6d" id="r_a6ed340451a3e2cef0d2416b5b49f5c6d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ed340451a3e2cef0d2416b5b49f5c6d">recOverheadByte</a></td></tr>
+<tr class="separator:a6ed340451a3e2cef0d2416b5b49f5c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ebe750af3b6905da480663b368c58a7" id="r_a4ebe750af3b6905da480663b368c58a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ebe750af3b6905da480663b368c58a7">bytesToRec</a></td></tr>
+<tr class="separator:a4ebe750af3b6905da480663b368c58a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05e12e14bd00cd529d657c66cab5bb66" id="r_a05e12e14bd00cd529d657c66cab5bb66"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05e12e14bd00cd529d657c66cab5bb66">payIndex</a></td></tr>
+<tr class="separator:a05e12e14bd00cd529d657c66cab5bb66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="ae8eb39e66eb5845bd46787bb84f1f3f2" name="ae8eb39e66eb5845bd46787bb84f1f3f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8eb39e66eb5845bd46787bb84f1f3f2">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.__init__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>port</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>baud</em><span class="paramdefsep"> = </span><span class="paramdefval">115200</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>restrict_ports</em><span class="paramdefsep"> = </span><span class="paramdefval">True</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>debug</em><span class="paramdefsep"> = </span><span class="paramdefval">True</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>byte_format</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="namespacepy_serial_transfer.html#a0d99f242f5eb91bd6cc2fc9a5032ade1">BYTE_FORMATS</a>['little-endian']</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>timeout</em><span class="paramdefsep"> = </span><span class="paramdefval">0.05</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+------------
+Initialize transfer class and connect to the specified USB device
+
+:param port: int or str - port the USB device is connected to
+:param baud: int        - baud (bits per sec) the device is configured for
+:param restrict_ports: bool - only allow port selection from auto
+                              detected list
+:param byte_format:    str  - format for values packed/unpacked via the
+                              struct package as defined by
+                              https://docs.python.org/3/library/struct.html#struct-format-strings
+:param timeout:       float - timeout (in s) to set on pySerial for maximum wait for a read from the OS
+                              default 50ms marries up with DEFAULT_TIMEOUT in SerialTransfer
+:return: void
+</pre> 
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="ad5998d0b4767a8f6a76cfac8d4439ddd" name="ad5998d0b4767a8f6a76cfac8d4439ddd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5998d0b4767a8f6a76cfac8d4439ddd">&#9670;&#160;</a></span>available()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.available </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+------------
+Parses incoming serial data, analyzes packet contents,
+and reports errors/successful packet reception
+
+:return self.bytesRead: int - number of bytes read from the received
+                              packet
+</pre> 
+</div>
+</div>
+<a id="a0ca652235fd1920a0fed9bd9c2e17998" name="a0ca652235fd1920a0fed9bd9c2e17998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ca652235fd1920a0fed9bd9c2e17998">&#9670;&#160;</a></span>calc_overhead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.calc_overhead </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pay_len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+------------
+Calculates the COBS (Consistent Overhead Stuffing) Overhead
+byte and stores it in the class's overheadByte variable. This
+variable holds the byte position (within the payload) of the
+first payload byte equal to that of START_BYTE
+
+:param pay_len: int - number of bytes in the payload
+
+:return: void
+</pre> 
+</div>
+</div>
+<a id="a9d0535f139e20bb07d466cb05dfa35f9" name="a9d0535f139e20bb07d466cb05dfa35f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d0535f139e20bb07d466cb05dfa35f9">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.close </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+------------
+Close serial port
+
+:return: void
+</pre> 
+</div>
+</div>
+<a id="a51aa5f7c3721f4ab47725f0754fd0ba6" name="a51aa5f7c3721f4ab47725f0754fd0ba6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51aa5f7c3721f4ab47725f0754fd0ba6">&#9670;&#160;</a></span>find_last()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.find_last </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pay_len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+------------
+Finds last instance of the value START_BYTE within the given
+packet array
+
+:param pay_len: int - number of bytes in the payload
+
+:return: int - location of the last instance of the value START_BYTE
+               within the given packet array
+</pre> 
+</div>
+</div>
+<a id="a2556d33ce136f14e95de7a6a92979f44" name="a2556d33ce136f14e95de7a6a92979f44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2556d33ce136f14e95de7a6a92979f44">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.open </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+------------
+Open serial port and connect to device if possible
+
+:return: bool - True if successful, else False
+</pre> 
+</div>
+</div>
+<a id="a618c8865cd5c27bb1b495e0a8e5e15d6" name="a618c8865cd5c27bb1b495e0a8e5e15d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a618c8865cd5c27bb1b495e0a8e5e15d6">&#9670;&#160;</a></span>rx_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.rx_obj </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>obj_type</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>start_pos</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>obj_byte_size</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>list_format</em><span class="paramdefsep"> = </span><span class="paramdefval">None</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+------------
+Extract an arbitrary variable's value from the RX buffer starting at
+the specified index. If object_type is list, it is assumed that the
+list to be extracted has homogeneous element types where the common
+element type can neither be list, dict, nor string longer than a
+single char
+
+:param obj_type:      type or str - type of object to extract from the
+                                    RX buffer or format string as
+                                    defined by https://docs.python.org/3/library/struct.html#format-characters
+:param start_pos:     int  - index of TX buffer where the first byte
+                             of the value is to be stored in
+:param obj_byte_size: int  - number of bytes making up extracted object
+:param list_format:   char - array.array format char to represent the
+                             common list element type as defined by
+                             https://docs.python.org/3/library/array.html#module-array
+:param byte_format: str    - byte order, size and alignment according to
+                             https://docs.python.org/3/library/struct.html#struct-format-strings
+
+:return unpacked_response: obj - object extracted from the RX buffer,
+                                 None if operation failed
+</pre> 
+</div>
+</div>
+<a id="a580ffea43844a83c6909ba5d907da90a" name="a580ffea43844a83c6909ba5d907da90a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a580ffea43844a83c6909ba5d907da90a">&#9670;&#160;</a></span>send()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.send </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>message_len</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>packet_id</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+------------
+Send a specified number of bytes in packetized form
+
+:param message_len: int - number of bytes from the txBuff to send as
+                          payload in the packet
+
+:return: bool - whether or not the operation was successful
+</pre> 
+</div>
+</div>
+<a id="a8fe3bddd8014d2920d366fdc4a9c875b" name="a8fe3bddd8014d2920d366fdc4a9c875b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fe3bddd8014d2920d366fdc4a9c875b">&#9670;&#160;</a></span>set_callbacks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.set_callbacks </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>callbacks</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+------------
+Specify a list of callback functions to be automatically called by
+self.tick() when a new packet is fully parsed. The ID of the parsed
+packet is then used to determine which callback needs to be called.
+
+:return: void
+</pre> 
+</div>
+</div>
+<a id="aa74616cbc7707796a1b62d55f535a8d0" name="aa74616cbc7707796a1b62d55f535a8d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa74616cbc7707796a1b62d55f535a8d0">&#9670;&#160;</a></span>stuff_packet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.stuff_packet </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pay_len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+------------
+Enforces the COBS (Consistent Overhead Stuffing) ruleset across
+all bytes in the packet against the value of START_BYTE
+
+:param pay_len: int - number of bytes in the payload
+
+:return: void
+</pre> 
+</div>
+</div>
+<a id="abf2b6a7f6270308d09dc09cd44b72837" name="abf2b6a7f6270308d09dc09cd44b72837"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf2b6a7f6270308d09dc09cd44b72837">&#9670;&#160;</a></span>tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.tick </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+------------
+Automatically parse all incoming packets, print debug statements if
+necessary (if enabled), and call the callback function that corresponds
+to the parsed packet's ID (if such a callback exists for that packet
+ID)
+
+:return: void
+</pre> 
+</div>
+</div>
+<a id="a217322e5ca7955a009c69378640698c8" name="a217322e5ca7955a009c69378640698c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a217322e5ca7955a009c69378640698c8">&#9670;&#160;</a></span>tx_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.tx_obj </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>val</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>start_pos</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+-----------
+Insert an arbitrary variable's value into the TX buffer starting at the
+specified index
+
+:param val:         n/a - value to be inserted into TX buffer
+:param start_pos:   int - index of TX buffer where the first byte
+                          of the value is to be stored in
+
+
+:return: int - index of the last byte of the value in the TX buffer + 1,
+               None if operation failed
+</pre> 
+</div>
+</div>
+<a id="aac5cf41e2f7bd3d65521a7423f977e78" name="aac5cf41e2f7bd3d65521a7423f977e78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac5cf41e2f7bd3d65521a7423f977e78">&#9670;&#160;</a></span>tx_struct_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.tx_struct_obj </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>val_bytes</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>start_pos</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+-----------
+Insert a byte array into the TX buffer starting at the
+specified index
+
+:param val_bytes:   bytearray - value to be inserted into TX buffer
+:param start_pos:   int - index of TX buffer where the first byte
+                          of the value is to be stored in
+:return: int - index of the last byte of the value in the TX buffer + 1,
+               None if operation failed
+</pre> 
+</div>
+</div>
+<a id="a06c47e41e9b4b624be9449ef4c089ce1" name="a06c47e41e9b4b624be9449ef4c089ce1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06c47e41e9b4b624be9449ef4c089ce1">&#9670;&#160;</a></span>unpack_packet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.unpack_packet </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pay_len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Description:
+------------
+Unpacks all COBS-stuffed bytes within the array
+
+:param pay_len: int - number of bytes in the payload
+
+:return: void
+</pre> 
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="ac4dbb0d16a1af803389138e624f7a717" name="ac4dbb0d16a1af803389138e624f7a717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4dbb0d16a1af803389138e624f7a717">&#9670;&#160;</a></span>byte_format</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.byte_format</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acecb4c8a85cb1a9bb26a43fd69221aff" name="acecb4c8a85cb1a9bb26a43fd69221aff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acecb4c8a85cb1a9bb26a43fd69221aff">&#9670;&#160;</a></span>bytesRead</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.bytesRead</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ebe750af3b6905da480663b368c58a7" name="a4ebe750af3b6905da480663b368c58a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ebe750af3b6905da480663b368c58a7">&#9670;&#160;</a></span>bytesToRec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.bytesToRec</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b41271398803e1481795ac62200b7bf" name="a5b41271398803e1481795ac62200b7bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b41271398803e1481795ac62200b7bf">&#9670;&#160;</a></span>callbacks</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.callbacks</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee3eb941b324493cd6578f6512888787" name="aee3eb941b324493cd6578f6512888787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee3eb941b324493cd6578f6512888787">&#9670;&#160;</a></span>connection</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.connection</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3fd05aff71d5583a81f65ced17a0a26" name="ad3fd05aff71d5583a81f65ced17a0a26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3fd05aff71d5583a81f65ced17a0a26">&#9670;&#160;</a></span>crc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.crc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75a725cf3c01cc5cacf71676c2308243" name="a75a725cf3c01cc5cacf71676c2308243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75a725cf3c01cc5cacf71676c2308243">&#9670;&#160;</a></span>debug</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.debug</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a054f4931eef81520fd3497031e08383d" name="a054f4931eef81520fd3497031e08383d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a054f4931eef81520fd3497031e08383d">&#9670;&#160;</a></span>idByte</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.idByte</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae585e4f13948ae3fce99c6dced70e4e6" name="ae585e4f13948ae3fce99c6dced70e4e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae585e4f13948ae3fce99c6dced70e4e6">&#9670;&#160;</a></span>overheadByte</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.overheadByte</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05e12e14bd00cd529d657c66cab5bb66" name="a05e12e14bd00cd529d657c66cab5bb66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05e12e14bd00cd529d657c66cab5bb66">&#9670;&#160;</a></span>payIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.payIndex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac262a2288a32b6417fce60340fe3ea2d" name="ac262a2288a32b6417fce60340fe3ea2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac262a2288a32b6417fce60340fe3ea2d">&#9670;&#160;</a></span>port_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.port_name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ed340451a3e2cef0d2416b5b49f5c6d" name="a6ed340451a3e2cef0d2416b5b49f5c6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ed340451a3e2cef0d2416b5b49f5c6d">&#9670;&#160;</a></span>recOverheadByte</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.recOverheadByte</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a85fd3abb8d107e48a8ac287f04fd3b" name="a8a85fd3abb8d107e48a8ac287f04fd3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a85fd3abb8d107e48a8ac287f04fd3b">&#9670;&#160;</a></span>rxBuff</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.rxBuff</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a49807e1fc73a148986b2a1d22813d1" name="a2a49807e1fc73a148986b2a1d22813d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a49807e1fc73a148986b2a1d22813d1">&#9670;&#160;</a></span>state</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.state</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acce22a9b973d3134c012d91d5e543086" name="acce22a9b973d3134c012d91d5e543086"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acce22a9b973d3134c012d91d5e543086">&#9670;&#160;</a></span>status</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.status</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a604df84bf6d9fd86667a9a5c84a090fe" name="a604df84bf6d9fd86667a9a5c84a090fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a604df84bf6d9fd86667a9a5c84a090fe">&#9670;&#160;</a></span>txBuff</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pySerialTransfer.SerialTransfer.txBuff</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
+<li>C:/Users/boris/Desktop/robotique/team2024/raspberrypi/common/<a class="el" href="py_serial_transfer_8py.html">pySerialTransfer.py</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacepy_serial_transfer.html">pySerialTransfer</a></li><li class="navelem"><a class="el" href="classpy_serial_transfer_1_1_serial_transfer.html">SerialTransfer</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

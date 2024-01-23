@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/Codewheel/Codewheel.cpp</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_codewheel_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Codewheel.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_codewheel_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;EEPROM.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_codewheel_8h.html">Codewheel.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;SerialTalks.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_codewheel.html#a75e89c5c9f6595f06491a9067ed243ef">    8</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_codewheel.html#a75e89c5c9f6595f06491a9067ed243ef">Codewheel::attachCounter</a>(<span class="keywordtype">int</span> XY, <span class="keywordtype">int</span> AXIS, <span class="keywordtype">int</span> SEL1, <span class="keywordtype">int</span> SEL2, <span class="keywordtype">int</span> OE, <span class="keywordtype">int</span> RST)</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_variable" href="class_codewheel.html#a979f740a11d381295dd7a39f52e223b6">m_COUNTER_AXIS</a> = AXIS;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_variable" href="class_codewheel.html#a1c4ef2943a6c3df124c3df3d1eae3cb3">m_COUNTER_XY</a>   = XY;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_variable" href="class_codewheel.html#abd0094b8dc480406d978f29bb80e3d7e">m_COUNTER_SEL1</a> = SEL1;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_variable" href="class_codewheel.html#a4fe72945463a4c84a9b4a7026aedded9">m_COUNTER_SEL2</a> = SEL2;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_variable" href="class_codewheel.html#afa931fa5f4ff2f776922829e7d30e884">m_COUNTER_OE</a>   = OE;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_variable" href="class_codewheel.html#a5f3baca1d15e4ee4df226c052aba6bed">m_COUNTER_RST</a>  = RST;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    pinMode(<a class="code hl_variable" href="class_codewheel.html#a1c4ef2943a6c3df124c3df3d1eae3cb3">m_COUNTER_XY</a>,   OUTPUT);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    pinMode(<a class="code hl_variable" href="class_codewheel.html#abd0094b8dc480406d978f29bb80e3d7e">m_COUNTER_SEL1</a>, OUTPUT);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    pinMode(<a class="code hl_variable" href="class_codewheel.html#a4fe72945463a4c84a9b4a7026aedded9">m_COUNTER_SEL2</a>, OUTPUT);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    pinMode(<a class="code hl_variable" href="class_codewheel.html#afa931fa5f4ff2f776922829e7d30e884">m_COUNTER_OE</a>,   OUTPUT);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    pinMode(<a class="code hl_variable" href="class_codewheel.html#a5f3baca1d15e4ee4df226c052aba6bed">m_COUNTER_RST</a>,  OUTPUT);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_codewheel.html#ad84ea839008f9aab86623738a9c8436a">   23</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_codewheel.html#ad84ea839008f9aab86623738a9c8436a">Codewheel::attachRegister</a>(<span class="keywordtype">int</span> DATA, <span class="keywordtype">int</span> LATCH, <span class="keywordtype">int</span> CLOCK)</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_variable" href="class_codewheel.html#a207590786446195ede5110989ca64115">m_REGISTER_DATA</a>  = DATA;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_variable" href="class_codewheel.html#a1e13d1893ce0d431762a1ddc4f8718e7">m_REGISTER_LATCH</a> = LATCH;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_variable" href="class_codewheel.html#ab9ff78d65fccf82c100f89f3241ec76a">m_REGISTER_CLOCK</a> = CLOCK;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    pinMode(<a class="code hl_variable" href="class_codewheel.html#a207590786446195ede5110989ca64115">m_REGISTER_DATA</a>,  INPUT);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    pinMode(<a class="code hl_variable" href="class_codewheel.html#a1e13d1893ce0d431762a1ddc4f8718e7">m_REGISTER_LATCH</a>, OUTPUT);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    pinMode(<a class="code hl_variable" href="class_codewheel.html#ab9ff78d65fccf82c100f89f3241ec76a">m_REGISTER_CLOCK</a>, OUTPUT);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
+</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_codewheel.html#a9b1448233cb729d40d82ac8aafecddc5">   33</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_codewheel.html#a9b1448233cb729d40d82ac8aafecddc5">Codewheel::reset</a>()</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_variable" href="class_codewheel.html#a66fb9285d86b6a91865c75ecd3716033">m_startCounter</a> = 0;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    digitalWrite(<a class="code hl_variable" href="class_codewheel.html#a5f3baca1d15e4ee4df226c052aba6bed">m_COUNTER_RST</a>, LOW);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    digitalWrite(<a class="code hl_variable" href="class_codewheel.html#a5f3baca1d15e4ee4df226c052aba6bed">m_COUNTER_RST</a>, HIGH);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_codewheel.html#a481b69520445ed19be3ead3af9a777f7">   40</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_codewheel.html#a481b69520445ed19be3ead3af9a777f7">Codewheel::update</a>()</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    digitalWrite(<a class="code hl_variable" href="class_codewheel.html#a1c4ef2943a6c3df124c3df3d1eae3cb3">m_COUNTER_XY</a>, <a class="code hl_variable" href="class_codewheel.html#a979f740a11d381295dd7a39f52e223b6">m_COUNTER_AXIS</a>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    digitalWrite(<a class="code hl_variable" href="class_codewheel.html#afa931fa5f4ff2f776922829e7d30e884">m_COUNTER_OE</a>, LOW);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_variable" href="class_codewheel.html#ab1e066352975cf663e4b1d1f8b04f828">m_currentCounter</a> = 0;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; i++)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">// Select one byte of the 32 bits quad counter</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="comment">// Its value will be stored in the shift register</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">byte</span> SEL1 = i &amp; 0x01;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordtype">byte</span> SEL2 = (~i &gt;&gt; 1) &amp; 0x01;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        digitalWrite(<a class="code hl_variable" href="class_codewheel.html#abd0094b8dc480406d978f29bb80e3d7e">m_COUNTER_SEL1</a>, SEL1);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        digitalWrite(<a class="code hl_variable" href="class_codewheel.html#a4fe72945463a4c84a9b4a7026aedded9">m_COUNTER_SEL2</a>, SEL2);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="comment">// The counter value is received in big endian order</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <a class="code hl_variable" href="class_codewheel.html#ab1e066352975cf663e4b1d1f8b04f828">m_currentCounter</a> &lt;&lt;= 8;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="comment">// Read the value stored in the shift register</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        digitalWrite(<a class="code hl_variable" href="class_codewheel.html#ab9ff78d65fccf82c100f89f3241ec76a">m_REGISTER_CLOCK</a>, HIGH);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        digitalWrite(<a class="code hl_variable" href="class_codewheel.html#a1e13d1893ce0d431762a1ddc4f8718e7">m_REGISTER_LATCH</a>, HIGH);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_variable" href="class_codewheel.html#ab1e066352975cf663e4b1d1f8b04f828">m_currentCounter</a> += shiftIn(<a class="code hl_variable" href="class_codewheel.html#a207590786446195ede5110989ca64115">m_REGISTER_DATA</a>, <a class="code hl_variable" href="class_codewheel.html#ab9ff78d65fccf82c100f89f3241ec76a">m_REGISTER_CLOCK</a>, MSBFIRST);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        digitalWrite(<a class="code hl_variable" href="class_codewheel.html#a1e13d1893ce0d431762a1ddc4f8718e7">m_REGISTER_LATCH</a>, LOW);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    digitalWrite(<a class="code hl_variable" href="class_codewheel.html#afa931fa5f4ff2f776922829e7d30e884">m_COUNTER_OE</a>, HIGH);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_codewheel.html#aeebb10d23afc0761c434475d5940d1bc">   66</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="class_codewheel.html#aeebb10d23afc0761c434475d5940d1bc">Codewheel::getTraveledDistance</a>()</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">return</span> (<span class="keywordtype">float</span>)(<a class="code hl_function" href="class_codewheel.html#a1385b3e054723c02d5c6611afa822918">getCounter</a>() - <a class="code hl_variable" href="class_codewheel.html#a66fb9285d86b6a91865c75ecd3716033">m_startCounter</a>) / <a class="code hl_variable" href="class_codewheel.html#ae9112001b8bf60a033d4cdb1d2e666fb">m_countsPerRev</a> * (2.0 * M_PI * <a class="code hl_variable" href="class_codewheel.html#af12890c745808012388cdaf39f26f352">m_wheelRadius</a>);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_codewheel.html#a46d7e4b6a5873f986e2ad01c31668c40">   71</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="class_codewheel.html#a46d7e4b6a5873f986e2ad01c31668c40">Codewheel::restart</a>()</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">float</span> distance = <a class="code hl_function" href="class_codewheel.html#aeebb10d23afc0761c434475d5940d1bc">getTraveledDistance</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_variable" href="class_codewheel.html#a66fb9285d86b6a91865c75ecd3716033">m_startCounter</a> = <a class="code hl_variable" href="class_codewheel.html#ab1e066352975cf663e4b1d1f8b04f828">m_currentCounter</a>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">return</span> distance;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
+</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="class_codewheel.html#a88723c9cbcb622a34e42aeab5bbcf63d">   78</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_codewheel.html#a88723c9cbcb622a34e42aeab5bbcf63d">Codewheel::load</a>(<span class="keywordtype">int</span> address)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    EEPROM.get(address, <a class="code hl_variable" href="class_codewheel.html#af12890c745808012388cdaf39f26f352">m_wheelRadius</a>);  address += <span class="keyword">sizeof</span>(<a class="code hl_variable" href="class_codewheel.html#af12890c745808012388cdaf39f26f352">m_wheelRadius</a>);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    EEPROM.get(address, <a class="code hl_variable" href="class_codewheel.html#ae9112001b8bf60a033d4cdb1d2e666fb">m_countsPerRev</a>); address += <span class="keyword">sizeof</span>(<a class="code hl_variable" href="class_codewheel.html#ae9112001b8bf60a033d4cdb1d2e666fb">m_countsPerRev</a>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>}</div>
+</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="class_codewheel.html#a5d673c743e8a6c24ada38f88ff3d0eaa">   84</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_codewheel.html#a5d673c743e8a6c24ada38f88ff3d0eaa">Codewheel::save</a>(<span class="keywordtype">int</span> address)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>{</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    EEPROM.put(address, <a class="code hl_variable" href="class_codewheel.html#af12890c745808012388cdaf39f26f352">m_wheelRadius</a>);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    address += <span class="keyword">sizeof</span>(<a class="code hl_variable" href="class_codewheel.html#af12890c745808012388cdaf39f26f352">m_wheelRadius</a>);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    EEPROM.put(address, <a class="code hl_variable" href="class_codewheel.html#ae9112001b8bf60a033d4cdb1d2e666fb">m_countsPerRev</a>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    address += <span class="keyword">sizeof</span>(<a class="code hl_variable" href="class_codewheel.html#ae9112001b8bf60a033d4cdb1d2e666fb">m_countsPerRev</a>);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>}</div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_codewheel.html#a548f7603cd5e3f011a2ee30850ac3650">   92</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_codewheel.html#a548f7603cd5e3f011a2ee30850ac3650">Codewheel::setCountsPerRev</a>(<span class="keywordtype">long</span> countsPerRev)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>{</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_variable" href="class_codewheel.html#ae9112001b8bf60a033d4cdb1d2e666fb">m_countsPerRev</a> = countsPerRev;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
+</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_codewheel.html#a40d3e371e0ce17391135469dfacb3dea">   97</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_codewheel.html#a40d3e371e0ce17391135469dfacb3dea">Codewheel::setWheelRadius</a> (<span class="keywordtype">float</span> wheelRadius)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>{</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_variable" href="class_codewheel.html#af12890c745808012388cdaf39f26f352">m_wheelRadius</a> = wheelRadius;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+</div>
+<div class="ttc" id="a_codewheel_8h_html"><div class="ttname"><a href="_codewheel_8h.html">Codewheel.h</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a1385b3e054723c02d5c6611afa822918"><div class="ttname"><a href="class_codewheel.html#a1385b3e054723c02d5c6611afa822918">Codewheel::getCounter</a></div><div class="ttdeci">long getCounter()</div><div class="ttdoc">Donne le nombre de tic absolue courant.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00047">Codewheel.h:47</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a1c4ef2943a6c3df124c3df3d1eae3cb3"><div class="ttname"><a href="class_codewheel.html#a1c4ef2943a6c3df124c3df3d1eae3cb3">Codewheel::m_COUNTER_XY</a></div><div class="ttdeci">int m_COUNTER_XY</div><div class="ttdoc">Select one of the two quad counters. See below.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00129">Codewheel.h:129</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a1e13d1893ce0d431762a1ddc4f8718e7"><div class="ttname"><a href="class_codewheel.html#a1e13d1893ce0d431762a1ddc4f8718e7">Codewheel::m_REGISTER_LATCH</a></div><div class="ttdeci">int m_REGISTER_LATCH</div><div class="ttdoc">Active LOW. Latch signal for the 74HC165 register.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00137">Codewheel.h:137</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a207590786446195ede5110989ca64115"><div class="ttname"><a href="class_codewheel.html#a207590786446195ede5110989ca64115">Codewheel::m_REGISTER_DATA</a></div><div class="ttdeci">int m_REGISTER_DATA</div><div class="ttdoc">Serial data input from the 74HC165 register.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00136">Codewheel.h:136</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a40d3e371e0ce17391135469dfacb3dea"><div class="ttname"><a href="class_codewheel.html#a40d3e371e0ce17391135469dfacb3dea">Codewheel::setWheelRadius</a></div><div class="ttdeci">void setWheelRadius(float wheelRadius)</div><div class="ttdoc">Set le rayon en mm de la roue.</div><div class="ttdef"><b>Definition</b> <a href="#l00097">Codewheel.cpp:97</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a46d7e4b6a5873f986e2ad01c31668c40"><div class="ttname"><a href="class_codewheel.html#a46d7e4b6a5873f986e2ad01c31668c40">Codewheel::restart</a></div><div class="ttdeci">float restart()</div><div class="ttdoc">Donne la distance parcouru et reset le compteur.</div><div class="ttdef"><b>Definition</b> <a href="#l00071">Codewheel.cpp:71</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a481b69520445ed19be3ead3af9a777f7"><div class="ttname"><a href="class_codewheel.html#a481b69520445ed19be3ead3af9a777f7">Codewheel::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Récupère le nombre de tics stoqués dans le compteur.</div><div class="ttdef"><b>Definition</b> <a href="#l00040">Codewheel.cpp:40</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a4fe72945463a4c84a9b4a7026aedded9"><div class="ttname"><a href="class_codewheel.html#a4fe72945463a4c84a9b4a7026aedded9">Codewheel::m_COUNTER_SEL2</a></div><div class="ttdeci">int m_COUNTER_SEL2</div><div class="ttdoc">MSB = 0, 2ND = 0, 3RD = 1, LSB = 1.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00132">Codewheel.h:132</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a548f7603cd5e3f011a2ee30850ac3650"><div class="ttname"><a href="class_codewheel.html#a548f7603cd5e3f011a2ee30850ac3650">Codewheel::setCountsPerRev</a></div><div class="ttdeci">void setCountsPerRev(long countsPerRev)</div><div class="ttdoc">Set le nombre de tics par tour.</div><div class="ttdef"><b>Definition</b> <a href="#l00092">Codewheel.cpp:92</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a5d673c743e8a6c24ada38f88ff3d0eaa"><div class="ttname"><a href="class_codewheel.html#a5d673c743e8a6c24ada38f88ff3d0eaa">Codewheel::save</a></div><div class="ttdeci">void save(int address)</div><div class="ttdoc">Sauvegarde les constantes actuelles dans l'EEPROM.</div><div class="ttdef"><b>Definition</b> <a href="#l00084">Codewheel.cpp:84</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a5f3baca1d15e4ee4df226c052aba6bed"><div class="ttname"><a href="class_codewheel.html#a5f3baca1d15e4ee4df226c052aba6bed">Codewheel::m_COUNTER_RST</a></div><div class="ttdeci">int m_COUNTER_RST</div><div class="ttdoc">Active LOW. Clear the internal position counter and the position latch.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00134">Codewheel.h:134</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a66fb9285d86b6a91865c75ecd3716033"><div class="ttname"><a href="class_codewheel.html#a66fb9285d86b6a91865c75ecd3716033">Codewheel::m_startCounter</a></div><div class="ttdeci">long m_startCounter</div><div class="ttdoc">Tic depuis le dernier reset.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00124">Codewheel.h:124</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a75e89c5c9f6595f06491a9067ed243ef"><div class="ttname"><a href="class_codewheel.html#a75e89c5c9f6595f06491a9067ed243ef">Codewheel::attachCounter</a></div><div class="ttdeci">void attachCounter(int XY, int AXIS, int SEL1, int SEL2, int OE, int RST)</div><div class="ttdoc">Set les pins pour le compteur.</div><div class="ttdef"><b>Definition</b> <a href="#l00008">Codewheel.cpp:8</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a88723c9cbcb622a34e42aeab5bbcf63d"><div class="ttname"><a href="class_codewheel.html#a88723c9cbcb622a34e42aeab5bbcf63d">Codewheel::load</a></div><div class="ttdeci">void load(int address)</div><div class="ttdoc">Charge les données de l'EEPROM avec l'offset.</div><div class="ttdef"><b>Definition</b> <a href="#l00078">Codewheel.cpp:78</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a979f740a11d381295dd7a39f52e223b6"><div class="ttname"><a href="class_codewheel.html#a979f740a11d381295dd7a39f52e223b6">Codewheel::m_COUNTER_AXIS</a></div><div class="ttdeci">int m_COUNTER_AXIS</div><div class="ttdoc">Not a pin: X = 0, Y = 0.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00130">Codewheel.h:130</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_a9b1448233cb729d40d82ac8aafecddc5"><div class="ttname"><a href="class_codewheel.html#a9b1448233cb729d40d82ac8aafecddc5">Codewheel::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Réinitialise le compteur à 0.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">Codewheel.cpp:33</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_ab1e066352975cf663e4b1d1f8b04f828"><div class="ttname"><a href="class_codewheel.html#ab1e066352975cf663e4b1d1f8b04f828">Codewheel::m_currentCounter</a></div><div class="ttdeci">long m_currentCounter</div><div class="ttdoc">Tic courant.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00123">Codewheel.h:123</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_ab9ff78d65fccf82c100f89f3241ec76a"><div class="ttname"><a href="class_codewheel.html#ab9ff78d65fccf82c100f89f3241ec76a">Codewheel::m_REGISTER_CLOCK</a></div><div class="ttdeci">int m_REGISTER_CLOCK</div><div class="ttdoc">LOW-to-HIGH edge-triggered. Clock signal for the 74HC165 register.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00138">Codewheel.h:138</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_abd0094b8dc480406d978f29bb80e3d7e"><div class="ttname"><a href="class_codewheel.html#abd0094b8dc480406d978f29bb80e3d7e">Codewheel::m_COUNTER_SEL1</a></div><div class="ttdeci">int m_COUNTER_SEL1</div><div class="ttdoc">MSB = 0, 2ND = 1, 3RD = 0, LSB = 1.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00131">Codewheel.h:131</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_ad84ea839008f9aab86623738a9c8436a"><div class="ttname"><a href="class_codewheel.html#ad84ea839008f9aab86623738a9c8436a">Codewheel::attachRegister</a></div><div class="ttdeci">void attachRegister(int DATA, int LATCH, int CLOCK)</div><div class="ttdoc">Set les pins pour les registres du compteur.</div><div class="ttdef"><b>Definition</b> <a href="#l00023">Codewheel.cpp:23</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_ae9112001b8bf60a033d4cdb1d2e666fb"><div class="ttname"><a href="class_codewheel.html#ae9112001b8bf60a033d4cdb1d2e666fb">Codewheel::m_countsPerRev</a></div><div class="ttdeci">long m_countsPerRev</div><div class="ttdoc">Nombre de tics par tour de roue.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00127">Codewheel.h:127</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_aeebb10d23afc0761c434475d5940d1bc"><div class="ttname"><a href="class_codewheel.html#aeebb10d23afc0761c434475d5940d1bc">Codewheel::getTraveledDistance</a></div><div class="ttdeci">float getTraveledDistance()</div><div class="ttdoc">Donne la distance parcouru.</div><div class="ttdef"><b>Definition</b> <a href="#l00066">Codewheel.cpp:66</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_af12890c745808012388cdaf39f26f352"><div class="ttname"><a href="class_codewheel.html#af12890c745808012388cdaf39f26f352">Codewheel::m_wheelRadius</a></div><div class="ttdeci">float m_wheelRadius</div><div class="ttdoc">Rayon de la roue codeuse en mm.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00126">Codewheel.h:126</a></div></div>
+<div class="ttc" id="aclass_codewheel_html_afa931fa5f4ff2f776922829e7d30e884"><div class="ttname"><a href="class_codewheel.html#afa931fa5f4ff2f776922829e7d30e884">Codewheel::m_COUNTER_OE</a></div><div class="ttdeci">int m_COUNTER_OE</div><div class="ttdoc">Active LOW. Enable the tri-states output buffers.</div><div class="ttdef"><b>Definition</b> <a href="_codewheel_8h_source.html#l00133">Codewheel.h:133</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_e5db95e150018bcc3dfc1edc7ae4800d.html">LIBS</a></li><li class="navelem"><a class="el" href="dir_66ad5f74c23414a43fda982e8ac34f83.html">ARDUINO_LIBS</a></li><li class="navelem"><a class="el" href="dir_da711e5974989502f4e7a413e16df593.html">Codewheel</a></li><li class="navelem"><a class="el" href="_codewheel_8cpp.html">Codewheel.cpp</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

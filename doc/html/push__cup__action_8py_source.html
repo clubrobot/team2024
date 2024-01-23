@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/robots/bornibus/actions/push_cup_action.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('push__cup__action_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">push_cup_action.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="push__cup__action_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacepush__cup__action.html">    1</a></span><span class="comment">#!/usr/bin/python3</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> time <span class="keyword">import</span> sleep</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> math <span class="keyword">import</span> pi</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacebehaviours_1_1action_1_1action.html">behaviours.action.action</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> behaviours.robot_behaviour <span class="keyword">import</span> RobotBehavior</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacelogs_1_1log__manager.html">logs.log_manager</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="" data-end="">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classpush__cup__action_1_1_push_cup_action.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="classpush__cup__action_1_1_push_cup_action.html">PushCupAction</a>(Action):</div>
+<div class="foldopen" id="foldopen00012" data-start="" data-end="">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classpush__cup__action_1_1_push_cup_action.html#a825a6858a0fe050491f819b5c9f8097a">   12</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classpush__cup__action_1_1_push_cup_action.html#a825a6858a0fe050491f819b5c9f8097a">__init__</a>(self, geo, color, idx):</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classpush__cup__action_1_1_push_cup_action.html#aac804c55809268045bde301c0dac7450">   14</a></span>        self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#aac804c55809268045bde301c0dac7450">logger</a> = LogManager().getlogger(self.__class__.__name__, Logger.SHOW, INFO)</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classpush__cup__action_1_1_push_cup_action.html#a3cab0af39608583f16bf83ebab5c2074">   16</a></span>        self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a3cab0af39608583f16bf83ebab5c2074">color</a> = color</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">   17</a></span>        self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">idx</a> = idx</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a3cab0af39608583f16bf83ebab5c2074">color</a> == RobotBehavior.YELLOW_SIDE:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classpush__cup__action_1_1_push_cup_action.html#ae9fa0e0eeeaa3df736aa1658e010d734">   20</a></span>            self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#ae9fa0e0eeeaa3df736aa1658e010d734">actionpoint</a> = geo.get(<span class="stringliteral">&#39;PushYellow&#39;</span>+str(self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">idx</a>))</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">idx</a> == 1 <span class="keywordflow">or</span> self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">idx</a> == 2:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classpush__cup__action_1_1_push_cup_action.html#a3eec7bb3181270f377a4b0e6149e7898">   22</a></span>                self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a3eec7bb3181270f377a4b0e6149e7898">orientation</a> = pi/2</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a3eec7bb3181270f377a4b0e6149e7898">orientation</a> = pi</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#ae9fa0e0eeeaa3df736aa1658e010d734">actionpoint</a> = geo.get(<span class="stringliteral">&#39;PushBlue&#39;</span>+str(self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">idx</a>))</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">idx</a> == 1 <span class="keywordflow">or</span> self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">idx</a> == 2:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a3eec7bb3181270f377a4b0e6149e7898">orientation</a> = -pi/2</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a3eec7bb3181270f377a4b0e6149e7898">orientation</a> = pi</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classpush__cup__action_1_1_push_cup_action.html#a6e052aff971e1aa43d962297bff94bba">   32</a></span>        self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a6e052aff971e1aa43d962297bff94bba">actionpoint_precision</a> = 10</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+</div>
+<div class="foldopen" id="foldopen00034" data-start="" data-end="">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classpush__cup__action_1_1_push_cup_action.html#a8ec0893079a056a93a04e8fd6e0663a6">   34</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classpush__cup__action_1_1_push_cup_action.html#a8ec0893079a056a93a04e8fd6e0663a6">procedure</a>(self, robot):</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#aac804c55809268045bde301c0dac7450">logger</a>(INFO, <span class="stringliteral">&#39;Action is launch on&#39;</span>, robot.__class__.__name__)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#aac804c55809268045bde301c0dac7450">logger</a>(INFO, <span class="stringliteral">&#39;Go to Push action &#39;</span>+str(self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">idx</a>))</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        robot.wheeledbase.turnonthespot(self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a3eec7bb3181270f377a4b0e6149e7898">orientation</a>)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        robot.wheeledbase.wait()</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        x_in, y_in, theta_in = robot.wheeledbase.get_position()</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a3cab0af39608583f16bf83ebab5c2074">color</a> == RobotBehavior.YELLOW_SIDE:</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">idx</a> == 1 <span class="keywordflow">or</span> self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">idx</a> == 2:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                x_sp, y_sp, theta_sp = x_in, y_in + 250, theta_in</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                x_sp, y_sp, theta_sp = x_in + 250, y_in, theta_in</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">idx</a> == 1 <span class="keywordflow">or</span> self.<a class="code hl_variable" href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">idx</a> == 2:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                x_sp, y_sp, theta_sp = x_in, y_in - 250, theta_in</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                x_sp, y_sp, theta_sp = x_in + 250, y_in, theta_in</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="comment"># # Deploy arm</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="comment"># sleep(1)</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        robot.wheeledbase.goto(x_sp, y_sp, theta_sp)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        robot.wheeledbase.wait()</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        robot.wheeledbase.goto(x_in, y_in, theta_in)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        robot.wheeledbase.wait()</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="comment"># UnDeploy arm</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="comment"># sleep(1)</span></div>
+</div>
+</div>
+<div class="ttc" id="aclasspush__cup__action_1_1_push_cup_action_html"><div class="ttname"><a href="classpush__cup__action_1_1_push_cup_action.html">push_cup_action.PushCupAction</a></div><div class="ttdef"><b>Definition</b> <a href="#l00011">push_cup_action.py:11</a></div></div>
+<div class="ttc" id="aclasspush__cup__action_1_1_push_cup_action_html_a3cab0af39608583f16bf83ebab5c2074"><div class="ttname"><a href="classpush__cup__action_1_1_push_cup_action.html#a3cab0af39608583f16bf83ebab5c2074">push_cup_action.PushCupAction.color</a></div><div class="ttdeci">color</div><div class="ttdef"><b>Definition</b> <a href="#l00016">push_cup_action.py:16</a></div></div>
+<div class="ttc" id="aclasspush__cup__action_1_1_push_cup_action_html_a3eec7bb3181270f377a4b0e6149e7898"><div class="ttname"><a href="classpush__cup__action_1_1_push_cup_action.html#a3eec7bb3181270f377a4b0e6149e7898">push_cup_action.PushCupAction.orientation</a></div><div class="ttdeci">orientation</div><div class="ttdef"><b>Definition</b> <a href="#l00022">push_cup_action.py:22</a></div></div>
+<div class="ttc" id="aclasspush__cup__action_1_1_push_cup_action_html_a50669745db47f185da60081aa5c54878"><div class="ttname"><a href="classpush__cup__action_1_1_push_cup_action.html#a50669745db47f185da60081aa5c54878">push_cup_action.PushCupAction.idx</a></div><div class="ttdeci">idx</div><div class="ttdef"><b>Definition</b> <a href="#l00017">push_cup_action.py:17</a></div></div>
+<div class="ttc" id="aclasspush__cup__action_1_1_push_cup_action_html_a6e052aff971e1aa43d962297bff94bba"><div class="ttname"><a href="classpush__cup__action_1_1_push_cup_action.html#a6e052aff971e1aa43d962297bff94bba">push_cup_action.PushCupAction.actionpoint_precision</a></div><div class="ttdeci">actionpoint_precision</div><div class="ttdef"><b>Definition</b> <a href="#l00032">push_cup_action.py:32</a></div></div>
+<div class="ttc" id="aclasspush__cup__action_1_1_push_cup_action_html_a825a6858a0fe050491f819b5c9f8097a"><div class="ttname"><a href="classpush__cup__action_1_1_push_cup_action.html#a825a6858a0fe050491f819b5c9f8097a">push_cup_action.PushCupAction.__init__</a></div><div class="ttdeci">__init__(self, geo, color, idx)</div><div class="ttdef"><b>Definition</b> <a href="#l00012">push_cup_action.py:12</a></div></div>
+<div class="ttc" id="aclasspush__cup__action_1_1_push_cup_action_html_a8ec0893079a056a93a04e8fd6e0663a6"><div class="ttname"><a href="classpush__cup__action_1_1_push_cup_action.html#a8ec0893079a056a93a04e8fd6e0663a6">push_cup_action.PushCupAction.procedure</a></div><div class="ttdeci">procedure(self, robot)</div><div class="ttdef"><b>Definition</b> <a href="#l00034">push_cup_action.py:34</a></div></div>
+<div class="ttc" id="aclasspush__cup__action_1_1_push_cup_action_html_aac804c55809268045bde301c0dac7450"><div class="ttname"><a href="classpush__cup__action_1_1_push_cup_action.html#aac804c55809268045bde301c0dac7450">push_cup_action.PushCupAction.logger</a></div><div class="ttdeci">logger</div><div class="ttdef"><b>Definition</b> <a href="#l00014">push_cup_action.py:14</a></div></div>
+<div class="ttc" id="aclasspush__cup__action_1_1_push_cup_action_html_ae9fa0e0eeeaa3df736aa1658e010d734"><div class="ttname"><a href="classpush__cup__action_1_1_push_cup_action.html#ae9fa0e0eeeaa3df736aa1658e010d734">push_cup_action.PushCupAction.actionpoint</a></div><div class="ttdeci">actionpoint</div><div class="ttdef"><b>Definition</b> <a href="#l00020">push_cup_action.py:20</a></div></div>
+<div class="ttc" id="anamespacebehaviours_1_1action_1_1action_html"><div class="ttname"><a href="namespacebehaviours_1_1action_1_1action.html">action</a></div></div>
+<div class="ttc" id="anamespacelogs_1_1log__manager_html"><div class="ttname"><a href="namespacelogs_1_1log__manager.html">log_manager</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_0ed5160175873dda433e3dfd6da604c3.html">robots</a></li><li class="navelem"><a class="el" href="dir_a307c0c63c4480d6567883e565b3e510.html">bornibus</a></li><li class="navelem"><a class="el" href="dir_819874e8a5b654337d80529d321f5303.html">actions</a></li><li class="navelem"><a class="el" href="push__cup__action_8py.html">push_cup_action.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

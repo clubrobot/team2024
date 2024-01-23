@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/robot.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('robot_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">robot.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="robot_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacerobot.html">    1</a></span><span class="keyword">from</span> common.components <span class="keyword">import</span> Manager</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacedaughter__cards_1_1actionneur.html">daughter_cards.actionneur</a> <span class="keyword">import</span> Actionneur</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacedaughter__cards_1_1wheeledbase.html">daughter_cards.wheeledbase</a> <span class="keyword">import</span> WheeledBase</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> robots.team2023.ascenseur <span class="keyword">import</span> Ascenseur</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">from</span> robots.team2023.pince <span class="keyword">import</span> Pince</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacedaughter__cards_1_1sensors.html">daughter_cards.sensors</a> <span class="keyword">import</span> Sensors,ThreadSensors</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">from</span> common.geogebra <span class="keyword">import</span> Geogebra</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">from</span> common.roadmap <span class="keyword">import</span> RoadMap</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">from</span> common.gpiodevices <span class="keyword">import</span> Switch,LightButton,gpio_pins</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">from</span> robots.team2023.RecupPile <span class="keyword">import</span> RecupPile</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">from</span> time <span class="keyword">import</span> sleep,time</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">import</span> os</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">import</span> math</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="" data-end="">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classrobot_1_1_robot.html">Robot</a>:</div>
+<div class="foldopen" id="foldopen00019" data-start="" data-end="">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#a0e76bd227534cb8d94220ad574f1f00c">   19</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot_1_1_robot.html#a0e76bd227534cb8d94220ad574f1f00c">__init__</a>(self,manager,side) -&gt; None:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordflow">for</span> root, dirs, files <span class="keywordflow">in</span> os.walk(<span class="stringliteral">&quot;.&quot;</span>):</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keywordflow">for</span> file <span class="keywordflow">in</span> files:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                <span class="keywordflow">if</span> file == <span class="stringliteral">&quot;map_2023.ggb&quot;</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                    roadmap_path = os.path.join(root, file)</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">   25</a></span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">geo</a>  = Geogebra(roadmap_path)<span class="comment">#&quot;robots/team2023/map_2023.ggb&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#abcc28cfa81e77ae85d953fc34acf3f20">   26</a></span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#abcc28cfa81e77ae85d953fc34acf3f20">road</a> = RoadMap.load(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">geo</a>)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#a1896a62ef118795cfceefbdbcb7909c2">   27</a></span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a1896a62ef118795cfceefbdbcb7909c2">side</a> = side</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#ae5bcbc3788d22fbd2e8fa9b44fdc756e">   29</a></span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ae5bcbc3788d22fbd2e8fa9b44fdc756e">actionneur</a> = Actionneur(manager, <span class="stringliteral">&quot;actionneurs&quot;</span>)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ae5bcbc3788d22fbd2e8fa9b44fdc756e">actionneur</a>.SetServoAngle(300)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">   31</a></span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">wheeledbase</a> = WheeledBase(manager)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="comment">#self.display = display</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#a04699e7cebfddfd8f65e87193afdf52c">   33</a></span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a04699e7cebfddfd8f65e87193afdf52c">pince</a>= Pince(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ae5bcbc3788d22fbd2e8fa9b44fdc756e">actionneur</a>)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#a39d22f9e09236843753781eb45c16fe1">   34</a></span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a39d22f9e09236843753781eb45c16fe1">ascenseur</a>=<span class="keywordtype">None</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a39d22f9e09236843753781eb45c16fe1">ascenseur</a>= Ascenseur(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ae5bcbc3788d22fbd2e8fa9b44fdc756e">actionneur</a>)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#a3d849114ca045c7345d5c20a80187674">   36</a></span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a3d849114ca045c7345d5c20a80187674">sensors</a>=Sensors(manager,<span class="stringliteral">&quot;sensors&quot;</span>)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#ac6b032628a109009a43123094be3e4cf">   37</a></span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ac6b032628a109009a43123094be3e4cf">threadSensors</a>=ThreadSensors(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a3d849114ca045c7345d5c20a80187674">sensors</a>,self)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="comment">#self.sensors=None</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#ac1d7808fad3e97895b8edb142a1529e4">   40</a></span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ac1d7808fad3e97895b8edb142a1529e4">blue</a>=self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a1896a62ef118795cfceefbdbcb7909c2">side</a>==<span class="stringliteral">&quot;BLUE&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        h=115</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        v=220</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#a7af05ee50cec863f3713c2fe09a65736">   46</a></span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a7af05ee50cec863f3713c2fe09a65736">automate</a> = []<span class="comment">#get 3 couleurs puis gerber puis poser cerises</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        if(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ac1d7808fad3e97895b8edb142a1529e4">blue</a>):<span class="comment">#couleur impaire</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">wheeledbase</a>.set_position(v/2,3000-h/2-50,-math.pi/2)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">   49</a></span>            self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">base</a>=self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">geo</a>.get(<span class="stringliteral">&#39;ZB1&#39;</span>)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#a645f9f646e649c1d09cba245b9efd7b2">   50</a></span>            self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a645f9f646e649c1d09cba245b9efd7b2">end</a>=self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">geo</a>.get(<span class="stringliteral">&#39;ZB2&#39;</span>)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a7af05ee50cec863f3713c2fe09a65736">automate</a>.append(RecupPile(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">wheeledbase</a>,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">geo</a>.get(<span class="stringliteral">&#39;Rose1&#39;</span>),np.array(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">base</a>)+(-90,110),self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a04699e7cebfddfd8f65e87193afdf52c">pince</a>,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a39d22f9e09236843753781eb45c16fe1">ascenseur</a>))</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a7af05ee50cec863f3713c2fe09a65736">automate</a>.append(RecupPile(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">wheeledbase</a>,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">geo</a>.get(<span class="stringliteral">&#39;Jaune1&#39;</span>),np.array(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">base</a>)+(110,110),self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a04699e7cebfddfd8f65e87193afdf52c">pince</a>,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a39d22f9e09236843753781eb45c16fe1">ascenseur</a>))</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a7af05ee50cec863f3713c2fe09a65736">automate</a>.append(RecupPile(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">wheeledbase</a>,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">geo</a>.get(<span class="stringliteral">&#39;Noir1&#39;</span>),np.array(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">base</a>)+(0,-80),self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a04699e7cebfddfd8f65e87193afdf52c">pince</a>,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a39d22f9e09236843753781eb45c16fe1">ascenseur</a>))</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">else</span>:<span class="comment">#couleur paire</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">base</a>=self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">geo</a>.get(<span class="stringliteral">&#39;ZV1&#39;</span>)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a645f9f646e649c1d09cba245b9efd7b2">end</a>=self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">geo</a>.get(<span class="stringliteral">&#39;ZV2&#39;</span>)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">wheeledbase</a>.set_position(2000-v/2,3000-h/2-50,-math.pi/2)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a7af05ee50cec863f3713c2fe09a65736">automate</a>.append(RecupPile(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">wheeledbase</a>,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">geo</a>.get(<span class="stringliteral">&#39;Rose2&#39;</span>),np.array(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">base</a>)+(90,110),self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a04699e7cebfddfd8f65e87193afdf52c">pince</a>,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a39d22f9e09236843753781eb45c16fe1">ascenseur</a>))</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a7af05ee50cec863f3713c2fe09a65736">automate</a>.append(RecupPile(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">wheeledbase</a>,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">geo</a>.get(<span class="stringliteral">&#39;Jaune2&#39;</span>),np.array(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">base</a>)+(-90,110),self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a04699e7cebfddfd8f65e87193afdf52c">pince</a>,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a39d22f9e09236843753781eb45c16fe1">ascenseur</a>))</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a7af05ee50cec863f3713c2fe09a65736">automate</a>.append(RecupPile(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">wheeledbase</a>,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">geo</a>.get(<span class="stringliteral">&#39;Noir2&#39;</span>),np.array(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">base</a>)+(0,-80),self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a04699e7cebfddfd8f65e87193afdf52c">pince</a>,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a39d22f9e09236843753781eb45c16fe1">ascenseur</a>))</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+</div>
+<div class="foldopen" id="foldopen00064" data-start="" data-end="">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classrobot_1_1_robot.html#aaad82078d0953b54f4a6c246280a4d8a">   64</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classrobot_1_1_robot.html#aaad82078d0953b54f4a6c246280a4d8a">start</a>(self):</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        orange_button=LightButton(gpio_pins.INTER_4_PIN,gpio_pins.LED4_PIN)<span class="comment">#orange:2 vert:1 bleu:3 rouge :4</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        orange_button.set_function(orange_button.switch)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        orange_button.on()</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        tirette=Switch(gpio_pins.TIRETTE_PIN)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">wheeledbase</a>.goto_stop(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">base</a>[0],self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">base</a>[1],sensors=self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a3d849114ca045c7345d5c20a80187674">sensors</a>)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="comment">#attend tirette</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">while</span> <span class="keywordflow">not</span> tirette.button.is_pressed:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            if(orange_button.button.is_pressed):</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            sleep(0.003)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        debut=time()</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        print(<span class="stringliteral">&quot;tiretté&quot;</span>)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">wheeledbase</a>.goto_stop(3000-115/2-50,self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">base</a>[1],sensors=self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a3d849114ca045c7345d5c20a80187674">sensors</a>,theta=-math.pi/2)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ae5bcbc3788d22fbd2e8fa9b44fdc756e">actionneur</a>.SetServoAngle(0)</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a7af05ee50cec863f3713c2fe09a65736">automate</a>[0].procedure(self)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        if(orange_button.button.is_pressed <span class="keywordflow">or</span> (time()-debut)&gt;90):</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <span class="keywordflow">return</span> (time()-debut)&gt;90</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a7af05ee50cec863f3713c2fe09a65736">automate</a>[1].procedure(self)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        if(orange_button.button.is_pressed <span class="keywordflow">or</span> (time()-debut)&gt;90):</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">return</span> (time()-debut)&gt;90</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a7af05ee50cec863f3713c2fe09a65736">automate</a>[2].procedure(self)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        if(orange_button.button.is_pressed <span class="keywordflow">or</span> (time()-debut)&gt;90):</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordflow">return</span> (time()-debut)&gt;90</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">wheeledbase</a>.goto_stop(self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a645f9f646e649c1d09cba245b9efd7b2">end</a>[0],self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a645f9f646e649c1d09cba245b9efd7b2">end</a>[1],sensors=self.<a class="code hl_variable" href="classrobot_1_1_robot.html#a3d849114ca045c7345d5c20a80187674">sensors</a>)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        self.<a class="code hl_variable" href="classrobot_1_1_robot.html#ac6b032628a109009a43123094be3e4cf">threadSensors</a>.looping=<span class="keyword">False</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+</div>
+</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">from</span> common.components <span class="keyword">import</span> Manager</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="namespacerobot.html#a8370eb4ef1df5e580ab4fc87fbc4c8e4">   96</a></span>manager = Manager(<span class="stringliteral">&quot;10.0.0.2&quot;</span>)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>manager.connect(7)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">#1 VERIF QUE TURN ON THE SPOT s&#39;arrète bien avec les capteurs</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">#2 TUNER LA DISTANCE D&#39;ARRET</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">#3 FAIRE EXECUTER LE CODE EN LOCAL sur le robot</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">#4 pouvoir utiliser l&#39;ascenseur et la pince </span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">#5 améliorer a stratégie </span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesetups_1_1setup__serialtalks.html">setups.setup_serialtalks</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="namespacerobot.html#a8c18ae7b0f39b7605e8482143237b9dd">  108</a></span>green_button=LightButton(gpio_pins.INTER_1_PIN,gpio_pins.LED1_PIN)<span class="comment">#orange:2 vert:1 bleu:3 rouge :4</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>green_button.set_function(green_button.switch)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="namespacerobot.html#aa6f66a3bd5e8a6b5e27e2e3d0e6c74a9">  110</a></span>blue_button=LightButton(gpio_pins.INTER_3_PIN,gpio_pins.LED3_PIN)<span class="comment">#orange:2 vert:1 bleu:3 rouge :4</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>blue_button.set_function(blue_button.switch)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>blue_button.on()</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>green_button.on()</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="namespacerobot.html#ae8c0f3991225fbae9f7e70d27768b208">  114</a></span>bornibus=<span class="keywordtype">None</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>print(<span class="stringliteral">&quot;CHOIX COULEUR&quot;</span>)</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="namespacerobot.html#a9ba5503effc219078cea296d83da5cb7">  116</a></span>initOk=<span class="keyword">False</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keywordflow">while</span> <span class="keywordflow">not</span> initOk:</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="comment">#bornibus=Robot(manager=manager,side=&quot;BLUE&quot;)</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    while(bornibus==<span class="keywordtype">None</span>):</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        if(green_button.button.is_pressed):</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            bornibus=<a class="code hl_class" href="classrobot_1_1_robot.html">Robot</a>(manager=manager,side=<span class="stringliteral">&quot;GREEN&quot;</span>)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            blue_button.off()</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            green_button.on()</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            print(<span class="stringliteral">&quot;TEAM VERTE&quot;</span>)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        elif(blue_button.button.is_pressed):</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            bornibus=<a class="code hl_class" href="classrobot_1_1_robot.html">Robot</a>(manager=manager,side=<span class="stringliteral">&quot;BLUE&quot;</span>)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            green_button.off()</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            blue_button.on()</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            print(<span class="stringliteral">&quot;team bleu&quot;</span>)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    initOk=bornibus.start()</div>
+<div class="ttc" id="aclassrobot_1_1_robot_html"><div class="ttname"><a href="classrobot_1_1_robot.html">robot.Robot</a></div><div class="ttdef"><b>Definition</b> <a href="#l00018">robot.py:18</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_a04699e7cebfddfd8f65e87193afdf52c"><div class="ttname"><a href="classrobot_1_1_robot.html#a04699e7cebfddfd8f65e87193afdf52c">robot.Robot.pince</a></div><div class="ttdeci">pince</div><div class="ttdef"><b>Definition</b> <a href="#l00033">robot.py:33</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_a09f5e57f5acc79bf4a528742ffe2e4e7"><div class="ttname"><a href="classrobot_1_1_robot.html#a09f5e57f5acc79bf4a528742ffe2e4e7">robot.Robot.geo</a></div><div class="ttdeci">geo</div><div class="ttdef"><b>Definition</b> <a href="#l00025">robot.py:25</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_a0e76bd227534cb8d94220ad574f1f00c"><div class="ttname"><a href="classrobot_1_1_robot.html#a0e76bd227534cb8d94220ad574f1f00c">robot.Robot.__init__</a></div><div class="ttdeci">None __init__(self, manager, side)</div><div class="ttdef"><b>Definition</b> <a href="#l00019">robot.py:19</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_a1896a62ef118795cfceefbdbcb7909c2"><div class="ttname"><a href="classrobot_1_1_robot.html#a1896a62ef118795cfceefbdbcb7909c2">robot.Robot.side</a></div><div class="ttdeci">side</div><div class="ttdef"><b>Definition</b> <a href="#l00027">robot.py:27</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_a39d22f9e09236843753781eb45c16fe1"><div class="ttname"><a href="classrobot_1_1_robot.html#a39d22f9e09236843753781eb45c16fe1">robot.Robot.ascenseur</a></div><div class="ttdeci">ascenseur</div><div class="ttdef"><b>Definition</b> <a href="#l00034">robot.py:34</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_a3d849114ca045c7345d5c20a80187674"><div class="ttname"><a href="classrobot_1_1_robot.html#a3d849114ca045c7345d5c20a80187674">robot.Robot.sensors</a></div><div class="ttdeci">sensors</div><div class="ttdef"><b>Definition</b> <a href="#l00036">robot.py:36</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_a645f9f646e649c1d09cba245b9efd7b2"><div class="ttname"><a href="classrobot_1_1_robot.html#a645f9f646e649c1d09cba245b9efd7b2">robot.Robot.end</a></div><div class="ttdeci">end</div><div class="ttdef"><b>Definition</b> <a href="#l00050">robot.py:50</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_a67a390f88eca278f7d03aceead1b5907"><div class="ttname"><a href="classrobot_1_1_robot.html#a67a390f88eca278f7d03aceead1b5907">robot.Robot.base</a></div><div class="ttdeci">base</div><div class="ttdef"><b>Definition</b> <a href="#l00049">robot.py:49</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_a7af05ee50cec863f3713c2fe09a65736"><div class="ttname"><a href="classrobot_1_1_robot.html#a7af05ee50cec863f3713c2fe09a65736">robot.Robot.automate</a></div><div class="ttdeci">automate</div><div class="ttdef"><b>Definition</b> <a href="#l00046">robot.py:46</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_aaad82078d0953b54f4a6c246280a4d8a"><div class="ttname"><a href="classrobot_1_1_robot.html#aaad82078d0953b54f4a6c246280a4d8a">robot.Robot.start</a></div><div class="ttdeci">start(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00064">robot.py:64</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_ab8b20f7af26863392373c38374d80538"><div class="ttname"><a href="classrobot_1_1_robot.html#ab8b20f7af26863392373c38374d80538">robot.Robot.wheeledbase</a></div><div class="ttdeci">wheeledbase</div><div class="ttdef"><b>Definition</b> <a href="#l00031">robot.py:31</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_abcc28cfa81e77ae85d953fc34acf3f20"><div class="ttname"><a href="classrobot_1_1_robot.html#abcc28cfa81e77ae85d953fc34acf3f20">robot.Robot.road</a></div><div class="ttdeci">road</div><div class="ttdef"><b>Definition</b> <a href="#l00026">robot.py:26</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_ac1d7808fad3e97895b8edb142a1529e4"><div class="ttname"><a href="classrobot_1_1_robot.html#ac1d7808fad3e97895b8edb142a1529e4">robot.Robot.blue</a></div><div class="ttdeci">blue</div><div class="ttdef"><b>Definition</b> <a href="#l00040">robot.py:40</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_ac6b032628a109009a43123094be3e4cf"><div class="ttname"><a href="classrobot_1_1_robot.html#ac6b032628a109009a43123094be3e4cf">robot.Robot.threadSensors</a></div><div class="ttdeci">threadSensors</div><div class="ttdef"><b>Definition</b> <a href="#l00037">robot.py:37</a></div></div>
+<div class="ttc" id="aclassrobot_1_1_robot_html_ae5bcbc3788d22fbd2e8fa9b44fdc756e"><div class="ttname"><a href="classrobot_1_1_robot.html#ae5bcbc3788d22fbd2e8fa9b44fdc756e">robot.Robot.actionneur</a></div><div class="ttdeci">actionneur</div><div class="ttdef"><b>Definition</b> <a href="#l00029">robot.py:29</a></div></div>
+<div class="ttc" id="anamespacedaughter__cards_1_1actionneur_html"><div class="ttname"><a href="namespacedaughter__cards_1_1actionneur.html">actionneur</a></div></div>
+<div class="ttc" id="anamespacedaughter__cards_1_1sensors_html"><div class="ttname"><a href="namespacedaughter__cards_1_1sensors.html">sensors</a></div></div>
+<div class="ttc" id="anamespacedaughter__cards_1_1wheeledbase_html"><div class="ttname"><a href="namespacedaughter__cards_1_1wheeledbase.html">wheeledbase</a></div></div>
+<div class="ttc" id="anamespacesetups_1_1setup__serialtalks_html"><div class="ttname"><a href="namespacesetups_1_1setup__serialtalks.html">setup_serialtalks</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="robot_8py.html">robot.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

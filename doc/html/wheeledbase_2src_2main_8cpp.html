@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence du fichier C:/Users/boris/Desktop/robotique/team2024/platformIO/wheeledbase/src/main.cpp</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('wheeledbase_2src_2main_8cpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier main.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="wheeledbase_2src_2_p_i_n_8h_source.html">PIN.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="wheeledbase_2src_2constants_8h_source.html">constants.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="wheeledbase_2src_2instructions_8h_source.html">instructions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="addresses_8h_source.html">addresses.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_talking_8h_source.html">SerialTalking.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_d_c_motor_8h_source.html">DCMotor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_codewheel_8h_source.html">Codewheel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_odometry_8h_source.html">Odometry.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_p_i_d_8h_source.html">PID.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_velocity_controller_8h_source.html">VelocityController.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_position_controller_8h_source.html">PositionController.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_pure_pursuit_8h_source.html">PurePursuit.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_turn_on_the_spot_8h_source.html">TurnOnTheSpot.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mathutils_8h_source.html">mathutils.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
+<tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
+<tr class="separator:afe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:acfb1d8e06663b679933b41e733bc18d4" id="r_acfb1d8e06663b679933b41e733bc18d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_c_motors_driver.html">DCMotorsDriver</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfb1d8e06663b679933b41e733bc18d4">driver</a></td></tr>
+<tr class="separator:acfb1d8e06663b679933b41e733bc18d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05e5eb736fc9bf6c9b15d3fca0529180" id="r_a05e5eb736fc9bf6c9b15d3fca0529180"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_c_motor.html">DCMotor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05e5eb736fc9bf6c9b15d3fca0529180">leftWheel</a></td></tr>
+<tr class="separator:a05e5eb736fc9bf6c9b15d3fca0529180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86e7422474fdb6c40eb5701a3de5fccf" id="r_a86e7422474fdb6c40eb5701a3de5fccf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_c_motor.html">DCMotor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86e7422474fdb6c40eb5701a3de5fccf">rightWheel</a></td></tr>
+<tr class="separator:a86e7422474fdb6c40eb5701a3de5fccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2ae3c36dd4e918d4b97fb26faa70f02" id="r_ab2ae3c36dd4e918d4b97fb26faa70f02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_codewheel.html">Codewheel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2ae3c36dd4e918d4b97fb26faa70f02">leftCodewheel</a></td></tr>
+<tr class="separator:ab2ae3c36dd4e918d4b97fb26faa70f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af92c23bc5806f1d2965b3d979258974c" id="r_af92c23bc5806f1d2965b3d979258974c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_codewheel.html">Codewheel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af92c23bc5806f1d2965b3d979258974c">rightCodewheel</a></td></tr>
+<tr class="separator:af92c23bc5806f1d2965b3d979258974c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab094448afeb87b34b04865a7cb455e92" id="r_ab094448afeb87b34b04865a7cb455e92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_odometry.html">Odometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab094448afeb87b34b04865a7cb455e92">odometry</a></td></tr>
+<tr class="separator:ab094448afeb87b34b04865a7cb455e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad36eb14fdf6a1c5b44b779d98941f3c7" id="r_ad36eb14fdf6a1c5b44b779d98941f3c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_velocity_controller.html">VelocityController</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad36eb14fdf6a1c5b44b779d98941f3c7">velocityControl</a></td></tr>
+<tr class="separator:ad36eb14fdf6a1c5b44b779d98941f3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a678911ffa6fb6b64db6c566e30d0da7b" id="r_a678911ffa6fb6b64db6c566e30d0da7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_p_i_d.html">PID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a678911ffa6fb6b64db6c566e30d0da7b">linVelPID</a></td></tr>
+<tr class="separator:a678911ffa6fb6b64db6c566e30d0da7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cfc8ab6174294205ae9aaec663b3b12" id="r_a0cfc8ab6174294205ae9aaec663b3b12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_p_i_d.html">PID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cfc8ab6174294205ae9aaec663b3b12">angVelPID</a></td></tr>
+<tr class="separator:a0cfc8ab6174294205ae9aaec663b3b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63e787998937cf864eea16e80d3d6aec" id="r_a63e787998937cf864eea16e80d3d6aec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_position_controller.html">PositionController</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63e787998937cf864eea16e80d3d6aec">positionControl</a></td></tr>
+<tr class="separator:a63e787998937cf864eea16e80d3d6aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03ede4fa09381c6ada8a06ce61052765" id="r_a03ede4fa09381c6ada8a06ce61052765"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_pure_pursuit.html">PurePursuit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03ede4fa09381c6ada8a06ce61052765">purePursuit</a></td></tr>
+<tr class="separator:a03ede4fa09381c6ada8a06ce61052765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86a57547f0081c2c7c585259de602fe7" id="r_a86a57547f0081c2c7c585259de602fe7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_turn_on_the_spot.html">TurnOnTheSpot</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86a57547f0081c2c7c585259de602fe7">turnOnTheSpot</a></td></tr>
+<tr class="separator:a86a57547f0081c2c7c585259de602fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe461d27b9c48d5921c00d521181f12f">&#9670;&#160;</a></span>loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc01d736fe50cf5b977f755b675f11d">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a0cfc8ab6174294205ae9aaec663b3b12" name="a0cfc8ab6174294205ae9aaec663b3b12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cfc8ab6174294205ae9aaec663b3b12">&#9670;&#160;</a></span>angVelPID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_p_i_d.html">PID</a> angVelPID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfb1d8e06663b679933b41e733bc18d4" name="acfb1d8e06663b679933b41e733bc18d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfb1d8e06663b679933b41e733bc18d4">&#9670;&#160;</a></span>driver</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_c_motors_driver.html">DCMotorsDriver</a> driver</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2ae3c36dd4e918d4b97fb26faa70f02" name="ab2ae3c36dd4e918d4b97fb26faa70f02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2ae3c36dd4e918d4b97fb26faa70f02">&#9670;&#160;</a></span>leftCodewheel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_codewheel.html">Codewheel</a> leftCodewheel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05e5eb736fc9bf6c9b15d3fca0529180" name="a05e5eb736fc9bf6c9b15d3fca0529180"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05e5eb736fc9bf6c9b15d3fca0529180">&#9670;&#160;</a></span>leftWheel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_c_motor.html">DCMotor</a> leftWheel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a678911ffa6fb6b64db6c566e30d0da7b" name="a678911ffa6fb6b64db6c566e30d0da7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a678911ffa6fb6b64db6c566e30d0da7b">&#9670;&#160;</a></span>linVelPID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_p_i_d.html">PID</a> linVelPID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab094448afeb87b34b04865a7cb455e92" name="ab094448afeb87b34b04865a7cb455e92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab094448afeb87b34b04865a7cb455e92">&#9670;&#160;</a></span>odometry</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_odometry.html">Odometry</a> odometry</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63e787998937cf864eea16e80d3d6aec" name="a63e787998937cf864eea16e80d3d6aec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63e787998937cf864eea16e80d3d6aec">&#9670;&#160;</a></span>positionControl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_position_controller.html">PositionController</a> positionControl</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03ede4fa09381c6ada8a06ce61052765" name="a03ede4fa09381c6ada8a06ce61052765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03ede4fa09381c6ada8a06ce61052765">&#9670;&#160;</a></span>purePursuit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_pure_pursuit.html">PurePursuit</a> purePursuit</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af92c23bc5806f1d2965b3d979258974c" name="af92c23bc5806f1d2965b3d979258974c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92c23bc5806f1d2965b3d979258974c">&#9670;&#160;</a></span>rightCodewheel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_codewheel.html">Codewheel</a> rightCodewheel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86e7422474fdb6c40eb5701a3de5fccf" name="a86e7422474fdb6c40eb5701a3de5fccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86e7422474fdb6c40eb5701a3de5fccf">&#9670;&#160;</a></span>rightWheel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_c_motor.html">DCMotor</a> rightWheel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86a57547f0081c2c7c585259de602fe7" name="a86a57547f0081c2c7c585259de602fe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86a57547f0081c2c7c585259de602fe7">&#9670;&#160;</a></span>turnOnTheSpot</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_turn_on_the_spot.html">TurnOnTheSpot</a> turnOnTheSpot</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad36eb14fdf6a1c5b44b779d98941f3c7" name="ad36eb14fdf6a1c5b44b779d98941f3c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad36eb14fdf6a1c5b44b779d98941f3c7">&#9670;&#160;</a></span>velocityControl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_velocity_controller.html">VelocityController</a> velocityControl</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_85044bfad3ba5ac6b677513226d20855.html">wheeledbase</a></li><li class="navelem"><a class="el" href="dir_87fdaeb5f226d5d115213573f5f2c5dc.html">src</a></li><li class="navelem"><a class="el" href="wheeledbase_2src_2main_8cpp.html">main.cpp</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

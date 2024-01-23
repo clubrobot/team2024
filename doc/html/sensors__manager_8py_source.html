@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/managers/sensors_manager.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('sensors__manager_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">sensors_manager.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="sensors__manager_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacesensors__manager.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> time</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">from</span> threading <span class="keyword">import</span> Thread, Event, Lock</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> math</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> common.sync_flag_signal <span class="keyword">import</span> Signal</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacecommon_1_1automaton.html">common.automaton</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="" data-end="">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classsensors__manager_1_1_sensor.html">Sensor</a>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#ae3d356d0a2f23d79827d250e4e50df80">   11</a></span>    HILL_ZONE = ((300, 1490), (200, 2800))</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#a82633f58411be25923b8f55dd6e83dd3">   12</a></span>    SCALE_ZONE = ((1150, 1600), (1200, 1800))</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#a11e08ee13e315ebdc9f79e24715a7c86">   13</a></span>    START_ZONE = ((0, 0), (0, 0))</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="" data-end="">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#a3609bc2a110f119d368f8c481f5eb973">   15</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors__manager_1_1_sensor.html#a3609bc2a110f119d368f8c481f5eb973">__init__</a>(self, wheeledbase, name, dist, pos, angle, connexion_flag):</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#a64b344fdd12c8c0035318de0c4c67b37">   16</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a64b344fdd12c8c0035318de0c4c67b37">dist</a> = dist</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#a1609e8968800372c1800489776729dca">   17</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a1609e8968800372c1800489776729dca">pos</a> = pos</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#abbb305c8280487c95dd8855289085cfb">   18</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#abbb305c8280487c95dd8855289085cfb">angle</a> = angle</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#af20cbdd5236789e6cfadea6c34d96169">   19</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#af20cbdd5236789e6cfadea6c34d96169">enabled</a> = <span class="keyword">True</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#ab70443470193fa227a2e4dbe8a7c0caa">   20</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#ab70443470193fa227a2e4dbe8a7c0caa">name</a> = name</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#a28d5e700d09674532970434aae20a788">   21</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a28d5e700d09674532970434aae20a788">wheeledbase</a> = wheeledbase</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#a7c161fc4ceab54303a931f04613bc3d6">   22</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a7c161fc4ceab54303a931f04613bc3d6">is_connected</a> = connexion_flag</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+</div>
+<div class="foldopen" id="foldopen00024" data-start="" data-end="">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#a8130c6227f1e83880ed737576cf27898">   24</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors__manager_1_1_sensor.html#a8130c6227f1e83880ed737576cf27898">set_side</a>(self, side):</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">if</span> side == Automaton.YELLOW:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#a9a86638f1b930cfd75bd4b3c42709002">   26</a></span>            self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a11e08ee13e315ebdc9f79e24715a7c86">START_ZONE</a><a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a9a86638f1b930cfd75bd4b3c42709002">START_ZONE</a> = ((0, 1200), (0, 500))</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#a387603fe57cc82b4b4a0c2ebffb105b2">   27</a></span>            self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a82633f58411be25923b8f55dd6e83dd3">SCALE_ZONE</a><a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a387603fe57cc82b4b4a0c2ebffb105b2">SCALE_ZONE</a> = ((1150, 1600), (1480, 1800))</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a11e08ee13e315ebdc9f79e24715a7c86">START_ZONE</a><a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a9a86638f1b930cfd75bd4b3c42709002">START_ZONE</a> = ((0, 1200), (2500, 3000))</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a82633f58411be25923b8f55dd6e83dd3">SCALE_ZONE</a><a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a387603fe57cc82b4b4a0c2ebffb105b2">SCALE_ZONE</a> = ((1150, 1600), (1200, 1520))</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+</div>
+<div class="foldopen" id="foldopen00032" data-start="" data-end="">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#aa474bfdf6a5e40525078751516962c40">   32</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors__manager_1_1_sensor.html#aa474bfdf6a5e40525078751516962c40">disable</a>(self):</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#af20cbdd5236789e6cfadea6c34d96169">enabled</a> = <span class="keyword">False</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+</div>
+<div class="foldopen" id="foldopen00035" data-start="" data-end="">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensor.html#a8095505622d4b1181b3762e777a338ca">   35</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors__manager_1_1_sensor.html#a8095505622d4b1181b3762e777a338ca">obstacle</a>(self, threshold):</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        dist = self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a64b344fdd12c8c0035318de0c4c67b37">dist</a>()</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">if</span> dist &gt; threshold:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        wheeledbase_pos = self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a28d5e700d09674532970434aae20a788">wheeledbase</a>.get_position_latch()</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        x = wheeledbase_pos[0] + self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a1609e8968800372c1800489776729dca">pos</a>[0]*math.cos(wheeledbase_pos[2]) - self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a1609e8968800372c1800489776729dca">pos</a>[1]*math.sin(wheeledbase_pos[2]) \</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            + math.cos(self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#abbb305c8280487c95dd8855289085cfb">angle</a>+wheeledbase_pos[2])*dist</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        y = wheeledbase_pos[1] + self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a1609e8968800372c1800489776729dca">pos</a>[0]*math.sin(wheeledbase_pos[2]) + self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#a1609e8968800372c1800489776729dca">pos</a>[1]*math.cos(wheeledbase_pos[2]) \</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            + math.sin(self.<a class="code hl_variable" href="classsensors__manager_1_1_sensor.html#abbb305c8280487c95dd8855289085cfb">angle</a>+wheeledbase_pos[2])*dist</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="comment"># zone pente</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">if</span> x &lt; Sensor.HILL_ZONE[0][0] <span class="keywordflow">or</span> x &gt; Sensor.HILL_ZONE[0][1] <span class="keywordflow">or</span> \</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>           y &lt; Sensor.HILL_ZONE[1][0] <span class="keywordflow">or</span> y &gt; Sensor.HILL_ZONE[1][1]:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="comment"># zone balance</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">if</span> Sensor.SCALE_ZONE[0][0] &lt; x &lt; Sensor.SCALE_ZONE[0][1] <span class="keywordflow">and</span> \</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>           Sensor.SCALE_ZONE[1][0] &lt; y &lt; Sensor.SCALE_ZONE[1][1]:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">if</span> Sensor.START_ZONE[0][0] &lt; x &lt; Sensor.START_ZONE[0][1] <span class="keywordflow">and</span> \</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>           Sensor.START_ZONE[1][0] &lt; y &lt; Sensor.START_ZONE[1][1]:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+</div>
+</div>
+<div class="foldopen" id="foldopen00063" data-start="" data-end="">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html">   63</a></span><span class="keyword">class </span><a class="code hl_class" href="classsensors__manager_1_1_sensors_manager.html">SensorsManager</a>(Thread):</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#a63a3f4c86b710de2bce3a40d45ae052b">   64</a></span>    SENSORS_FREQ = 0.2</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="" data-end="">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#afa5b97eb093d0995ae841673dd08a268">   66</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors__manager_1_1_sensors_manager.html#afa5b97eb093d0995ae841673dd08a268">__init__</a>(self, wheeledbase, sensors_front, sensors_back, sensors_lat, threshold=300):</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        Thread.__init__(self)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#a207964756dad2579151b9864b31d9d2e">   68</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#a207964756dad2579151b9864b31d9d2e">daemon</a> = <span class="keyword">False</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        wheeledbase_pos = wheeledbase</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#ad6b087f32257c5bcafac7ae7c2afb408">   71</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#ad6b087f32257c5bcafac7ae7c2afb408">max_linvel</a> = wheeledbase_pos.max_linvel.get()</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#a6ad4318b6d7e377adb5346ead7bc827f">   72</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#a6ad4318b6d7e377adb5346ead7bc827f">max_angvel</a> = wheeledbase_pos.max_angvel.get()</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#a0f72c0304237f373b08b026b8fbc7a21">   74</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#a0f72c0304237f373b08b026b8fbc7a21">sensors_front</a> = sensors_front</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#a39be3ce11e9383adf6f8e71542abbf6f">   75</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#a39be3ce11e9383adf6f8e71542abbf6f">sensors_back</a> = sensors_back</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#acb62d8630ba076cd596b61c585cc3508">   76</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#acb62d8630ba076cd596b61c585cc3508">sensors_lat</a> = sensors_lat</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#aa17b2e6129ef9eee6db8c61c242d8728">   78</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#aa17b2e6129ef9eee6db8c61c242d8728">front_disable</a> = Event()</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#abbd0148e73042061b46a377879c7e247">   79</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#abbd0148e73042061b46a377879c7e247">back_disable</a> = Event()</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#ab01a1243b5c5791203680779eabfe2be">   81</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#ab01a1243b5c5791203680779eabfe2be">threshold</a> = threshold</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#ab2c1eb9f2899530bf4596207eacccb75">   82</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#ab2c1eb9f2899530bf4596207eacccb75">lock</a> = Lock()</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#a3becf17b2e36c35e666e7c60be103414">   84</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#a3becf17b2e36c35e666e7c60be103414">stopped</a> = <span class="keyword">False</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#a78e5cb4c335c0119025248e621a6db1a">   85</a></span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#a78e5cb4c335c0119025248e621a6db1a">stop_thread</a> = Event()</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+</div>
+<div class="foldopen" id="foldopen00087" data-start="" data-end="">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#a0132b4c485daa0d83a5e97d78bd4d422">   87</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors__manager_1_1_sensors_manager.html#a0132b4c485daa0d83a5e97d78bd4d422">set_thresold</a>(self, thresold):</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#ab2c1eb9f2899530bf4596207eacccb75">lock</a>.acquire()</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#ab01a1243b5c5791203680779eabfe2be">threshold</a> = thresold</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#ab2c1eb9f2899530bf4596207eacccb75">lock</a>.release()</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+</div>
+<div class="foldopen" id="foldopen00092" data-start="" data-end="">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classsensors__manager_1_1_sensors_manager.html#ab779f697cb6c021d993be5d04eb174b2">   92</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsensors__manager_1_1_sensors_manager.html#ab779f697cb6c021d993be5d04eb174b2">stop</a>(self):</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        self.<a class="code hl_variable" href="classsensors__manager_1_1_sensors_manager.html#a78e5cb4c335c0119025248e621a6db1a">stop_thread</a>.set()</div>
+</div>
+</div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html">sensors_manager.Sensor</a></div><div class="ttdef"><b>Definition</b> <a href="#l00010">sensors_manager.py:10</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_a11e08ee13e315ebdc9f79e24715a7c86"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#a11e08ee13e315ebdc9f79e24715a7c86">sensors_manager.Sensor.START_ZONE</a></div><div class="ttdeci">tuple START_ZONE</div><div class="ttdef"><b>Definition</b> <a href="#l00013">sensors_manager.py:13</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_a1609e8968800372c1800489776729dca"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#a1609e8968800372c1800489776729dca">sensors_manager.Sensor.pos</a></div><div class="ttdeci">pos</div><div class="ttdef"><b>Definition</b> <a href="#l00017">sensors_manager.py:17</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_a28d5e700d09674532970434aae20a788"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#a28d5e700d09674532970434aae20a788">sensors_manager.Sensor.wheeledbase</a></div><div class="ttdeci">wheeledbase</div><div class="ttdef"><b>Definition</b> <a href="#l00021">sensors_manager.py:21</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_a3609bc2a110f119d368f8c481f5eb973"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#a3609bc2a110f119d368f8c481f5eb973">sensors_manager.Sensor.__init__</a></div><div class="ttdeci">__init__(self, wheeledbase, name, dist, pos, angle, connexion_flag)</div><div class="ttdef"><b>Definition</b> <a href="#l00015">sensors_manager.py:15</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_a387603fe57cc82b4b4a0c2ebffb105b2"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#a387603fe57cc82b4b4a0c2ebffb105b2">sensors_manager.Sensor.SCALE_ZONE</a></div><div class="ttdeci">SCALE_ZONE</div><div class="ttdef"><b>Definition</b> <a href="#l00027">sensors_manager.py:27</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_a64b344fdd12c8c0035318de0c4c67b37"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#a64b344fdd12c8c0035318de0c4c67b37">sensors_manager.Sensor.dist</a></div><div class="ttdeci">dist</div><div class="ttdef"><b>Definition</b> <a href="#l00016">sensors_manager.py:16</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_a7c161fc4ceab54303a931f04613bc3d6"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#a7c161fc4ceab54303a931f04613bc3d6">sensors_manager.Sensor.is_connected</a></div><div class="ttdeci">is_connected</div><div class="ttdef"><b>Definition</b> <a href="#l00022">sensors_manager.py:22</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_a8095505622d4b1181b3762e777a338ca"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#a8095505622d4b1181b3762e777a338ca">sensors_manager.Sensor.obstacle</a></div><div class="ttdeci">obstacle(self, threshold)</div><div class="ttdef"><b>Definition</b> <a href="#l00035">sensors_manager.py:35</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_a8130c6227f1e83880ed737576cf27898"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#a8130c6227f1e83880ed737576cf27898">sensors_manager.Sensor.set_side</a></div><div class="ttdeci">set_side(self, side)</div><div class="ttdef"><b>Definition</b> <a href="#l00024">sensors_manager.py:24</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_a82633f58411be25923b8f55dd6e83dd3"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#a82633f58411be25923b8f55dd6e83dd3">sensors_manager.Sensor.SCALE_ZONE</a></div><div class="ttdeci">tuple SCALE_ZONE</div><div class="ttdef"><b>Definition</b> <a href="#l00012">sensors_manager.py:12</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_a9a86638f1b930cfd75bd4b3c42709002"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#a9a86638f1b930cfd75bd4b3c42709002">sensors_manager.Sensor.START_ZONE</a></div><div class="ttdeci">START_ZONE</div><div class="ttdef"><b>Definition</b> <a href="#l00026">sensors_manager.py:26</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_aa474bfdf6a5e40525078751516962c40"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#aa474bfdf6a5e40525078751516962c40">sensors_manager.Sensor.disable</a></div><div class="ttdeci">disable(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00032">sensors_manager.py:32</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_ab70443470193fa227a2e4dbe8a7c0caa"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#ab70443470193fa227a2e4dbe8a7c0caa">sensors_manager.Sensor.name</a></div><div class="ttdeci">name</div><div class="ttdef"><b>Definition</b> <a href="#l00020">sensors_manager.py:20</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_abbb305c8280487c95dd8855289085cfb"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#abbb305c8280487c95dd8855289085cfb">sensors_manager.Sensor.angle</a></div><div class="ttdeci">angle</div><div class="ttdef"><b>Definition</b> <a href="#l00018">sensors_manager.py:18</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensor_html_af20cbdd5236789e6cfadea6c34d96169"><div class="ttname"><a href="classsensors__manager_1_1_sensor.html#af20cbdd5236789e6cfadea6c34d96169">sensors_manager.Sensor.enabled</a></div><div class="ttdeci">enabled</div><div class="ttdef"><b>Definition</b> <a href="#l00019">sensors_manager.py:19</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html">sensors_manager.SensorsManager</a></div><div class="ttdef"><b>Definition</b> <a href="#l00063">sensors_manager.py:63</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_a0132b4c485daa0d83a5e97d78bd4d422"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#a0132b4c485daa0d83a5e97d78bd4d422">sensors_manager.SensorsManager.set_thresold</a></div><div class="ttdeci">set_thresold(self, thresold)</div><div class="ttdef"><b>Definition</b> <a href="#l00087">sensors_manager.py:87</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_a0f72c0304237f373b08b026b8fbc7a21"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#a0f72c0304237f373b08b026b8fbc7a21">sensors_manager.SensorsManager.sensors_front</a></div><div class="ttdeci">sensors_front</div><div class="ttdef"><b>Definition</b> <a href="#l00074">sensors_manager.py:74</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_a207964756dad2579151b9864b31d9d2e"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#a207964756dad2579151b9864b31d9d2e">sensors_manager.SensorsManager.daemon</a></div><div class="ttdeci">daemon</div><div class="ttdef"><b>Definition</b> <a href="#l00068">sensors_manager.py:68</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_a39be3ce11e9383adf6f8e71542abbf6f"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#a39be3ce11e9383adf6f8e71542abbf6f">sensors_manager.SensorsManager.sensors_back</a></div><div class="ttdeci">sensors_back</div><div class="ttdef"><b>Definition</b> <a href="#l00075">sensors_manager.py:75</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_a3becf17b2e36c35e666e7c60be103414"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#a3becf17b2e36c35e666e7c60be103414">sensors_manager.SensorsManager.stopped</a></div><div class="ttdeci">stopped</div><div class="ttdef"><b>Definition</b> <a href="#l00084">sensors_manager.py:84</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_a6ad4318b6d7e377adb5346ead7bc827f"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#a6ad4318b6d7e377adb5346ead7bc827f">sensors_manager.SensorsManager.max_angvel</a></div><div class="ttdeci">max_angvel</div><div class="ttdef"><b>Definition</b> <a href="#l00072">sensors_manager.py:72</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_a78e5cb4c335c0119025248e621a6db1a"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#a78e5cb4c335c0119025248e621a6db1a">sensors_manager.SensorsManager.stop_thread</a></div><div class="ttdeci">stop_thread</div><div class="ttdef"><b>Definition</b> <a href="#l00085">sensors_manager.py:85</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_aa17b2e6129ef9eee6db8c61c242d8728"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#aa17b2e6129ef9eee6db8c61c242d8728">sensors_manager.SensorsManager.front_disable</a></div><div class="ttdeci">front_disable</div><div class="ttdef"><b>Definition</b> <a href="#l00078">sensors_manager.py:78</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_ab01a1243b5c5791203680779eabfe2be"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#ab01a1243b5c5791203680779eabfe2be">sensors_manager.SensorsManager.threshold</a></div><div class="ttdeci">threshold</div><div class="ttdef"><b>Definition</b> <a href="#l00081">sensors_manager.py:81</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_ab2c1eb9f2899530bf4596207eacccb75"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#ab2c1eb9f2899530bf4596207eacccb75">sensors_manager.SensorsManager.lock</a></div><div class="ttdeci">lock</div><div class="ttdef"><b>Definition</b> <a href="#l00082">sensors_manager.py:82</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_ab779f697cb6c021d993be5d04eb174b2"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#ab779f697cb6c021d993be5d04eb174b2">sensors_manager.SensorsManager.stop</a></div><div class="ttdeci">stop(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00092">sensors_manager.py:92</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_abbd0148e73042061b46a377879c7e247"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#abbd0148e73042061b46a377879c7e247">sensors_manager.SensorsManager.back_disable</a></div><div class="ttdeci">back_disable</div><div class="ttdef"><b>Definition</b> <a href="#l00079">sensors_manager.py:79</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_acb62d8630ba076cd596b61c585cc3508"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#acb62d8630ba076cd596b61c585cc3508">sensors_manager.SensorsManager.sensors_lat</a></div><div class="ttdeci">sensors_lat</div><div class="ttdef"><b>Definition</b> <a href="#l00076">sensors_manager.py:76</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_ad6b087f32257c5bcafac7ae7c2afb408"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#ad6b087f32257c5bcafac7ae7c2afb408">sensors_manager.SensorsManager.max_linvel</a></div><div class="ttdeci">max_linvel</div><div class="ttdef"><b>Definition</b> <a href="#l00071">sensors_manager.py:71</a></div></div>
+<div class="ttc" id="aclasssensors__manager_1_1_sensors_manager_html_afa5b97eb093d0995ae841673dd08a268"><div class="ttname"><a href="classsensors__manager_1_1_sensors_manager.html#afa5b97eb093d0995ae841673dd08a268">sensors_manager.SensorsManager.__init__</a></div><div class="ttdeci">__init__(self, wheeledbase, sensors_front, sensors_back, sensors_lat, threshold=300)</div><div class="ttdef"><b>Definition</b> <a href="#l00066">sensors_manager.py:66</a></div></div>
+<div class="ttc" id="anamespacecommon_1_1automaton_html"><div class="ttname"><a href="namespacecommon_1_1automaton.html">automaton</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_b2551f8d66d18543a8c1bf3a4ce23ee7.html">managers</a></li><li class="navelem"><a class="el" href="sensors__manager_8py.html">sensors_manager.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

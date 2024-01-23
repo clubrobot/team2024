@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/robots/team2023/RecupPile.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_recup_pile_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">RecupPile.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_recup_pile_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespace_recup_pile.html">    1</a></span><span class="keyword">import</span> math</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> time <span class="keyword">import</span> sleep</div>
+<div class="foldopen" id="foldopen00004" data-start="" data-end="">
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="class_recup_pile_1_1_recup_pile.html">    4</a></span><span class="keyword">class </span><a class="code hl_class" href="class_recup_pile_1_1_recup_pile.html">RecupPile</a>:</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="foldopen" id="foldopen00006" data-start="" data-end="">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="class_recup_pile_1_1_recup_pile.html#a4b47e3a1455a0596d2f267421c3a11bc">    6</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_recup_pile_1_1_recup_pile.html#a4b47e3a1455a0596d2f267421c3a11bc">__init__</a>(self,wheeledbase,positionPoint,endPoint,pince,ascen) -&gt; None:</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_recup_pile_1_1_recup_pile.html#ab8d83a3a758732b46d186c2ba178e721">    7</a></span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab8d83a3a758732b46d186c2ba178e721">wb</a>=wheeledbase</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_recup_pile_1_1_recup_pile.html#ab07a2a9b618e6a06e30d975bf3211132">    8</a></span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab07a2a9b618e6a06e30d975bf3211132">pos</a>=np.array(positionPoint)</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_recup_pile_1_1_recup_pile.html#a49f9fe746dc389d692c77090e6a884b8">    9</a></span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#a49f9fe746dc389d692c77090e6a884b8">radiusRobot</a>=400</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_recup_pile_1_1_recup_pile.html#a82b065d5f6120a871d503bde9a06b3b1">   10</a></span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#a82b065d5f6120a871d503bde9a06b3b1">radiusPince</a>=230</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_recup_pile_1_1_recup_pile.html#a2a0351818cf38d4e6e4385c2043dbf6e">   11</a></span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#a2a0351818cf38d4e6e4385c2043dbf6e">pince</a>=pince</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_recup_pile_1_1_recup_pile.html#ae5066c090a790c4c04248e793f135e88">   12</a></span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ae5066c090a790c4c04248e793f135e88">asc</a>=ascen</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_recup_pile_1_1_recup_pile.html#a4014d67ad9d4c999a9f5fc0311873d30">   13</a></span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#a4014d67ad9d4c999a9f5fc0311873d30">actionpoint</a>=<span class="keywordtype">None</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_recup_pile_1_1_recup_pile.html#a387499edcbacd50a2d4871159d05eb66">   14</a></span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#a387499edcbacd50a2d4871159d05eb66">orientation</a>=<span class="keywordtype">None</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_recup_pile_1_1_recup_pile.html#ab2590ac326bb35ceb6243d01743ef538">   15</a></span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab2590ac326bb35ceb6243d01743ef538">endPoint</a>=np.array(endPoint)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keywordflow">pass</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+</div>
+<div class="foldopen" id="foldopen00018" data-start="" data-end="">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_recup_pile_1_1_recup_pile.html#a9785c5f9fc1ce500d93e57928b52e14c">   18</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_recup_pile_1_1_recup_pile.html#a9785c5f9fc1ce500d93e57928b52e14c">procedure</a>(self, robot):</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        print(<span class="stringliteral">&quot;asc&quot;</span>)</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ae5066c090a790c4c04248e793f135e88">asc</a>.rouler()</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        print(<span class="stringliteral">&quot;asc fin&quot;</span>)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        rPos=np.array(self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab8d83a3a758732b46d186c2ba178e721">wb</a>.get_position()[:2])</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        vecPos=self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab07a2a9b618e6a06e30d975bf3211132">pos</a>-rPos[:2]</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        length=math.sqrt(vecPos[0]**2+vecPos[1]**2)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        stop=vecPos/length*(length-self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#a49f9fe746dc389d692c77090e6a884b8">radiusRobot</a>)+rPos</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        ang=math.acos(vecPos[0]/length)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        if(vecPos[1]&lt;0):</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            ang*=-1</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        if(length-self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#a49f9fe746dc389d692c77090e6a884b8">radiusRobot</a>&gt;0):</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab8d83a3a758732b46d186c2ba178e721">wb</a>.goto_stop(stop[0],stop[1],robot.sensors,theta=ang)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            print(self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab8d83a3a758732b46d186c2ba178e721">wb</a>.get_position(),stop)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#a2a0351818cf38d4e6e4385c2043dbf6e">pince</a>.ouvrir()</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ae5066c090a790c4c04248e793f135e88">asc</a>.bas()</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        stop=vecPos/length*(length-self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#a82b065d5f6120a871d503bde9a06b3b1">radiusPince</a>)+rPos</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab8d83a3a758732b46d186c2ba178e721">wb</a>.goto_stop(stop[0],stop[1],robot.sensors,theta=ang)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        print(self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab8d83a3a758732b46d186c2ba178e721">wb</a>.get_position(),stop)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="comment">#sleep(2)</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#a2a0351818cf38d4e6e4385c2043dbf6e">pince</a>.fermer()</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ae5066c090a790c4c04248e793f135e88">asc</a>.rouler()</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="comment">#va poser à la fin</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        rPos=np.array(self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab8d83a3a758732b46d186c2ba178e721">wb</a>.get_position()[:2])</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        vecPos=self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab2590ac326bb35ceb6243d01743ef538">endPoint</a>-rPos</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        length=math.sqrt(vecPos[0]**2+vecPos[1]**2)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        stop=vecPos/length*(length-self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#a82b065d5f6120a871d503bde9a06b3b1">radiusPince</a>)+rPos</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        ang=math.acos(vecPos[0]/length)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        if(vecPos[1]&lt;0):</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            ang*=-1</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab8d83a3a758732b46d186c2ba178e721">wb</a>.goto_stop(stop[0],stop[1],robot.sensors,theta=ang)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        print(self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ab8d83a3a758732b46d186c2ba178e721">wb</a>.get_position(),stop)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="comment">#sleep(4)</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ae5066c090a790c4c04248e793f135e88">asc</a>.bas()</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#a2a0351818cf38d4e6e4385c2043dbf6e">pince</a>.semi_ouvrir()</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        self.<a class="code hl_variable" href="class_recup_pile_1_1_recup_pile.html#ae5066c090a790c4c04248e793f135e88">asc</a>.rouler()</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="comment">#si ascenseur pas besoin de ca</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="comment">#self.wb.set_openloop_velocities(-500,-500)</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="comment">#sleep(0.3)</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="comment">#self.wb.stop()</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        </div>
+</div>
+</div>
+<div class="ttc" id="aclass_recup_pile_1_1_recup_pile_html"><div class="ttname"><a href="class_recup_pile_1_1_recup_pile.html">RecupPile.RecupPile</a></div><div class="ttdef"><b>Definition</b> <a href="#l00004">RecupPile.py:4</a></div></div>
+<div class="ttc" id="aclass_recup_pile_1_1_recup_pile_html_a2a0351818cf38d4e6e4385c2043dbf6e"><div class="ttname"><a href="class_recup_pile_1_1_recup_pile.html#a2a0351818cf38d4e6e4385c2043dbf6e">RecupPile.RecupPile.pince</a></div><div class="ttdeci">pince</div><div class="ttdef"><b>Definition</b> <a href="#l00011">RecupPile.py:11</a></div></div>
+<div class="ttc" id="aclass_recup_pile_1_1_recup_pile_html_a387499edcbacd50a2d4871159d05eb66"><div class="ttname"><a href="class_recup_pile_1_1_recup_pile.html#a387499edcbacd50a2d4871159d05eb66">RecupPile.RecupPile.orientation</a></div><div class="ttdeci">orientation</div><div class="ttdef"><b>Definition</b> <a href="#l00014">RecupPile.py:14</a></div></div>
+<div class="ttc" id="aclass_recup_pile_1_1_recup_pile_html_a4014d67ad9d4c999a9f5fc0311873d30"><div class="ttname"><a href="class_recup_pile_1_1_recup_pile.html#a4014d67ad9d4c999a9f5fc0311873d30">RecupPile.RecupPile.actionpoint</a></div><div class="ttdeci">actionpoint</div><div class="ttdef"><b>Definition</b> <a href="#l00013">RecupPile.py:13</a></div></div>
+<div class="ttc" id="aclass_recup_pile_1_1_recup_pile_html_a49f9fe746dc389d692c77090e6a884b8"><div class="ttname"><a href="class_recup_pile_1_1_recup_pile.html#a49f9fe746dc389d692c77090e6a884b8">RecupPile.RecupPile.radiusRobot</a></div><div class="ttdeci">radiusRobot</div><div class="ttdef"><b>Definition</b> <a href="#l00009">RecupPile.py:9</a></div></div>
+<div class="ttc" id="aclass_recup_pile_1_1_recup_pile_html_a4b47e3a1455a0596d2f267421c3a11bc"><div class="ttname"><a href="class_recup_pile_1_1_recup_pile.html#a4b47e3a1455a0596d2f267421c3a11bc">RecupPile.RecupPile.__init__</a></div><div class="ttdeci">None __init__(self, wheeledbase, positionPoint, endPoint, pince, ascen)</div><div class="ttdef"><b>Definition</b> <a href="#l00006">RecupPile.py:6</a></div></div>
+<div class="ttc" id="aclass_recup_pile_1_1_recup_pile_html_a82b065d5f6120a871d503bde9a06b3b1"><div class="ttname"><a href="class_recup_pile_1_1_recup_pile.html#a82b065d5f6120a871d503bde9a06b3b1">RecupPile.RecupPile.radiusPince</a></div><div class="ttdeci">radiusPince</div><div class="ttdef"><b>Definition</b> <a href="#l00010">RecupPile.py:10</a></div></div>
+<div class="ttc" id="aclass_recup_pile_1_1_recup_pile_html_a9785c5f9fc1ce500d93e57928b52e14c"><div class="ttname"><a href="class_recup_pile_1_1_recup_pile.html#a9785c5f9fc1ce500d93e57928b52e14c">RecupPile.RecupPile.procedure</a></div><div class="ttdeci">procedure(self, robot)</div><div class="ttdef"><b>Definition</b> <a href="#l00018">RecupPile.py:18</a></div></div>
+<div class="ttc" id="aclass_recup_pile_1_1_recup_pile_html_ab07a2a9b618e6a06e30d975bf3211132"><div class="ttname"><a href="class_recup_pile_1_1_recup_pile.html#ab07a2a9b618e6a06e30d975bf3211132">RecupPile.RecupPile.pos</a></div><div class="ttdeci">pos</div><div class="ttdef"><b>Definition</b> <a href="#l00008">RecupPile.py:8</a></div></div>
+<div class="ttc" id="aclass_recup_pile_1_1_recup_pile_html_ab2590ac326bb35ceb6243d01743ef538"><div class="ttname"><a href="class_recup_pile_1_1_recup_pile.html#ab2590ac326bb35ceb6243d01743ef538">RecupPile.RecupPile.endPoint</a></div><div class="ttdeci">endPoint</div><div class="ttdef"><b>Definition</b> <a href="#l00015">RecupPile.py:15</a></div></div>
+<div class="ttc" id="aclass_recup_pile_1_1_recup_pile_html_ab8d83a3a758732b46d186c2ba178e721"><div class="ttname"><a href="class_recup_pile_1_1_recup_pile.html#ab8d83a3a758732b46d186c2ba178e721">RecupPile.RecupPile.wb</a></div><div class="ttdeci">wb</div><div class="ttdef"><b>Definition</b> <a href="#l00007">RecupPile.py:7</a></div></div>
+<div class="ttc" id="aclass_recup_pile_1_1_recup_pile_html_ae5066c090a790c4c04248e793f135e88"><div class="ttname"><a href="class_recup_pile_1_1_recup_pile.html#ae5066c090a790c4c04248e793f135e88">RecupPile.RecupPile.asc</a></div><div class="ttdeci">asc</div><div class="ttdef"><b>Definition</b> <a href="#l00012">RecupPile.py:12</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_0ed5160175873dda433e3dfd6da604c3.html">robots</a></li><li class="navelem"><a class="el" href="dir_cd4f506c56c385bf43dd22b183874f5d.html">team2023</a></li><li class="navelem"><a class="el" href="_recup_pile_8py.html">RecupPile.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

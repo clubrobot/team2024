@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence du fichier C:/Users/boris/Desktop/robotique/team2024/platformIO/Lidar_Test/src/main.cpp</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_lidar___test_2src_2main_8cpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier main.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
+<code>#include &lt;VL53L0X.h&gt;</code><br />
+<code>#include &lt;Wire.h&gt;</code><br />
+<code>#include &lt;list&gt;</code><br />
+<code>#include &quot;PIN.h&quot;</code><br />
+<code>#include &quot;constants.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:acdf69ae6d29b75de9c3f40856d8966b2" id="r_acdf69ae6d29b75de9c3f40856d8966b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdf69ae6d29b75de9c3f40856d8966b2">talksExecuteWrapper</a> ()</td></tr>
+<tr class="separator:acdf69ae6d29b75de9c3f40856d8966b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
+<tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
+<tr class="separator:afe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aa76a6b3545a750ba645702942f558db6" id="r_aa76a6b3545a750ba645702942f558db6"><td class="memItemLeft" align="right" valign="top">VL53L0X&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa76a6b3545a750ba645702942f558db6">vl53_1</a> = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#a8150cd9f06acec73fbbf2b9e907d9f82">VL53L0X_1_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#aba787f69e39c5c97f2a44d8dbb01f195">VL53L0X_1_SHUTDOWN_PIN</a>, NULL)</td></tr>
+<tr class="separator:aa76a6b3545a750ba645702942f558db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6189b022b62ea5872e64285c3024019d" id="r_a6189b022b62ea5872e64285c3024019d"><td class="memItemLeft" align="right" valign="top">VL53L0X&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6189b022b62ea5872e64285c3024019d">vl53_2</a> = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#ab87a267e2a239b0464d78b6b3b9ba7ba">VL53L0X_2_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#af348351070cb18d0b3d4989e99469085">VL53L0X_2_SHUTDOWN_PIN</a>, NULL)</td></tr>
+<tr class="separator:a6189b022b62ea5872e64285c3024019d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa107d18cef6e97fc52ecfe6ff5ff6391" id="r_aa107d18cef6e97fc52ecfe6ff5ff6391"><td class="memItemLeft" align="right" valign="top">VL53L0X&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa107d18cef6e97fc52ecfe6ff5ff6391">vl53_3</a> = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#a9da9f55e1a6797222b9c955b88b75e23">VL53L0X_3_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#abeb5cabb3ba49592a08bfa172acda769">VL53L0X_3_SHUTDOWN_PIN</a>, NULL)</td></tr>
+<tr class="separator:aa107d18cef6e97fc52ecfe6ff5ff6391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b328fc6c2dcf26ec2e3e61e08346d8d" id="r_a6b328fc6c2dcf26ec2e3e61e08346d8d"><td class="memItemLeft" align="right" valign="top">VL53L0X&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b328fc6c2dcf26ec2e3e61e08346d8d">vl53_4</a> = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#a1f7463d53f8229fd942a9e6837f474f7">VL53L0X_4_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#ad3b1546bc9662d666fd8648a8ec66132">VL53L0X_4_SHUTDOWN_PIN</a>, NULL)</td></tr>
+<tr class="separator:a6b328fc6c2dcf26ec2e3e61e08346d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d7de43232170f358a8a2286c86fa881" id="r_a7d7de43232170f358a8a2286c86fa881"><td class="memItemLeft" align="right" valign="top">VL53L0X&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d7de43232170f358a8a2286c86fa881">vl53_5</a> = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#a0a7f7531821856b3eb84bf966bdb2d6c">VL53L0X_5_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#a8512f373816bf015ff6408bd99cd233e">VL53L0X_5_SHUTDOWN_PIN</a>, NULL)</td></tr>
+<tr class="separator:a7d7de43232170f358a8a2286c86fa881"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaab869baafd9e2e8ba889b0602d4d107" id="r_aaab869baafd9e2e8ba889b0602d4d107"><td class="memItemLeft" align="right" valign="top">VL53L0X&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaab869baafd9e2e8ba889b0602d4d107">vl53_6</a> = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#a8cff898cb88d1df81dfbd58848e405ec">VL53L0X_6_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#a2ce9e1a884dfe8baf1bca617e42e7e14">VL53L0X_6_SHUTDOWN_PIN</a>, NULL)</td></tr>
+<tr class="separator:aaab869baafd9e2e8ba889b0602d4d107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25bd4fe3f967afac66aa80e407cf09d5" id="r_a25bd4fe3f967afac66aa80e407cf09d5"><td class="memItemLeft" align="right" valign="top">VL53L0X&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25bd4fe3f967afac66aa80e407cf09d5">vl53_7</a> = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#a7fc889ae711886e7afc29eb38e4bf235">VL53L0X_7_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#a58fbb5bd9dd88fc8716f4f1c61dcf4dc">VL53L0X_7_SHUTDOWN_PIN</a>, NULL)</td></tr>
+<tr class="separator:a25bd4fe3f967afac66aa80e407cf09d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac196c21827c07f7f8ecd0ebc161d7182" id="r_ac196c21827c07f7f8ecd0ebc161d7182"><td class="memItemLeft" align="right" valign="top">VL53L0X&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac196c21827c07f7f8ecd0ebc161d7182">vl53_8</a> = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#afd5220895ea0b337fec3f588f40f9c4c">VL53L0X_8_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#aed1615804d92d3ea757ffacbb51583f7">VL53L0X_8_SHUTDOWN_PIN</a>, NULL)</td></tr>
+<tr class="separator:ac196c21827c07f7f8ecd0ebc161d7182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cc5e85913850d9729a7922001a16e2c" id="r_a0cc5e85913850d9729a7922001a16e2c"><td class="memItemLeft" align="right" valign="top">VL53L0X *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cc5e85913850d9729a7922001a16e2c">sensors_vl53</a> [] = {&amp;<a class="el" href="#aa76a6b3545a750ba645702942f558db6">vl53_1</a>, &amp;<a class="el" href="#a6189b022b62ea5872e64285c3024019d">vl53_2</a>, &amp;<a class="el" href="#aa107d18cef6e97fc52ecfe6ff5ff6391">vl53_3</a>, &amp;<a class="el" href="#a6b328fc6c2dcf26ec2e3e61e08346d8d">vl53_4</a>, &amp;<a class="el" href="#a7d7de43232170f358a8a2286c86fa881">vl53_5</a>, &amp;<a class="el" href="#aaab869baafd9e2e8ba889b0602d4d107">vl53_6</a>, &amp;<a class="el" href="#a25bd4fe3f967afac66aa80e407cf09d5">vl53_7</a>, &amp;<a class="el" href="#ac196c21827c07f7f8ecd0ebc161d7182">vl53_8</a>}</td></tr>
+<tr class="separator:a0cc5e85913850d9729a7922001a16e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc8eed4cda227806e69caaf05239829d" id="r_acc8eed4cda227806e69caaf05239829d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc8eed4cda227806e69caaf05239829d">vl53_status</a> [<a class="el" href="_lidar___test_2include_2constants_8h.html#ad4b6700882525e2f5f0a1ec94d1e0f05">VL53L0X_COUNT</a>] = {0}</td></tr>
+<tr class="separator:acc8eed4cda227806e69caaf05239829d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa39dfc88c95d96c256f688a3927bdfaf" id="r_aa39dfc88c95d96c256f688a3927bdfaf"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa39dfc88c95d96c256f688a3927bdfaf">vl53_measurement</a> [<a class="el" href="_lidar___test_2include_2constants_8h.html#ad4b6700882525e2f5f0a1ec94d1e0f05">VL53L0X_COUNT</a>] = {10}</td></tr>
+<tr class="separator:aa39dfc88c95d96c256f688a3927bdfaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0480b812cba9c1d9c71a5fb1071bd0fc" id="r_a0480b812cba9c1d9c71a5fb1071bd0fc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0480b812cba9c1d9c71a5fb1071bd0fc">counter</a></td></tr>
+<tr class="separator:a0480b812cba9c1d9c71a5fb1071bd0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe461d27b9c48d5921c00d521181f12f">&#9670;&#160;</a></span>loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc01d736fe50cf5b977f755b675f11d">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acdf69ae6d29b75de9c3f40856d8966b2" name="acdf69ae6d29b75de9c3f40856d8966b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdf69ae6d29b75de9c3f40856d8966b2">&#9670;&#160;</a></span>talksExecuteWrapper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void talksExecuteWrapper </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a0480b812cba9c1d9c71a5fb1071bd0fc" name="a0480b812cba9c1d9c71a5fb1071bd0fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0480b812cba9c1d9c71a5fb1071bd0fc">&#9670;&#160;</a></span>counter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t counter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cc5e85913850d9729a7922001a16e2c" name="a0cc5e85913850d9729a7922001a16e2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cc5e85913850d9729a7922001a16e2c">&#9670;&#160;</a></span>sensors_vl53</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VL53L0X* sensors_vl53[] = {&amp;<a class="el" href="#aa76a6b3545a750ba645702942f558db6">vl53_1</a>, &amp;<a class="el" href="#a6189b022b62ea5872e64285c3024019d">vl53_2</a>, &amp;<a class="el" href="#aa107d18cef6e97fc52ecfe6ff5ff6391">vl53_3</a>, &amp;<a class="el" href="#a6b328fc6c2dcf26ec2e3e61e08346d8d">vl53_4</a>, &amp;<a class="el" href="#a7d7de43232170f358a8a2286c86fa881">vl53_5</a>, &amp;<a class="el" href="#aaab869baafd9e2e8ba889b0602d4d107">vl53_6</a>, &amp;<a class="el" href="#a25bd4fe3f967afac66aa80e407cf09d5">vl53_7</a>, &amp;<a class="el" href="#ac196c21827c07f7f8ecd0ebc161d7182">vl53_8</a>}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa76a6b3545a750ba645702942f558db6" name="aa76a6b3545a750ba645702942f558db6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa76a6b3545a750ba645702942f558db6">&#9670;&#160;</a></span>vl53_1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VL53L0X vl53_1 = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#a8150cd9f06acec73fbbf2b9e907d9f82">VL53L0X_1_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#aba787f69e39c5c97f2a44d8dbb01f195">VL53L0X_1_SHUTDOWN_PIN</a>, NULL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6189b022b62ea5872e64285c3024019d" name="a6189b022b62ea5872e64285c3024019d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6189b022b62ea5872e64285c3024019d">&#9670;&#160;</a></span>vl53_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VL53L0X vl53_2 = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#ab87a267e2a239b0464d78b6b3b9ba7ba">VL53L0X_2_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#af348351070cb18d0b3d4989e99469085">VL53L0X_2_SHUTDOWN_PIN</a>, NULL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa107d18cef6e97fc52ecfe6ff5ff6391" name="aa107d18cef6e97fc52ecfe6ff5ff6391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa107d18cef6e97fc52ecfe6ff5ff6391">&#9670;&#160;</a></span>vl53_3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VL53L0X vl53_3 = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#a9da9f55e1a6797222b9c955b88b75e23">VL53L0X_3_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#abeb5cabb3ba49592a08bfa172acda769">VL53L0X_3_SHUTDOWN_PIN</a>, NULL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b328fc6c2dcf26ec2e3e61e08346d8d" name="a6b328fc6c2dcf26ec2e3e61e08346d8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b328fc6c2dcf26ec2e3e61e08346d8d">&#9670;&#160;</a></span>vl53_4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VL53L0X vl53_4 = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#a1f7463d53f8229fd942a9e6837f474f7">VL53L0X_4_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#ad3b1546bc9662d666fd8648a8ec66132">VL53L0X_4_SHUTDOWN_PIN</a>, NULL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d7de43232170f358a8a2286c86fa881" name="a7d7de43232170f358a8a2286c86fa881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d7de43232170f358a8a2286c86fa881">&#9670;&#160;</a></span>vl53_5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VL53L0X vl53_5 = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#a0a7f7531821856b3eb84bf966bdb2d6c">VL53L0X_5_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#a8512f373816bf015ff6408bd99cd233e">VL53L0X_5_SHUTDOWN_PIN</a>, NULL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaab869baafd9e2e8ba889b0602d4d107" name="aaab869baafd9e2e8ba889b0602d4d107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaab869baafd9e2e8ba889b0602d4d107">&#9670;&#160;</a></span>vl53_6</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VL53L0X vl53_6 = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#a8cff898cb88d1df81dfbd58848e405ec">VL53L0X_6_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#a2ce9e1a884dfe8baf1bca617e42e7e14">VL53L0X_6_SHUTDOWN_PIN</a>, NULL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a25bd4fe3f967afac66aa80e407cf09d5" name="a25bd4fe3f967afac66aa80e407cf09d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25bd4fe3f967afac66aa80e407cf09d5">&#9670;&#160;</a></span>vl53_7</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VL53L0X vl53_7 = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#a7fc889ae711886e7afc29eb38e4bf235">VL53L0X_7_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#a58fbb5bd9dd88fc8716f4f1c61dcf4dc">VL53L0X_7_SHUTDOWN_PIN</a>, NULL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac196c21827c07f7f8ecd0ebc161d7182" name="ac196c21827c07f7f8ecd0ebc161d7182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac196c21827c07f7f8ecd0ebc161d7182">&#9670;&#160;</a></span>vl53_8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VL53L0X vl53_8 = VL53L0X(<a class="el" href="_lidar___test_2include_2constants_8h.html#afd5220895ea0b337fec3f588f40f9c4c">VL53L0X_8_I2C_ADDR</a>, <a class="el" href="_lidar___test_2include_2_p_i_n_8h.html#aed1615804d92d3ea757ffacbb51583f7">VL53L0X_8_SHUTDOWN_PIN</a>, NULL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa39dfc88c95d96c256f688a3927bdfaf" name="aa39dfc88c95d96c256f688a3927bdfaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa39dfc88c95d96c256f688a3927bdfaf">&#9670;&#160;</a></span>vl53_measurement</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t vl53_measurement[<a class="el" href="_lidar___test_2include_2constants_8h.html#ad4b6700882525e2f5f0a1ec94d1e0f05">VL53L0X_COUNT</a>] = {10}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc8eed4cda227806e69caaf05239829d" name="acc8eed4cda227806e69caaf05239829d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc8eed4cda227806e69caaf05239829d">&#9670;&#160;</a></span>vl53_status</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t vl53_status[<a class="el" href="_lidar___test_2include_2constants_8h.html#ad4b6700882525e2f5f0a1ec94d1e0f05">VL53L0X_COUNT</a>] = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_c582ff55296894b432ef3d5a5f96f924.html">Lidar_Test</a></li><li class="navelem"><a class="el" href="dir_39ae3738f60f42646285040ba5d31f41.html">src</a></li><li class="navelem"><a class="el" href="_lidar___test_2src_2main_8cpp.html">main.cpp</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

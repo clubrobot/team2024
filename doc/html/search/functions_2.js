@@ -6,5 +6,6 @@ var searchData=
   ['clock_3',['Clock',['../class_clock.html#adbc370eb6b5f8d01645cf440188160a8',1,'Clock']]],
   ['compute_4',['compute',['../class_p_i_d.html#a9982ecaf693e2b3b3873f749983814dd',1,'PID']]],
   ['computevelsetpoints_5',['computeVelSetpoints',['../class_abstract_move_strategy.html#a8bed0fd2cf5af27a7804d1be57823a24',1,'AbstractMoveStrategy::computeVelSetpoints()'],['../class_pure_pursuit.html#a657a00d409067352855aa685b57c6f45',1,'PurePursuit::computeVelSetpoints()'],['../class_turn_on_the_spot.html#a29bd9e885029a98234ead66e3429f8f5',1,'TurnOnTheSpot::computeVelSetpoints()']]],
-  ['create_5flog_6',['create_log',['../classlogger_1_1log__archiver.html#ae932b79920acec72ad91d4b667e4b716',1,'logger::log_archiver']]]
+  ['connect_6',['connect',['../classserialtalking_1_1_serial_talking.html#ac38f721a1ac6c72e30e46fd37da11c81',1,'serialtalking::SerialTalking']]],
+  ['create_5flog_7',['create_log',['../classlogger_1_1log__archiver.html#ae932b79920acec72ad91d4b667e4b716',1,'logger::log_archiver']]]
 ];

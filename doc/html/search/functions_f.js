@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['velocitycontroller_0',['VelocityController',['../class_velocity_controller.html#aa29e8e908d6e35b98b2aa945f9e6549d',1,'VelocityController']]]
+  ['update_0',['update',['../class_codewheel.html#a481b69520445ed19be3ead3af9a777f7',1,'Codewheel::update()'],['../class_periodic_process.html#a910daacfe12010947ec541d3ac565867',1,'PeriodicProcess::update()']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['instruction_0',['Instruction',['../class_serial_talks.html#a48ff61132dd894800def64b187558f7e',1,'SerialTalks']]]
+  ['byte_0',['byte',['../serialutils_8h.html#a0c8186d9b9b7880309c27230bbb5e69d',1,'serialutils.h']]]
 ];

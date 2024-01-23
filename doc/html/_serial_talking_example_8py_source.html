@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/example/SerialTalkingExample.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_serial_talking_example_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SerialTalkingExample.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_serial_talking_example_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespace_serial_talking_example.html">    1</a></span><span class="keyword">from</span> common.serialtalking <span class="keyword">import</span> BYTE, LONG, FLOAT, USHORT, INT</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">from</span> common.serialtalking <span class="keyword">import</span> SerialTalking</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> time</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"># Instructions</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="namespace_serial_talking_example.html#a1f7cf8e1a8c430d6e82c80511ee926a8">    7</a></span>RESET_OPCODE                = 0X12</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespace_serial_talking_example.html#a80a92a36f910c90ea36c4ca902f75500">    8</a></span>PING_AX_OPCODE              = 0X13</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespace_serial_talking_example.html#a8b608e5f7220fc3f6b8d3fd683df7227">   10</a></span>MOVE_OPCODE                 = 0X16</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespace_serial_talking_example.html#a0743043a004a23c494e847fafa913837">   11</a></span>MOVE_SPEED_OPCODE           = 0X17</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespace_serial_talking_example.html#af5b3b3904bae84f7e54b0b6c40fceb9a">   13</a></span>READ_POSITION_OPCODE        = 0X1E</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespace_serial_talking_example.html#a4abe3e55b5e3d30582efa80172496b9f">   14</a></span>READ_TORQUE_OPCODE          = 0X2A</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="" data-end="">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_serial_talking_example_1_1_example.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="class_serial_talking_example_1_1_example.html">Example</a>():</div>
+<div class="foldopen" id="foldopen00017" data-start="" data-end="">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_serial_talking_example_1_1_example.html#abf399f078557479ba43681942b1b8bde">   17</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_serial_talking_example_1_1_example.html#abf399f078557479ba43681942b1b8bde">__init__</a>(self, uuid=&#39;actionneurs&#39;):</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_serial_talking_example_1_1_example.html#a1200fd1be5648babfdd1c59ce4742e42">   18</a></span>        self.<a class="code hl_variable" href="class_serial_talking_example_1_1_example.html#a1200fd1be5648babfdd1c59ce4742e42">actio</a> = SerialTalking(uuid)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        </div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_serial_talking_example_1_1_example.html#a658614723bc61255d0a3b42af560fa0c">   20</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_serial_talking_example_1_1_example.html#a797b274f26a0b98f6ff2e1382cd56606">reset</a>(self): self.actio.order(RESET_OPCODE, BYTE(self.<a class="code hl_variable" href="class_serial_talking_example_1_1_example.html#a658614723bc61255d0a3b42af560fa0c">id</a>))</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="" data-end="">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_serial_talking_example_1_1_example.html#a13ebe9068955374e9118301b62fe90f6">   22</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_serial_talking_example_1_1_example.html#a13ebe9068955374e9118301b62fe90f6">ping</a>(self):</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        output = self.<a class="code hl_variable" href="class_serial_talking_example_1_1_example.html#a1200fd1be5648babfdd1c59ce4742e42">actio</a>.request(PING_AX_OPCODE, BYTE, send_args=[BYTE(self.<a class="code hl_variable" href="class_serial_talking_example_1_1_example.html#a658614723bc61255d0a3b42af560fa0c">id</a>)])[0]</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">return</span> <span class="keywordflow">not</span> bool(output)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+</div>
+<div class="foldopen" id="foldopen00026" data-start="" data-end="">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_serial_talking_example_1_1_example.html#a862698232b74abdffede441bb277d702">   26</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_serial_talking_example_1_1_example.html#a862698232b74abdffede441bb277d702">move</a>(self, Pos): self.actio.order(MOVE_OPCODE, BYTE(self.<a class="code hl_variable" href="class_serial_talking_example_1_1_example.html#a658614723bc61255d0a3b42af560fa0c">id</a>), FLOAT(Pos))</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    </div>
+</div>
+<div class="foldopen" id="foldopen00028" data-start="" data-end="">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_serial_talking_example_1_1_example.html#af683ecf9830ee0fa732f18aef8fedf87">   28</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_serial_talking_example_1_1_example.html#af683ecf9830ee0fa732f18aef8fedf87">moveSpeed</a>(self, Pos, Speed): self.actio.order(MOVE_SPEED_OPCODE, BYTE(self.<a class="code hl_variable" href="class_serial_talking_example_1_1_example.html#a658614723bc61255d0a3b42af560fa0c">id</a>), FLOAT(Pos), FLOAT(Speed))</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+</div>
+<div class="foldopen" id="foldopen00030" data-start="" data-end="">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_serial_talking_example_1_1_example.html#a33d5ca420eceef9c8ecb8e7b5cd86b84">   30</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_serial_talking_example_1_1_example.html#a33d5ca420eceef9c8ecb8e7b5cd86b84">readPosition</a>(self):</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        output = self.<a class="code hl_variable" href="class_serial_talking_example_1_1_example.html#a1200fd1be5648babfdd1c59ce4742e42">actio</a>.request(READ_POSITION_OPCODE, FLOAT, send_args=[BYTE(self.<a class="code hl_variable" href="class_serial_talking_example_1_1_example.html#a658614723bc61255d0a3b42af560fa0c">id</a>)])[0]</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">return</span> output</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+</div>
+<div class="foldopen" id="foldopen00034" data-start="" data-end="">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_serial_talking_example_1_1_example.html#a165cdc77719e5e42506fee386f139981">   34</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_serial_talking_example_1_1_example.html#a165cdc77719e5e42506fee386f139981">readTorque</a>(self):</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        output = self.<a class="code hl_variable" href="class_serial_talking_example_1_1_example.html#a1200fd1be5648babfdd1c59ce4742e42">actio</a>.request(READ_TORQUE_OPCODE, INT, BYTE(self.<a class="code hl_variable" href="class_serial_talking_example_1_1_example.html#a658614723bc61255d0a3b42af560fa0c">id</a>))[0]</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">return</span> output</div>
+</div>
+</div>
+<div class="ttc" id="aclass_serial_talking_example_1_1_example_html"><div class="ttname"><a href="class_serial_talking_example_1_1_example.html">SerialTalkingExample.Example</a></div><div class="ttdef"><b>Definition</b> <a href="#l00016">SerialTalkingExample.py:16</a></div></div>
+<div class="ttc" id="aclass_serial_talking_example_1_1_example_html_a1200fd1be5648babfdd1c59ce4742e42"><div class="ttname"><a href="class_serial_talking_example_1_1_example.html#a1200fd1be5648babfdd1c59ce4742e42">SerialTalkingExample.Example.actio</a></div><div class="ttdeci">actio</div><div class="ttdef"><b>Definition</b> <a href="#l00018">SerialTalkingExample.py:18</a></div></div>
+<div class="ttc" id="aclass_serial_talking_example_1_1_example_html_a13ebe9068955374e9118301b62fe90f6"><div class="ttname"><a href="class_serial_talking_example_1_1_example.html#a13ebe9068955374e9118301b62fe90f6">SerialTalkingExample.Example.ping</a></div><div class="ttdeci">ping(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00022">SerialTalkingExample.py:22</a></div></div>
+<div class="ttc" id="aclass_serial_talking_example_1_1_example_html_a165cdc77719e5e42506fee386f139981"><div class="ttname"><a href="class_serial_talking_example_1_1_example.html#a165cdc77719e5e42506fee386f139981">SerialTalkingExample.Example.readTorque</a></div><div class="ttdeci">readTorque(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00034">SerialTalkingExample.py:34</a></div></div>
+<div class="ttc" id="aclass_serial_talking_example_1_1_example_html_a33d5ca420eceef9c8ecb8e7b5cd86b84"><div class="ttname"><a href="class_serial_talking_example_1_1_example.html#a33d5ca420eceef9c8ecb8e7b5cd86b84">SerialTalkingExample.Example.readPosition</a></div><div class="ttdeci">readPosition(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00030">SerialTalkingExample.py:30</a></div></div>
+<div class="ttc" id="aclass_serial_talking_example_1_1_example_html_a658614723bc61255d0a3b42af560fa0c"><div class="ttname"><a href="class_serial_talking_example_1_1_example.html#a658614723bc61255d0a3b42af560fa0c">SerialTalkingExample.Example.id</a></div><div class="ttdeci">id</div><div class="ttdef"><b>Definition</b> <a href="#l00020">SerialTalkingExample.py:20</a></div></div>
+<div class="ttc" id="aclass_serial_talking_example_1_1_example_html_a797b274f26a0b98f6ff2e1382cd56606"><div class="ttname"><a href="class_serial_talking_example_1_1_example.html#a797b274f26a0b98f6ff2e1382cd56606">SerialTalkingExample.Example.reset</a></div><div class="ttdeci">reset(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00020">SerialTalkingExample.py:20</a></div></div>
+<div class="ttc" id="aclass_serial_talking_example_1_1_example_html_a862698232b74abdffede441bb277d702"><div class="ttname"><a href="class_serial_talking_example_1_1_example.html#a862698232b74abdffede441bb277d702">SerialTalkingExample.Example.move</a></div><div class="ttdeci">move(self, Pos)</div><div class="ttdef"><b>Definition</b> <a href="#l00026">SerialTalkingExample.py:26</a></div></div>
+<div class="ttc" id="aclass_serial_talking_example_1_1_example_html_abf399f078557479ba43681942b1b8bde"><div class="ttname"><a href="class_serial_talking_example_1_1_example.html#abf399f078557479ba43681942b1b8bde">SerialTalkingExample.Example.__init__</a></div><div class="ttdeci">__init__(self, uuid='actionneurs')</div><div class="ttdef"><b>Definition</b> <a href="#l00017">SerialTalkingExample.py:17</a></div></div>
+<div class="ttc" id="aclass_serial_talking_example_1_1_example_html_af683ecf9830ee0fa732f18aef8fedf87"><div class="ttname"><a href="class_serial_talking_example_1_1_example.html#af683ecf9830ee0fa732f18aef8fedf87">SerialTalkingExample.Example.moveSpeed</a></div><div class="ttdeci">moveSpeed(self, Pos, Speed)</div><div class="ttdef"><b>Definition</b> <a href="#l00028">SerialTalkingExample.py:28</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_acf54995edef116eeadf848316f8deac.html">example</a></li><li class="navelem"><a class="el" href="_serial_talking_example_8py.html">SerialTalkingExample.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

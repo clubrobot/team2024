@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/daughter_cards/actionneur.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('actionneur_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">actionneur.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="actionneur_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespaceactionneur.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> common.serialtalking <span class="keyword">import</span> BYTE, LONG, FLOAT, USHORT, INT</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">from</span> common.serialtalking <span class="keyword">import</span> SerialTalking</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">import</span> time</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"># Instructions</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a56512598bf2b32ed9cf4998237da8a97">   10</a></span>RESET_OPCODE                = 0X12</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a12a6f6ed064f8d1d778650fc9b4161b2">   11</a></span>PING_AX_OPCODE              = 0X13</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a3f2445ebe501fe4c54bede83b4a63551">   13</a></span>SET_ID_OPCODE               = 0X14</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a28d906f350bba503e8393c5be594cded">   14</a></span>SET_BD_OPCODE               = 0X15</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#afbd38071732e06e2de7465cc8ceea677">   16</a></span>MOVE_OPCODE                 = 0X16</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a034f2d4feaf16b4c88a71562400e8626">   17</a></span>MOVE_SPEED_OPCODE           = 0X17</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a900e6b10411f0fd96e97498460e35262">   18</a></span>TURN_OPCODE                 = 0x18</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#aac65d4c5532ea5e91fca887fec22afc2">   20</a></span>SET_ENDLESS_MODE_OPCODE     = 0X19</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a358fde52f23377d6d7caaefaedd44cfe">   21</a></span>SET_TEMP_LIMIT_OPCODE       = 0X1A</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a4c3969a3dfc4eaf895759cefec788bb0">   22</a></span>SET_ANGLE_LIMIT_OPCODE      = 0X1B</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a9edf421dfb2f9e3a3a9ff71db5e5e637">   23</a></span>SET_VOLTAGE_LIMIT_OPCODE    = 0X1C</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a7a6b712b5c36da5afadc6fe5a16b211a">   24</a></span>SET_MAX_TORQUE_OPCODE       = 0X1D</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a5d79767711afa3fdeab5394360f201cf">   26</a></span>READ_POSITION_OPCODE        = 0X1E</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a8da79e85f5b617a5b583e0ac44f5be76">   27</a></span>READ_SPEED_OPCODE           = 0X1F</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#ac5cb7195a9852137c5775a7e20aeade6">   28</a></span>READ_TORQUE_OPCODE          = 0X2A</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#ae073cced6078d3895488107f03751013">   30</a></span>SET_ANGLE_SERVO_OPCODE      = 0x2B</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="stringliteral">This class acts as an interface between the raspeberry pi and the arduino.</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="stringliteral">It contains methods relating to each action of the actuator.</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="stringliteral">It allows the raspeberry pi to ask the arduino to perform an action via a specific OPCODE.</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="foldopen" id="foldopen00037" data-start="" data-end="">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur.html">   37</a></span><span class="keyword">class </span><a class="code hl_class" href="classactionneur_1_1_actionneur.html">Actionneur</a>():</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    </div>
+<div class="foldopen" id="foldopen00039" data-start="" data-end="">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur.html#a8d528dae1054ee470ccb0d196e80c21c">   39</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur.html#a8d528dae1054ee470ccb0d196e80c21c">__init__</a>(self, parent, uuid=&#39;actionneurs&#39;):</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur.html#a18627cb8679e42736a4d46b14ec9aab8">   40</a></span>        self.<a class="code hl_variable" href="classactionneur_1_1_actionneur.html#a18627cb8679e42736a4d46b14ec9aab8">actio</a> = SerialTalking(uuid)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    </div>
+</div>
+<div class="foldopen" id="foldopen00042" data-start="" data-end="">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur.html#a771bb98d259c1db75b2b2ea23270570b">   42</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur.html#a771bb98d259c1db75b2b2ea23270570b">SetServoAngle</a>(self, angle): self.actio.order(SET_ANGLE_SERVO_OPCODE, USHORT(angle))</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+</div>
+<div class="foldopen" id="foldopen00044" data-start="" data-end="">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html">   44</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classactionneur_1_1_actionneur_1_1_a_x12.html">AX12</a>():</div>
+<div class="foldopen" id="foldopen00045" data-start="" data-end="">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a8636e38e7bff439164e7c3aaecc26e88">   45</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a8636e38e7bff439164e7c3aaecc26e88">__init__</a>(self, id, parent):</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a308c477f989dc6596d2f232f66f356e1">   46</a></span>            self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a308c477f989dc6596d2f232f66f356e1">parent</a> = parent</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">   47</a></span>            self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a> = id</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        </div>
+</div>
+<div class="foldopen" id="foldopen00049" data-start="" data-end="">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a8c052c73bd7092db97c6a3f297a187cf">   49</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a8c052c73bd7092db97c6a3f297a187cf">reset</a>(self): self.parent.actio.order(RESET_OPCODE, BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>))</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+</div>
+<div class="foldopen" id="foldopen00051" data-start="" data-end="">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a37c860cd485ed3309b4de4e1586cd940">   51</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a37c860cd485ed3309b4de4e1586cd940">ping</a>(self):</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            output = self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a308c477f989dc6596d2f232f66f356e1">parent</a>.actio.request(PING_AX_OPCODE, BYTE, send_args=[BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>)])</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordflow">return</span> <span class="keywordflow">not</span> bool(output)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+</div>
+<div class="foldopen" id="foldopen00055" data-start="" data-end="">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a8ae1a7edc0d23bf6e49a6319ac0184f4">   55</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a8ae1a7edc0d23bf6e49a6319ac0184f4">setID</a>(self, newID): self.parent.actio.order(SET_ID_OPCODE, BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>), BYTE(newID))</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+</div>
+<div class="foldopen" id="foldopen00057" data-start="" data-end="">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a9ccf98c920c7e8920b7acdf77ca538c9">   57</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a9ccf98c920c7e8920b7acdf77ca538c9">setBD</a>(self, newBD): self.parent.actio.order(SET_BD_OPCODE, BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>), INT(newBD))</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+</div>
+<div class="foldopen" id="foldopen00059" data-start="" data-end="">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a8b4dcfa761dc19633ebf73309163a621">   59</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a8b4dcfa761dc19633ebf73309163a621">move</a>(self, Pos): self.parent.actio.order(MOVE_OPCODE, BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>), FLOAT(Pos))</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+</div>
+<div class="foldopen" id="foldopen00061" data-start="" data-end="">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a5733e6d14ad631f6df79db3a3414ab1e">   61</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a5733e6d14ad631f6df79db3a3414ab1e">turn</a>(self, Speed): self.parent.actio.order(TURN_OPCODE, BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>), FLOAT(Speed))</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+</div>
+<div class="foldopen" id="foldopen00063" data-start="" data-end="">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#ac1fa47726ad467f40a305484cfcd0ad3">   63</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#ac1fa47726ad467f40a305484cfcd0ad3">stop_turn</a>(self): self.parent.turn(0)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        </div>
+</div>
+<div class="foldopen" id="foldopen00065" data-start="" data-end="">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a47c26a68db1471e2cac4ff9aa4df5f79">   65</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a47c26a68db1471e2cac4ff9aa4df5f79">moveSpeed</a>(self, Pos, Speed): self.parent.actio.order(MOVE_SPEED_OPCODE, BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>), FLOAT(Pos), FLOAT(Speed))</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+</div>
+<div class="foldopen" id="foldopen00067" data-start="" data-end="">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#ab57d4a587d320311e7f40502cf2f7717">   67</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#ab57d4a587d320311e7f40502cf2f7717">setEndlessMode</a>(self, Status): self.parent.actio.order(SET_ENDLESS_MODE_OPCODE, BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>), BYTE(Status))</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+</div>
+<div class="foldopen" id="foldopen00069" data-start="" data-end="">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a02ba4bc56c1f55885e6310a9e7b66ad7">   69</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a02ba4bc56c1f55885e6310a9e7b66ad7">setTempLimit</a>(self, Temp): self.parent.actio.order(SET_TEMP_LIMIT_OPCODE, BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>), BYTE(Temp))</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+</div>
+<div class="foldopen" id="foldopen00071" data-start="" data-end="">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a55e4d85ef2abad76b879d90144446326">   71</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a55e4d85ef2abad76b879d90144446326">setAngleLimit</a>(self, CWLimit, CCWLimit): self.parent.actio.order(SET_ANGLE_LIMIT_OPCODE, BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>), FLOAT(CWLimit), FLOAT(CCWLimit))</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+</div>
+<div class="foldopen" id="foldopen00073" data-start="" data-end="">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a5d5c2f00a73b0b7dfac636efdcb2494e">   73</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a5d5c2f00a73b0b7dfac636efdcb2494e">setVoltageLimit</a>(self, DVoltage, UVoltage): self.parent.actio.order(SET_VOLTAGE_LIMIT_OPCODE, BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>), BYTE(DVoltage), BYTE(UVoltage))</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+</div>
+<div class="foldopen" id="foldopen00075" data-start="" data-end="">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#acbd575f0c646ca8cddc44560d3bd0016">   75</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#acbd575f0c646ca8cddc44560d3bd0016">setMaxTorque</a>(self, MaxTorque): self.parent.actio.order(SET_MAX_TORQUE_OPCODE, BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>), INT(MaxTorque))</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+</div>
+<div class="foldopen" id="foldopen00077" data-start="" data-end="">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a716be71769134a54637b6bdcaa47ac64">   77</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a716be71769134a54637b6bdcaa47ac64">readPosition</a>(self):</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            output = self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a308c477f989dc6596d2f232f66f356e1">parent</a>.actio.request(READ_POSITION_OPCODE, FLOAT, send_args=[BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>)])</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="keywordflow">return</span> output</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        </div>
+</div>
+<div class="foldopen" id="foldopen00081" data-start="" data-end="">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a3d1bef0984971694331d245ed7ba1785">   81</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a3d1bef0984971694331d245ed7ba1785">readSpeed</a>(self):</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            output = self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a308c477f989dc6596d2f232f66f356e1">parent</a>.actio.request(READ_SPEED_OPCODE, FLOAT, send_args=[BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>)])</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <span class="keywordflow">return</span> output.read()</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+</div>
+<div class="foldopen" id="foldopen00085" data-start="" data-end="">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a7d161b41e5c3695a549da768191bf507">   85</a></span>        <span class="keyword">def </span><a class="code hl_function" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a7d161b41e5c3695a549da768191bf507">readTorque</a>(self):</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            output = self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a308c477f989dc6596d2f232f66f356e1">parent</a>.actio.request(READ_TORQUE_OPCODE, INT, BYTE(self.<a class="code hl_variable" href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">id</a>))</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <span class="keywordflow">return</span> output</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+</div>
+</div>
+</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">from</span> <a class="code hl_namespace" href="namespacesetups_1_1setup__serialtalks.html">setups.setup_serialtalks</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a113b522fd7657b08d9cb0ac33d2eaee2">   93</a></span>    s = <a class="code hl_class" href="classactionneur_1_1_actionneur.html">Actionneur</a>(manager)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    s.connect()</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#a6371ca764ff96790443f0f4897f5b0cc">   96</a></span>    ax = s.AX12(1, s)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="namespaceactionneur.html#afb638ba781b9c6a86f5194e06368d30e">   97</a></span>    ax2 = s.AX12(3, s)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    ax2.move(100)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    ax.move(100)</div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html">actionneur.Actionneur.AX12</a></div><div class="ttdef"><b>Definition</b> <a href="#l00044">actionneur.py:44</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a02ba4bc56c1f55885e6310a9e7b66ad7"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a02ba4bc56c1f55885e6310a9e7b66ad7">actionneur.Actionneur.AX12.setTempLimit</a></div><div class="ttdeci">setTempLimit(self, Temp)</div><div class="ttdef"><b>Definition</b> <a href="#l00069">actionneur.py:69</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a22f96f591e2679712cc6a4ad53fc2800"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a22f96f591e2679712cc6a4ad53fc2800">actionneur.Actionneur.AX12.id</a></div><div class="ttdeci">id</div><div class="ttdef"><b>Definition</b> <a href="#l00047">actionneur.py:47</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a308c477f989dc6596d2f232f66f356e1"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a308c477f989dc6596d2f232f66f356e1">actionneur.Actionneur.AX12.parent</a></div><div class="ttdeci">parent</div><div class="ttdef"><b>Definition</b> <a href="#l00046">actionneur.py:46</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a37c860cd485ed3309b4de4e1586cd940"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a37c860cd485ed3309b4de4e1586cd940">actionneur.Actionneur.AX12.ping</a></div><div class="ttdeci">ping(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00051">actionneur.py:51</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a3d1bef0984971694331d245ed7ba1785"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a3d1bef0984971694331d245ed7ba1785">actionneur.Actionneur.AX12.readSpeed</a></div><div class="ttdeci">readSpeed(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00081">actionneur.py:81</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a47c26a68db1471e2cac4ff9aa4df5f79"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a47c26a68db1471e2cac4ff9aa4df5f79">actionneur.Actionneur.AX12.moveSpeed</a></div><div class="ttdeci">moveSpeed(self, Pos, Speed)</div><div class="ttdef"><b>Definition</b> <a href="#l00065">actionneur.py:65</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a55e4d85ef2abad76b879d90144446326"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a55e4d85ef2abad76b879d90144446326">actionneur.Actionneur.AX12.setAngleLimit</a></div><div class="ttdeci">setAngleLimit(self, CWLimit, CCWLimit)</div><div class="ttdef"><b>Definition</b> <a href="#l00071">actionneur.py:71</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a5733e6d14ad631f6df79db3a3414ab1e"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a5733e6d14ad631f6df79db3a3414ab1e">actionneur.Actionneur.AX12.turn</a></div><div class="ttdeci">turn(self, Speed)</div><div class="ttdef"><b>Definition</b> <a href="#l00061">actionneur.py:61</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a5d5c2f00a73b0b7dfac636efdcb2494e"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a5d5c2f00a73b0b7dfac636efdcb2494e">actionneur.Actionneur.AX12.setVoltageLimit</a></div><div class="ttdeci">setVoltageLimit(self, DVoltage, UVoltage)</div><div class="ttdef"><b>Definition</b> <a href="#l00073">actionneur.py:73</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a716be71769134a54637b6bdcaa47ac64"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a716be71769134a54637b6bdcaa47ac64">actionneur.Actionneur.AX12.readPosition</a></div><div class="ttdeci">readPosition(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00077">actionneur.py:77</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a7d161b41e5c3695a549da768191bf507"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a7d161b41e5c3695a549da768191bf507">actionneur.Actionneur.AX12.readTorque</a></div><div class="ttdeci">readTorque(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00085">actionneur.py:85</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a8636e38e7bff439164e7c3aaecc26e88"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a8636e38e7bff439164e7c3aaecc26e88">actionneur.Actionneur.AX12.__init__</a></div><div class="ttdeci">__init__(self, id, parent)</div><div class="ttdef"><b>Definition</b> <a href="#l00045">actionneur.py:45</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a8ae1a7edc0d23bf6e49a6319ac0184f4"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a8ae1a7edc0d23bf6e49a6319ac0184f4">actionneur.Actionneur.AX12.setID</a></div><div class="ttdeci">setID(self, newID)</div><div class="ttdef"><b>Definition</b> <a href="#l00055">actionneur.py:55</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a8b4dcfa761dc19633ebf73309163a621"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a8b4dcfa761dc19633ebf73309163a621">actionneur.Actionneur.AX12.move</a></div><div class="ttdeci">move(self, Pos)</div><div class="ttdef"><b>Definition</b> <a href="#l00059">actionneur.py:59</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a8c052c73bd7092db97c6a3f297a187cf"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a8c052c73bd7092db97c6a3f297a187cf">actionneur.Actionneur.AX12.reset</a></div><div class="ttdeci">reset(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00049">actionneur.py:49</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_a9ccf98c920c7e8920b7acdf77ca538c9"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#a9ccf98c920c7e8920b7acdf77ca538c9">actionneur.Actionneur.AX12.setBD</a></div><div class="ttdeci">setBD(self, newBD)</div><div class="ttdef"><b>Definition</b> <a href="#l00057">actionneur.py:57</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_ab57d4a587d320311e7f40502cf2f7717"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#ab57d4a587d320311e7f40502cf2f7717">actionneur.Actionneur.AX12.setEndlessMode</a></div><div class="ttdeci">setEndlessMode(self, Status)</div><div class="ttdef"><b>Definition</b> <a href="#l00067">actionneur.py:67</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_ac1fa47726ad467f40a305484cfcd0ad3"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#ac1fa47726ad467f40a305484cfcd0ad3">actionneur.Actionneur.AX12.stop_turn</a></div><div class="ttdeci">stop_turn(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00063">actionneur.py:63</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_1_1_a_x12_html_acbd575f0c646ca8cddc44560d3bd0016"><div class="ttname"><a href="classactionneur_1_1_actionneur_1_1_a_x12.html#acbd575f0c646ca8cddc44560d3bd0016">actionneur.Actionneur.AX12.setMaxTorque</a></div><div class="ttdeci">setMaxTorque(self, MaxTorque)</div><div class="ttdef"><b>Definition</b> <a href="#l00075">actionneur.py:75</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_html"><div class="ttname"><a href="classactionneur_1_1_actionneur.html">actionneur.Actionneur</a></div><div class="ttdef"><b>Definition</b> <a href="#l00037">actionneur.py:37</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_html_a18627cb8679e42736a4d46b14ec9aab8"><div class="ttname"><a href="classactionneur_1_1_actionneur.html#a18627cb8679e42736a4d46b14ec9aab8">actionneur.Actionneur.actio</a></div><div class="ttdeci">actio</div><div class="ttdef"><b>Definition</b> <a href="#l00040">actionneur.py:40</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_html_a771bb98d259c1db75b2b2ea23270570b"><div class="ttname"><a href="classactionneur_1_1_actionneur.html#a771bb98d259c1db75b2b2ea23270570b">actionneur.Actionneur.SetServoAngle</a></div><div class="ttdeci">SetServoAngle(self, angle)</div><div class="ttdef"><b>Definition</b> <a href="#l00042">actionneur.py:42</a></div></div>
+<div class="ttc" id="aclassactionneur_1_1_actionneur_html_a8d528dae1054ee470ccb0d196e80c21c"><div class="ttname"><a href="classactionneur_1_1_actionneur.html#a8d528dae1054ee470ccb0d196e80c21c">actionneur.Actionneur.__init__</a></div><div class="ttdeci">__init__(self, parent, uuid='actionneurs')</div><div class="ttdef"><b>Definition</b> <a href="#l00039">actionneur.py:39</a></div></div>
+<div class="ttc" id="anamespacesetups_1_1setup__serialtalks_html"><div class="ttname"><a href="namespacesetups_1_1setup__serialtalks.html">setup_serialtalks</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_c15328facfe3c0fb28ec2a0724aaaf66.html">daughter_cards</a></li><li class="navelem"><a class="el" href="actionneur_8py.html">actionneur.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

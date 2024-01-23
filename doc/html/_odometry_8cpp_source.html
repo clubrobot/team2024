@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/platformIO/LIBS/ARDUINO_LIBS/Odometry/Odometry.cpp</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_odometry_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Odometry.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_odometry_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;EEPROM.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_odometry_8h.html">Odometry.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;SerialTalks.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_odometry.html#a145a976de8716c7be011503a2483ceb3">   10</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_odometry.html#a145a976de8716c7be011503a2483ceb3">Odometry::process</a>(<span class="keywordtype">float</span> timestep)</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> dL = <a class="code hl_variable" href="class_odometry.html#a0d2263acfed61d7a5928545f7d6938c7">m_leftCodewheel</a> -&gt;<a class="code hl_function" href="class_abstract_codewheel.html#a6298fa396bc11c0d073426ff1469f180">restart</a>();</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> dR = <a class="code hl_variable" href="class_odometry.html#a93d3a9ef8d34582a7ed1e3997091a61c">m_rightCodewheel</a>-&gt;<a class="code hl_function" href="class_abstract_codewheel.html#a6298fa396bc11c0d073426ff1469f180">restart</a>();</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> deltaLinPos = (dL + dR) / 2;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> deltaOrthLinPos = fabs(deltaLinPos) * <a class="code hl_variable" href="class_odometry.html#a019ae0364ac0e7f53feae91f890afb2e">m_slippage</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> deltaAngPos = (dR - dL) / <a class="code hl_variable" href="class_odometry.html#a2f416471e2f77cf9c30baa5c9bd76392">m_axleTrack</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> avgTheta = <a class="code hl_variable" href="class_odometry.html#a9a89056855952daa414bbf82ba7375d9">m_pos</a>.<a class="code hl_variable" href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">theta</a> + deltaAngPos / 2;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_variable" href="class_odometry.html#a9a89056855952daa414bbf82ba7375d9">m_pos</a>.<a class="code hl_variable" href="struct_position.html#af684446cbf0f6d53386686283da6dcc6">x</a>     += deltaLinPos * cos(avgTheta) - deltaOrthLinPos * sin(avgTheta);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_variable" href="class_odometry.html#a9a89056855952daa414bbf82ba7375d9">m_pos</a>.<a class="code hl_variable" href="struct_position.html#a54a6182b5f7539295b32255808897d3f">y</a>     += deltaLinPos * sin(avgTheta) + deltaOrthLinPos * cos(avgTheta);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_variable" href="class_odometry.html#a9a89056855952daa414bbf82ba7375d9">m_pos</a>.<a class="code hl_variable" href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">theta</a> += deltaAngPos;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_variable" href="class_odometry.html#a5624b981bd24407ee489c732a0541cd8">m_linVel</a> = deltaLinPos / timestep;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_variable" href="class_odometry.html#ac393c005fc0b62554c75b037f68775dc">m_angVel</a> = deltaAngPos / timestep;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_odometry.html#a3d2a0cff9771cc82594ccce2f0e45bcf">   28</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_odometry.html#a3d2a0cff9771cc82594ccce2f0e45bcf">Odometry::load</a>(<span class="keywordtype">int</span> address)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    EEPROM.get(address, <a class="code hl_variable" href="class_odometry.html#a2f416471e2f77cf9c30baa5c9bd76392">m_axleTrack</a>); address += <span class="keyword">sizeof</span>(<a class="code hl_variable" href="class_odometry.html#a2f416471e2f77cf9c30baa5c9bd76392">m_axleTrack</a>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    EEPROM.get(address, <a class="code hl_variable" href="class_odometry.html#a019ae0364ac0e7f53feae91f890afb2e">m_slippage</a>);  address += <span class="keyword">sizeof</span>(<a class="code hl_variable" href="class_odometry.html#a019ae0364ac0e7f53feae91f890afb2e">m_slippage</a>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
+</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_odometry.html#af1357578497f02fcc1ab91f109b0fe60">   34</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_odometry.html#af1357578497f02fcc1ab91f109b0fe60">Odometry::save</a>(<span class="keywordtype">int</span> address)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    EEPROM.put(address, <a class="code hl_variable" href="class_odometry.html#a2f416471e2f77cf9c30baa5c9bd76392">m_axleTrack</a>); address += <span class="keyword">sizeof</span>(<a class="code hl_variable" href="class_odometry.html#a2f416471e2f77cf9c30baa5c9bd76392">m_axleTrack</a>);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    EEPROM.put(address, <a class="code hl_variable" href="class_odometry.html#a019ae0364ac0e7f53feae91f890afb2e">m_slippage</a>);  address += <span class="keyword">sizeof</span>(<a class="code hl_variable" href="class_odometry.html#a019ae0364ac0e7f53feae91f890afb2e">m_slippage</a>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_odometry.html#ae4c55db07acd9dcf1ab2197afb9623b3">   41</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_odometry.html#ae4c55db07acd9dcf1ab2197afb9623b3">Odometry::setAxleTrack</a>   (<span class="keywordtype">float</span> axleTrack)   {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_variable" href="class_odometry.html#a2f416471e2f77cf9c30baa5c9bd76392">m_axleTrack</a> = axleTrack;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_function" href="class_periodic_process.html#a910daacfe12010947ec541d3ac565867">update</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_odometry.html#a0e4a3346ceae934ac0ec45c9fb8a6b22">   46</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_odometry.html#a0e4a3346ceae934ac0ec45c9fb8a6b22">Odometry::setSlippage</a>   (<span class="keywordtype">float</span> slippage)   {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_variable" href="class_odometry.html#a019ae0364ac0e7f53feae91f890afb2e">m_slippage</a> = slippage;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_function" href="class_periodic_process.html#a910daacfe12010947ec541d3ac565867">update</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="ttc" id="a_odometry_8h_html"><div class="ttname"><a href="_odometry_8h.html">Odometry.h</a></div></div>
+<div class="ttc" id="aclass_abstract_codewheel_html_a6298fa396bc11c0d073426ff1469f180"><div class="ttname"><a href="class_abstract_codewheel.html#a6298fa396bc11c0d073426ff1469f180">AbstractCodewheel::restart</a></div><div class="ttdeci">virtual float restart()=0</div><div class="ttdoc">Réinitialise l'objet.</div></div>
+<div class="ttc" id="aclass_odometry_html_a019ae0364ac0e7f53feae91f890afb2e"><div class="ttname"><a href="class_odometry.html#a019ae0364ac0e7f53feae91f890afb2e">Odometry::m_slippage</a></div><div class="ttdeci">float m_slippage</div><div class="ttdef"><b>Definition</b> <a href="_odometry_8h_source.html#l00171">Odometry.h:171</a></div></div>
+<div class="ttc" id="aclass_odometry_html_a0d2263acfed61d7a5928545f7d6938c7"><div class="ttname"><a href="class_odometry.html#a0d2263acfed61d7a5928545f7d6938c7">Odometry::m_leftCodewheel</a></div><div class="ttdeci">AbstractCodewheel * m_leftCodewheel</div><div class="ttdef"><b>Definition</b> <a href="_odometry_8h_source.html#l00173">Odometry.h:173</a></div></div>
+<div class="ttc" id="aclass_odometry_html_a0e4a3346ceae934ac0ec45c9fb8a6b22"><div class="ttname"><a href="class_odometry.html#a0e4a3346ceae934ac0ec45c9fb8a6b22">Odometry::setSlippage</a></div><div class="ttdeci">void setSlippage(float slippage)</div><div class="ttdoc">Defini la nouvelle dérive orthogonal.</div><div class="ttdef"><b>Definition</b> <a href="#l00046">Odometry.cpp:46</a></div></div>
+<div class="ttc" id="aclass_odometry_html_a145a976de8716c7be011503a2483ceb3"><div class="ttname"><a href="class_odometry.html#a145a976de8716c7be011503a2483ceb3">Odometry::process</a></div><div class="ttdeci">virtual void process(float timestep)</div><div class="ttdoc">Calcule la nouvelle position et la nouvelle vitesse. A partir de ses AbstractCodewheel,...</div><div class="ttdef"><b>Definition</b> <a href="#l00010">Odometry.cpp:10</a></div></div>
+<div class="ttc" id="aclass_odometry_html_a2f416471e2f77cf9c30baa5c9bd76392"><div class="ttname"><a href="class_odometry.html#a2f416471e2f77cf9c30baa5c9bd76392">Odometry::m_axleTrack</a></div><div class="ttdeci">float m_axleTrack</div><div class="ttdef"><b>Definition</b> <a href="_odometry_8h_source.html#l00170">Odometry.h:170</a></div></div>
+<div class="ttc" id="aclass_odometry_html_a3d2a0cff9771cc82594ccce2f0e45bcf"><div class="ttname"><a href="class_odometry.html#a3d2a0cff9771cc82594ccce2f0e45bcf">Odometry::load</a></div><div class="ttdeci">void load(int address)</div><div class="ttdoc">Charge les paramètres.</div><div class="ttdef"><b>Definition</b> <a href="#l00028">Odometry.cpp:28</a></div></div>
+<div class="ttc" id="aclass_odometry_html_a5624b981bd24407ee489c732a0541cd8"><div class="ttname"><a href="class_odometry.html#a5624b981bd24407ee489c732a0541cd8">Odometry::m_linVel</a></div><div class="ttdeci">float m_linVel</div><div class="ttdef"><b>Definition</b> <a href="_odometry_8h_source.html#l00168">Odometry.h:168</a></div></div>
+<div class="ttc" id="aclass_odometry_html_a93d3a9ef8d34582a7ed1e3997091a61c"><div class="ttname"><a href="class_odometry.html#a93d3a9ef8d34582a7ed1e3997091a61c">Odometry::m_rightCodewheel</a></div><div class="ttdeci">AbstractCodewheel * m_rightCodewheel</div><div class="ttdef"><b>Definition</b> <a href="_odometry_8h_source.html#l00174">Odometry.h:174</a></div></div>
+<div class="ttc" id="aclass_odometry_html_a9a89056855952daa414bbf82ba7375d9"><div class="ttname"><a href="class_odometry.html#a9a89056855952daa414bbf82ba7375d9">Odometry::m_pos</a></div><div class="ttdeci">Position m_pos</div><div class="ttdef"><b>Definition</b> <a href="_odometry_8h_source.html#l00167">Odometry.h:167</a></div></div>
+<div class="ttc" id="aclass_odometry_html_ac393c005fc0b62554c75b037f68775dc"><div class="ttname"><a href="class_odometry.html#ac393c005fc0b62554c75b037f68775dc">Odometry::m_angVel</a></div><div class="ttdeci">float m_angVel</div><div class="ttdef"><b>Definition</b> <a href="_odometry_8h_source.html#l00169">Odometry.h:169</a></div></div>
+<div class="ttc" id="aclass_odometry_html_ae4c55db07acd9dcf1ab2197afb9623b3"><div class="ttname"><a href="class_odometry.html#ae4c55db07acd9dcf1ab2197afb9623b3">Odometry::setAxleTrack</a></div><div class="ttdeci">void setAxleTrack(float axleTrack)</div><div class="ttdoc">Defini une nouvelle entraxe pour les roues codeuses.</div><div class="ttdef"><b>Definition</b> <a href="#l00041">Odometry.cpp:41</a></div></div>
+<div class="ttc" id="aclass_odometry_html_af1357578497f02fcc1ab91f109b0fe60"><div class="ttname"><a href="class_odometry.html#af1357578497f02fcc1ab91f109b0fe60">Odometry::save</a></div><div class="ttdeci">void save(int address) const</div><div class="ttdoc">Sauvegarde les paramètres.</div><div class="ttdef"><b>Definition</b> <a href="#l00034">Odometry.cpp:34</a></div></div>
+<div class="ttc" id="aclass_periodic_process_html_a910daacfe12010947ec541d3ac565867"><div class="ttname"><a href="class_periodic_process.html#a910daacfe12010947ec541d3ac565867">PeriodicProcess::update</a></div><div class="ttdeci">bool update()</div><div class="ttdoc">Execute la méthode process.</div><div class="ttdef"><b>Definition</b> <a href="_periodic_process_8cpp_source.html#l00004">PeriodicProcess.cpp:4</a></div></div>
+<div class="ttc" id="astruct_position_html_a3e8a386e068bdd371587b5e299c321d3"><div class="ttname"><a href="struct_position.html#a3e8a386e068bdd371587b5e299c321d3">Position::theta</a></div><div class="ttdeci">float theta</div><div class="ttdef"><b>Definition</b> <a href="_odometry_8h_source.html#l00033">Odometry.h:33</a></div></div>
+<div class="ttc" id="astruct_position_html_a54a6182b5f7539295b32255808897d3f"><div class="ttname"><a href="struct_position.html#a54a6182b5f7539295b32255808897d3f">Position::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition</b> <a href="_odometry_8h_source.html#l00032">Odometry.h:32</a></div></div>
+<div class="ttc" id="astruct_position_html_af684446cbf0f6d53386686283da6dcc6"><div class="ttname"><a href="struct_position.html#af684446cbf0f6d53386686283da6dcc6">Position::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition</b> <a href="_odometry_8h_source.html#l00031">Odometry.h:31</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_e5db95e150018bcc3dfc1edc7ae4800d.html">LIBS</a></li><li class="navelem"><a class="el" href="dir_66ad5f74c23414a43fda982e8ac34f83.html">ARDUINO_LIBS</a></li><li class="navelem"><a class="el" href="dir_0081f686bea58dbd7691090160a89eb1.html">Odometry</a></li><li class="navelem"><a class="el" href="_odometry_8cpp.html">Odometry.cpp</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

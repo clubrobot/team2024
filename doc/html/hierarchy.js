@@ -39,6 +39,7 @@ var hierarchy =
     [ "robot_behaviour.RobotBehavior", "classrobot__behaviour_1_1_robot_behavior.html", null ],
     [ "robot_client.RobotClient", "classrobot__client_1_1_robot_client.html", null ],
     [ "Serializer", "struct_serializer.html", null ],
+    [ "serialtalking.SerialTalking", "classserialtalking_1_1_serial_talking.html", null ],
     [ "global_sync.ServerGS", "classglobal__sync_1_1_server_g_s.html", null ],
     [ "metaclass.Singleton", "classmetaclass_1_1_singleton.html", null ],
     [ "parallel.Thread", "classparallel_1_1_thread.html", null ],

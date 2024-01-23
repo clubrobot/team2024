@@ -1,0 +1,785 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024: Référence du fichier C:/Users/boris/Desktop/robotique/team2024/platformIO/wheeledbase/src/instructions.cpp</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('wheeledbase_2src_2instructions_8cpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier instructions.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="wheeledbase_2src_2instructions_8h_source.html">instructions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="addresses_8h_source.html">addresses.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_talking_8h_source.html">SerialTalking.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_d_c_motor_8h_source.html">DCMotor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_codewheel_8h_source.html">Codewheel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_odometry_8h_source.html">Odometry.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_p_i_d_8h_source.html">PID.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_velocity_controller_8h_source.html">VelocityController.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_position_controller_8h_source.html">PositionController.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_pure_pursuit_8h_source.html">PurePursuit.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_turn_on_the_spot_8h_source.html">TurnOnTheSpot.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mathutils_8h_source.html">mathutils.h</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a1a699eae84e3bd05a5ffeef4e8de50e9" id="r_a1a699eae84e3bd05a5ffeef4e8de50e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a699eae84e3bd05a5ffeef4e8de50e9">DISABLE</a> ()</td></tr>
+<tr class="separator:a1a699eae84e3bd05a5ffeef4e8de50e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac91f5cdb501a2f7fcb7515f13ce0eb9b" id="r_ac91f5cdb501a2f7fcb7515f13ce0eb9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac91f5cdb501a2f7fcb7515f13ce0eb9b">GOTO_DELTA</a> ()</td></tr>
+<tr class="separator:ac91f5cdb501a2f7fcb7515f13ce0eb9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a499c74418a8cb092d66d42bed80a72e0" id="r_a499c74418a8cb092d66d42bed80a72e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a499c74418a8cb092d66d42bed80a72e0">SET_OPENLOOP_VELOCITIES</a> ()</td></tr>
+<tr class="separator:a499c74418a8cb092d66d42bed80a72e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7b89987db80b0ec9f058c36004ebe0f" id="r_ae7b89987db80b0ec9f058c36004ebe0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7b89987db80b0ec9f058c36004ebe0f">GET_CODEWHEELS_COUNTERS</a> ()</td></tr>
+<tr class="separator:ae7b89987db80b0ec9f058c36004ebe0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a741f70b5770bf3d836781fdb77d6898a" id="r_a741f70b5770bf3d836781fdb77d6898a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a741f70b5770bf3d836781fdb77d6898a">SET_VELOCITIES</a> ()</td></tr>
+<tr class="separator:a741f70b5770bf3d836781fdb77d6898a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af55ae7de0fe2553670ef1d5035c90130" id="r_af55ae7de0fe2553670ef1d5035c90130"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af55ae7de0fe2553670ef1d5035c90130">RESET_PUREPURSUIT</a> ()</td></tr>
+<tr class="separator:af55ae7de0fe2553670ef1d5035c90130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47290d7284bce59301f01fc87163d140" id="r_a47290d7284bce59301f01fc87163d140"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47290d7284bce59301f01fc87163d140">START_PUREPURSUIT</a> ()</td></tr>
+<tr class="separator:a47290d7284bce59301f01fc87163d140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58b5353b7823059a79d02c8c3641a042" id="r_a58b5353b7823059a79d02c8c3641a042"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58b5353b7823059a79d02c8c3641a042">ADD_PUREPURSUIT_WAYPOINT</a> ()</td></tr>
+<tr class="separator:a58b5353b7823059a79d02c8c3641a042"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab29192219c1aa382f069c5432fab77b7" id="r_ab29192219c1aa382f069c5432fab77b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab29192219c1aa382f069c5432fab77b7">START_TURNONTHESPOT</a> ()</td></tr>
+<tr class="separator:ab29192219c1aa382f069c5432fab77b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cf53ff5c7e0b384b36c4920ae2a744f" id="r_a9cf53ff5c7e0b384b36c4920ae2a744f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cf53ff5c7e0b384b36c4920ae2a744f">START_TURNONTHESPOT_DIR</a> ()</td></tr>
+<tr class="separator:a9cf53ff5c7e0b384b36c4920ae2a744f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e16fd5804549258f590bcef8869d1df" id="r_a1e16fd5804549258f590bcef8869d1df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e16fd5804549258f590bcef8869d1df">POSITION_REACHED</a> ()</td></tr>
+<tr class="separator:a1e16fd5804549258f590bcef8869d1df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2c5efa2b5e0dcd3f9286f5fe58bc63e" id="r_ac2c5efa2b5e0dcd3f9286f5fe58bc63e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2c5efa2b5e0dcd3f9286f5fe58bc63e">GET_VELOCITIES_WANTED</a> ()</td></tr>
+<tr class="separator:ac2c5efa2b5e0dcd3f9286f5fe58bc63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab5884de776565bd6a9c3db5ae76c16" id="r_a5ab5884de776565bd6a9c3db5ae76c16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ab5884de776565bd6a9c3db5ae76c16">SET_POSITION</a> ()</td></tr>
+<tr class="separator:a5ab5884de776565bd6a9c3db5ae76c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d1a8080a92b1a335f825dcd4beef502" id="r_a4d1a8080a92b1a335f825dcd4beef502"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d1a8080a92b1a335f825dcd4beef502">GET_POSITION</a> ()</td></tr>
+<tr class="separator:a4d1a8080a92b1a335f825dcd4beef502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abead60704525e44463ad120c18184faf" id="r_abead60704525e44463ad120c18184faf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abead60704525e44463ad120c18184faf">GET_VELOCITIES</a> ()</td></tr>
+<tr class="separator:abead60704525e44463ad120c18184faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc93fc7a6f01d581228b631e9c582f8b" id="r_afc93fc7a6f01d581228b631e9c582f8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc93fc7a6f01d581228b631e9c582f8b">SET_PARAMETER_VALUE</a> ()</td></tr>
+<tr class="separator:afc93fc7a6f01d581228b631e9c582f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c7998545680a2d3833bb48f9b6396f6" id="r_a7c7998545680a2d3833bb48f9b6396f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c7998545680a2d3833bb48f9b6396f6">SAVE_PARAMETERS</a> ()</td></tr>
+<tr class="separator:a7c7998545680a2d3833bb48f9b6396f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87a7d5f4b46ab3f990e591bbd2b37f72" id="r_a87a7d5f4b46ab3f990e591bbd2b37f72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87a7d5f4b46ab3f990e591bbd2b37f72">GET_PARAMETER_VALUE</a> ()</td></tr>
+<tr class="separator:a87a7d5f4b46ab3f990e591bbd2b37f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaa4dc093d7fc086b0ceb92f4ef4f91d" id="r_aaaa4dc093d7fc086b0ceb92f4ef4f91d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaaa4dc093d7fc086b0ceb92f4ef4f91d">RESET_PARAMETERS</a> ()</td></tr>
+<tr class="separator:aaaa4dc093d7fc086b0ceb92f4ef4f91d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:acfb1d8e06663b679933b41e733bc18d4" id="r_acfb1d8e06663b679933b41e733bc18d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_c_motors_driver.html">DCMotorsDriver</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfb1d8e06663b679933b41e733bc18d4">driver</a></td></tr>
+<tr class="separator:acfb1d8e06663b679933b41e733bc18d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05e5eb736fc9bf6c9b15d3fca0529180" id="r_a05e5eb736fc9bf6c9b15d3fca0529180"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_c_motor.html">DCMotor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05e5eb736fc9bf6c9b15d3fca0529180">leftWheel</a></td></tr>
+<tr class="separator:a05e5eb736fc9bf6c9b15d3fca0529180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86e7422474fdb6c40eb5701a3de5fccf" id="r_a86e7422474fdb6c40eb5701a3de5fccf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_d_c_motor.html">DCMotor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86e7422474fdb6c40eb5701a3de5fccf">rightWheel</a></td></tr>
+<tr class="separator:a86e7422474fdb6c40eb5701a3de5fccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2ae3c36dd4e918d4b97fb26faa70f02" id="r_ab2ae3c36dd4e918d4b97fb26faa70f02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_codewheel.html">Codewheel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2ae3c36dd4e918d4b97fb26faa70f02">leftCodewheel</a></td></tr>
+<tr class="separator:ab2ae3c36dd4e918d4b97fb26faa70f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af92c23bc5806f1d2965b3d979258974c" id="r_af92c23bc5806f1d2965b3d979258974c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_codewheel.html">Codewheel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af92c23bc5806f1d2965b3d979258974c">rightCodewheel</a></td></tr>
+<tr class="separator:af92c23bc5806f1d2965b3d979258974c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab094448afeb87b34b04865a7cb455e92" id="r_ab094448afeb87b34b04865a7cb455e92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_odometry.html">Odometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab094448afeb87b34b04865a7cb455e92">odometry</a></td></tr>
+<tr class="separator:ab094448afeb87b34b04865a7cb455e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad36eb14fdf6a1c5b44b779d98941f3c7" id="r_ad36eb14fdf6a1c5b44b779d98941f3c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_velocity_controller.html">VelocityController</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad36eb14fdf6a1c5b44b779d98941f3c7">velocityControl</a></td></tr>
+<tr class="separator:ad36eb14fdf6a1c5b44b779d98941f3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a678911ffa6fb6b64db6c566e30d0da7b" id="r_a678911ffa6fb6b64db6c566e30d0da7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_p_i_d.html">PID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a678911ffa6fb6b64db6c566e30d0da7b">linVelPID</a></td></tr>
+<tr class="separator:a678911ffa6fb6b64db6c566e30d0da7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cfc8ab6174294205ae9aaec663b3b12" id="r_a0cfc8ab6174294205ae9aaec663b3b12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_p_i_d.html">PID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cfc8ab6174294205ae9aaec663b3b12">angVelPID</a></td></tr>
+<tr class="separator:a0cfc8ab6174294205ae9aaec663b3b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63e787998937cf864eea16e80d3d6aec" id="r_a63e787998937cf864eea16e80d3d6aec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_position_controller.html">PositionController</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63e787998937cf864eea16e80d3d6aec">positionControl</a></td></tr>
+<tr class="separator:a63e787998937cf864eea16e80d3d6aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03ede4fa09381c6ada8a06ce61052765" id="r_a03ede4fa09381c6ada8a06ce61052765"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_pure_pursuit.html">PurePursuit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03ede4fa09381c6ada8a06ce61052765">purePursuit</a></td></tr>
+<tr class="separator:a03ede4fa09381c6ada8a06ce61052765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86a57547f0081c2c7c585259de602fe7" id="r_a86a57547f0081c2c7c585259de602fe7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_turn_on_the_spot.html">TurnOnTheSpot</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86a57547f0081c2c7c585259de602fe7">turnOnTheSpot</a></td></tr>
+<tr class="separator:a86a57547f0081c2c7c585259de602fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a58b5353b7823059a79d02c8c3641a042" name="a58b5353b7823059a79d02c8c3641a042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58b5353b7823059a79d02c8c3641a042">&#9670;&#160;</a></span>ADD_PUREPURSUIT_WAYPOINT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ADD_PUREPURSUIT_WAYPOINT </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a699eae84e3bd05a5ffeef4e8de50e9" name="a1a699eae84e3bd05a5ffeef4e8de50e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a699eae84e3bd05a5ffeef4e8de50e9">&#9670;&#160;</a></span>DISABLE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DISABLE </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7b89987db80b0ec9f058c36004ebe0f" name="ae7b89987db80b0ec9f058c36004ebe0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7b89987db80b0ec9f058c36004ebe0f">&#9670;&#160;</a></span>GET_CODEWHEELS_COUNTERS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GET_CODEWHEELS_COUNTERS </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87a7d5f4b46ab3f990e591bbd2b37f72" name="a87a7d5f4b46ab3f990e591bbd2b37f72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87a7d5f4b46ab3f990e591bbd2b37f72">&#9670;&#160;</a></span>GET_PARAMETER_VALUE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GET_PARAMETER_VALUE </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d1a8080a92b1a335f825dcd4beef502" name="a4d1a8080a92b1a335f825dcd4beef502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d1a8080a92b1a335f825dcd4beef502">&#9670;&#160;</a></span>GET_POSITION()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GET_POSITION </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abead60704525e44463ad120c18184faf" name="abead60704525e44463ad120c18184faf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abead60704525e44463ad120c18184faf">&#9670;&#160;</a></span>GET_VELOCITIES()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GET_VELOCITIES </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2c5efa2b5e0dcd3f9286f5fe58bc63e" name="ac2c5efa2b5e0dcd3f9286f5fe58bc63e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2c5efa2b5e0dcd3f9286f5fe58bc63e">&#9670;&#160;</a></span>GET_VELOCITIES_WANTED()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GET_VELOCITIES_WANTED </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac91f5cdb501a2f7fcb7515f13ce0eb9b" name="ac91f5cdb501a2f7fcb7515f13ce0eb9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac91f5cdb501a2f7fcb7515f13ce0eb9b">&#9670;&#160;</a></span>GOTO_DELTA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOTO_DELTA </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e16fd5804549258f590bcef8869d1df" name="a1e16fd5804549258f590bcef8869d1df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e16fd5804549258f590bcef8869d1df">&#9670;&#160;</a></span>POSITION_REACHED()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void POSITION_REACHED </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaaa4dc093d7fc086b0ceb92f4ef4f91d" name="aaaa4dc093d7fc086b0ceb92f4ef4f91d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaa4dc093d7fc086b0ceb92f4ef4f91d">&#9670;&#160;</a></span>RESET_PARAMETERS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RESET_PARAMETERS </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af55ae7de0fe2553670ef1d5035c90130" name="af55ae7de0fe2553670ef1d5035c90130"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af55ae7de0fe2553670ef1d5035c90130">&#9670;&#160;</a></span>RESET_PUREPURSUIT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RESET_PUREPURSUIT </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c7998545680a2d3833bb48f9b6396f6" name="a7c7998545680a2d3833bb48f9b6396f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c7998545680a2d3833bb48f9b6396f6">&#9670;&#160;</a></span>SAVE_PARAMETERS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SAVE_PARAMETERS </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a499c74418a8cb092d66d42bed80a72e0" name="a499c74418a8cb092d66d42bed80a72e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a499c74418a8cb092d66d42bed80a72e0">&#9670;&#160;</a></span>SET_OPENLOOP_VELOCITIES()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SET_OPENLOOP_VELOCITIES </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc93fc7a6f01d581228b631e9c582f8b" name="afc93fc7a6f01d581228b631e9c582f8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc93fc7a6f01d581228b631e9c582f8b">&#9670;&#160;</a></span>SET_PARAMETER_VALUE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SET_PARAMETER_VALUE </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ab5884de776565bd6a9c3db5ae76c16" name="a5ab5884de776565bd6a9c3db5ae76c16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ab5884de776565bd6a9c3db5ae76c16">&#9670;&#160;</a></span>SET_POSITION()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SET_POSITION </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a741f70b5770bf3d836781fdb77d6898a" name="a741f70b5770bf3d836781fdb77d6898a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a741f70b5770bf3d836781fdb77d6898a">&#9670;&#160;</a></span>SET_VELOCITIES()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SET_VELOCITIES </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a47290d7284bce59301f01fc87163d140" name="a47290d7284bce59301f01fc87163d140"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47290d7284bce59301f01fc87163d140">&#9670;&#160;</a></span>START_PUREPURSUIT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void START_PUREPURSUIT </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab29192219c1aa382f069c5432fab77b7" name="ab29192219c1aa382f069c5432fab77b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab29192219c1aa382f069c5432fab77b7">&#9670;&#160;</a></span>START_TURNONTHESPOT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void START_TURNONTHESPOT </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cf53ff5c7e0b384b36c4920ae2a744f" name="a9cf53ff5c7e0b384b36c4920ae2a744f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cf53ff5c7e0b384b36c4920ae2a744f">&#9670;&#160;</a></span>START_TURNONTHESPOT_DIR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void START_TURNONTHESPOT_DIR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a0cfc8ab6174294205ae9aaec663b3b12" name="a0cfc8ab6174294205ae9aaec663b3b12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cfc8ab6174294205ae9aaec663b3b12">&#9670;&#160;</a></span>angVelPID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_p_i_d.html">PID</a> angVelPID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfb1d8e06663b679933b41e733bc18d4" name="acfb1d8e06663b679933b41e733bc18d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfb1d8e06663b679933b41e733bc18d4">&#9670;&#160;</a></span>driver</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_c_motors_driver.html">DCMotorsDriver</a> driver</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2ae3c36dd4e918d4b97fb26faa70f02" name="ab2ae3c36dd4e918d4b97fb26faa70f02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2ae3c36dd4e918d4b97fb26faa70f02">&#9670;&#160;</a></span>leftCodewheel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_codewheel.html">Codewheel</a> leftCodewheel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05e5eb736fc9bf6c9b15d3fca0529180" name="a05e5eb736fc9bf6c9b15d3fca0529180"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05e5eb736fc9bf6c9b15d3fca0529180">&#9670;&#160;</a></span>leftWheel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_c_motor.html">DCMotor</a> leftWheel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a678911ffa6fb6b64db6c566e30d0da7b" name="a678911ffa6fb6b64db6c566e30d0da7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a678911ffa6fb6b64db6c566e30d0da7b">&#9670;&#160;</a></span>linVelPID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_p_i_d.html">PID</a> linVelPID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab094448afeb87b34b04865a7cb455e92" name="ab094448afeb87b34b04865a7cb455e92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab094448afeb87b34b04865a7cb455e92">&#9670;&#160;</a></span>odometry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_odometry.html">Odometry</a> odometry</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63e787998937cf864eea16e80d3d6aec" name="a63e787998937cf864eea16e80d3d6aec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63e787998937cf864eea16e80d3d6aec">&#9670;&#160;</a></span>positionControl</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_position_controller.html">PositionController</a> positionControl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03ede4fa09381c6ada8a06ce61052765" name="a03ede4fa09381c6ada8a06ce61052765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03ede4fa09381c6ada8a06ce61052765">&#9670;&#160;</a></span>purePursuit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_pure_pursuit.html">PurePursuit</a> purePursuit</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af92c23bc5806f1d2965b3d979258974c" name="af92c23bc5806f1d2965b3d979258974c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92c23bc5806f1d2965b3d979258974c">&#9670;&#160;</a></span>rightCodewheel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_codewheel.html">Codewheel</a> rightCodewheel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86e7422474fdb6c40eb5701a3de5fccf" name="a86e7422474fdb6c40eb5701a3de5fccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86e7422474fdb6c40eb5701a3de5fccf">&#9670;&#160;</a></span>rightWheel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_d_c_motor.html">DCMotor</a> rightWheel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86a57547f0081c2c7c585259de602fe7" name="a86a57547f0081c2c7c585259de602fe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86a57547f0081c2c7c585259de602fe7">&#9670;&#160;</a></span>turnOnTheSpot</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_turn_on_the_spot.html">TurnOnTheSpot</a> turnOnTheSpot</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad36eb14fdf6a1c5b44b779d98941f3c7" name="ad36eb14fdf6a1c5b44b779d98941f3c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad36eb14fdf6a1c5b44b779d98941f3c7">&#9670;&#160;</a></span>velocityControl</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_velocity_controller.html">VelocityController</a> velocityControl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_5b5317d04cf2311afc84b6c8e4918113.html">platformIO</a></li><li class="navelem"><a class="el" href="dir_85044bfad3ba5ac6b677513226d20855.html">wheeledbase</a></li><li class="navelem"><a class="el" href="dir_87fdaeb5f226d5d115213573f5f2c5dc.html">src</a></li><li class="navelem"><a class="el" href="wheeledbase_2src_2instructions_8cpp.html">instructions.cpp</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

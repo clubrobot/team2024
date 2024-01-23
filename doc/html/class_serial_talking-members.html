@@ -11,10 +11,15 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -51,6 +56,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('class_serial_talking.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,7 +94,6 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">SerialTalking Liste des membres</div></div>
 </div><!--header-->
@@ -83,14 +104,20 @@ $(function() {
   <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#a6e8975da3548a812946907f2cc7aa392">begin</a>(Stream &amp;stream)</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#a9bbffb616107d0f4bc69476e83132cbd">bind</a>(byte opcode, functionPtr instruction)</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#ad2a7434ea6524bb7c72cb42517b13855">endTranfert</a>()</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#a54dcbe9f36ead165aec66a1095b1ff1d">generateRandomUUID</a>(char *uuid, int length)</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#a6dcc7b3300539c9bbc66b0e17155daad">getUUID</a>(char *uuid)</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#a4a75fef80d7c1f5cf057e39a698fe452">isConnected</a>() const</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#ab1d398b8b2d1dd86481d1c0f991e7896">m_bytesRX</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#adc7b1a5236e1471a1d04a0774638fa89">m_bytesTX</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#a9867f285ab5d100d859a94a2677894e1">m_connected</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#af6ccdf3ef1852e0306441f58f1358db4">execute</a>()</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#a54dcbe9f36ead165aec66a1095b1ff1d">generateRandomUUID</a>(char *uuid, int length)</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#a6dcc7b3300539c9bbc66b0e17155daad">getUUID</a>(char *uuid)</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#a4a75fef80d7c1f5cf057e39a698fe452">isConnected</a>() const</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#ab1d398b8b2d1dd86481d1c0f991e7896">m_bytesRX</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#adc7b1a5236e1471a1d04a0774638fa89">m_bytesTX</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#a9867f285ab5d100d859a94a2677894e1">m_connected</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#a588f3d4681bfee81b806e99bb5346a45">m_lastRetcode</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#a0c16144673637c116fed1c1aff4c4d3d">m_lastTime</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#a17cb46cd25e3231ec3949f0709ce0b6a">m_stream</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#a36a3a5fc60a8181fff8397a96e6f6099">m_order</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#a17cb46cd25e3231ec3949f0709ce0b6a">m_stream</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#afdb7845298b416cedcec47eccb2c269b">m_talkingTo</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#a9f592fb39944e33d5593943ee69a690f">m_transfert</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#a0c2c7ecc2193adf47f411e60a5ab0e93">m_transfert_config</a></td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#aff13c0bc38c52f914561f81583572c0a">read</a>()</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#a2769f5946de00536f1a6188f747dba6b">readTable</a>(const T &amp;data, const uint16_t &amp;len=sizeof(T))</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#a15ead0426519702f2ae6931e7326384fa7682ce68645cb49126abc0a697d1478f">SERIALTALKING_ORDER</a> valeur énumérée</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
@@ -100,9 +127,12 @@ $(function() {
   <tr class="odd"><td class="entry"><a class="el" href="class_serial_talking.html#a0a4b00004545a44b9f77269fed88e49c">write</a>(const T &amp;val)</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_serial_talking.html#a30d6d1fd3332cca03c710a53f9d4d2b8">writeTable</a>(const T &amp;val)</td><td class="entry"><a class="el" href="class_serial_talking.html">SerialTalking</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

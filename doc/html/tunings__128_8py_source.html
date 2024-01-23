@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/tunings/tunings_128.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('tunings__128_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">tunings_128.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="tunings__128_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacetunings__128.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesetups_1_1setup__wheeledbase.html">setups.setup_wheeledbase</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"># LEFTWHELL MOTOR CONSTANTS #</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a29f8d49db7184685d717283ec096afe6">    7</a></span>LEFTWHEEL_RADIUS_VALUE = 36.5</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#af172fb0e1a6c2071e428217b8329ad52">    8</a></span>LEFTWHEEL_CONSTANT_VALUE = 0.20353981852531433</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a3f7015faed68b506a99896af0a5a31fc">    9</a></span>LEFTWHEEL_MAXPWM_VALUE = 1</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"># RIGHTWHEEL MOTOR CONSTANTS #</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a209e4f0b392cbe90ff078c8baf49e229">   12</a></span>RIGHTWHEEL_RADIUS_VALUE = 36.5</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#ac611366adb0e0fe1e7d2763e73f4c65d">   13</a></span>RIGHTWHEEL_CONSTANT_VALUE = 0.20353981852531433</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a1e375acfc1a1253559e8534e9a11f369">   14</a></span>RIGHTWHEEL_MAXPWM_VALUE = 1</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a25e18497a1bd5527499683a5b7d5d8af">   16</a></span>RIGHTCODEWHEEL_COUNTSPERREV_VALUE = 10000</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a63188b10264e58734075292c4741ef9d">   17</a></span>LEFTCODEWHEEL_COUNTSPERREV_VALUE = 10000</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a86a5d5a3f5dc9b8523e36d33b9ec7b9d">   19</a></span>LEFTCODEWHEEL_RADIUS_VALUE = 26.04837915864945</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a33425db15480a807046a3a572298260e">   20</a></span>RIGHTCODEWHEEL_RADIUS_VALUE = 26.255758629186545</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a44c46b6aa67842e6c1d59f720d83e556">   21</a></span>ODOMETRY_AXLETRACK_VALUE = 88.0</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a78a0a267b4d07ead5f15bd90b01b5919">   23</a></span>ODOMETRY_SLIPPAGE_VALUE = 0</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a8312d95c72fffdc0f43691335af162f9">   25</a></span>VELOCITYCONTROL_AXLETRACK_VALUE = 201.5</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a1265db0d9427be034ec18a86fea21257">   26</a></span>VELOCITYCONTROL_MAXLINACC_VALUE = 1000</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a2ac751973e8454c9764ecd194e2de423">   27</a></span>VELOCITYCONTROL_MAXLINDEC_VALUE = 2000</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a54da81d5e3b2523cb2d49d8280780b65">   28</a></span>VELOCITYCONTROL_MAXANGACC_VALUE = 5</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a9117d496b2f2571f05eec4c508e9ca2c">   29</a></span>VELOCITYCONTROL_MAXANGDEC_VALUE = 5</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a1acbe5658ac8b2178cbef74b4396bad9">   30</a></span>VELOCITYCONTROL_SPINSHUTDOWN_VALUE = 1</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a6ef02e2fe2042cdc53de1f293840d255">   32</a></span>LINVELPID_KP_VALUE = 1.85</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a4242e8d9ab5e1b5d6da304e49015d026">   33</a></span>LINVELPID_KI_VALUE = 35</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a4084fbfcce8075ffe1a327e43e7e088b">   34</a></span>LINVELPID_KD_VALUE = 0</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a9dfd2d1aa53aded46e437ca1bfb2cce6">   36</a></span>LINVELPID_MINOUTPUT_VALUE = -1000</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#aa5ab364ab8361a843c43498b9d588397">   37</a></span>LINVELPID_MAXOUTPUT_VALUE = 1000</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a82f027c94298b6e4e571562b3c080e4d">   39</a></span>ANGVELPID_KP_VALUE = 3.0</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a188138026435ab60c2e6c80d2a636cd2">   40</a></span>ANGVELPID_KI_VALUE = 15.0</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#adead79cf3b1fa0fdcf4118b5152a6595">   41</a></span>ANGVELPID_KD_VALUE = 0.0</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a648fd705014710addae05eedb22e8fd5">   43</a></span>ANGVELPID_MINOUTPUT_VALUE = -18.0278263092041</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a7433c0c70e3750c3b1eafb5b77b92f81">   44</a></span>ANGVELPID_MAXOUTPUT_VALUE = 18.0278263092041</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a3e4822a82357c51b2b1b8aed0b2480e4">   46</a></span>POSITIONCONTROL_LINVELKP_VALUE = 2.2</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a7235d7e42226fecf0329458499f9474a">   47</a></span>POSITIONCONTROL_ANGVELKP_VALUE = 2.5</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a809c5e51b5c373d764b878cd4d432ed5">   49</a></span>POSITIONCONTROL_LINVELMAX_VALUE = 700</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a23a64568128bd218b182258d1b4929aa">   50</a></span>POSITIONCONTROL_ANGVELMAX_VALUE = 10</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a1e251c9757b6f1acba4fcd14496edf9f">   52</a></span>POSITIONCONTROL_LINPOSTHRESHOLD_VALUE = 3</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a4cb89f631ceed1c9e487a11591d0e04b">   53</a></span>POSITIONCONTROL_ANGPOSTHRESHOLD_VALUE = 0.10000000149011612</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a5af1a7eb3919db0f6f73b2303a852e32">   55</a></span>PUREPURSUIT_LOOKAHEAD_VALUE = 235.0</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespacetunings__128.html#a5c2da2bc2e8e18b0eae8472fa8d7eb83">   56</a></span>PUREPURSUIT_LOOKAHEADBIS_VALUE = 200.0</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    LEFTWHEEL_RADIUS_ID, LEFTWHEEL_RADIUS_VALUE, FLOAT)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    LEFTWHEEL_CONSTANT_ID, LEFTWHEEL_CONSTANT_VALUE, FLOAT)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    LEFTWHEEL_MAXPWM_ID, LEFTWHEEL_MAXPWM_VALUE, FLOAT)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    RIGHTWHEEL_RADIUS_ID, RIGHTWHEEL_RADIUS_VALUE, FLOAT)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    RIGHTWHEEL_CONSTANT_ID, RIGHTWHEEL_CONSTANT_VALUE, FLOAT)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    RIGHTWHEEL_MAXPWM_ID, RIGHTWHEEL_MAXPWM_VALUE, FLOAT)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    RIGHTCODEWHEEL_COUNTSPERREV_ID, RIGHTCODEWHEEL_COUNTSPERREV_VALUE, LONG)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    LEFTCODEWHEEL_COUNTSPERREV_ID, LEFTCODEWHEEL_COUNTSPERREV_VALUE, LONG)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    LEFTCODEWHEEL_RADIUS_ID, LEFTCODEWHEEL_RADIUS_VALUE, FLOAT)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    RIGHTCODEWHEEL_RADIUS_ID, RIGHTCODEWHEEL_RADIUS_VALUE, FLOAT)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    ODOMETRY_AXLETRACK_ID, ODOMETRY_AXLETRACK_VALUE, FLOAT)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    ODOMETRY_SLIPPAGE_ID, ODOMETRY_SLIPPAGE_VALUE, FLOAT)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    VELOCITYCONTROL_AXLETRACK_ID, VELOCITYCONTROL_AXLETRACK_VALUE, FLOAT)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    VELOCITYCONTROL_MAXLINACC_ID, VELOCITYCONTROL_MAXLINACC_VALUE, FLOAT)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    VELOCITYCONTROL_MAXLINDEC_ID, VELOCITYCONTROL_MAXLINDEC_VALUE, FLOAT)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    VELOCITYCONTROL_MAXANGACC_ID, VELOCITYCONTROL_MAXANGACC_VALUE, FLOAT)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    VELOCITYCONTROL_MAXANGDEC_ID, VELOCITYCONTROL_MAXANGDEC_VALUE, FLOAT)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    VELOCITYCONTROL_SPINSHUTDOWN_ID, VELOCITYCONTROL_SPINSHUTDOWN_VALUE, BYTE)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>wheeledbase.set_parameter_value(LINVELPID_KP_ID, LINVELPID_KP_VALUE, FLOAT)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>wheeledbase.set_parameter_value(LINVELPID_KI_ID, LINVELPID_KI_VALUE, FLOAT)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>wheeledbase.set_parameter_value(LINVELPID_KD_ID, LINVELPID_KD_VALUE, FLOAT)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    LINVELPID_MINOUTPUT_ID, LINVELPID_MINOUTPUT_VALUE, FLOAT)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    LINVELPID_MAXOUTPUT_ID, LINVELPID_MAXOUTPUT_VALUE, FLOAT)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>wheeledbase.set_parameter_value(ANGVELPID_KP_ID, ANGVELPID_KP_VALUE, FLOAT)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>wheeledbase.set_parameter_value(ANGVELPID_KI_ID, ANGVELPID_KI_VALUE, FLOAT)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>wheeledbase.set_parameter_value(ANGVELPID_KD_ID, ANGVELPID_KD_VALUE, FLOAT)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    ANGVELPID_MINOUTPUT_ID, ANGVELPID_MINOUTPUT_VALUE, FLOAT)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    ANGVELPID_MAXOUTPUT_ID, ANGVELPID_MAXOUTPUT_VALUE, FLOAT)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    POSITIONCONTROL_LINVELKP_ID, POSITIONCONTROL_LINVELKP_VALUE, FLOAT)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    POSITIONCONTROL_ANGVELKP_ID, POSITIONCONTROL_ANGVELKP_VALUE, FLOAT)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    POSITIONCONTROL_LINVELMAX_ID, POSITIONCONTROL_LINVELMAX_VALUE, FLOAT)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    POSITIONCONTROL_ANGVELMAX_ID, POSITIONCONTROL_ANGVELMAX_VALUE, FLOAT)</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    POSITIONCONTROL_LINPOSTHRESHOLD_ID, POSITIONCONTROL_LINPOSTHRESHOLD_VALUE, FLOAT)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    POSITIONCONTROL_ANGPOSTHRESHOLD_ID, POSITIONCONTROL_ANGPOSTHRESHOLD_VALUE, FLOAT)</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    PUREPURSUIT_LOOKAHEAD_ID, PUREPURSUIT_LOOKAHEAD_VALUE, FLOAT)</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>wheeledbase.set_parameter_value(</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    PUREPURSUIT_LOOKAHEADBIS_ID, PUREPURSUIT_LOOKAHEADBIS_VALUE, FLOAT)</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>wheeledbase.save_parameters()</div>
+<div class="ttc" id="anamespacesetups_1_1setup__wheeledbase_html"><div class="ttname"><a href="namespacesetups_1_1setup__wheeledbase.html">setup_wheeledbase</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_6f8a6af734a7559967f67ae3ef82d69c.html">tunings</a></li><li class="navelem"><a class="el" href="tunings__128_8py.html">tunings_128.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

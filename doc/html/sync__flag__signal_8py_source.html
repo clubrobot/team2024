@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/common/sync_flag_signal.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('sync__flag__signal_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">sync_flag_signal.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="sync__flag__signal_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacesync__flag__signal.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> threading <span class="keyword">import</span> Thread, RLock</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="" data-end="">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_flag.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classsync__flag__signal_1_1_flag.html">Flag</a>:</div>
+<div class="foldopen" id="foldopen00008" data-start="" data-end="">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_flag.html#a83be10387140ff17866f1e6d1bdb6cae">    8</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsync__flag__signal_1_1_flag.html#a83be10387140ff17866f1e6d1bdb6cae">__init__</a>(self, function):</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_flag.html#afd9cd8864a476d612a5cc7e51296aeae">    9</a></span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#afd9cd8864a476d612a5cc7e51296aeae">linked_signals</a> = list()</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_flag.html#a64c785d28ef05de89748f3506b95d4c9">   10</a></span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#a64c785d28ef05de89748f3506b95d4c9">target</a> = function</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_flag.html#ad8f10e3d2d75c2857b4b9757d50dce03">   11</a></span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#ad8f10e3d2d75c2857b4b9757d50dce03">lock</a> = RLock()</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+</div>
+<div class="foldopen" id="foldopen00013" data-start="" data-end="">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_flag.html#aece8a3ec1192d0fcea1dc7a681423aef">   13</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsync__flag__signal_1_1_flag.html#aece8a3ec1192d0fcea1dc7a681423aef">bind</a>(self, signal):</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#ad8f10e3d2d75c2857b4b9757d50dce03">lock</a>.acquire()</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#afd9cd8864a476d612a5cc7e51296aeae">linked_signals</a>.append(signal)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        signal._bind(self)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#ad8f10e3d2d75c2857b4b9757d50dce03">lock</a>.release()</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+</div>
+<div class="foldopen" id="foldopen00019" data-start="" data-end="">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_flag.html#a4c39e445526bf66ff88bec790725d91b">   19</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsync__flag__signal_1_1_flag.html#a4c39e445526bf66ff88bec790725d91b">attach</a>(self, function):</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#ad8f10e3d2d75c2857b4b9757d50dce03">lock</a>.acquire()</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#a64c785d28ef05de89748f3506b95d4c9">target</a> = function</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#ad8f10e3d2d75c2857b4b9757d50dce03">lock</a>.release()</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+</div>
+<div class="foldopen" id="foldopen00024" data-start="" data-end="">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_flag.html#a5d2f1a66ec9a5806a7240ec2632dd472">   24</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsync__flag__signal_1_1_flag.html#a5d2f1a66ec9a5806a7240ec2632dd472">ping</a>(self):</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#ad8f10e3d2d75c2857b4b9757d50dce03">lock</a>.acquire(timeout=0.2):</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keywordflow">return</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#a64c785d28ef05de89748f3506b95d4c9">target</a>()</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="comment"># try:</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="comment">#    self.target()</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="comment"># except Exception:</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="comment">#    _, value, _ = exc_info()</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="comment">#    print(&quot;UserWarning : Error on the frags execution : {}&quot;.format(value))</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#ad8f10e3d2d75c2857b4b9757d50dce03">lock</a>.release()</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+</div>
+<div class="foldopen" id="foldopen00036" data-start="" data-end="">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_flag.html#a201f922e45a8477424017c2a00e99a5d">   36</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsync__flag__signal_1_1_flag.html#a201f922e45a8477424017c2a00e99a5d">clear</a>(self):</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#ad8f10e3d2d75c2857b4b9757d50dce03">lock</a>.acquire()</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">for</span> signal <span class="keywordflow">in</span> self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#afd9cd8864a476d612a5cc7e51296aeae">linked_signals</a>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            signal.clear(self)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#afd9cd8864a476d612a5cc7e51296aeae">linked_signals</a> = list()</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_flag.html#ad8f10e3d2d75c2857b4b9757d50dce03">lock</a>.release()</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+</div>
+</div>
+<div class="foldopen" id="foldopen00044" data-start="" data-end="">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_signal.html">   44</a></span><span class="keyword">class </span><a class="code hl_class" href="classsync__flag__signal_1_1_signal.html">Signal</a>:</div>
+<div class="foldopen" id="foldopen00045" data-start="" data-end="">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_signal.html#ad0bff50860c62e1314a0338d3b46892b">   45</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsync__flag__signal_1_1_signal.html#ad0bff50860c62e1314a0338d3b46892b">__init__</a>(self):</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_signal.html#aed506c35c51471f641ce189b4d490f5d">   46</a></span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#aed506c35c51471f641ce189b4d490f5d">linked_flags</a> = list()</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_signal.html#a521a6d4e549cd03aa91dea00fbb85d62">   47</a></span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#a521a6d4e549cd03aa91dea00fbb85d62">lock</a> = RLock()</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_signal.html#ad57d3aea6e1651207f6c259af1efea4d">   48</a></span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#ad57d3aea6e1651207f6c259af1efea4d">clear_lock</a> = RLock()</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+</div>
+<div class="foldopen" id="foldopen00050" data-start="" data-end="">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_signal.html#af796f5ba9bab7e05357a502de2c7ae09">   50</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsync__flag__signal_1_1_signal.html#af796f5ba9bab7e05357a502de2c7ae09">ping</a>(self):</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#a521a6d4e549cd03aa91dea00fbb85d62">lock</a>.acquire(blocking=<span class="keyword">False</span>):</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordflow">return</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        thread_list = list()</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#ad57d3aea6e1651207f6c259af1efea4d">clear_lock</a>.acquire()</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">for</span> flag <span class="keywordflow">in</span> self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#aed506c35c51471f641ce189b4d490f5d">linked_flags</a>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            thread_list.append(Thread(target=flag.ping))</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            thread_list[-1].start()</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#ad57d3aea6e1651207f6c259af1efea4d">clear_lock</a>.release()</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        status = <span class="keyword">False</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">while</span> status:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            status = <span class="keyword">False</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keywordflow">for</span> thread <span class="keywordflow">in</span> thread_list:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                status = thread.is_alive() <span class="keywordflow">and</span> status</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#a521a6d4e549cd03aa91dea00fbb85d62">lock</a>.release()</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+</div>
+<div class="foldopen" id="foldopen00067" data-start="" data-end="">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_signal.html#a9ccea7d651fc2d57aaaa0d220c963188">   67</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsync__flag__signal_1_1_signal.html#a9ccea7d651fc2d57aaaa0d220c963188">_bind</a>(self, flag):</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#ad57d3aea6e1651207f6c259af1efea4d">clear_lock</a>.acquire()</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#aed506c35c51471f641ce189b4d490f5d">linked_flags</a>.append(flag)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#ad57d3aea6e1651207f6c259af1efea4d">clear_lock</a>.release()</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+</div>
+<div class="foldopen" id="foldopen00072" data-start="" data-end="">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classsync__flag__signal_1_1_signal.html#aca9c680e6bae429f164f5b4b95b8b25e">   72</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsync__flag__signal_1_1_signal.html#aca9c680e6bae429f164f5b4b95b8b25e">clear</a>(self, flag):</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#ad57d3aea6e1651207f6c259af1efea4d">clear_lock</a>.acquire()</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#aed506c35c51471f641ce189b4d490f5d">linked_flags</a>.remove(flag)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        self.<a class="code hl_variable" href="classsync__flag__signal_1_1_signal.html#ad57d3aea6e1651207f6c259af1efea4d">clear_lock</a>.release()</div>
+</div>
+</div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_flag_html"><div class="ttname"><a href="classsync__flag__signal_1_1_flag.html">sync_flag_signal.Flag</a></div><div class="ttdef"><b>Definition</b> <a href="#l00007">sync_flag_signal.py:7</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_flag_html_a201f922e45a8477424017c2a00e99a5d"><div class="ttname"><a href="classsync__flag__signal_1_1_flag.html#a201f922e45a8477424017c2a00e99a5d">sync_flag_signal.Flag.clear</a></div><div class="ttdeci">clear(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00036">sync_flag_signal.py:36</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_flag_html_a4c39e445526bf66ff88bec790725d91b"><div class="ttname"><a href="classsync__flag__signal_1_1_flag.html#a4c39e445526bf66ff88bec790725d91b">sync_flag_signal.Flag.attach</a></div><div class="ttdeci">attach(self, function)</div><div class="ttdef"><b>Definition</b> <a href="#l00019">sync_flag_signal.py:19</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_flag_html_a5d2f1a66ec9a5806a7240ec2632dd472"><div class="ttname"><a href="classsync__flag__signal_1_1_flag.html#a5d2f1a66ec9a5806a7240ec2632dd472">sync_flag_signal.Flag.ping</a></div><div class="ttdeci">ping(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00024">sync_flag_signal.py:24</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_flag_html_a64c785d28ef05de89748f3506b95d4c9"><div class="ttname"><a href="classsync__flag__signal_1_1_flag.html#a64c785d28ef05de89748f3506b95d4c9">sync_flag_signal.Flag.target</a></div><div class="ttdeci">target</div><div class="ttdef"><b>Definition</b> <a href="#l00010">sync_flag_signal.py:10</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_flag_html_a83be10387140ff17866f1e6d1bdb6cae"><div class="ttname"><a href="classsync__flag__signal_1_1_flag.html#a83be10387140ff17866f1e6d1bdb6cae">sync_flag_signal.Flag.__init__</a></div><div class="ttdeci">__init__(self, function)</div><div class="ttdef"><b>Definition</b> <a href="#l00008">sync_flag_signal.py:8</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_flag_html_ad8f10e3d2d75c2857b4b9757d50dce03"><div class="ttname"><a href="classsync__flag__signal_1_1_flag.html#ad8f10e3d2d75c2857b4b9757d50dce03">sync_flag_signal.Flag.lock</a></div><div class="ttdeci">lock</div><div class="ttdef"><b>Definition</b> <a href="#l00011">sync_flag_signal.py:11</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_flag_html_aece8a3ec1192d0fcea1dc7a681423aef"><div class="ttname"><a href="classsync__flag__signal_1_1_flag.html#aece8a3ec1192d0fcea1dc7a681423aef">sync_flag_signal.Flag.bind</a></div><div class="ttdeci">bind(self, signal)</div><div class="ttdef"><b>Definition</b> <a href="#l00013">sync_flag_signal.py:13</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_flag_html_afd9cd8864a476d612a5cc7e51296aeae"><div class="ttname"><a href="classsync__flag__signal_1_1_flag.html#afd9cd8864a476d612a5cc7e51296aeae">sync_flag_signal.Flag.linked_signals</a></div><div class="ttdeci">linked_signals</div><div class="ttdef"><b>Definition</b> <a href="#l00009">sync_flag_signal.py:9</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_signal_html"><div class="ttname"><a href="classsync__flag__signal_1_1_signal.html">sync_flag_signal.Signal</a></div><div class="ttdef"><b>Definition</b> <a href="#l00044">sync_flag_signal.py:44</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_signal_html_a521a6d4e549cd03aa91dea00fbb85d62"><div class="ttname"><a href="classsync__flag__signal_1_1_signal.html#a521a6d4e549cd03aa91dea00fbb85d62">sync_flag_signal.Signal.lock</a></div><div class="ttdeci">lock</div><div class="ttdef"><b>Definition</b> <a href="#l00047">sync_flag_signal.py:47</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_signal_html_a9ccea7d651fc2d57aaaa0d220c963188"><div class="ttname"><a href="classsync__flag__signal_1_1_signal.html#a9ccea7d651fc2d57aaaa0d220c963188">sync_flag_signal.Signal._bind</a></div><div class="ttdeci">_bind(self, flag)</div><div class="ttdef"><b>Definition</b> <a href="#l00067">sync_flag_signal.py:67</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_signal_html_aca9c680e6bae429f164f5b4b95b8b25e"><div class="ttname"><a href="classsync__flag__signal_1_1_signal.html#aca9c680e6bae429f164f5b4b95b8b25e">sync_flag_signal.Signal.clear</a></div><div class="ttdeci">clear(self, flag)</div><div class="ttdef"><b>Definition</b> <a href="#l00072">sync_flag_signal.py:72</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_signal_html_ad0bff50860c62e1314a0338d3b46892b"><div class="ttname"><a href="classsync__flag__signal_1_1_signal.html#ad0bff50860c62e1314a0338d3b46892b">sync_flag_signal.Signal.__init__</a></div><div class="ttdeci">__init__(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00045">sync_flag_signal.py:45</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_signal_html_ad57d3aea6e1651207f6c259af1efea4d"><div class="ttname"><a href="classsync__flag__signal_1_1_signal.html#ad57d3aea6e1651207f6c259af1efea4d">sync_flag_signal.Signal.clear_lock</a></div><div class="ttdeci">clear_lock</div><div class="ttdef"><b>Definition</b> <a href="#l00048">sync_flag_signal.py:48</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_signal_html_aed506c35c51471f641ce189b4d490f5d"><div class="ttname"><a href="classsync__flag__signal_1_1_signal.html#aed506c35c51471f641ce189b4d490f5d">sync_flag_signal.Signal.linked_flags</a></div><div class="ttdeci">linked_flags</div><div class="ttdef"><b>Definition</b> <a href="#l00046">sync_flag_signal.py:46</a></div></div>
+<div class="ttc" id="aclasssync__flag__signal_1_1_signal_html_af796f5ba9bab7e05357a502de2c7ae09"><div class="ttname"><a href="classsync__flag__signal_1_1_signal.html#af796f5ba9bab7e05357a502de2c7ae09">sync_flag_signal.Signal.ping</a></div><div class="ttdeci">ping(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00050">sync_flag_signal.py:50</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_b3df9f9a7fbc99f43719a864f6aef0f4.html">common</a></li><li class="navelem"><a class="el" href="sync__flag__signal_8py.html">sync_flag_signal.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

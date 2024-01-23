@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/common/gpiodevices.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('gpiodevices_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">gpiodevices.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="gpiodevices_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacegpiodevices.html">    1</a></span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">#from RPi.GPIO import GPIO</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">#import RPi.GPIO as GPIO</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> gpiozero <span class="keyword">import</span> Button, LED</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="" data-end="">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classgpiodevices_1_1gpio__pins.html">gpio_pins</a>():</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#ac495e1d19f8712ff4b8abcd942418c82">    8</a></span>    INTER_1_PIN = 18</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#a1fc9857ea82b869465f9714025abd7d3">    9</a></span>    INTER_2_PIN = 12</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#a8776019adb4a85d0016a6e5617006c6b">   10</a></span>    INTER_3_PIN = 6</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#a7be0ca1e5b7e34fc052b62020dff2edd">   11</a></span>    INTER_4_PIN = 5</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#abdcbddf94934132c66bbff9bc25de1e5">   12</a></span>    LED1_PIN = 23</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#aefdaf9c7d39fce1a96ed5726c8ee2c67">   13</a></span>    LED2_PIN = 4</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#a822a1dc5e41439c7d1144db920906201">   14</a></span>    LED3_PIN = 21</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#ae29d9cc556778a4e6a1eff3ba93ad41d">   15</a></span>    LED4_PIN = 16</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#a1fac25982c7cc98dc4f43d3cd0e9ea5e">   17</a></span>    ALED2_PIN = 17</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#a5fdeca0c9a817709accc9a985e215dc0">   18</a></span>    ALED3_PIN = 25</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#a814bae78c383ab9d77bee60fcbe75b50">   19</a></span>    ALED1_PIN = 24</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#a150426d244c44893f31d67eac3291158">   21</a></span>    TIRETTE_PIN = 26</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#a678c94f1e3e852e6249b7a12f90f5de9">   22</a></span>    URGENCE_PIN = 20</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1gpio__pins.html#ad1227757233cdfbe7f3aedeb34b34c13">   23</a></span>    DEV_MODE_PIN = 22</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+</div>
+<div class="foldopen" id="foldopen00025" data-start="" data-end="">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_device.html">   25</a></span><span class="keyword">class </span><a class="code hl_class" href="classgpiodevices_1_1_device.html">Device</a>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_device.html#adf9afc135405a30dc202282736e44d65">   26</a></span>    list_pin = [<span class="keyword">False</span>] * 59</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+</div>
+<div class="foldopen" id="foldopen00029" data-start="" data-end="">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_switch.html">   29</a></span><span class="keyword">class </span><a class="code hl_class" href="classgpiodevices_1_1_switch.html">Switch</a>(<a class="code hl_class" href="classgpiodevices_1_1_device.html">Device</a>):</div>
+<div class="foldopen" id="foldopen00030" data-start="" data-end="">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_switch.html#a073a854dcd4f0320e340a1084a6530b4">   30</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classgpiodevices_1_1_switch.html#a073a854dcd4f0320e340a1084a6530b4">launch_function</a>(self):</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_switch.html#adde7b3e03ba1666bb7c1bac2ee4be3ae">function</a>()</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+</div>
+<div class="foldopen" id="foldopen00033" data-start="" data-end="">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_switch.html#a2927269f1ca9a4aa6000834d222007c3">   33</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classgpiodevices_1_1_switch.html#a2927269f1ca9a4aa6000834d222007c3">__init__</a>(self, input_pin, function=None, active_high=True):</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> Device.list_pin[input_pin]:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_switch.html#adde7b3e03ba1666bb7c1bac2ee4be3ae">   35</a></span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_switch.html#adde7b3e03ba1666bb7c1bac2ee4be3ae">function</a> = function</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_switch.html#ad1d81f3feeb8cf0299ce1473819d6209">   36</a></span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_switch.html#ad1d81f3feeb8cf0299ce1473819d6209">state</a> = <span class="keyword">False</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            Device.list_pin[input_pin] = <span class="keyword">True</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_switch.html#a41ffeee30ca1f30b80d96c0487a67094">   38</a></span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_switch.html#a41ffeee30ca1f30b80d96c0487a67094">input_pin</a> = input_pin</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_switch.html#a297128e7808e450e7bb2c57e621e71d9">   39</a></span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_switch.html#a297128e7808e450e7bb2c57e621e71d9">button</a> = Button(input_pin, pull_up=<span class="keywordtype">None</span>, active_state=active_high)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_switch.html#a297128e7808e450e7bb2c57e621e71d9">button</a>.when_pressed = self.<a class="code hl_variable" href="classgpiodevices_1_1_switch.html#adde7b3e03ba1666bb7c1bac2ee4be3ae">function</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&#39;pin already in use&#39;</span>)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+</div>
+<div class="foldopen" id="foldopen00045" data-start="" data-end="">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_switch.html#aca35c7b5ab63374c4f8abbfb7a083bd0">   45</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classgpiodevices_1_1_switch.html#aca35c7b5ab63374c4f8abbfb7a083bd0">set_function</a>(self, function):</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_switch.html#adde7b3e03ba1666bb7c1bac2ee4be3ae">function</a> = function</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_switch.html#a297128e7808e450e7bb2c57e621e71d9">button</a>.when_pressed = self.<a class="code hl_variable" href="classgpiodevices_1_1_switch.html#adde7b3e03ba1666bb7c1bac2ee4be3ae">function</a></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+</div>
+<div class="foldopen" id="foldopen00049" data-start="" data-end="">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_switch.html#a455ef1b757b58d27d2b5cfe823632a84">   49</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classgpiodevices_1_1_switch.html#a455ef1b757b58d27d2b5cfe823632a84">close</a>(self):</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        Device.list_pin[self.<a class="code hl_variable" href="classgpiodevices_1_1_switch.html#a41ffeee30ca1f30b80d96c0487a67094">input_pin</a>] = <span class="keyword">False</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_switch.html#a297128e7808e450e7bb2c57e621e71d9">button</a>.<a class="code hl_function" href="classgpiodevices_1_1_switch.html#a455ef1b757b58d27d2b5cfe823632a84">close</a>()</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+</div>
+</div>
+<div class="foldopen" id="foldopen00054" data-start="" data-end="">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html">   54</a></span><span class="keyword">class </span><a class="code hl_class" href="classgpiodevices_1_1_light_button.html">LightButton</a>(<a class="code hl_class" href="classgpiodevices_1_1_device.html">Device</a>):</div>
+<div class="foldopen" id="foldopen00055" data-start="" data-end="">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#a618018262f4fc3d4607f669208e36bf8">   55</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classgpiodevices_1_1_light_button.html#a618018262f4fc3d4607f669208e36bf8">__init__</a>(self, input_pin, light_pin, function=None):</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> Device.list_pin[input_pin] <span class="keywordflow">and</span> <span class="keywordflow">not</span> Device.list_pin[light_pin]:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#ace03b06fc3d55df59a5428c21d99c855">   57</a></span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#ace03b06fc3d55df59a5428c21d99c855">function</a> = function</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#a4ce4465ad2ca6eb23df27cbe45535cc8">   58</a></span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a4ce4465ad2ca6eb23df27cbe45535cc8">state</a> = <span class="keyword">False</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            Device.list_pin[input_pin] = <span class="keyword">True</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            Device.list_pin[light_pin] = <span class="keyword">True</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#a4329409537f2b5daceee7c9f31c60dbc">   61</a></span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a4329409537f2b5daceee7c9f31c60dbc">auto_switch</a> = <span class="keyword">False</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#a55cfb48deae23c6b11f9ec9a1d590f20">   62</a></span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a55cfb48deae23c6b11f9ec9a1d590f20">input_pin</a> = input_pin</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#afca54a2c40e88af305958c386c0f6543">   63</a></span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#afca54a2c40e88af305958c386c0f6543">light_pin</a> = light_pin</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#a6549a74adaa854afe7c574019405e287">   65</a></span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a6549a74adaa854afe7c574019405e287">button</a> = Button(self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a55cfb48deae23c6b11f9ec9a1d590f20">input_pin</a>, pull_up=<span class="keywordtype">None</span>, active_state=<span class="keyword">False</span>, bounce_time=0.01)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#acb5ed094986640204488546a7ce02b30">   66</a></span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#acb5ed094986640204488546a7ce02b30">led</a> = LED(self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#afca54a2c40e88af305958c386c0f6543">light_pin</a>)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a6549a74adaa854afe7c574019405e287">button</a>.when_pressed = self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#ace03b06fc3d55df59a5428c21d99c855">function</a></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&#39;pin already in use&#39;</span>)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+</div>
+<div class="foldopen" id="foldopen00073" data-start="" data-end="">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#afec30171b0e3825794424e843107ad1b">   73</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classgpiodevices_1_1_light_button.html#afec30171b0e3825794424e843107ad1b">launch_function</a>(self):</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#ace03b06fc3d55df59a5428c21d99c855">function</a>()</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a4329409537f2b5daceee7c9f31c60dbc">auto_switch</a>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            self.<a class="code hl_function" href="classgpiodevices_1_1_light_button.html#aadc6c223c304ccbb3634290626543be4">switch</a>()</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+</div>
+<div class="foldopen" id="foldopen00079" data-start="" data-end="">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#a7f4b5f0274660446f349c42475ef112b">   79</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classgpiodevices_1_1_light_button.html#a7f4b5f0274660446f349c42475ef112b">set_auto_switch</a>(self, value):</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a4329409537f2b5daceee7c9f31c60dbc">auto_switch</a> = value</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+</div>
+<div class="foldopen" id="foldopen00082" data-start="" data-end="">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#a6086b6f0f0e53f76fdcd1a14f22217f4">   82</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classgpiodevices_1_1_light_button.html#a6086b6f0f0e53f76fdcd1a14f22217f4">on</a>(self):</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a4ce4465ad2ca6eb23df27cbe45535cc8">state</a> = <span class="keyword">True</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#acb5ed094986640204488546a7ce02b30">led</a>.<a class="code hl_function" href="classgpiodevices_1_1_light_button.html#a6086b6f0f0e53f76fdcd1a14f22217f4">on</a>()</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+</div>
+<div class="foldopen" id="foldopen00086" data-start="" data-end="">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#af796431973fa02f446270bc843c06877">   86</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classgpiodevices_1_1_light_button.html#af796431973fa02f446270bc843c06877">off</a>(self):</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a4ce4465ad2ca6eb23df27cbe45535cc8">state</a> = <span class="keyword">False</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#acb5ed094986640204488546a7ce02b30">led</a>.<a class="code hl_function" href="classgpiodevices_1_1_light_button.html#af796431973fa02f446270bc843c06877">off</a>()</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+</div>
+<div class="foldopen" id="foldopen00090" data-start="" data-end="">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#aadc6c223c304ccbb3634290626543be4">   90</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classgpiodevices_1_1_light_button.html#aadc6c223c304ccbb3634290626543be4">switch</a>(self):</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a4ce4465ad2ca6eb23df27cbe45535cc8">state</a>:</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            self.<a class="code hl_function" href="classgpiodevices_1_1_light_button.html#a6086b6f0f0e53f76fdcd1a14f22217f4">on</a>()</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            self.<a class="code hl_function" href="classgpiodevices_1_1_light_button.html#af796431973fa02f446270bc843c06877">off</a>()</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+</div>
+<div class="foldopen" id="foldopen00096" data-start="" data-end="">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#af8715b93dd9070e30ff5ccf92cb200ce">   96</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classgpiodevices_1_1_light_button.html#af8715b93dd9070e30ff5ccf92cb200ce">set_function</a>(self, function):</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#ace03b06fc3d55df59a5428c21d99c855">function</a> = function</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a6549a74adaa854afe7c574019405e287">button</a>.when_pressed = self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#ace03b06fc3d55df59a5428c21d99c855">function</a></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+</div>
+<div class="foldopen" id="foldopen00100" data-start="" data-end="">
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classgpiodevices_1_1_light_button.html#a8e25440b45016d2d9115a31ba10393e4">  100</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classgpiodevices_1_1_light_button.html#a8e25440b45016d2d9115a31ba10393e4">close</a>(self):</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        Device.list_pin[self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a55cfb48deae23c6b11f9ec9a1d590f20">input_pin</a>] = <span class="keyword">False</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#acb5ed094986640204488546a7ce02b30">led</a>.<a class="code hl_function" href="classgpiodevices_1_1_light_button.html#a8e25440b45016d2d9115a31ba10393e4">close</a>()</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        Device.list_pin[self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#afca54a2c40e88af305958c386c0f6543">light_pin</a>] = <span class="keyword">False</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        self.<a class="code hl_variable" href="classgpiodevices_1_1_light_button.html#a6549a74adaa854afe7c574019405e287">button</a>.<a class="code hl_function" href="classgpiodevices_1_1_light_button.html#a8e25440b45016d2d9115a31ba10393e4">close</a>()</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="foldopen" id="foldopen00108" data-start="" data-end="">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="namespacegpiodevices.html#ad25a76cae90e2b8f7673edbdf7170e57">  108</a></span>    <span class="keyword">def </span><a class="code hl_function" href="namespacegpiodevices.html#ad25a76cae90e2b8f7673edbdf7170e57">test</a>():</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        print(<span class="stringliteral">&quot;test&quot;</span>)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">from</span> time <span class="keyword">import</span> sleep</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="namespacegpiodevices.html#a14928abd1e858722d22cab98e231b138">  112</a></span>    btn1 = <a class="code hl_class" href="classgpiodevices_1_1_light_button.html">LightButton</a>(gpio_pins.INTER_1_PIN, gpio_pins.LED1_PIN, <span class="keywordtype">None</span>)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    btn1.set_function(btn1.switch)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    btn1.on()</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="namespacegpiodevices.html#ab1cf714bb239d2b122de9a4a5ced500a">  116</a></span>    btn2 = <a class="code hl_class" href="classgpiodevices_1_1_light_button.html">LightButton</a>(gpio_pins.INTER_2_PIN, gpio_pins.LED2_PIN, <span class="keywordtype">None</span>)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    btn2.set_function(btn2.switch)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    btn2.on()</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="namespacegpiodevices.html#ae71d18c4cd8a665b383f3514b9bc1b75">  120</a></span>    btn3 = <a class="code hl_class" href="classgpiodevices_1_1_light_button.html">LightButton</a>(gpio_pins.INTER_1_PIN, gpio_pins.LED3_PIN, <span class="keywordtype">None</span>)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    btn3.set_function(btn3.switch)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    btn3.on()</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="namespacegpiodevices.html#a777640b453acde4c10a4657f5f5a4b59">  124</a></span>    btn4 = <a class="code hl_class" href="classgpiodevices_1_1_light_button.html">LightButton</a>(gpio_pins.INTER_4_PIN, gpio_pins.LED4_PIN, <span class="keywordtype">None</span>)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    btn4.set_function(btn4.switch)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    btn4.on()</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="namespacegpiodevices.html#aef4ae6825152753f0a3ead84874c2886">  128</a></span>    tirette = <a class="code hl_class" href="classgpiodevices_1_1_switch.html">Switch</a>(gpio_pins.TIRETTE_PIN, test, <span class="keyword">True</span>)</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordflow">while</span> 1:</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        print(btn1.button.is_pressed)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        sleep(0.1)</div>
+<div class="ttc" id="aclassgpiodevices_1_1_device_html"><div class="ttname"><a href="classgpiodevices_1_1_device.html">gpiodevices.Device</a></div><div class="ttdef"><b>Definition</b> <a href="#l00025">gpiodevices.py:25</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html">gpiodevices.LightButton</a></div><div class="ttdef"><b>Definition</b> <a href="#l00054">gpiodevices.py:54</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_a4329409537f2b5daceee7c9f31c60dbc"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#a4329409537f2b5daceee7c9f31c60dbc">gpiodevices.LightButton.auto_switch</a></div><div class="ttdeci">auto_switch</div><div class="ttdef"><b>Definition</b> <a href="#l00061">gpiodevices.py:61</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_a4ce4465ad2ca6eb23df27cbe45535cc8"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#a4ce4465ad2ca6eb23df27cbe45535cc8">gpiodevices.LightButton.state</a></div><div class="ttdeci">state</div><div class="ttdef"><b>Definition</b> <a href="#l00058">gpiodevices.py:58</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_a55cfb48deae23c6b11f9ec9a1d590f20"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#a55cfb48deae23c6b11f9ec9a1d590f20">gpiodevices.LightButton.input_pin</a></div><div class="ttdeci">input_pin</div><div class="ttdef"><b>Definition</b> <a href="#l00062">gpiodevices.py:62</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_a6086b6f0f0e53f76fdcd1a14f22217f4"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#a6086b6f0f0e53f76fdcd1a14f22217f4">gpiodevices.LightButton.on</a></div><div class="ttdeci">on(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00082">gpiodevices.py:82</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_a618018262f4fc3d4607f669208e36bf8"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#a618018262f4fc3d4607f669208e36bf8">gpiodevices.LightButton.__init__</a></div><div class="ttdeci">__init__(self, input_pin, light_pin, function=None)</div><div class="ttdef"><b>Definition</b> <a href="#l00055">gpiodevices.py:55</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_a6549a74adaa854afe7c574019405e287"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#a6549a74adaa854afe7c574019405e287">gpiodevices.LightButton.button</a></div><div class="ttdeci">button</div><div class="ttdef"><b>Definition</b> <a href="#l00065">gpiodevices.py:65</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_a7f4b5f0274660446f349c42475ef112b"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#a7f4b5f0274660446f349c42475ef112b">gpiodevices.LightButton.set_auto_switch</a></div><div class="ttdeci">set_auto_switch(self, value)</div><div class="ttdef"><b>Definition</b> <a href="#l00079">gpiodevices.py:79</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_a8e25440b45016d2d9115a31ba10393e4"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#a8e25440b45016d2d9115a31ba10393e4">gpiodevices.LightButton.close</a></div><div class="ttdeci">close(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00100">gpiodevices.py:100</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_aadc6c223c304ccbb3634290626543be4"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#aadc6c223c304ccbb3634290626543be4">gpiodevices.LightButton.switch</a></div><div class="ttdeci">switch(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00090">gpiodevices.py:90</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_acb5ed094986640204488546a7ce02b30"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#acb5ed094986640204488546a7ce02b30">gpiodevices.LightButton.led</a></div><div class="ttdeci">led</div><div class="ttdef"><b>Definition</b> <a href="#l00066">gpiodevices.py:66</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_ace03b06fc3d55df59a5428c21d99c855"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#ace03b06fc3d55df59a5428c21d99c855">gpiodevices.LightButton.function</a></div><div class="ttdeci">function</div><div class="ttdef"><b>Definition</b> <a href="#l00057">gpiodevices.py:57</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_af796431973fa02f446270bc843c06877"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#af796431973fa02f446270bc843c06877">gpiodevices.LightButton.off</a></div><div class="ttdeci">off(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00086">gpiodevices.py:86</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_af8715b93dd9070e30ff5ccf92cb200ce"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#af8715b93dd9070e30ff5ccf92cb200ce">gpiodevices.LightButton.set_function</a></div><div class="ttdeci">set_function(self, function)</div><div class="ttdef"><b>Definition</b> <a href="#l00096">gpiodevices.py:96</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_afca54a2c40e88af305958c386c0f6543"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#afca54a2c40e88af305958c386c0f6543">gpiodevices.LightButton.light_pin</a></div><div class="ttdeci">light_pin</div><div class="ttdef"><b>Definition</b> <a href="#l00063">gpiodevices.py:63</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_light_button_html_afec30171b0e3825794424e843107ad1b"><div class="ttname"><a href="classgpiodevices_1_1_light_button.html#afec30171b0e3825794424e843107ad1b">gpiodevices.LightButton.launch_function</a></div><div class="ttdeci">launch_function(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00073">gpiodevices.py:73</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_switch_html"><div class="ttname"><a href="classgpiodevices_1_1_switch.html">gpiodevices.Switch</a></div><div class="ttdef"><b>Definition</b> <a href="#l00029">gpiodevices.py:29</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_switch_html_a073a854dcd4f0320e340a1084a6530b4"><div class="ttname"><a href="classgpiodevices_1_1_switch.html#a073a854dcd4f0320e340a1084a6530b4">gpiodevices.Switch.launch_function</a></div><div class="ttdeci">launch_function(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00030">gpiodevices.py:30</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_switch_html_a2927269f1ca9a4aa6000834d222007c3"><div class="ttname"><a href="classgpiodevices_1_1_switch.html#a2927269f1ca9a4aa6000834d222007c3">gpiodevices.Switch.__init__</a></div><div class="ttdeci">__init__(self, input_pin, function=None, active_high=True)</div><div class="ttdef"><b>Definition</b> <a href="#l00033">gpiodevices.py:33</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_switch_html_a297128e7808e450e7bb2c57e621e71d9"><div class="ttname"><a href="classgpiodevices_1_1_switch.html#a297128e7808e450e7bb2c57e621e71d9">gpiodevices.Switch.button</a></div><div class="ttdeci">button</div><div class="ttdef"><b>Definition</b> <a href="#l00039">gpiodevices.py:39</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_switch_html_a41ffeee30ca1f30b80d96c0487a67094"><div class="ttname"><a href="classgpiodevices_1_1_switch.html#a41ffeee30ca1f30b80d96c0487a67094">gpiodevices.Switch.input_pin</a></div><div class="ttdeci">input_pin</div><div class="ttdef"><b>Definition</b> <a href="#l00038">gpiodevices.py:38</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_switch_html_a455ef1b757b58d27d2b5cfe823632a84"><div class="ttname"><a href="classgpiodevices_1_1_switch.html#a455ef1b757b58d27d2b5cfe823632a84">gpiodevices.Switch.close</a></div><div class="ttdeci">close(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00049">gpiodevices.py:49</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_switch_html_aca35c7b5ab63374c4f8abbfb7a083bd0"><div class="ttname"><a href="classgpiodevices_1_1_switch.html#aca35c7b5ab63374c4f8abbfb7a083bd0">gpiodevices.Switch.set_function</a></div><div class="ttdeci">set_function(self, function)</div><div class="ttdef"><b>Definition</b> <a href="#l00045">gpiodevices.py:45</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_switch_html_ad1d81f3feeb8cf0299ce1473819d6209"><div class="ttname"><a href="classgpiodevices_1_1_switch.html#ad1d81f3feeb8cf0299ce1473819d6209">gpiodevices.Switch.state</a></div><div class="ttdeci">state</div><div class="ttdef"><b>Definition</b> <a href="#l00036">gpiodevices.py:36</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1_switch_html_adde7b3e03ba1666bb7c1bac2ee4be3ae"><div class="ttname"><a href="classgpiodevices_1_1_switch.html#adde7b3e03ba1666bb7c1bac2ee4be3ae">gpiodevices.Switch.function</a></div><div class="ttdeci">function</div><div class="ttdef"><b>Definition</b> <a href="#l00035">gpiodevices.py:35</a></div></div>
+<div class="ttc" id="aclassgpiodevices_1_1gpio__pins_html"><div class="ttname"><a href="classgpiodevices_1_1gpio__pins.html">gpiodevices.gpio_pins</a></div><div class="ttdef"><b>Definition</b> <a href="#l00007">gpiodevices.py:7</a></div></div>
+<div class="ttc" id="anamespacegpiodevices_html_ad25a76cae90e2b8f7673edbdf7170e57"><div class="ttname"><a href="namespacegpiodevices.html#ad25a76cae90e2b8f7673edbdf7170e57">gpiodevices.test</a></div><div class="ttdeci">test()</div><div class="ttdef"><b>Definition</b> <a href="#l00108">gpiodevices.py:108</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_b3df9f9a7fbc99f43719a864f6aef0f4.html">common</a></li><li class="navelem"><a class="el" href="gpiodevices_8py.html">gpiodevices.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

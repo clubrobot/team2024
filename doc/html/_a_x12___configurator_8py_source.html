@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/tools/AX12_Configurator.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_a_x12___configurator_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AX12_Configurator.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_a_x12___configurator_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">#-*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> time</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> math</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> common.serialutils <span class="keyword">import</span> Deserializer</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacecommon_1_1serialtalks.html">common.serialtalks</a> <span class="keyword">import</span> BYTE, INT, LONG, FLOAT, SerialTalks</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#aca93d81b09954ce7f2a9907220d890c9">   11</a></span>_ATTACH_OPCODE               = 0X10</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#ad58a791f66410da8eea9d689249a9111">   12</a></span>_DETACH_OPCODE               = 0X11</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a139ba9bd0f0232da3f2ff0858dcfa094">   13</a></span>_RESET_OPCODE                = 0X12</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a8ac9a527b36d75ba36d2e72d172ea707">   15</a></span>_PING_AX_OPCODE              = 0X13</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a8537f36638251357a77cb9f0840d2bde">   17</a></span>_SET_ID_OPCODE               = 0X14</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a2a718e32d95641dce66c529609204bd3">   18</a></span>_SET_BD_OPCODE               = 0X15</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a4cf3c1c67e7cdb6b4b28ef0c4e6ca169">   20</a></span>_MOVE_OPCODE                 = 0X16</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a3b99aaae1079006fce336bb844cef95f">   21</a></span>_MOVE_SPEED_OPCODE           = 0X17</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a9a21388401611987d7dfb2b3094db7a3">   23</a></span>_SET_ENDLESS_MODE_OPCODE     = 0X18</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a3c5bb3a13cdb983f2c31de9c4b658ccf">   25</a></span>_SET_TEMP_LIMIT_OPCODE       = 0X1C</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#ac561be955e9f1c692ba0eb137fc0cbdd">   26</a></span>_SET_ANGLE_LIMIT_OPCODE      = 0X1D</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a500ac8bf7c38c9659facf605144497b6">   27</a></span>_SET_VOLTAGE_LIMIT_OPCODE    = 0X1E</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a411ee2987d32c2cb6ccc6e39c2ea2312">   28</a></span>_SET_MAX_TORQUE_OPCODE       = 0X1F</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#aec37d0d2c5d8bcebdaa8615b4633b776">   29</a></span>_SET_MAX_TORQUE_RAM_OPCODE   = 0X20</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a48c165e2cd1b7b0326c1569c8b9c509d">   30</a></span>_SET_SRL_OPCODE              = 0X21</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a7a06466989938384c3614411cf6f32c9">   31</a></span>_SET_RDT_OPCODE              = 0X22</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a0f7125c07d5e0948034ef51db3c38d24">   32</a></span>_SET_LED_ALARM_OPCODE        = 0X23</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a2b29082a092de26e17d0de2e76ec464d">   33</a></span>_SET_SUTDOWN_ALARM_OPCODE    = 0X24</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#af55bf3f78ddab92947317636653598cd">   34</a></span>_SET_CMARGIN_OPCODE          = 0X25</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#ad32075382b9aef8f1ebcb5eb5ba66d93">   35</a></span>_SET_CSLOPE_OPCODE           = 0X26</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a7d74fa3f155f1028547e7c59e037ba7a">   36</a></span>_SET_PUNCH_OPCODE            = 0X27</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a3d617bd735ad6801be5d6b3b4f50bf93">   38</a></span>_READ_TEMPERATURE_OPCODE     = 0X28</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#ab548bd8a35761695f6c58f7c26b14dd9">   39</a></span>_READ_VOLTAGE_OPCODE         = 0X29</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a05259bd5832c014dff7c065f628e4dd5">   40</a></span>_READ_POSITION_OPCODE        = 0X2A</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a9c7c14bb803b801dbc185b79b5c32743">   41</a></span>_READ_SPEED_OPCODE           = 0X2B</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#ae25e46aeab0593e73836f46d9274059a">   42</a></span>_READ_TORQUE_OPCODE          = 0X2C</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="" data-end="">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html">   44</a></span><span class="keyword">class </span><a class="code hl_class" href="class_a_x12___configurator_1_1_a_x12_configurator.html">AX12Configurator</a>(SerialTalks):</div>
+<div class="foldopen" id="foldopen00045" data-start="" data-end="">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a45b678420393b67d02a6ed298db40590">   45</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a45b678420393b67d02a6ed298db40590">__init__</a>(self, uuid=&#39;/dev/tty.SLAB_USBtoUART&#39;):</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        SerialTalks.__init__(self, uuid)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+</div>
+<div class="foldopen" id="foldopen00048" data-start="" data-end="">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ae064faf4d3935f5bc438abd3af03048b">   48</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ae064faf4d3935f5bc438abd3af03048b">attach</a>(self, id):</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        self.send(_ATTACH_OPCODE, BYTE(id))</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+</div>
+<div class="foldopen" id="foldopen00051" data-start="" data-end="">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ad9059ffa50adfdaa03175d6a809b9f5b">   51</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ad9059ffa50adfdaa03175d6a809b9f5b">detach</a>(self):</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        self.send(_DETACH_OPCODE, BYTE(id))</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+</div>
+<div class="foldopen" id="foldopen00054" data-start="" data-end="">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a143f2a14191869843a00fcdf424c2870">   54</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a143f2a14191869843a00fcdf424c2870">reset</a>(self):</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        self.send(_RESET_OPCODE)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+</div>
+<div class="foldopen" id="foldopen00057" data-start="" data-end="">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ac62edd2978dcf43771b4c32bfbba1e43">   57</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ac62edd2978dcf43771b4c32bfbba1e43">ping</a>(self):</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        output = self.execute(_PING_AX_OPCODE)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">return</span> bool(output.read(BYTE))</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+</div>
+<div class="foldopen" id="foldopen00061" data-start="" data-end="">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ae99f38303661d39bc097f67a9699baa4">   61</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ae99f38303661d39bc097f67a9699baa4">setID</a>(self, newID):</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        self.send(_SET_ID_OPCODE, BYTE(newID))</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+</div>
+<div class="foldopen" id="foldopen00064" data-start="" data-end="">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a53a448c24c71c71059081973d3ed9c7f">   64</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a53a448c24c71c71059081973d3ed9c7f">setBD</a>(self, newBD):</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        self.send(_SET_BD_OPCODE, INT(newBD))</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+</div>
+<div class="foldopen" id="foldopen00067" data-start="" data-end="">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ab99ffc21836681ec4eb9162ecbb824cd">   67</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ab99ffc21836681ec4eb9162ecbb824cd">move</a>(self, Pos):</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        self.send(_MOVE_OPCODE, FLOAT(Pos))</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+</div>
+<div class="foldopen" id="foldopen00070" data-start="" data-end="">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a528d3bb1ebf8ed87e9ba068289465d83">   70</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a528d3bb1ebf8ed87e9ba068289465d83">turn</a>(self, Pos):</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        self.send(0x2D, FLOAT(Pos))</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    </div>
+</div>
+<div class="foldopen" id="foldopen00073" data-start="" data-end="">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a5e20cdf759fd0f7be6f9fd71558e8503">   73</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a5e20cdf759fd0f7be6f9fd71558e8503">moveSpeed</a>(self, Pos, Speed):</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        self.send(_MOVE_SPEED_OPCODE, FLOAT(Pos), FLOAT(Speed))</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+</div>
+<div class="foldopen" id="foldopen00076" data-start="" data-end="">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#abbacc319ad5edd9f9faaf35b3ff14d2b">   76</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#abbacc319ad5edd9f9faaf35b3ff14d2b">setEndlessMode</a>(self, Status):</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        self.send(_SET_ENDLESS_MODE_OPCODE, BYTE(Status))</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+</div>
+<div class="foldopen" id="foldopen00079" data-start="" data-end="">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a0d9250b4e86adb5bdd8e6997bd349bc6">   79</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a0d9250b4e86adb5bdd8e6997bd349bc6">setTempLimit</a>(self, Temp):</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        self.send(_SET_TEMP_LIMIT_OPCODE, BYTE(Temp))</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+</div>
+<div class="foldopen" id="foldopen00082" data-start="" data-end="">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a96822690cd490b8312359802eb7d5528">   82</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a96822690cd490b8312359802eb7d5528">setAngleLimit</a>(self, CWLimit, CCWLimit):</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        self.send(_SET_ANGLE_LIMIT_OPCODE, FLOAT(CWLimit), FLOAT(CCWLimit))</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+</div>
+<div class="foldopen" id="foldopen00085" data-start="" data-end="">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a37eecf0584f95d019cb20744d045d98b">   85</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a37eecf0584f95d019cb20744d045d98b">setVoltageLimit</a>(self, DVoltage, UVoltage):</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        self.send(_SET_VOLTAGE_LIMIT_OPCODE, BYTE(DVoltage), BYTE(UVoltage))</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+</div>
+<div class="foldopen" id="foldopen00088" data-start="" data-end="">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a08fb02002b82b53a944c0877f21f5221">   88</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a08fb02002b82b53a944c0877f21f5221">setMaxTorque</a>(self, MaxTorque):</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        self.send(_SET_MAX_TORQUE_OPCODE, INT(MaxTorque))</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    </div>
+</div>
+<div class="foldopen" id="foldopen00091" data-start="" data-end="">
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a76e4b46ab0aab50d8b6af7651f2162f7">   91</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a76e4b46ab0aab50d8b6af7651f2162f7">setMaxTorqueRAM</a>(self, MaxTorque):</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        self.send(_SET_MAX_TORQUE_RAM_OPCODE, INT(MaxTorque))</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    </div>
+</div>
+<div class="foldopen" id="foldopen00094" data-start="" data-end="">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a83e138ba969b9155d9b21f8f3b483a3b">   94</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a83e138ba969b9155d9b21f8f3b483a3b">setSRL</a>(self, srl):</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        self.send(_SET_SRL_OPCODE, BYTE(srl))</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    </div>
+</div>
+<div class="foldopen" id="foldopen00097" data-start="" data-end="">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a155bcecb9c261f1cf08eec2c53b6c55a">   97</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a155bcecb9c261f1cf08eec2c53b6c55a">setRDT</a>(self, rdt):</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        self.send(_SET_RDT_OPCODE, BYTE(rdt))</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    </div>
+</div>
+<div class="foldopen" id="foldopen00100" data-start="" data-end="">
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#af2e5247f0cb20eb18619745b61b279c5">  100</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#af2e5247f0cb20eb18619745b61b279c5">setLEDAlarm</a>(self, LEDAlarm):</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        self.send(_SET_LED_ALARM_OPCODE, BYTE(LEDAlarm))</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+</div>
+<div class="foldopen" id="foldopen00103" data-start="" data-end="">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ad0a533aa2ae7fe9f0699ae8b98d65f73">  103</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ad0a533aa2ae7fe9f0699ae8b98d65f73">setShutdownAlarm</a>(self, SAlarm):</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        self.send(_SET_SUTDOWN_ALARM_OPCODE, BYTE(SAlarm))</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    </div>
+</div>
+<div class="foldopen" id="foldopen00106" data-start="" data-end="">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#acbd953a342b0cb35c4c8a2271dba5f9f">  106</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#acbd953a342b0cb35c4c8a2271dba5f9f">setCMargin</a>(self, CWCMargin, CCWCMargin):</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        self.send(_SET_CMARGIN_OPCODE, BYTE(CWCMargin), BYTE(CCWCMargin))</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    </div>
+</div>
+<div class="foldopen" id="foldopen00109" data-start="" data-end="">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a86e68fef49e1b9d501169a5d53cac302">  109</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a86e68fef49e1b9d501169a5d53cac302">setCSlope</a>(self, CWCSlope, CCWCSlope):</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        self.send(_SET_CSLOPE_OPCODE, BYTE(CWCSlope), BYTE(CCWCSlope))</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+</div>
+<div class="foldopen" id="foldopen00112" data-start="" data-end="">
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a3b461b20045670be5f899e1dda8f1895">  112</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a3b461b20045670be5f899e1dda8f1895">setPunch</a>(self, punch):</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        self.send(_SET_PUNCH_OPCODE, INT(punch))</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    </div>
+</div>
+<div class="foldopen" id="foldopen00115" data-start="" data-end="">
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#af6ca720964c241872072c8fcd8212551">  115</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#af6ca720964c241872072c8fcd8212551">readTemperature</a>(self):</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        output = self.execute(_READ_TEMPERATURE_OPCODE)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordflow">return</span> output.read(INT)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+</div>
+<div class="foldopen" id="foldopen00119" data-start="" data-end="">
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a83dca2f5ccbb6092976a9846b49d8601">  119</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a83dca2f5ccbb6092976a9846b49d8601">readVoltage</a>(self):</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        output = self.execute(_READ_VOLTAGE_OPCODE)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">return</span> output.read(FLOAT)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+</div>
+<div class="foldopen" id="foldopen00123" data-start="" data-end="">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ae18fa9ca3a2609787633289f10109175">  123</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#ae18fa9ca3a2609787633289f10109175">readPosition</a>(self):</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        output = self.execute(_READ_POSITION_OPCODE)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">return</span> output.read(FLOAT)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    </div>
+</div>
+<div class="foldopen" id="foldopen00127" data-start="" data-end="">
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a358d9904a067d95d5b03315c296b81d0">  127</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a358d9904a067d95d5b03315c296b81d0">readSpeed</a>(self):</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        output = self.execute(_READ_SPEED_OPCODE)</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">return</span> output.read(FLOAT)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+</div>
+<div class="foldopen" id="foldopen00131" data-start="" data-end="">
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a60e6215f76cd8b2c7d148a18cac12217">  131</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_a_x12___configurator_1_1_a_x12_configurator.html#a60e6215f76cd8b2c7d148a18cac12217">readTorque</a>(self):</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        output = self.execute(_READ_TORQUE_OPCODE)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">return</span> output.read(INT)</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+</div>
+</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="namespace_a_x12___configurator.html#a2031d70d76f7969df8d4eb77f8f57bd3">  137</a></span>    arm = <a class="code hl_class" href="class_a_x12___configurator_1_1_a_x12_configurator.html">AX12Configurator</a>(<span class="stringliteral">&quot;/dev/ttyUSB0&quot;</span>)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    arm.connect()</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    arm.attach(254)</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    arm.setEndlessMode(<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        arm.turn(1023)</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        </div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html">AX12_Configurator.AX12Configurator</a></div><div class="ttdef"><b>Definition</b> <a href="#l00044">AX12_Configurator.py:44</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a08fb02002b82b53a944c0877f21f5221"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a08fb02002b82b53a944c0877f21f5221">AX12_Configurator.AX12Configurator.setMaxTorque</a></div><div class="ttdeci">setMaxTorque(self, MaxTorque)</div><div class="ttdef"><b>Definition</b> <a href="#l00088">AX12_Configurator.py:88</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a0d9250b4e86adb5bdd8e6997bd349bc6"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a0d9250b4e86adb5bdd8e6997bd349bc6">AX12_Configurator.AX12Configurator.setTempLimit</a></div><div class="ttdeci">setTempLimit(self, Temp)</div><div class="ttdef"><b>Definition</b> <a href="#l00079">AX12_Configurator.py:79</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a143f2a14191869843a00fcdf424c2870"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a143f2a14191869843a00fcdf424c2870">AX12_Configurator.AX12Configurator.reset</a></div><div class="ttdeci">reset(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00054">AX12_Configurator.py:54</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a155bcecb9c261f1cf08eec2c53b6c55a"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a155bcecb9c261f1cf08eec2c53b6c55a">AX12_Configurator.AX12Configurator.setRDT</a></div><div class="ttdeci">setRDT(self, rdt)</div><div class="ttdef"><b>Definition</b> <a href="#l00097">AX12_Configurator.py:97</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a358d9904a067d95d5b03315c296b81d0"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a358d9904a067d95d5b03315c296b81d0">AX12_Configurator.AX12Configurator.readSpeed</a></div><div class="ttdeci">readSpeed(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00127">AX12_Configurator.py:127</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a37eecf0584f95d019cb20744d045d98b"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a37eecf0584f95d019cb20744d045d98b">AX12_Configurator.AX12Configurator.setVoltageLimit</a></div><div class="ttdeci">setVoltageLimit(self, DVoltage, UVoltage)</div><div class="ttdef"><b>Definition</b> <a href="#l00085">AX12_Configurator.py:85</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a3b461b20045670be5f899e1dda8f1895"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a3b461b20045670be5f899e1dda8f1895">AX12_Configurator.AX12Configurator.setPunch</a></div><div class="ttdeci">setPunch(self, punch)</div><div class="ttdef"><b>Definition</b> <a href="#l00112">AX12_Configurator.py:112</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a45b678420393b67d02a6ed298db40590"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a45b678420393b67d02a6ed298db40590">AX12_Configurator.AX12Configurator.__init__</a></div><div class="ttdeci">__init__(self, uuid='/dev/tty.SLAB_USBtoUART')</div><div class="ttdef"><b>Definition</b> <a href="#l00045">AX12_Configurator.py:45</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a528d3bb1ebf8ed87e9ba068289465d83"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a528d3bb1ebf8ed87e9ba068289465d83">AX12_Configurator.AX12Configurator.turn</a></div><div class="ttdeci">turn(self, Pos)</div><div class="ttdef"><b>Definition</b> <a href="#l00070">AX12_Configurator.py:70</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a53a448c24c71c71059081973d3ed9c7f"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a53a448c24c71c71059081973d3ed9c7f">AX12_Configurator.AX12Configurator.setBD</a></div><div class="ttdeci">setBD(self, newBD)</div><div class="ttdef"><b>Definition</b> <a href="#l00064">AX12_Configurator.py:64</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a5e20cdf759fd0f7be6f9fd71558e8503"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a5e20cdf759fd0f7be6f9fd71558e8503">AX12_Configurator.AX12Configurator.moveSpeed</a></div><div class="ttdeci">moveSpeed(self, Pos, Speed)</div><div class="ttdef"><b>Definition</b> <a href="#l00073">AX12_Configurator.py:73</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a60e6215f76cd8b2c7d148a18cac12217"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a60e6215f76cd8b2c7d148a18cac12217">AX12_Configurator.AX12Configurator.readTorque</a></div><div class="ttdeci">readTorque(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00131">AX12_Configurator.py:131</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a76e4b46ab0aab50d8b6af7651f2162f7"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a76e4b46ab0aab50d8b6af7651f2162f7">AX12_Configurator.AX12Configurator.setMaxTorqueRAM</a></div><div class="ttdeci">setMaxTorqueRAM(self, MaxTorque)</div><div class="ttdef"><b>Definition</b> <a href="#l00091">AX12_Configurator.py:91</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a83dca2f5ccbb6092976a9846b49d8601"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a83dca2f5ccbb6092976a9846b49d8601">AX12_Configurator.AX12Configurator.readVoltage</a></div><div class="ttdeci">readVoltage(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00119">AX12_Configurator.py:119</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a83e138ba969b9155d9b21f8f3b483a3b"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a83e138ba969b9155d9b21f8f3b483a3b">AX12_Configurator.AX12Configurator.setSRL</a></div><div class="ttdeci">setSRL(self, srl)</div><div class="ttdef"><b>Definition</b> <a href="#l00094">AX12_Configurator.py:94</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a86e68fef49e1b9d501169a5d53cac302"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a86e68fef49e1b9d501169a5d53cac302">AX12_Configurator.AX12Configurator.setCSlope</a></div><div class="ttdeci">setCSlope(self, CWCSlope, CCWCSlope)</div><div class="ttdef"><b>Definition</b> <a href="#l00109">AX12_Configurator.py:109</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_a96822690cd490b8312359802eb7d5528"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#a96822690cd490b8312359802eb7d5528">AX12_Configurator.AX12Configurator.setAngleLimit</a></div><div class="ttdeci">setAngleLimit(self, CWLimit, CCWLimit)</div><div class="ttdef"><b>Definition</b> <a href="#l00082">AX12_Configurator.py:82</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_ab99ffc21836681ec4eb9162ecbb824cd"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#ab99ffc21836681ec4eb9162ecbb824cd">AX12_Configurator.AX12Configurator.move</a></div><div class="ttdeci">move(self, Pos)</div><div class="ttdef"><b>Definition</b> <a href="#l00067">AX12_Configurator.py:67</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_abbacc319ad5edd9f9faaf35b3ff14d2b"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#abbacc319ad5edd9f9faaf35b3ff14d2b">AX12_Configurator.AX12Configurator.setEndlessMode</a></div><div class="ttdeci">setEndlessMode(self, Status)</div><div class="ttdef"><b>Definition</b> <a href="#l00076">AX12_Configurator.py:76</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_ac62edd2978dcf43771b4c32bfbba1e43"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#ac62edd2978dcf43771b4c32bfbba1e43">AX12_Configurator.AX12Configurator.ping</a></div><div class="ttdeci">ping(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00057">AX12_Configurator.py:57</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_acbd953a342b0cb35c4c8a2271dba5f9f"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#acbd953a342b0cb35c4c8a2271dba5f9f">AX12_Configurator.AX12Configurator.setCMargin</a></div><div class="ttdeci">setCMargin(self, CWCMargin, CCWCMargin)</div><div class="ttdef"><b>Definition</b> <a href="#l00106">AX12_Configurator.py:106</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_ad0a533aa2ae7fe9f0699ae8b98d65f73"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#ad0a533aa2ae7fe9f0699ae8b98d65f73">AX12_Configurator.AX12Configurator.setShutdownAlarm</a></div><div class="ttdeci">setShutdownAlarm(self, SAlarm)</div><div class="ttdef"><b>Definition</b> <a href="#l00103">AX12_Configurator.py:103</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_ad9059ffa50adfdaa03175d6a809b9f5b"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#ad9059ffa50adfdaa03175d6a809b9f5b">AX12_Configurator.AX12Configurator.detach</a></div><div class="ttdeci">detach(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00051">AX12_Configurator.py:51</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_ae064faf4d3935f5bc438abd3af03048b"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#ae064faf4d3935f5bc438abd3af03048b">AX12_Configurator.AX12Configurator.attach</a></div><div class="ttdeci">attach(self, id)</div><div class="ttdef"><b>Definition</b> <a href="#l00048">AX12_Configurator.py:48</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_ae18fa9ca3a2609787633289f10109175"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#ae18fa9ca3a2609787633289f10109175">AX12_Configurator.AX12Configurator.readPosition</a></div><div class="ttdeci">readPosition(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00123">AX12_Configurator.py:123</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_ae99f38303661d39bc097f67a9699baa4"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#ae99f38303661d39bc097f67a9699baa4">AX12_Configurator.AX12Configurator.setID</a></div><div class="ttdeci">setID(self, newID)</div><div class="ttdef"><b>Definition</b> <a href="#l00061">AX12_Configurator.py:61</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_af2e5247f0cb20eb18619745b61b279c5"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#af2e5247f0cb20eb18619745b61b279c5">AX12_Configurator.AX12Configurator.setLEDAlarm</a></div><div class="ttdeci">setLEDAlarm(self, LEDAlarm)</div><div class="ttdef"><b>Definition</b> <a href="#l00100">AX12_Configurator.py:100</a></div></div>
+<div class="ttc" id="aclass_a_x12___configurator_1_1_a_x12_configurator_html_af6ca720964c241872072c8fcd8212551"><div class="ttname"><a href="class_a_x12___configurator_1_1_a_x12_configurator.html#af6ca720964c241872072c8fcd8212551">AX12_Configurator.AX12Configurator.readTemperature</a></div><div class="ttdeci">readTemperature(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00115">AX12_Configurator.py:115</a></div></div>
+<div class="ttc" id="anamespacecommon_1_1serialtalks_html"><div class="ttname"><a href="namespacecommon_1_1serialtalks.html">serialtalks</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_a0da791ce3cb215a800fb632cbe20db7.html">tools</a></li><li class="navelem"><a class="el" href="_a_x12___configurator_8py.html">AX12_Configurator.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

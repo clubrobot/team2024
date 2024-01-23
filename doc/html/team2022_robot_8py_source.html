@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CRINSA-team2024:  Fichier source de C:/Users/boris/Desktop/robotique/team2024/raspberrypi/robots/team2022/team2022Robot.py</title>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">CRINSA-team2024<span id="projectnumber">&#160;2024</span>
+   </div>
+   <div id="projectbrief">Documentation du Club Robot INSA Rennes 2024</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('team2022_robot_8py_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">team2022Robot.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="team2022_robot_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespaceteam2022_robot.html">    1</a></span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacerobots_1_1bornibus_1_1setup__bornibus.html">robots.bornibus.setup_bornibus</a> <span class="keyword">import</span> *</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">from</span> behaviours.robot_behaviour <span class="keyword">import</span> RobotBehavior</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> behaviours.avoidance_behaviour <span class="keyword">import</span> AviodanceBehaviour</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> robots.bornibus.actions.wind_action <span class="keyword">import</span> WindAction</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">from</span> robots.bornibus.actions.push_cup_action <span class="keyword">import</span> PushCupAction</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">from</span> robots.bornibus.actions.harbour_action <span class="keyword">import</span> Harbour</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> math <span class="keyword">import</span> pi</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">from</span> threading <span class="keyword">import</span> Semaphore</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespaceteam2022_robot.html#ac337d1b149a4d53f48b08355ad7f30ee">    9</a></span>COLOR = RobotBehavior.YELLOW_SIDE</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespaceteam2022_robot.html#a115d4c4d1abf272961a511f80f87c42b">   10</a></span>PREPARATION = <span class="keyword">False</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="" data-end="">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classteam2022_robot_1_1_bornibus.html">Bornibus</a>(RobotBehavior):</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="stringliteral">&quot;&quot;&quot;This class is the main objet of bornibus robot, it contain all the action list and initial configuration to run a match</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="stringliteral">    Args:</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="stringliteral">        RobotBehavior (class): The main bornibus class inherit from the global robot behaviour in order to have a common behaviour for each robot you want</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="" data-end="">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#a0c0bd62d454d9350a86c7a84c155cb79">   20</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classteam2022_robot_1_1_bornibus.html#a0c0bd62d454d9350a86c7a84c155cb79">__init__</a>(self, manager, *args, timelimit=None, **kwargs):</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="stringliteral">&quot;&quot;&quot;The initialisation function create all functional module of the robot. This function also instanciate all the match actions</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="stringliteral">        Args:</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="stringliteral">            manager (class): One instance of the manager client. It is the client part of th proxy to have access of all the arduino daughter cards</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="stringliteral">            timelimit (int, optional): The match time limit, usualy set to 100 seconds. Defaults to None.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        RobotBehavior.__init__(self, manager, *args,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                               timelimit=timelimit, **kwargs)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#aad4a019d5aadcdd924df5c7e65b6da2c">   30</a></span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#aad4a019d5aadcdd924df5c7e65b6da2c">avoidance_behaviour</a> = AviodanceBehaviour(</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            wheeledbase, roadmap, robot_beacon, sensors)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#aa5bb3b822d89e94c3cf9b33f590791a1">   33</a></span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#aa5bb3b822d89e94c3cf9b33f590791a1">side</a> = RobotBehavior.BLUE_SIDE</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#af765aed2c9930bdb65f28ebca52e3228">   35</a></span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#af765aed2c9930bdb65f28ebca52e3228">wheeledbase</a> = wheeledbase</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#a83733a30d3da0260a7cdeebc12ad4bf1">   36</a></span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#a83733a30d3da0260a7cdeebc12ad4bf1">display</a> = display</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#a2efd6ebe0faeee34a4600b51117ed487">   37</a></span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#a2efd6ebe0faeee34a4600b51117ed487">actionneur</a> = actionneur</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#ae7139d7381f8bbfbc6f37d2c315ca2e5">   39</a></span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#ae7139d7381f8bbfbc6f37d2c315ca2e5">automate</a> = []</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#afe67fa31d2d00ee912ac7d1564d46ae4">   41</a></span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#afe67fa31d2d00ee912ac7d1564d46ae4">automatestep</a> = 0</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#ab3307a1d27dbcd642446a9b52456a23a">   43</a></span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#ab3307a1d27dbcd642446a9b52456a23a">p</a> = Semaphore(0)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+</div>
+<div class="foldopen" id="foldopen00045" data-start="" data-end="">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#ac112ef335d52800c90519e05da0d0843">   45</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classteam2022_robot_1_1_bornibus.html#ac112ef335d52800c90519e05da0d0843">make_decision</a>(self):</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="stringliteral">&quot;&quot;&quot;This function make a decision to choose the next action to play. Today it basically return th next action on list</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="stringliteral">           /!\ You can describe here you own decision behaviour but the return parameter needs to be the same.</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="stringliteral">        Returns:</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="stringliteral">            [function pointer, class pointer, tuple, float, float]: This function return the next action procedure pointer,</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="stringliteral">            a pointer of itself in order the have full robot acess inside procedure method. The destnation tuple and the precision to reach.</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        if(self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#afe67fa31d2d00ee912ac7d1564d46ae4">automatestep</a> &lt; len(self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#ae7139d7381f8bbfbc6f37d2c315ca2e5">automate</a>)):</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            action = self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#ae7139d7381f8bbfbc6f37d2c315ca2e5">automate</a>[self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#afe67fa31d2d00ee912ac7d1564d46ae4">automatestep</a>]</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#a83733a30d3da0260a7cdeebc12ad4bf1">display</a>.love(100)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            self.stop_event.set()</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span>, (self,), {}, (<span class="keywordtype">None</span>, <span class="keywordtype">None</span>)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span> action.procedure, (self,), {}, (action.actionpoint + (action.orientation,), (action.actionpoint_precision, <span class="keywordtype">None</span>))</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+</div>
+<div class="foldopen" id="foldopen00062" data-start="" data-end="">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#a1ad429d66d1ca50d886243bb2c5f5f7b">   62</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classteam2022_robot_1_1_bornibus.html#a1ad429d66d1ca50d886243bb2c5f5f7b">goto_procedure</a>(self, destination, thresholds=(<span class="keywordtype">None</span>, <span class="keywordtype">None</span>)):</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="stringliteral">&quot;&quot;&quot;The method describe the behaviour to reach an action point, it use the avoidance beahviour class that describe how to avoid an obstacle.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="stringliteral">        Args:</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="stringliteral">            destination (tuple): the x, y, theta action point</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="stringliteral">            thresholds (tuple, optional): The optional precision to reach a point. Defaults to (None, None).</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="stringliteral">        Returns:</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="stringliteral">            bool: Return True when the robot successfuly reach the desired position false other.</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#aad4a019d5aadcdd924df5c7e65b6da2c">avoidance_behaviour</a>.move(destination, thresholds):</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#a83733a30d3da0260a7cdeebc12ad4bf1">display</a>.happy()</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#afe67fa31d2d00ee912ac7d1564d46ae4">automatestep</a> += 1</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#a83733a30d3da0260a7cdeebc12ad4bf1">display</a>.surprised()</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+</div>
+<div class="foldopen" id="foldopen00080" data-start="" data-end="">
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#a100bfa6652724de1bc9d8e31d0c5116b">   80</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classteam2022_robot_1_1_bornibus.html#a100bfa6652724de1bc9d8e31d0c5116b">set_side</a>(self, side):</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="stringliteral">&quot;&quot;&quot;This function is called during the preparation phase in order to choose the starting side</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="stringliteral">        Args:</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="stringliteral">            side (int): Yellow or blue</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#aa5bb3b822d89e94c3cf9b33f590791a1">side</a> = side</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+</div>
+<div class="foldopen" id="foldopen00088" data-start="" data-end="">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#aa2f2e063f1bb576e15630e88fb34bf7c">   88</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classteam2022_robot_1_1_bornibus.html#aa2f2e063f1bb576e15630e88fb34bf7c">set_position</a>(self):</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="stringliteral">&quot;&quot;&quot;This function apply the starting position of the robot reagading to the choosed side</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#aa5bb3b822d89e94c3cf9b33f590791a1">side</a> == RobotBehavior.YELLOW_SIDE:</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            wheeledbase.set_position(*geogebra.get(<span class="stringliteral">&#39;StartYellow&#39;</span>), -pi/2)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            wheeledbase.set_position(*geogebra.get(<span class="stringliteral">&#39;StartBlue&#39;</span>), pi/2)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+</div>
+<div class="foldopen" id="foldopen00096" data-start="" data-end="">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#a928fd426153fdf90b4f7763c2869bbea">   96</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classteam2022_robot_1_1_bornibus.html#a928fd426153fdf90b4f7763c2869bbea">positioning</a>(self):</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="stringliteral">&quot;&quot;&quot;This optionnal function can be useful to do a small move after setting up the postion during the preparation phase</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#aa5bb3b822d89e94c3cf9b33f590791a1">side</a> == RobotBehavior.YELLOW_SIDE:</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            wheeledbase.goto(*geogebra.get(<span class="stringliteral">&#39;PositionningYellow&#39;</span>), -pi/2)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            wheeledbase.goto(*geogebra.get(<span class="stringliteral">&#39;PositionningBlue&#39;</span>), pi/2)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+</div>
+<div class="foldopen" id="foldopen00104" data-start="" data-end="">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#a72f22b719c722ceed3198781cb1da46c">  104</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classteam2022_robot_1_1_bornibus.html#a72f22b719c722ceed3198781cb1da46c">start_procedure</a>(self):</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="stringliteral">&quot;&quot;&quot;This action is launched at the beggining of the match</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        Thread(target=self.<a class="code hl_function" href="classteam2022_robot_1_1_bornibus.html#a907dc0e5f789ea3d9e6b3d25a597af7c">stop_match</a>).start()</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#a83733a30d3da0260a7cdeebc12ad4bf1">display</a>.start()</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+</div>
+<div class="foldopen" id="foldopen00110" data-start="" data-end="">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#a1893dfc4e60a74c8bb1e0e9b3e00ec28">  110</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classteam2022_robot_1_1_bornibus.html#a1893dfc4e60a74c8bb1e0e9b3e00ec28">stop_procedure</a>(self):</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="stringliteral">&quot;&quot;&quot;Optionnal function running at the end of match. Usually used to check if the funny action is end</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#ab3307a1d27dbcd642446a9b52456a23a">p</a>.acquire(blocking=<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+</div>
+<div class="foldopen" id="foldopen00115" data-start="" data-end="">
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classteam2022_robot_1_1_bornibus.html#a907dc0e5f789ea3d9e6b3d25a597af7c">  115</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classteam2022_robot_1_1_bornibus.html#a907dc0e5f789ea3d9e6b3d25a597af7c">stop_match</a>(self):</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keyword">import</span> time</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        time.sleep(95)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#a2efd6ebe0faeee34a4600b51117ed487">actionneur</a>.raise_flag()</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        time.sleep(4)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        wheeledbase.stop()</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#a83733a30d3da0260a7cdeebc12ad4bf1">display</a>.love(duration=1000)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        self.<a class="code hl_variable" href="classteam2022_robot_1_1_bornibus.html#ab3307a1d27dbcd642446a9b52456a23a">p</a>.release()</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        manager.end_game()</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+</div>
+</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordflow">if</span> PREPARATION:</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <a class="code hl_class" href="classteam2022_robot_1_1_bornibus.html">Bornibus</a>(manager).start_preparation()</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="namespaceteam2022_robot.html#a6aef1d21ce8cda1feb4f86e1d29b46e8">  130</a></span>        robot = <a class="code hl_class" href="classteam2022_robot_1_1_bornibus.html">Bornibus</a>(manager)</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        robot.set_side(COLOR)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        init_robot()</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        robot.set_position()</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        input()</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        robot.positioning()</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        input()</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        robot.start()</div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html">team2022Robot.Bornibus</a></div><div class="ttdef"><b>Definition</b> <a href="#l00013">team2022Robot.py:13</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_a0c0bd62d454d9350a86c7a84c155cb79"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#a0c0bd62d454d9350a86c7a84c155cb79">team2022Robot.Bornibus.__init__</a></div><div class="ttdeci">__init__(self, manager, *args, timelimit=None, **kwargs)</div><div class="ttdef"><b>Definition</b> <a href="#l00020">team2022Robot.py:20</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_a100bfa6652724de1bc9d8e31d0c5116b"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#a100bfa6652724de1bc9d8e31d0c5116b">team2022Robot.Bornibus.set_side</a></div><div class="ttdeci">set_side(self, side)</div><div class="ttdef"><b>Definition</b> <a href="#l00080">team2022Robot.py:80</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_a1893dfc4e60a74c8bb1e0e9b3e00ec28"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#a1893dfc4e60a74c8bb1e0e9b3e00ec28">team2022Robot.Bornibus.stop_procedure</a></div><div class="ttdeci">stop_procedure(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00110">team2022Robot.py:110</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_a1ad429d66d1ca50d886243bb2c5f5f7b"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#a1ad429d66d1ca50d886243bb2c5f5f7b">team2022Robot.Bornibus.goto_procedure</a></div><div class="ttdeci">goto_procedure(self, destination, thresholds=(None, None))</div><div class="ttdef"><b>Definition</b> <a href="#l00062">team2022Robot.py:62</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_a2efd6ebe0faeee34a4600b51117ed487"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#a2efd6ebe0faeee34a4600b51117ed487">team2022Robot.Bornibus.actionneur</a></div><div class="ttdeci">actionneur</div><div class="ttdef"><b>Definition</b> <a href="#l00037">team2022Robot.py:37</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_a72f22b719c722ceed3198781cb1da46c"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#a72f22b719c722ceed3198781cb1da46c">team2022Robot.Bornibus.start_procedure</a></div><div class="ttdeci">start_procedure(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00104">team2022Robot.py:104</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_a83733a30d3da0260a7cdeebc12ad4bf1"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#a83733a30d3da0260a7cdeebc12ad4bf1">team2022Robot.Bornibus.display</a></div><div class="ttdeci">display</div><div class="ttdef"><b>Definition</b> <a href="#l00036">team2022Robot.py:36</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_a907dc0e5f789ea3d9e6b3d25a597af7c"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#a907dc0e5f789ea3d9e6b3d25a597af7c">team2022Robot.Bornibus.stop_match</a></div><div class="ttdeci">stop_match(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00115">team2022Robot.py:115</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_a928fd426153fdf90b4f7763c2869bbea"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#a928fd426153fdf90b4f7763c2869bbea">team2022Robot.Bornibus.positioning</a></div><div class="ttdeci">positioning(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00096">team2022Robot.py:96</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_aa2f2e063f1bb576e15630e88fb34bf7c"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#aa2f2e063f1bb576e15630e88fb34bf7c">team2022Robot.Bornibus.set_position</a></div><div class="ttdeci">set_position(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00088">team2022Robot.py:88</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_aa5bb3b822d89e94c3cf9b33f590791a1"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#aa5bb3b822d89e94c3cf9b33f590791a1">team2022Robot.Bornibus.side</a></div><div class="ttdeci">side</div><div class="ttdef"><b>Definition</b> <a href="#l00033">team2022Robot.py:33</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_aad4a019d5aadcdd924df5c7e65b6da2c"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#aad4a019d5aadcdd924df5c7e65b6da2c">team2022Robot.Bornibus.avoidance_behaviour</a></div><div class="ttdeci">avoidance_behaviour</div><div class="ttdef"><b>Definition</b> <a href="#l00030">team2022Robot.py:30</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_ab3307a1d27dbcd642446a9b52456a23a"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#ab3307a1d27dbcd642446a9b52456a23a">team2022Robot.Bornibus.p</a></div><div class="ttdeci">p</div><div class="ttdef"><b>Definition</b> <a href="#l00043">team2022Robot.py:43</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_ac112ef335d52800c90519e05da0d0843"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#ac112ef335d52800c90519e05da0d0843">team2022Robot.Bornibus.make_decision</a></div><div class="ttdeci">make_decision(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00045">team2022Robot.py:45</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_ae7139d7381f8bbfbc6f37d2c315ca2e5"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#ae7139d7381f8bbfbc6f37d2c315ca2e5">team2022Robot.Bornibus.automate</a></div><div class="ttdeci">automate</div><div class="ttdef"><b>Definition</b> <a href="#l00039">team2022Robot.py:39</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_af765aed2c9930bdb65f28ebca52e3228"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#af765aed2c9930bdb65f28ebca52e3228">team2022Robot.Bornibus.wheeledbase</a></div><div class="ttdeci">wheeledbase</div><div class="ttdef"><b>Definition</b> <a href="#l00035">team2022Robot.py:35</a></div></div>
+<div class="ttc" id="aclassteam2022_robot_1_1_bornibus_html_afe67fa31d2d00ee912ac7d1564d46ae4"><div class="ttname"><a href="classteam2022_robot_1_1_bornibus.html#afe67fa31d2d00ee912ac7d1564d46ae4">team2022Robot.Bornibus.automatestep</a></div><div class="ttdeci">automatestep</div><div class="ttdef"><b>Definition</b> <a href="#l00041">team2022Robot.py:41</a></div></div>
+<div class="ttc" id="anamespacerobots_1_1bornibus_1_1setup__bornibus_html"><div class="ttname"><a href="namespacerobots_1_1bornibus_1_1setup__bornibus.html">setup_bornibus</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4743448644bdaa5cac201a00682b4ab5.html">raspberrypi</a></li><li class="navelem"><a class="el" href="dir_0ed5160175873dda433e3dfd6da604c3.html">robots</a></li><li class="navelem"><a class="el" href="dir_492054497839c0df0f0d2639b6f54f3c.html">team2022</a></li><li class="navelem"><a class="el" href="team2022_robot_8py.html">team2022Robot.py</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>
