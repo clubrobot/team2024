@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from daughter_cards.wheeledbase import WheeledBase, LEFTWHEEL_RADIUS_ID
+from daughter_cards.wheeledbase import *
 from daughter_cards.actionneur import Actionneur
 from common.serialtypes import FLOAT, STRING, INT
 

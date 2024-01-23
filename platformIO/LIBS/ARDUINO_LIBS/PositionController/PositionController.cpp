@@ -46,7 +46,7 @@ void PositionController::save(int address) const
 	address += sizeof(m_angVelKp);
 	EEPROM.put(address, m_linVelMax);
 	address += sizeof(m_linVelMax);
-;		EEPROM.put(address, m_angVelMax);
+	EEPROM.put(address, m_angVelMax);
 	address += sizeof(m_angVelMax);
 	EEPROM.put(address, m_linPosThreshold);
 	address += sizeof(m_linPosThreshold);
