@@ -4,11 +4,23 @@ from daughter_cards.actionneur import Actionneur
 from common.serialtypes import FLOAT, STRING, INT
 from common.serialtalking import GETUUID_OPCODE, SerialTalking
 import time
+import sys
 
+#Gestion du port série
+if 'linux' in sys.platform:
+    serial_path = '/dev/ttyUSB0'
+else:
+    serial_path = 'COM11'
+ww = WheeledBase(None, serial_path)
 
-ww = WheeledBase(None, 'COM11')
-while 1:
-    print(ww.set_velocities(10,0))
+ww.set_position(10,0,0)
+
+#while 1:
+    #ww.set_velocities(1,0)
+    #print(ww.get_position())
+
+#ww.turnonthespot(180)
+#ww.set_velocities(1,0)
 
 	
 #LEFTCODEWHEEL_RADIUS_VALUE              = 21.90460280828869
