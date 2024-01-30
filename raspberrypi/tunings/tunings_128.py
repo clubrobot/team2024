@@ -1,7 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from setups.setup_wheeledbase import *
+from daughter_cards.wheeledbase import *
+from daughter_cards.wheeledbase import WheeledBase, LEFTWHEEL_RADIUS_ID
+from daughter_cards.actionneur import Actionneur
+from common.serialtypes import FLOAT, STRING, INT
+import sys
+
+#Gestion du port série
+if 'linux' in sys.platform:
+    serial_path = '/dev/ttyUSB0'
+else:
+    serial_path = 'COM11'
+wheeledbase = WheeledBase(None, serial_path)
+
 
 # LEFTWHELL MOTOR CONSTANTS #
 LEFTWHEEL_RADIUS_VALUE = 36.5

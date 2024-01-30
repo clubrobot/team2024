@@ -162,45 +162,6 @@ class WheeledBase():
         self.latch = None
         self.latch_time = None
 
-        leftWheel.load(LEFTWHEEL_ADDRESS);
-        rightWheel.load(RIGHTWHEEL_ADDRESS);
-        leftCodewheel.load(LEFTCODEWHEEL_ADDRESS);
-        rightCodewheel.load(RIGHTCODEWHEEL_ADDRESS);
-        
-        odometry.load(ODOMETRY_ADDRESS);
-        velocityControl.load(VELOCITYCONTROL_ADDRESS);
-        linVelPID.load(LINVELPID_ADDRESS);
-        angVelPID.load(ANGVELPID_ADDRESS);
-        positionControl.load(POSITIONCONTROL_ADDRESS);
-        purePursuit.load(PUREPURSUIT_ADDRESS);
-
-        """
-        #Wheel and DCmotor
-        self.wheeledbase.order(RIGHTCODEWHEEL_COUNTSPERREV_ID, INT(10000))
-        
-        self.wheeledbase.order(LEFTWHEEL_RADIUS_ID, FLOAT(23.8))
-        self.wheeledbase.order(LEFTWHEEL_CONSTANT_ID, INT(622))
-
-        self.wheeledbase.order(RIGHTWHEEL_RADIUS_ID, FLOAT(23.8))
-        self.wheeledbase.order(RIGHTWHEEL_CONSTANT_ID, INT(622))
-
-        self.wheeledbase.order(LEFTCODEWHEEL_RADIUS_ID, FLOAT(22.71))
-        self.wheeledbase.order(RIGHTCODEWHEEL_RADIUS_ID, FLOAT(22.71))
-
-        # Velocity control
-        self.wheeledbase.order(ODOMETRY_AXLETRACK_ID, FLOAT(209.16))
-
-        self.wheeledbase.order(POSITIONCONTROL_LINVELMAX_ID, INT(500))
-        self.wheeledbase.order(POSITIONCONTROL_ANGVELMAX_ID, FLOAT(1.5))
-
-        self.wheeledbase.order(VELOCITYCONTROL_MAXLINACC_ID, INT(500))
-        self.wheeledbase.order(VELOCITYCONTROL_MAXLINDEC_ID, INT(1000))
-
-        self.wheeledbase.order(VELOCITYCONTROL_MAXANGACC_ID, FLOAT(3.14))
-        self.wheeledbase.order(VELOCITYCONTROL_MAXANGDEC_ID, FLOAT(6.28))
-        """
-
-
     def set_openloop_velocities(self, left, right):
         self.wheeledbase.order(SET_OPENLOOP_VELOCITIES_OPCODE, FLOAT(left), FLOAT(right))
 

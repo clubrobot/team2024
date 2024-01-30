@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from daughter_cards.wheeledbase import *
 from daughter_cards.wheeledbase import WheeledBase, LEFTWHEEL_RADIUS_ID
 from daughter_cards.actionneur import Actionneur
 from common.serialtypes import FLOAT, STRING, INT
+import sys
 
-wheeledbase = WheeledBase(None, 'COM11')
+#Gestion du port série
+if 'linux' in sys.platform:
+    serial_path = '/dev/ttyUSB0'
+else:
+    serial_path = 'COM11'
+wheeledbase = WheeledBase(None, serial_path)
 
 LEFTWHEEL_RADIUS_VALUE = 35
 LEFTWHEEL_CONSTANT_VALUE = 0.16661794483661652
