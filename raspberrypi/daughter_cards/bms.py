@@ -28,7 +28,7 @@ class BMS(SecureArduino):
     _DEFAULT = {GET_RSOC_OPCODE: Deserializer(INT(100))}
 
     def __init__(self, parent, uuid='/tmp/arduino/BMS'):
-        SecureArduino.__init__(self, parent, uuid, BMS._DEFAULT)
+        SecureArduino.__init__(self, parent, "/dev/arduino/"+uuid, BMS._DEFAULT)
 
     def get_relative_soc(self):
         output = self.execute(GET_RSOC_OPCODE)

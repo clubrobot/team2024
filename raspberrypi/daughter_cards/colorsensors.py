@@ -39,7 +39,7 @@ class ColorSensorArray(SecureArduino):
     }
 
     def __init__(self, parent, uuid='ColorSensors'):
-        SecureArduino.__init__(self, parent, uuid, self.DEFAULT)
+        SecureArduino.__init__(self, parent, "/dev/arduino/"+uuid, self.DEFAULT)
 
     def get_cup_color_estimate(self, channel: int) -> int:
         return self.execute(CSA_GET_CUP_COLOR_ESTIMATE_OPCODE, BYTE(channel)).read(BYTE)

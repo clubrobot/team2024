@@ -15,7 +15,7 @@ GET_POSITION_OPCODE = 0x10
 class Tag(Arduino):
 
     def __init__(self, parent, uuid='tag'):
-        Arduino.__init__(self, parent, uuid)
+        Arduino.__init__(self, parent, "/dev/arduino/"+uuid)
 
     def get_position(self, **kwargs):
         output = self.execute(GET_POSITION_OPCODE, **kwargs)

@@ -27,7 +27,7 @@ class ButtonCard(Arduino):
     TIRETTE = 8
 
     def __init__(self, parent, uuid='buttonCard'):
-        Arduino.__init__(self, parent, uuid)
+        Arduino.__init__(self, parent, "/dev/arduino/"+uuid)
         self.functions = dict()
         self.bind(1, self._compute)
 

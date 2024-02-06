@@ -40,7 +40,7 @@ class Sensors():
               } """
 
     def __init__(self, uuid='SensorBoard'):
-        self.sensors = SerialTalking(uuid)
+        self.sensors = SerialTalking("/dev/arduino/"+uuid)
         self.last_time = None
 
         try:

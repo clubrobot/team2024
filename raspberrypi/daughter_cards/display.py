@@ -28,7 +28,7 @@ UPSIDEDOWN_MODE = 4
 class LEDMatrix(SecureArduino):
 
     def __init__(self, parent, matrix_id, uuid='display'):
-        SecureArduino.__init__(self, parent, uuid, dict())
+        SecureArduino.__init__(self, parent, "/dev/arduino/"+uuid, dict())
         self.matrix_id = matrix_id
 
     def set_message(self, message, mode=None, speed=None):

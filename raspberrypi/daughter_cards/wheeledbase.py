@@ -109,7 +109,7 @@ class WheeledBase():
         def set(self, value): self.parent.set_parameter_value(self.id, value, self.type)
 
     def __init__(self, parent, uuid='wheeledbase'):
-        self.wheeledbase = SerialTalking(uuid)
+        self.wheeledbase = SerialTalking("/dev/arduino/"+uuid)
 
         self.left_wheel_radius              = WheeledBase.Parameter(self, LEFTWHEEL_RADIUS_ID, FLOAT)
         self.left_wheel_constant            = WheeledBase.Parameter(self, LEFTWHEEL_CONSTANT_ID, FLOAT)

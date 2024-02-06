@@ -19,7 +19,7 @@ GET_SENSOR_STATE_OPCODE = 0x15
 class AccelerationSensor(Arduino):
 
     def __init__(self, parent, uuid='inertial'):
-        Arduino.__init__(self, parent, uuid)
+        Arduino.__init__(self, parent, "/dev/arduino/"+uuid)
 
     def get_acceleration(self, **kwargs):
         output = self.execute(GET_ROBOT_ACC_OPCODE)
