@@ -6,4 +6,4 @@ then
     exit 1
 fi
 
-rsync -e ssh --progress  "$1" pi@$2:/home/pi/ClubRobot/team2024
+rsync -re ssh --progress  "$1" pi@$2:/home/pi/ClubRobot/team2024
