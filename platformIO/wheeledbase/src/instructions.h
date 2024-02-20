@@ -32,6 +32,7 @@
 #define RESET_PARAMETERS_OPCODE         0x1F
 #define SAVE_PARAMETERS_OPCODE          0x20
 #define START_TURNONTHESPOT_DIR_OPCODE  0x21
+
 // Parameters identifiers
 
 #define LEFTWHEEL_RADIUS_ID             0x10

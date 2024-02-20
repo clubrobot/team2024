@@ -34,6 +34,7 @@
 #define SERIALTALKING_GETBUFFERSIZE_OPCODE  0x06
 #define SERIALTALKING_RESEND_OPCODE         0x07
 #define SERIALTALKING_FREE_BUFFER_OPCODE    0x08
+#define SERIALTALKING_CLEAR_EEPROM  0x09
 
 /** class SerialTalking
  *  \brief Object de communication serial avec un ordinateur.
@@ -206,6 +207,7 @@ private:
     static void SETEEPROM();
     //! Méthode pour récuperer la taille du Buffer.
     static void GETBUFFERSIZE();
+    static void CLEAREEPROM();
 };
 
 extern SerialTalking talking;

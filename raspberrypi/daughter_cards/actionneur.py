@@ -37,7 +37,7 @@ It allows the raspeberry pi to ask the arduino to perform an action via a specif
 class Actionneur():
     
     def __init__(self, parent, uuid='actionneurs'):
-        self.actio = SerialTalking("/dev/arduino/"+uuid)
+        self.actio = SerialTalking(uuid)#"/dev/arduino/"+
     
     def SetServoAngle(self, angle): self.actio.order(SET_ANGLE_SERVO_OPCODE, USHORT(angle))
 

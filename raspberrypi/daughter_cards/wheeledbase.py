@@ -4,6 +4,7 @@
 import time
 import math
 import numpy as np
+import sys
 from time import sleep
 from common.serialtalking import BYTE, LONG, FLOAT, INT
 from common.serialtalking import SerialTalking
@@ -109,7 +110,10 @@ class WheeledBase():
         def set(self, value): self.parent.set_parameter_value(self.id, value, self.type)
 
     def __init__(self, parent, uuid='wheeledbase'):
-        self.wheeledbase = SerialTalking("/dev/arduino/"+uuid)
+        if 'linux' in sys.platform:
+            self.wheeledbase = SerialTalking("/dev/arduino/"+uuid)
+        else:
+            self.wheeledbase = SerialTalking(uuid)
 
         self.left_wheel_radius              = WheeledBase.Parameter(self, LEFTWHEEL_RADIUS_ID, FLOAT)
         self.left_wheel_constant            = WheeledBase.Parameter(self, LEFTWHEEL_CONSTANT_ID, FLOAT)
@@ -233,7 +237,7 @@ class WheeledBase():
                 time.sleep(timestep)
 
     def goto_delta(self, x, y):
-        self.wheeledbase.order(GOTO_DELTA_OPCODE, FLOAT(x) + FLOAT(y))
+        self.wheeledbase.order(GOTO_DELTA_OPCODE, FLOAT(x),  FLOAT(y))
 
     def goto(self, x, y, theta=None, direction=None, finalangle=None, lookahead=None, lookaheadbis=None, linvelmax=None, angvelmax=None, **kwargs):
         # Compute the preferred direction if not set

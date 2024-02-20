@@ -6,4 +6,4 @@ then
     exit 1
 fi
 
-rsync -re ssh --progress  "$1" pi@$2:/home/pi/ClubRobot/team2024
+rsync -r -u --delete -e ssh --progress  --exclude-from=".syncignore" "$1" pi@$2:/home/pi/ClubRobot/team2024

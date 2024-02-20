@@ -9,7 +9,8 @@
 
 // Codewheels constants
 
-#define CODEWHEELS_COUNTS_PER_REVOLUTION 10000
+#define CODEWHEELS_COUNTS_PER_REVOLUTIONR 10000
+#define CODEWHEELS_COUNTS_PER_REVOLUTIONL 10000
 
 // Mechanical constants
 
@@ -18,7 +19,7 @@
 #define WHEELS_AXLE_TRACK  125.0 // mm
 
 #define LEFT_CODEWHEEL_RADIUS   22.71 // mm
-#define RIGHT_CODEWHEEL_RADIUS  22.71 // mm
+#define RIGHT_CODEWHEEL_RADIUS  -22.71 // mm
 #define CODEWHEELS_AXLE_TRACK  209.16 // mm
 
 // Really traveled distance > thought traveled distance -> decrease codewheels radius

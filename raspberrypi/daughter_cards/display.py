@@ -4,7 +4,7 @@
 import time
 import math
 
-from common.serialtalks import BYTE, INT, CHAR, STRING
+from common.serialtalking import BYTE, INT, CHAR, STRING
 from daughter_cards.arduino import SecureArduino
 
 # Instructions

@@ -10,8 +10,8 @@ from datetime import datetime
 import time
 import os
 
-from utils.colors import colorise, Colors
-from logs_teleplot import Teleplot
+from logs.utils.colors import colorise, Colors
+from logs.logs_teleplot import Teleplot
 
 
 class Logger:

@@ -33,6 +33,11 @@ elif(args.robot_name.lower() == "128"):
 
     def write_cst():
         import tunings_128
+elif(args.robot_name.lower() == "robeur"):
+    print("Chargement des constantes pour robeur : ")
+
+    def write_cst():
+        import tunings.tunings_robeur
 # Si besoin d'autres robot ou changement de nom, simplement rajouter les lignes ci-dessous
 
 # elif(args.robot_name.lower() == "nouveau_nom_du_robot_en_minuscule" or args.robot_name.lower() == "surnom1" or ... ) :
@@ -55,13 +60,13 @@ write_cst()
     Attention  ! Dans la base roulante un des nombres de tick par tour doit être négatif pour 
 
 '''
-axletrack = wheeledbase.get_parameter_value(ODOMETRY_AXLETRACK_ID, FLOAT)
-radius_l = wheeledbase.get_parameter_value(LEFTCODEWHEEL_RADIUS_ID, FLOAT)
-radius_r = wheeledbase.get_parameter_value(RIGHTCODEWHEEL_RADIUS_ID, FLOAT)
+axletrack = wheeledbase.get_parameter_value(ODOMETRY_AXLETRACK_ID, FLOAT)[0]
+radius_l = wheeledbase.get_parameter_value(LEFTCODEWHEEL_RADIUS_ID, FLOAT)[0]
+radius_r = wheeledbase.get_parameter_value(RIGHTCODEWHEEL_RADIUS_ID, FLOAT)[0]
 leftcodewheel_countperrev = abs(
-    wheeledbase.get_parameter_value(LEFTCODEWHEEL_COUNTSPERREV_ID, LONG))
+    wheeledbase.get_parameter_value(LEFTCODEWHEEL_COUNTSPERREV_ID, LONG)[0])
 rightcodewheel_countperrev = abs(
-    wheeledbase.get_parameter_value(RIGHTCODEWHEEL_COUNTSPERREV_ID, LONG))
+    wheeledbase.get_parameter_value(RIGHTCODEWHEEL_COUNTSPERREV_ID, LONG)[0])
 
 print('Valeurs utilisees pour la calibration : ')
 print('-> axletrack = {}'.format(axletrack))
@@ -77,7 +82,7 @@ if not ccw:
 theta0 = wheeledbase.get_position()[2]
 lticks0, rticks0 = wheeledbase.get_codewheels_counter()
 
-angvel = wheeledbase.get_parameter_value(POSITIONCONTROL_ANGVELMAX_ID, FLOAT)
+angvel = wheeledbase.get_parameter_value(POSITIONCONTROL_ANGVELMAX_ID, FLOAT)[0]
 if not ccw:
     angvel = -angvel
 wheeledbase.set_velocities(0, angvel)

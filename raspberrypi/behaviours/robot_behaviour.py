@@ -3,7 +3,7 @@
 
 from time import monotonic, sleep
 from threading import Thread, Event, current_thread
-from logs.log_manager import *
+from logs.logger import *
 from listeners.end_game_listener import *
 
 

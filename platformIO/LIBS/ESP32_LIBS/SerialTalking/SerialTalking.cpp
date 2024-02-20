@@ -56,6 +56,7 @@ void SerialTalking::begin(Stream& stream)
 	bind(SERIALTALKING_GETEEPROM_OPCODE,SerialTalking::GETEEPROM);
 	bind(SERIALTALKING_SETEEPROM_OPCODE,SerialTalking::SETEEPROM);
 	bind(SERIALTALKING_GETBUFFERSIZE_OPCODE, SerialTalking::GETBUFFERSIZE);
+	bind(SERIALTALKING_CLEAR_EEPROM, SerialTalking::CLEAREEPROM);
 }
 
 void SerialTalking::bind(byte opcode, functionPtr instruction){
@@ -146,3 +147,10 @@ void SerialTalking::SETUUID() {
 void SerialTalking::GETEEPROM() {}
 void SerialTalking::SETEEPROM() {}
 void SerialTalking::GETBUFFERSIZE() {}
+
+void SerialTalking::CLEAREEPROM() {
+	for(int i=0; i<EEPROM_SIZE;i++){
+		EEPROM.write(i, 0xFF);
+	}
+	EEPROM.commit();
+}

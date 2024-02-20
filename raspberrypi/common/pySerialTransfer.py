@@ -3,6 +3,7 @@ import json
 import struct
 import serial
 import serial.tools.list_ports
+import glob
 from array import array
 from common.CRC import CRC
 
@@ -113,7 +114,7 @@ def open_ports():
 
 
 def serial_ports():
-    return [p.device for p in serial.tools.list_ports.comports(include_links=True)]
+    return [p.device for p in serial.tools.list_ports.comports(include_links=True)]+ glob.glob("/dev/arduino/*")
 
 
 class SerialTransfer(object):

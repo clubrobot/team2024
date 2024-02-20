@@ -20,6 +20,7 @@ SETUUID_OPCODE = 0x02
 DISCONNECT_OPCODE = 0x03
 GETEEPROM_OPCODE = 0x04
 SETEEPROM_OPCODE = 0x05
+CLEAREEPROM_OPCODE = 0x09
 
 #Magics numbers
 SERIALTALKING_SINGLE_MAGIC = 's' #comme single
@@ -137,6 +138,13 @@ class SerialTalking:
         '''
         if uuid[-1]!='\x00': uuid=uuid+'\x00'
         self.order(SETUUID_OPCODE, STRING(uuid))
+        return
+    
+    def clearEEPROM(self):
+        '''! 
+        @param 
+        '''
+        self.order(CLEAREEPROM_OPCODE)
         return
     
     def getEEPROM(self, address):

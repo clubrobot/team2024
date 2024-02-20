@@ -57,6 +57,7 @@ void SerialTalking::begin(Stream& stream)
 	bind(SERIALTALKING_SETUUID_OPCODE,  SerialTalking::SETUUID);
 	bind(SERIALTALKING_GETEEPROM_OPCODE,SerialTalking::GETEEPROM);
 	bind(SERIALTALKING_SETEEPROM_OPCODE,SerialTalking::SETEEPROM);
+	bind(SERIALTALKING_CLEAR_EEPROM, SerialTalking::CLEAREEPROM);
 	//bind(SERIALTALKING_FREE_BUFFER_OPCODE, SerialTalking::FREEBUFFER);
 }
 
@@ -173,4 +174,10 @@ void SerialTalking::SETEEPROM(){
 void SerialTalking::FREEBUFFER(){
 	talking.endTranfert();
 	m_transfert.reset();
+}
+
+void SerialTalking::CLEAREEPROM() {
+	for(int i=0; i<512;i++){
+		EEPROM.write(i, 0xFF);
+	}
 }

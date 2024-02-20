@@ -84,6 +84,9 @@ void setup(){
     leftWheel.save(LEFTWHEEL_ADDRESS);
     rightWheel.save(RIGHTWHEEL_ADDRESS);
 
+    leftWheel.load(LEFTWHEEL_ADDRESS);
+    rightWheel.load(RIGHTWHEEL_ADDRESS);
+
     // Codewheels
     leftCodewheel.attachCounter(QUAD_COUNTER_XY, QUAD_COUNTER_Y_AXIS, QUAD_COUNTER_SEL1, QUAD_COUNTER_SEL2, QUAD_COUNTER_OE, QUAD_COUNTER_RST_Y);
     rightCodewheel.attachCounter(QUAD_COUNTER_XY, QUAD_COUNTER_X_AXIS, QUAD_COUNTER_SEL1, QUAD_COUNTER_SEL2, QUAD_COUNTER_OE, QUAD_COUNTER_RST_X);
@@ -96,10 +99,13 @@ void setup(){
     //settings for EEPROM
     leftCodewheel.setWheelRadius(LEFT_CODEWHEEL_RADIUS);
     rightCodewheel.setWheelRadius(RIGHT_CODEWHEEL_RADIUS);
-    leftCodewheel.setCountsPerRev(CODEWHEELS_COUNTS_PER_REVOLUTION);
-    rightCodewheel.setCountsPerRev(CODEWHEELS_COUNTS_PER_REVOLUTION);
+    leftCodewheel.setCountsPerRev(CODEWHEELS_COUNTS_PER_REVOLUTIONL);
+    rightCodewheel.setCountsPerRev(CODEWHEELS_COUNTS_PER_REVOLUTIONR);
     leftCodewheel.save(LEFTCODEWHEEL_ADDRESS);
     rightCodewheel.save(RIGHTCODEWHEEL_ADDRESS);
+
+    leftCodewheel.load(LEFTCODEWHEEL_ADDRESS);
+    rightCodewheel.load(RIGHTCODEWHEEL_ADDRESS);
 
     // Odometry
     odometry.load(ODOMETRY_ADDRESS);

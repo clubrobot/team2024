@@ -1,0 +1,9 @@
+.git
+__pycache__
+build
+.pio
+.vsocode/arduino.json
+.vsocode/settings.json
+.venv
+raspberrypi/logs/dump/
+doc

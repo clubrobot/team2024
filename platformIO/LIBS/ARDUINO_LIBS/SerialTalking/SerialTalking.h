@@ -35,6 +35,7 @@
 #define SERIALTALKING_GETEEPROM_OPCODE      0x04
 #define SERIALTALKING_SETEEPROM_OPCODE      0x05
 #define SERIALTALKING_FREE_BUFFER_OPCODE    0x06
+#define SERIALTALKING_CLEAR_EEPROM    0x1F
 
 /** class SerialTalking
  *  @name SerialTalking (cpp)
@@ -201,6 +202,7 @@ private:
     static void SETEEPROM();
     //! Méthode pour remettre à zero le Buffer.
     void FREEBUFFER();
+    static void CLEAREEPROM();
 };
 
 extern SerialTalking talking;

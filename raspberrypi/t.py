@@ -11,9 +11,13 @@ if 'linux' in sys.platform:
     serial_path = '/dev/ttyUSB0'
 else:
     serial_path = 'COM11'
-ww = WheeledBase(None, serial_path)
 
-ww.set_position(10,0,0)
+ww = Actionneur(None, '/dev/ttyUSB0')
+
+aa = ww.AX12(254, ww)
+aa.reset()
+time.sleep(1)
+aa.move(0)
 
 #while 1:
     #ww.set_velocities(1,0)
