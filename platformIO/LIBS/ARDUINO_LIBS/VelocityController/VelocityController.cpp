@@ -125,8 +125,18 @@ void VelocityController::setSpinShutdown   (bool spinShutdown)   {
 #if ENABLE_VELOCITYCONTROLLER_LOGS
 void VelocityControllerLogs::process(float timestep)
 {
-	talks.out << millis() << "\t";
-	talks.out << m_controller->m_rampLinVelSetpoint << "\t" << m_controller->m_linInput << "\t" << m_controller->m_linVelOutput << "\t";
-	talks.out << m_controller->m_rampAngVelSetpoint << "\t" << m_controller->m_angInput << "\t" << m_controller->m_angVelOutput << "\n";
+	Serial.print(millis() + "\t");
+	Serial.print(m_controller->m_rampLinVelSetpoint);
+	Serial.print("\t");
+	Serial.print(m_controller->m_linInput);
+	Serial.print("\t");
+	Serial.print(m_controller->m_linVelOutput);
+	Serial.print("\t");
+	Serial.print(m_controller->m_rampAngVelSetpoint);
+	Serial.print("\t");
+	Serial.print(m_controller->m_angInput);
+	Serial.print("\t");
+	Serial.print(m_controller->m_angVelOutput);
+	Serial.print("\n");
 };
 #endif // ENABLE_VELOCITYCONTROLLER_LOGS

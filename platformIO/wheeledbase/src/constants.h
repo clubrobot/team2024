@@ -20,7 +20,7 @@
 
 #define LEFT_CODEWHEEL_RADIUS   22.71 // mm
 #define RIGHT_CODEWHEEL_RADIUS  -22.71 // mm
-#define CODEWHEELS_AXLE_TRACK  209.16 // mm
+#define CODEWHEELS_AXLE_TRACK  357.5722465739272//209.16 // mm
 
 // Really traveled distance > thought traveled distance -> decrease codewheels radius
 // Really rotated angle > thought rotated angle         -> increase axle track
@@ -35,7 +35,7 @@
 #define MAX_LINEAR_VELOCITY      500 // mm/s
 #define MAX_ANGULAR_VELOCITY     1.5 // rad/s^2
 
-#define MAX_LINEAR_ACCELERATION    500 // mm/s^2
+#define MAX_LINEAR_ACCELERATION    10//500 // mm/s^2
 #define MAX_LINEAR_DECCELERATION  1000 // mm/s^2
 #define MAX_ANGULAR_ACCELERATION  3.14 // rad/s^2
 #define MAX_ANGULAR_DECCELERATION 6.28 // rad/s^2

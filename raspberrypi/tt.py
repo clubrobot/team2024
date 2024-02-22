@@ -9,16 +9,16 @@ import sys
 
 #Gestion du port série
 if 'linux' in sys.platform:
-    serial_path = '/dev/ttyUSB0'
+    serial_path = 'wheeledbase'
 else:
-    serial_path = 'COM3'
+    serial_path = 'COM6'
 
-wheeledbase = WheeledBase(None, serial_path)
+wheeledbase = WheeledBase(serial_path)
 
 # ---- ODOMETRY CONSTANTS ----
 #LEFTCODEWHEEL_RADIUS_VALUE = 26.94067510427093
-RIGHTCODEWHEEL_RADIUS_VALUE = -22.017182927267537 #23.60799
-LEFTCODEWHEEL_RADIUS_VALUE = 21.90460280828869 #23.60799
+RIGHTCODEWHEEL_RADIUS_VALUE = -22.71 #22.017182927267537 #23.60799
+LEFTCODEWHEEL_RADIUS_VALUE = 22.71 #21.90460280828869 #23.60799
 ODOMETRY_AXLETRACK_VALUE = 357.572246573927#185#environ 120 normalement
 
 
@@ -69,7 +69,7 @@ POSITIONCONTROL_ANGPOSTHRESHOLD_VALUE = 0.10000000149011612
 PUREPURSUIT_LOOKAHEAD_VALUE = 235.0
 PUREPURSUIT_LOOKAHEADBIS_VALUE = 200.0
 
-'''
+
 wheeledbase.set_parameter_value(
     LEFTWHEEL_RADIUS_ID, LEFTWHEEL_RADIUS_VALUE, FLOAT)
 wheeledbase.set_parameter_value(
@@ -138,11 +138,11 @@ wheeledbase.set_parameter_value(
     PUREPURSUIT_LOOKAHEADBIS_ID, PUREPURSUIT_LOOKAHEADBIS_VALUE, FLOAT)
 
 wheeledbase.save_parameters()
-time.sleep(0.5)
+time.sleep(1)
 
 wheeledbase.reset_parameters()
-time.sleep(0.5)
-'''
+time.sleep(1)
+
 print(wheeledbase.get_parameter_value(LEFTWHEEL_RADIUS_ID, FLOAT))
 print(wheeledbase.get_parameter_value(LEFTWHEEL_CONSTANT_ID, FLOAT))
 print(wheeledbase.get_parameter_value(LEFTWHEEL_MAXPWM_ID, FLOAT))

@@ -27,7 +27,7 @@ It allows the raspeberry pi to ask the arduino to perform an action via a specif
 class BMS(SecureArduino):
     _DEFAULT = {GET_RSOC_OPCODE: Deserializer(INT(100))}
 
-    def __init__(self, parent, uuid='/tmp/arduino/BMS'):
+    def __init__(self, uuid='/tmp/arduino/BMS'):
         SecureArduino.__init__(self, parent, "/dev/arduino/"+uuid, BMS._DEFAULT)
 
     def get_relative_soc(self):

@@ -4,8 +4,8 @@ from daughter_cards.wheeledbase import WheeledBase
 from daughter_cards.actionneur import Actionneur
 
 
-wb = WheeledBase(None, 'COM3')
+wb = WheeledBase('wheeledbase')
 
-while(True):
-    print(wb.get_position())
-	
+while True:
+    wb.goto(40,0)
+    print(wb.get_velocities())

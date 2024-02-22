@@ -1,7 +1,7 @@
-from daughter_cards.wheeledbase import WheeledBase, LEFTWHEEL_RADIUS_ID
+from daughter_cards.wheeledbase import *
 from common.serialtypes import FLOAT, STRING, INT
 
-wheeledbase = WheeledBase(None, "COM11")
+wheeledbase = WheeledBase('wheeledbase')
 
 print("------------------------------ Stored constant on the robot ----------------------------------")
 

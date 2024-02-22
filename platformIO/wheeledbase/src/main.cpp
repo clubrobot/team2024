@@ -75,10 +75,11 @@ void setup(){
     leftWheel.load(LEFTWHEEL_ADDRESS);
     rightWheel.load(RIGHTWHEEL_ADDRESS);
     //settings for EEPROM
-    leftWheel.setWheelRadius(LEFT_WHEEL_RADIUS);
+    /*
     rightWheel.setWheelRadius(RIGHT_WHEEL_RADIUS);
     leftWheel.setConstant(DCMOTORS_VELOCITY_CONSTANT);
     rightWheel.setConstant(DCMOTORS_VELOCITY_CONSTANT);
+    */
     //leftWheel.setMaxPWM(); <- pas trouvé de valeur
     //rightWheel.setMaxPWM(); <- pas trouvé de valeur
     leftWheel.save(LEFTWHEEL_ADDRESS);
@@ -96,13 +97,16 @@ void setup(){
     rightCodewheel.load(RIGHTCODEWHEEL_ADDRESS);
     leftCodewheel.reset();
     rightCodewheel.reset();
+
     //settings for EEPROM
+    /*
     leftCodewheel.setWheelRadius(LEFT_CODEWHEEL_RADIUS);
     rightCodewheel.setWheelRadius(RIGHT_CODEWHEEL_RADIUS);
     leftCodewheel.setCountsPerRev(CODEWHEELS_COUNTS_PER_REVOLUTIONL);
     rightCodewheel.setCountsPerRev(CODEWHEELS_COUNTS_PER_REVOLUTIONR);
     leftCodewheel.save(LEFTCODEWHEEL_ADDRESS);
     rightCodewheel.save(RIGHTCODEWHEEL_ADDRESS);
+    */
 
     leftCodewheel.load(LEFTCODEWHEEL_ADDRESS);
     rightCodewheel.load(RIGHTCODEWHEEL_ADDRESS);
@@ -153,6 +157,8 @@ void setup(){
 
     // Miscellanous
     TCCR2B = (TCCR2B & 0b11111000) | 1; // Set Timer2 frequency to 16MHz instead of 250kHz
+
+    
 }
 
 // Loop

@@ -36,12 +36,12 @@ It allows the raspeberry pi to ask the arduino to perform an action via a specif
 """
 class Actionneur():
     
-    def __init__(self, parent, uuid='actionneurs'):
-        self.actio = SerialTalking(uuid)#"/dev/arduino/"+
+    def __init__(self, uuid='actionneurs'):
+        self.actio = SerialTalking(uuid)#"/dev/arduino/"
     
     def SetServoAngle(self, angle): self.actio.order(SET_ANGLE_SERVO_OPCODE, USHORT(angle))
 
-    class AX12():
+class AX12():
         def __init__(self, id, parent):
             self.parent = parent
             self.id = id
@@ -50,7 +50,7 @@ class Actionneur():
 
         def ping(self):
             output = self.parent.actio.request(PING_AX_OPCODE, BYTE, send_args=[BYTE(self.id)])
-            return not bool(output)
+            return bool(output[0])
 
         def setID(self, newID): self.parent.actio.order(SET_ID_OPCODE, BYTE(self.id), BYTE(newID))
 

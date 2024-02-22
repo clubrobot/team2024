@@ -18,7 +18,7 @@ void RESET(){
 
 void PING_AX(){
     ax.attach(talking.read<byte>());
-    talking.write<int>(ax.ping());
+    talking.write<byte>((ax.readVoltage()>0)?1 : 0);
     talking.endTranfert();
 }
 
