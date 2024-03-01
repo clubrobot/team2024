@@ -9,14 +9,14 @@ import sys
 if 'linux' in sys.platform:
     serial_path = 'wheeledbase'
 else:
-    serial_path = 'COM6'
+    serial_path = 'COM3'
 wheeledbase = WheeledBase(serial_path)
 
-LEFTWHEEL_RADIUS_VALUE = 35
-LEFTWHEEL_CONSTANT_VALUE = 0.16661794483661652
+LEFTWHEEL_RADIUS_VALUE = 23.8125
+LEFTWHEEL_CONSTANT_VALUE = 0.20353981852531433
 LEFTWHEEL_MAXPWM_VALUE = 1
-RIGHTWHEEL_RADIUS_VALUE = 35
-RIGHTWHEEL_CONSTANT_VALUE = -0.16661794483661652
+RIGHTWHEEL_RADIUS_VALUE = 23.8125
+RIGHTWHEEL_CONSTANT_VALUE = -0.20353981852531433
 RIGHTWHEEL_MAXPWM_VALUE = 1
 
 RIGHTCODEWHEEL_COUNTSPERREV_VALUE = -10000
@@ -24,23 +24,28 @@ LEFTCODEWHEEL_COUNTSPERREV_VALUE = 10000
 
 # ---- ODOMETRY CONSTANTS ----
 #LEFTCODEWHEEL_RADIUS_VALUE = 26.94067510427093
-RIGHTCODEWHEEL_RADIUS_VALUE = 22.01718292726753
-LEFTCODEWHEEL_RADIUS_VALUE = 21.90460280828868
+RIGHTCODEWHEEL_RADIUS_VALUE = 23.60799
+LEFTCODEWHEEL_RADIUS_VALUE = 23.60799
 #RIGHTCODEWHEEL_RADIUS_VALUE = 23.60799
 #LEFTCODEWHEEL_RADIUS_VALUE = 23.60799
-ODOMETRY_AXLETRACK_VALUE = 185#environ 120 normalement
+ODOMETRY_AXLETRACK_VALUE = 223#environ 120 normalement
 
+
+#Really traveled distance > thought traveled distance -> decrease codewheels radius
+# Really rotated angle > thought rotated angle         -> increase axle track
+#Turn right when thinking moving forward              -> increase left codewheel radius
+#Turn left when thinking moving forward               -> increase right codewheel radius
 
 ODOMETRY_SLIPPAGE_VALUE = 0
 VELOCITYCONTROL_AXLETRACK_VALUE = 125.0
 VELOCITYCONTROL_MAXLINACC_VALUE = 500.0
 VELOCITYCONTROL_MAXLINDEC_VALUE = 700.0
-VELOCITYCONTROL_MAXANGACC_VALUE = 5
-VELOCITYCONTROL_MAXANGDEC_VALUE = 10
+VELOCITYCONTROL_MAXANGACC_VALUE = 3.14
+VELOCITYCONTROL_MAXANGDEC_VALUE = 6.28
 VELOCITYCONTROL_SPINSHUTDOWN_VALUE = 1
 
 # ---- LINEAR VELOCITIES PID  ----
-LINVELPID_KP_VALUE = 1.6
+LINVELPID_KP_VALUE = 2.01562
 LINVELPID_KI_VALUE = 15.0
 LINVELPID_KD_VALUE = 0.0
 
@@ -48,7 +53,7 @@ LINVELPID_MINOUTPUT_VALUE = -897.501220703125
 LINVELPID_MAXOUTPUT_VALUE = 897.501220703125
 
 # ---- ANGULAR VELOCITIES PID ----
-ANGVELPID_KP_VALUE = 2.2
+ANGVELPID_KP_VALUE = 0.5
 ANGVELPID_KI_VALUE = 15.0
 ANGVELPID_KD_VALUE = 0.0
 
@@ -133,9 +138,17 @@ wheeledbase.set_parameter_value(
 wheeledbase.set_parameter_value(
     PUREPURSUIT_LOOKAHEADBIS_ID, PUREPURSUIT_LOOKAHEADBIS_VALUE, FLOAT)
 
-
+time.sleep(1)
 wheeledbase.save_parameters()
-time.sleep(1)
 
-wheeledbase.reset_parameters()
-time.sleep(1)
+print(wheeledbase.get_parameter_value(LEFTWHEEL_RADIUS_ID, FLOAT))
+print(wheeledbase.get_parameter_value(LEFTWHEEL_CONSTANT_ID, FLOAT))
+print(wheeledbase.get_parameter_value(LEFTWHEEL_MAXPWM_ID, FLOAT))
+print(wheeledbase.get_parameter_value(RIGHTWHEEL_RADIUS_ID, FLOAT))
+print(wheeledbase.get_parameter_value(RIGHTWHEEL_CONSTANT_ID, FLOAT))
+print(wheeledbase.get_parameter_value(RIGHTWHEEL_MAXPWM_ID, FLOAT))
+print(wheeledbase.get_parameter_value(LEFTCODEWHEEL_RADIUS_ID, FLOAT))
+print(wheeledbase.get_parameter_value(LEFTCODEWHEEL_COUNTSPERREV_ID, LONG))
+print(wheeledbase.get_parameter_value(RIGHTCODEWHEEL_RADIUS_ID, FLOAT))
+print(wheeledbase.get_parameter_value(RIGHTCODEWHEEL_COUNTSPERREV_ID, LONG))
+print(wheeledbase.get_parameter_value(ODOMETRY_AXLETRACK_ID, FLOAT))

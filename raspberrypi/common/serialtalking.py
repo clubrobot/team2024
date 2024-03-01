@@ -20,7 +20,7 @@ SETUUID_OPCODE = 0x02
 DISCONNECT_OPCODE = 0x03
 GETEEPROM_OPCODE = 0x04
 SETEEPROM_OPCODE = 0x05
-CLEAREEPROM_OPCODE = 0x09
+CLEAREEPROM_OPCODE = 0x07
 
 #Magics numbers
 SERIALTALKING_SINGLE_MAGIC = 's' #comme single
@@ -50,7 +50,7 @@ class SerialTalking:
     
     @brief Comme SerialTalks mais autre; middleware entre pyserialTransfert et l'user
     '''
-    def __init__(self, port, timeout=5): 
+    def __init__(self, port, timeout=10): 
         '''!Initie une instance de SerialTalking avec un arduino
 
         @param port port de l'arduino
@@ -125,6 +125,16 @@ class SerialTalking:
         @return self.link.status
         '''
         return self.link.status
+
+    def ping(self):
+        '''! Ping l'arduino
+        @return vrai si pingé, faux sinon
+        '''
+        shouldBePong = self.request(PING_OPCODE, STRING)[0]
+        if(shouldBePong=="pong\x00"):
+            return True
+        else:
+            return False
 
     def getuuid(self):
         '''! Retourne l'uuid de l'arduino
@@ -283,6 +293,24 @@ class SerialTalking:
         '''
         self.sendSize = self.link.tx_obj(UCHAR(data_size), start_pos=self.sendSize) #1 octet (la taille est 255 ça suffit) (correspond à uint8_t en c++)
         self.sendSize = self.link.tx_obj(data, start_pos=self.sendSize)
+
+    def get_logs(self):
+        '''
+        Description:
+        ------------
+        Return all communication that didn't started with 0X7E
+        :return: log buffer
+        '''
+        return self.link.get_logs()
+    
+    def clear_logs(self):
+        '''
+        Description:
+        ------------
+        Clear the log_buffer
+        :return: void
+        '''
+        self.link.clear_logs()
 
 if __name__ == '__main__':
      #Seulement pour test

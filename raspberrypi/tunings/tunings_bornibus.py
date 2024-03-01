@@ -9,10 +9,10 @@ import sys
 
 #Gestion du port série
 if 'linux' in sys.platform:
-    serial_path = '/dev/ttyUSB0'
+    serial_path = 'wheeledbase'
 else:
     serial_path = 'COM11'
-wheeledbase = WheeledBase(None, serial_path)
+wheeledbase = WheeledBase(serial_path)
 
 LEFTWHEEL_RADIUS_VALUE = 35
 LEFTWHEEL_CONSTANT_VALUE = 0.16661794483661652

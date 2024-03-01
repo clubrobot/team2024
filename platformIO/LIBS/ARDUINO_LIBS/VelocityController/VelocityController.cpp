@@ -125,7 +125,8 @@ void VelocityController::setSpinShutdown   (bool spinShutdown)   {
 #if ENABLE_VELOCITYCONTROLLER_LOGS
 void VelocityControllerLogs::process(float timestep)
 {
-	Serial.print(millis() + "\t");
+	Serial.print(millis());
+	Serial.print("\t");
 	Serial.print(m_controller->m_rampLinVelSetpoint);
 	Serial.print("\t");
 	Serial.print(m_controller->m_linInput);

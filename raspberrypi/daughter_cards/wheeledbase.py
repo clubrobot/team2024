@@ -34,6 +34,7 @@ GET_VELOCITIES_WANTED_OPCODE    = 0x1D
 GOTO_DELTA_OPCODE               = 0x1E
 RESET_PARAMETERS_OPCODE         = 0x1F
 SAVE_PARAMETERS_OPCODE          = 0x20
+PRINT_PARAMS_OPCODE             = 0x22
 
 START_TURNONTHESPOT_DIR_OPCODE = 0x21
 
@@ -194,6 +195,7 @@ class WheeledBase():
             finalangle = math.atan2(waypoints[-1][1] - waypoints[-2][1], waypoints[-1][0] - waypoints[-2][0])
         self.direction = {'forward':self.FORWARD, 'backward':self.BACKWARD}[direction]
         self.final_angle = finalangle
+        print("start purepursuit")
         self.wheeledbase.order(START_PUREPURSUIT_OPCODE, BYTE({'forward':0, 'backward':1}[direction]), FLOAT(finalangle))
 
     def purepursuit_stop(self, waypoints,sensors, direction='forward', finalangle=None, lookahead=None, lookaheadbis=None,
@@ -250,9 +252,9 @@ class WheeledBase():
 
         # Go to the setpoint position
         self.purepursuit([self.get_position()[0:2], (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
-        print("fIN",self.isarrived())
+        print("fIN",self.isarrived(False))
         #self.wait(**kwargs)
-        while not self.isarrived():
+        while not self.isarrived(False):
             print(self.get_position())
             True
         # Get the setpoint orientation
@@ -346,6 +348,9 @@ class WheeledBase():
 
     def reset(self):
         self.set_position(0, 0, 0)
+
+    def print_params(self):
+        self.wheeledbase.order(PRINT_PARAMS_OPCODE)
 
     def get_position(self):
         self.x, self.y, self.theta = self.wheeledbase.request(GET_POSITION_OPCODE, FLOAT, FLOAT, FLOAT)

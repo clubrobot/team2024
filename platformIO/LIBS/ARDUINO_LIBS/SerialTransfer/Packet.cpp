@@ -249,7 +249,7 @@ uint8_t Packet::parse(const uint8_t& recChar, const bool& valid)
 			status    = STOP_BYTE_ERROR;
 
 			if (debug)
-				debugPort->println("ERROR: STOP_BYTE_ERROR");
+				debugPort->println(F("ERROR: STOP_BYTE_ERROR"));
 
 			reset();
 			return bytesRead;
@@ -260,7 +260,7 @@ uint8_t Packet::parse(const uint8_t& recChar, const bool& valid)
 		{
 			if (debug)
 			{
-				debugPort->print("ERROR: Undefined state ");
+				debugPort->print(F("ERROR: Undefined state "));
 				debugPort->println(state);
 			}
 

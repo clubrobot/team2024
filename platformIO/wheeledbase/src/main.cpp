@@ -65,7 +65,9 @@ void setup(){
     //talking.bind(SERIALTALKS_DISCONNECT_OPCODE, DISABLE);
     talking.bind(RESET_PARAMETERS_OPCODE, RESET_PARAMETERS);
     talking.bind(SAVE_PARAMETERS_OPCODE, SAVE_PARAMETERS);
+
     talking.bind(START_TURNONTHESPOT_DIR_OPCODE, START_TURNONTHESPOT_DIR);
+    talking.bind(PRINT_PARAMS_OPCODE, PRINT_PARAMS);
     // DC motors wheels
     driver.attach(DRIVER_RESET, DRIVER_FAULT);
     driver.reset();
@@ -97,7 +99,6 @@ void setup(){
     rightCodewheel.load(RIGHTCODEWHEEL_ADDRESS);
     leftCodewheel.reset();
     rightCodewheel.reset();
-
     //settings for EEPROM
     /*
     leftCodewheel.setWheelRadius(LEFT_CODEWHEEL_RADIUS);
@@ -117,7 +118,7 @@ void setup(){
     odometry.setTimestep(ODOMETRY_TIMESTEP);
     odometry.enable();
     //settings for EEPROM
-    odometry.setAxleTrack(CODEWHEELS_AXLE_TRACK);
+    //odometry.setAxleTrack(CODEWHEELS_AXLE_TRACK);
     //odometry.setSlippage(); <- pas trouvé de valeur
     odometry.save(ODOMETRY_ADDRESS);
 
@@ -128,10 +129,10 @@ void setup(){
     velocityControl.setPID(linVelPID, angVelPID);
     velocityControl.disable();
     //settings for EEPROM
-    velocityControl.setMaxAngAcc(MAX_ANGULAR_ACCELERATION);
+    /*velocityControl.setMaxAngAcc(MAX_ANGULAR_ACCELERATION);
     velocityControl.setMaxAngDec(MAX_ANGULAR_DECCELERATION);
     velocityControl.setMaxLinAcc(MAX_LINEAR_ACCELERATION);
-    velocityControl.setMaxLinDec(MAX_LINEAR_DECCELERATION);
+    velocityControl.setMaxLinDec(MAX_LINEAR_DECCELERATION);*/
     //velocityControl.setSpinShutdown(); <- pas trouvé de valeur
     velocityControl.save(VELOCITYCONTROL_ADDRESS);
 
@@ -157,8 +158,6 @@ void setup(){
 
     // Miscellanous
     TCCR2B = (TCCR2B & 0b11111000) | 1; // Set Timer2 frequency to 16MHz instead of 250kHz
-
-    
 }
 
 // Loop

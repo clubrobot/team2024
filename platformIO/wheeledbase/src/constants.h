@@ -35,7 +35,7 @@
 #define MAX_LINEAR_VELOCITY      500 // mm/s
 #define MAX_ANGULAR_VELOCITY     1.5 // rad/s^2
 
-#define MAX_LINEAR_ACCELERATION    10//500 // mm/s^2
+#define MAX_LINEAR_ACCELERATION   500//500 // mm/s^2
 #define MAX_LINEAR_DECCELERATION  1000 // mm/s^2
 #define MAX_ANGULAR_ACCELERATION  3.14 // rad/s^2
 #define MAX_ANGULAR_DECCELERATION 6.28 // rad/s^2

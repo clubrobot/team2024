@@ -85,6 +85,7 @@ lticks0, rticks0 = wheeledbase.get_codewheels_counter()
 angvel = wheeledbase.get_parameter_value(POSITIONCONTROL_ANGVELMAX_ID, FLOAT)[0]
 if not ccw:
     angvel = -angvel
+print(angvel)
 wheeledbase.set_velocities(0, angvel)
 while abs(wheeledbase.get_position()[2] - theta0) / (2 * math.pi) < abs(N):
     wheeledbase.set_velocities(0, angvel)

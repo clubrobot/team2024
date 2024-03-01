@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 from setups.setup_wheeledbase import *
-from asserv_points import *
+from tunings.asserv_points import *
 import time
 import math
 import argparse
@@ -14,11 +14,15 @@ args = parser.parse_args()
 if(args.robot_name.lower() == "bornibus" or args.robot_name.lower() == "bb") :
 	print("Chargement des constantes pour Bornibus : ")
 	def write_cst() :
-		import tunings_bornibus
+		import tunings.tunings_bornibus
 elif(args.robot_name.lower() == "128") :
 	print("Chargement des constantes pour 128 : ")
 	def write_cst() :
 		import tunings_128
+elif(args.robot_name.lower() == "robeur") :
+	print("Chargement des constantes pour robeur : ")
+	def write_cst() :
+		import tunings.tunings_robeur
 #Si besoin d'autres robot ou changement de nom, simplement rajouter les lignes ci-dessous
 
 #elif(args.robot_name.lower() == "nouveau_nom_du_robot_en_minuscule" or args.robot_name.lower() == "surnom1" or ... ) :
@@ -183,9 +187,10 @@ elif(asser_type.lower() == "v" or asser_type.lower() == "vitesse" or asser_type.
 				wheeledbase.get_parameter_value(LINVELPID_KD_ID, FLOAT))
 		while(run_again):
 			PID = change_PID_parameters(PID)
-			wheeledbase.set_parameter_value(LINVELPID_KP_ID, PID[0] ,FLOAT)
-			wheeledbase.set_parameter_value(LINVELPID_KI_ID, PID[1] ,FLOAT)
-			wheeledbase.set_parameter_value(LINVELPID_KD_ID, PID[2] ,FLOAT)
+			print(PID)
+			wheeledbase.set_parameter_value(LINVELPID_KP_ID, PID[0][0] ,FLOAT)
+			wheeledbase.set_parameter_value(LINVELPID_KI_ID, PID[1][0] ,FLOAT)
+			wheeledbase.set_parameter_value(LINVELPID_KD_ID, PID[2][0] ,FLOAT)
 
 			input("Appuyez sur entrée pour lancer le test :")
 			# Data arrays
@@ -197,8 +202,8 @@ elif(asser_type.lower() == "v" or asser_type.lower() == "vitesse" or asser_type.
 			angvel_in_array  = [] # angular speed input
 			angvel_out_array = [] # angular speed output
 
-			wheeledbase.getout(timeout=1)
-			wheeledbase.geterr(timeout=1)
+			#wheeledbase.getout(timeout=1)
+			#wheeledbase.geterr(timeout=1)
 
 			print('start benchmark')
 
@@ -215,12 +220,12 @@ elif(asser_type.lower() == "v" or asser_type.lower() == "vitesse" or asser_type.
 			print('benchmark over')
 
 			# Get Arduino output
-			out = wheeledbase.getout(timeout=1)
-			err = wheeledbase.geterr(timeout=1)
+			#out = wheeledbase.getout(timeout=1)
+			#err = wheeledbase.geterr(timeout=1)
 
 			# Print Arduino output
-			print(out)
-			print(err)
+			#print(out)
+			#print(err)
 
 			for line in out.splitlines():
 

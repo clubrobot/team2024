@@ -136,7 +136,6 @@ void START_PUREPURSUIT()
 	case 1: purePursuit.setDirection(PurePursuit::BACKWARD); break;
 	}
 	purePursuit.setFinalAngle(talking.read<float>());
-	talking.endTranfert();
 	// Compute final setpoint
 	const PurePursuit::Waypoint wp0 = purePursuit.getWaypoint(purePursuit.getNumWaypoints() - 2);
 	const PurePursuit::Waypoint wp1 = purePursuit.getWaypoint(purePursuit.getNumWaypoints() - 1);
@@ -146,6 +145,8 @@ void START_PUREPURSUIT()
 	velocityControl.enable();
 	positionControl.setMoveStrategy(purePursuit);
 	positionControl.enable();
+
+	talking.endTranfert();
 }
 
 void ADD_PUREPURSUIT_WAYPOINT()
@@ -528,4 +529,43 @@ void RESET_PARAMETERS()
 	angVelPID.load(ANGVELPID_ADDRESS);
 	positionControl.load(POSITIONCONTROL_ADDRESS);
 	purePursuit.load(PUREPURSUIT_ADDRESS);
+}
+
+void PRINT_PARAMS(){
+	Serial.println(F(" LEFTWHEEL_RADIUS_ID:")); Serial.println(leftWheel.getWheelRadius());
+	Serial.println(F(" LEFTWHEEL_CONSTANT_ID:")); Serial.println(leftWheel.getConstant());
+	Serial.println(F(" LEFTWHEEL_MAXPWM_ID:")); Serial.println(leftWheel.getMaxPWM());
+	Serial.println(F(" RIGHTWHEEL_RADIUS_ID:")); Serial.println(rightWheel.getWheelRadius());
+	Serial.println(F(" RIGHTWHEEL_CONSTANT_ID:")); Serial.println(rightWheel.getConstant());
+	Serial.println(F(" RIGHTWHEEL_MAXPWM_ID:")); Serial.println(rightWheel.getMaxPWM());
+	Serial.println(F(" LEFTCODEWHEEL_RADIUS_ID:")); Serial.println(leftCodewheel.getWheelRadius());
+	Serial.println(F(" LEFTCODEWHEEL_COUNTSPERREV_ID:")); Serial.println(leftCodewheel.getCountsPerRev());
+	Serial.println(F(" RIGHTCODEWHEEL_RADIUS_ID:")); Serial.println(rightCodewheel.getWheelRadius());
+	Serial.println(F(" RIGHTCODEWHEEL_COUNTSPERREV_ID:")); Serial.println(rightCodewheel.getCountsPerRev());
+	Serial.println(F(" ODOMETRY_AXLETRACK_ID:")); Serial.println(odometry.getAxleTrack());
+	Serial.println(F(" ODOMETRY_SLIPPAGE_ID:")); Serial.println(odometry.getSlippage());
+	Serial.println(F(" VELOCITYCONTROL_AXLETRACK_ID:")); Serial.println(velocityControl.getAxleTrack());
+	Serial.println(F(" VELOCITYCONTROL_MAXLINACC_ID:")); Serial.println(velocityControl.getMaxLinAcc());
+	Serial.println(F(" VELOCITYCONTROL_MAXLINDEC_ID:")); Serial.println(velocityControl.getMaxLinDec());
+	Serial.println(F(" VELOCITYCONTROL_MAXANGACC_ID:")); Serial.println(velocityControl.getMaxAngAcc());
+	Serial.println(F(" VELOCITYCONTROL_MAXANGDEC_ID:")); Serial.println(velocityControl.getMaxAngDec());
+	Serial.println(F(" VELOCITYCONTROL_SPINSHUTDOWN_ID:")); Serial.println(velocityControl.getSpinShutdown());
+	Serial.println(F(" LINVELPID_KP_ID:")); Serial.println(linVelPID.getKp());
+	Serial.println(F(" LINVELPID_KI_ID:")); Serial.println(linVelPID.getKi());
+	Serial.println(F(" LINVELPID_KD_ID:")); Serial.println(linVelPID.getKd());
+	Serial.println(F(" LINVELPID_MINOUTPUT_ID:")); Serial.println(linVelPID.getMinOutput());
+	Serial.println(F(" LINVELPID_MAXOUTPUT_ID:")); Serial.println(linVelPID.getMaxOutput());
+	Serial.println(F(" ANGVELPID_KP_ID:")); Serial.println(angVelPID.getKp());
+	Serial.println(F(" ANGVELPID_KI_ID:")); Serial.println(angVelPID.getKi());
+	Serial.println(F(" ANGVELPID_KD_ID:")); Serial.println(angVelPID.getKd());
+	Serial.println(F(" ANGVELPID_MINOUTPUT_ID:")); Serial.println(angVelPID.getMinOutput());
+	Serial.println(F(" ANGVELPID_MAXOUTPUT_ID:")); Serial.println(angVelPID.getMaxOutput());
+	Serial.println(F(" POSITIONCONTROL_LINVELKP_ID:")); Serial.println(positionControl.getLinVelKp());
+	Serial.println(F(" POSITIONCONTROL_ANGVELKP_ID:")); Serial.println(positionControl.getAngVelKp());
+	Serial.println(F(" POSITIONCONTROL_LINVELMAX_ID:")); Serial.println(positionControl.getLinVelMax());
+	Serial.println(F(" POSITIONCONTROL_ANGVELMAX_ID:")); Serial.println(positionControl.getAngVelMax());
+	Serial.println(F(" POSITIONCONTROL_LINPOSTHRESHOLD_ID:")); Serial.println(positionControl.getLinPosThreshold());
+	Serial.println(F(" POSITIONCONTROL_ANGPOSTHRESHOLD_ID:")); Serial.println(positionControl.getAngPosThreshold());
+	Serial.println(F(" PUREPURSUIT_LOOKAHED_ID:")); Serial.println(purePursuit.getLookAhead());
+	Serial.println(F(" PUREPURSUIT_LOOKAHEADBIS_ID:")); Serial.println(purePursuit.getLookAheadBis());
 }

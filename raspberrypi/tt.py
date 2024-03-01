@@ -69,7 +69,7 @@ POSITIONCONTROL_ANGPOSTHRESHOLD_VALUE = 0.10000000149011612
 PUREPURSUIT_LOOKAHEAD_VALUE = 235.0
 PUREPURSUIT_LOOKAHEADBIS_VALUE = 200.0
 
-
+'''
 wheeledbase.set_parameter_value(
     LEFTWHEEL_RADIUS_ID, LEFTWHEEL_RADIUS_VALUE, FLOAT)
 wheeledbase.set_parameter_value(
@@ -142,7 +142,7 @@ time.sleep(1)
 
 wheeledbase.reset_parameters()
 time.sleep(1)
-
+'''
 print(wheeledbase.get_parameter_value(LEFTWHEEL_RADIUS_ID, FLOAT))
 print(wheeledbase.get_parameter_value(LEFTWHEEL_CONSTANT_ID, FLOAT))
 print(wheeledbase.get_parameter_value(LEFTWHEEL_MAXPWM_ID, FLOAT))

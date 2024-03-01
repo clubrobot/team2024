@@ -22,8 +22,8 @@ CRC_ERROR       = 0
 PAYLOAD_ERROR   = -1
 STOP_BYTE_ERROR = -2
 
-START_BYTE = 0x7E
-STOP_BYTE  = 0x81
+START_BYTE = 0x7E #Ascii: ~
+STOP_BYTE  = 0x81 #No Ascii
 
 MAX_PACKET_SIZE = 0xFE
 
@@ -114,6 +114,7 @@ def open_ports():
 
 
 def serial_ports():
+    #Retourne une liste des ports USB + ceux dans /dev/arduino
     return [p.device for p in serial.tools.list_ports.comports(include_links=True)]+ glob.glob("/dev/arduino/*")
 
 
@@ -146,6 +147,7 @@ class SerialTransfer(object):
         self.overheadByte = 0xFF
         self.callbacks    = []
         self.byte_format  = byte_format
+        self.log_buffer   = "" #All of communication that doesn't start with 0x7E goes here
 
         self.state = find_start_byte
         
@@ -284,6 +286,7 @@ class SerialTransfer(object):
         :return unpacked_response: obj - object extracted from the RX buffer,
                                          None if operation failed
         '''
+
         if (obj_type.format == "str"):
             buff = bytes(self.rxBuff[start_pos:(start_pos + obj_byte_size)])
             format_str = '%ds' % len(buff)
@@ -456,9 +459,12 @@ class SerialTransfer(object):
                     recChar = int.from_bytes(self.connection.read(),
                                              byteorder='big')
 
+                    #If we do not find the start byte, add it to the log buffer
                     if self.state == find_start_byte:
                         if recChar == START_BYTE:
                             self.state = find_id_byte
+                        else:
+                            self.log_buffer = self.log_buffer + chr(recChar)
                     
                     elif self.state == find_id_byte:
                         self.idByte = recChar
@@ -569,3 +575,21 @@ class SerialTransfer(object):
             print('ERROR: {}'.format(err_str))
         
         return False
+
+    def get_logs(self):
+        '''
+        Description:
+        ------------
+        Return all communication that didn't started with 0X7E
+        :return: log buffer
+        '''
+        return self.log_buffer
+    
+    def clear_logs(self):
+        '''
+        Description:
+        ------------
+        Clear the log_buffer
+        :return: void
+        '''
+        self.log_buffer = ""

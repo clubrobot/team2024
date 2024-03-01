@@ -32,6 +32,7 @@
 #define RESET_PARAMETERS_OPCODE         0x1F
 #define SAVE_PARAMETERS_OPCODE          0x20
 #define START_TURNONTHESPOT_DIR_OPCODE  0x21
+#define PRINT_PARAMS_OPCODE  0x22
 
 // Parameters identifiers
 
@@ -117,5 +118,6 @@ void RESET_PARAMETERS();
 
 void SAVE_PARAMETERS();
 
+void PRINT_PARAMS();
 
 #endif // __INSTRUCTIONS_H__
