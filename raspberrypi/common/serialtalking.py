@@ -11,6 +11,9 @@ import sys
 from common.serialtypes import *
 import common.pySerialTransfer as txfer
 
+from logs.logger import Logger
+from logs.utils.colors import colorise, Colors
+
 BAUDRATE = 115200
 
 #Défini les opcodes par défault
@@ -62,6 +65,8 @@ class SerialTalking:
         self.recSize = 0
         self.sendSize = 0
 
+        self.logger = Logger("SerialTalking")
+
         self.connect(timeout)
 
     def __enter__(self):
@@ -77,6 +82,7 @@ class SerialTalking:
         @param timeout timeout de bas à 5 sec
         '''
         if self.is_connected:
+            self.logger.sendLog(colorise('{} is already connected'.format(self.port), Colors.RED))
             raise AlreadyConnectedError('{} is already connected'.format(self.port))
 
         # Connect to the serial port
@@ -93,11 +99,15 @@ class SerialTalking:
                 shouldBePong = self.request(PING_OPCODE, STRING)[0]
                 if(shouldBePong=="pong\x00"):
                     self.is_connected = True
+                    self.logger.sendLog(colorise('\'{}\' is successfully connected!'.format(self.port), Colors.GREEN))
                 time.sleep(0.1)
                 if(time.monotonic() - startingtime > timeout): raise TimeoutError
             except TimeoutError:
                 if time.monotonic() - startingtime > timeout:
                     self.disconnect()
+                    
+                    self.logger.sendLog(colorise('\'{}\' is mute. It may not be an Arduino or it\'s sketch may not be correctly loaded.'.format(
+                            self.port), Colors.RED, Colors.BOLD))
                     raise MuteError(
                         '\'{}\' is mute. It may not be an Arduino or it\'s sketch may not be correctly loaded.'.format(
                             self.port)) from None
@@ -110,6 +120,7 @@ class SerialTalking:
     def disconnect(self):
         '''! Se deconnecte de l'arduino
         '''
+        self.logger.sendLog(colorise('\'{}\' is getting disconnected!'.format(self.port), Colors.YELLOW))
         self.link.close()
         self.is_connected=False
         return
@@ -209,19 +220,23 @@ class SerialTalking:
         startingtime = time.monotonic()
         #Boucle while avec timeout
         while True:
-            if(self.available()):#Tant que pas de réponse
-                for arg in args:#On cycle dans tout les valeurs excepté
-                    datum, datum_size = self.read_buffer(arg) #On lit le buffer
-                    data.append(datum)
-                    data_size.append(datum_size)
-                break
-            else:#si on a pas de réponse, on la force mdr
-                if(send_args==None):
-                    self.order(opcode)# On envoit l'ordre pour avoir la réponse
-                else:
-                    self.order(opcode, *send_args)
-                time.sleep(0.1)
-            if(time.monotonic() - startingtime > timeout): raise TimeoutError
+            try:
+                if(self.available()):#Tant que pas de réponse
+                    for arg in args:#On cycle dans tout les valeurs excepté
+                        datum, datum_size = self.read_buffer(arg) #On lit le buffer
+                        data.append(datum)
+                        data_size.append(datum_size)
+                    break
+                else:#si on a pas de réponse, on la force mdr
+                    if(send_args==None):
+                        self.order(opcode)# On envoit l'ordre pour avoir la réponse
+                    else:
+                        self.order(opcode, *send_args)
+                    time.sleep(0.1)
+                if(time.monotonic() - startingtime > timeout): raise TimeoutError
+            except:
+                self.logger.sendLog(colorise('\'{}\' is mute. It may not be an Arduino or it\'s sketch may not be correctly loaded.'.format(
+                            self.port), Colors.RED, Colors.BOLD))
 
         #On remet à 0 l'index RX
         self.free_receiver()

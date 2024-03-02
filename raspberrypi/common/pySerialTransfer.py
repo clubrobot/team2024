@@ -7,6 +7,9 @@ import glob
 from array import array
 from common.CRC import CRC
 
+from logs.logger import Logger
+from logs.utils.colors import colorise, Colors
+
 class InvalidSerialPort(Exception):
     pass
 
@@ -136,6 +139,7 @@ class SerialTransfer(object):
                                       default 50ms marries up with DEFAULT_TIMEOUT in SerialTransfer
         :return: void
         '''
+        self.logger = Logger("pySerialTransfert")
 
         self.txBuff = [' ' for i in range(MAX_PACKET_SIZE)]
         self.rxBuff = [' ' for i in range(MAX_PACKET_SIZE)]
@@ -159,6 +163,10 @@ class SerialTransfer(object):
                     break
 
             if self.port_name is None:
+                self.logger.sendLog(colorise('Invalid serial port specified.\
+                    Valid options are {ports},  but {port} was provided'.format(
+                    **{'ports': serial_ports(), 'port': port}), Colors.RED, Colors.BOLD))
+                
                 raise InvalidSerialPort('Invalid serial port specified.\
                     Valid options are {ports},  but {port} was provided'.format(
                     **{'ports': serial_ports(), 'port': port}))
@@ -185,7 +193,7 @@ class SerialTransfer(object):
                 self.connection.open()
                 return True
             except serial.SerialException as e:
-                print(e)
+                self.logger.sendLog(colorise(e, Colors.RED))
                 return False
         return True
     
@@ -203,6 +211,7 @@ class SerialTransfer(object):
         if type(callbacks) == list:
             self.callbacks = callbacks
         else:
+            self.logger.sendLog(colorise('Parameter "callbacks" is not of type "list"', Colors.RED))
             raise InvalidCallbackList('Parameter "callbacks" is not of type "list"')
 
     def close(self):
@@ -528,7 +537,7 @@ class SerialTransfer(object):
                         return self.bytesRead
 
                     else:
-                        print('ERROR: Undefined state: {}'.format(self.state))
+                        self.logger.sendLog(colorise('ERROR: Undefined state: {}'.format(self.state), Colors.RED))
 
                         self.bytesRead = 0
                         self.state = find_start_byte
@@ -572,7 +581,7 @@ class SerialTransfer(object):
             else:
                 err_str = str(self.status)
                 
-            print('ERROR: {}'.format(err_str))
+            self.logger.sendLog(colorise('ERROR: {}'.format(err_str), Colors.RED))
         
         return False
 
