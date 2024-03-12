@@ -7,7 +7,10 @@ from daughter_cards.actionneur import Actionneur
 import setups.setup_logger
 
 
-wb = WheeledBase("COM4")
-wb.print_params()
+wb = WheeledBase("COM3")
+
+
+
 print(wb.wheeledbase.getuuid())
-print(wb.wheeledbase.get_logs())
+
+wb

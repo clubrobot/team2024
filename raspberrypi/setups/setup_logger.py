@@ -3,4 +3,4 @@
 
 from logs.logger import *
 
-Logger.init("127.0.0.1", verbose=True, saveToFile=True)
+Logger.init("127.0.0.1", verbose=True, saveToFile=False)

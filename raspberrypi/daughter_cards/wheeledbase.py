@@ -252,9 +252,9 @@ class WheeledBase():
 
         # Go to the setpoint position
         self.purepursuit([self.get_position()[0:2], (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
-        print("fIN",self.isarrived(False))
+        print("fIN",self.isarrived())
         #self.wait(**kwargs)
-        while not self.isarrived(False):
+        while not self.isarrived():
             print(self.get_position())
             True
         # Get the setpoint orientation

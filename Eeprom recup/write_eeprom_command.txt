@@ -1,1 +1,0 @@
-C:\Program Files (x86)\Arduino\hardware\tools\avr\bin>avrdude -c arduino -P COM4 -b 57600 -v -p atmega328p -D -U eeprom:w:old_eeprom.hex -C "..\etc\avrdude.conf"

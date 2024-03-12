@@ -98,12 +98,12 @@ bool PositionController::getPositionReached()
 void PositionController::load(int address)
 {
 	m_mutex.acquire();
-	EEPROM.get(address, m_linVelKp); address += sizeof(m_linVelKp);
-	EEPROM.get(address, m_angVelKp); address += sizeof(m_angVelKp);
-	EEPROM.get(address, m_linVelMax); address += sizeof(m_linVelMax);
-	EEPROM.get(address, m_angVelMax); address += sizeof(m_angVelMax);
-	EEPROM.get(address, m_linPosThreshold); address += sizeof(m_linPosThreshold);
-	EEPROM.get(address, m_angPosThreshold); address += sizeof(m_angPosThreshold);
+	EEPROM.get(address, m_linVelKp); address += sizeof(m_linVelKp); 
+	EEPROM.get(address, m_angVelKp); address += sizeof(m_angVelKp); 
+	EEPROM.get(address, m_linVelMax); address += sizeof(m_linVelMax); 
+	EEPROM.get(address, m_angVelMax); address += sizeof(m_angVelMax); 
+	EEPROM.get(address, m_linPosThreshold); address += sizeof(m_linPosThreshold); 
+	EEPROM.get(address, m_angPosThreshold); address += sizeof(m_angPosThreshold); 
 	m_mutex.release();
 }
 

@@ -234,7 +234,8 @@ class SerialTalking:
                         self.order(opcode, *send_args)
                     time.sleep(0.1)
                 if(time.monotonic() - startingtime > timeout): raise TimeoutError
-            except:
+            except Exception as e:
+                self.logger.sendLog(str(e))
                 self.logger.sendLog(colorise('\'{}\' is mute. It may not be an Arduino or it\'s sketch may not be correctly loaded.'.format(
                             self.port), Colors.RED, Colors.BOLD))
 
