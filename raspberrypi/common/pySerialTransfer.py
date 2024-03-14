@@ -13,7 +13,6 @@ from logs.utils.colors import colorise, Colors
 class InvalidSerialPort(Exception):
     pass
 
-
 class InvalidCallbackList(Exception):
     pass
 
@@ -163,13 +162,12 @@ class SerialTransfer(object):
                     break
 
             if self.port_name is None:
-                self.logger.sendLog(colorise('Invalid serial port specified.\
+                """ self.logger.sendLog(colorise('Invalid serial port specified.\
                     Valid options are {ports},  but {port} was provided'.format(
-                    **{'ports': serial_ports(), 'port': port}), Colors.RED, Colors.BOLD))
+                    **{'ports': serial_ports(), 'port': port}), Colors.RED, Colors.BOLD)) """
                 
-                raise InvalidSerialPort('Invalid serial port specified.\
-                    Valid options are {ports},  but {port} was provided'.format(
-                    **{'ports': serial_ports(), 'port': port}))
+                raise InvalidSerialPort(colorise('Invalid serial port specified. Valid options are {ports},  but {port} was provided'.format(
+                    **{'ports': serial_ports(), 'port': port}), Colors.RED, Colors.BOLD))
         else:
             self.port_name = port
 

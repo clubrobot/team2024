@@ -1,0 +1,10 @@
+- verifier les moteurs sans assver (vrif les sens de marche) open loop velocities
+- verifier les codeuses et leur sens
+- Faire la metrologie et l'enregistrer
+- calibrer l'odométrie (verif la precision)
+- calib asservisseement
+
+- Really traveled distance > thought traveled distance -> decrease codewheels radius
+- Really rotated angle > thought rotated angle         -> increase axle track
+- Turn right when thinking moving forward              -> increase left codewheel radius
+- Turn left when thinking moving forward               -> increase right codewheel radius

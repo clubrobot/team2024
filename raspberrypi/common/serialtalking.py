@@ -33,7 +33,9 @@ SERIALTALKING_MULTIPLE_MAGIC = 'm' #comme multiple
 
 class AlreadyConnectedError(ConnectionError): pass
 
-class ConnectionFailedError(ConnectionError): pass
+class ConnectionFailedError(ConnectionError): 
+    pass
+        
 
 class NotConnectedError(ConnectionError): pass
 
