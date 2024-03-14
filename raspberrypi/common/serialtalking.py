@@ -88,12 +88,9 @@ class SerialTalking:
             raise AlreadyConnectedError('{} is already connected'.format(self.port))
 
         # Connect to the serial port
-        try:
-            self.link = txfer.SerialTransfer(self.port, BAUDRATE)
-            if(self.link.open()==False):
-                raise ConnectionFailedError
-        except Exception as e:
-            raise ConnectionFailedError(str(e))
+        self.link = txfer.SerialTransfer(self.port, BAUDRATE)
+        if(self.link.open()==False):
+            raise ConnectionFailedError
         
         startingtime = time.monotonic()
         while not self.is_connected:
@@ -107,12 +104,10 @@ class SerialTalking:
             except TimeoutError:
                 if time.monotonic() - startingtime > timeout:
                     self.disconnect()
-                    
-                    self.logger.sendLog(colorise('\'{}\' is mute. It may not be an Arduino or it\'s sketch may not be correctly loaded.'.format(
-                            self.port), Colors.RED, Colors.BOLD))
+
                     raise MuteError(
-                        '\'{}\' is mute. It may not be an Arduino or it\'s sketch may not be correctly loaded.'.format(
-                            self.port)) from None
+                        colorise('\'{}\' is mute. It may not be an Arduino or it\'s sketch may not be correctly loaded.'.format(
+                            self.port), Colors.RED, Colors.BOLD)) from None
                 else:
                     continue
 
@@ -228,7 +223,7 @@ class SerialTalking:
                         datum, datum_size = self.read_buffer(arg) #On lit le buffer
                         data.append(datum)
                         data_size.append(datum_size)
-                    break
+                    if(len(data)==len(args)): break#Break from the loop if every args are there
                 else:#si on a pas de réponse, on la force mdr
                     if(send_args==None):
                         self.order(opcode)# On envoit l'ordre pour avoir la réponse
@@ -237,10 +232,10 @@ class SerialTalking:
                     time.sleep(0.1)
                 if(time.monotonic() - startingtime > timeout): raise TimeoutError
             except Exception as e:
-                self.logger.sendLog(str(e))
-                self.logger.sendLog(colorise('\'{}\' is mute. It may not be an Arduino or it\'s sketch may not be correctly loaded.'.format(
+                self.logger.sendLog(colorise('\'{}\' Got a little hiccup, gonna resend the command.'.format(
                             self.port), Colors.RED, Colors.BOLD))
-
+                self.free_receiver()
+        
         #On remet à 0 l'index RX
         self.free_receiver()
         return data

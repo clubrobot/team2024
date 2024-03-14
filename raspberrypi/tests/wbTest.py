@@ -4,13 +4,12 @@ import time
 from common.components import Manager
 from daughter_cards.wheeledbase import WheeledBase
 from daughter_cards.actionneur import Actionneur
-import setups.setup_logger
+from setups.setup_logger import *
 
 
-wb = WheeledBase("COM3")
-
+wb = WheeledBase()
 
 
 print(wb.wheeledbase.getuuid())
-
-wb
+while True:
+    print(wb.set_velocities(100,0))

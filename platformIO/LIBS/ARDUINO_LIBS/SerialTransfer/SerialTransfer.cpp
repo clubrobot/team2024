@@ -178,6 +178,8 @@ void SerialTransfer::reset()
 	while (port->available() > 0)
 		port->read();
 
+	port->flush();
+
 	packet.reset();
 	status = packet.status;
 }

@@ -161,11 +161,7 @@ class SerialTransfer(object):
                     self.port_name = p
                     break
 
-            if self.port_name is None:
-                """ self.logger.sendLog(colorise('Invalid serial port specified.\
-                    Valid options are {ports},  but {port} was provided'.format(
-                    **{'ports': serial_ports(), 'port': port}), Colors.RED, Colors.BOLD)) """
-                
+            if self.port_name is None:               
                 raise InvalidSerialPort(colorise('Invalid serial port specified. Valid options are {ports},  but {port} was provided'.format(
                     **{'ports': serial_ports(), 'port': port}), Colors.RED, Colors.BOLD))
         else:

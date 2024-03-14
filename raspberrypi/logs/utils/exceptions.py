@@ -10,7 +10,6 @@ DEBUG_NONE = 0
 
 
 class ExceptionConfigurator():
-    current_debug_level = DEBUG_TELEPLOT
 
     @staticmethod
     def handle_exception(exc_type, exc_value, exc_traceback):
