@@ -172,7 +172,7 @@ void loop()
         positionControl.setPosInput(odometry.getPosition());
         velocityControl.setInputs(odometry.getLinVel(), odometry.getAngVel());
     }
-
+    
     // Compute trajectory
     if (positionControl.update())
     {

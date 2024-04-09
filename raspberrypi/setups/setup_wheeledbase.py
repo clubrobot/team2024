@@ -4,4 +4,4 @@
 #from setups.setup_serialtalks import *
 from daughter_cards.wheeledbase import *
 
-wheeledbase = WheeledBase("COM3")
+wheeledbase = WheeledBase()

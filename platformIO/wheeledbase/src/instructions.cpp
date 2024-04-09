@@ -130,22 +130,23 @@ void START_PUREPURSUIT()
 {
 	// Setup PurePursuit
 	byte direction = talking.read<byte>();
+	purePursuit.setFinalAngle(talking.read<float>());
+
 	switch (direction)
 	{
 	case 0: purePursuit.setDirection(PurePursuit::FORWARD); break;
 	case 1: purePursuit.setDirection(PurePursuit::BACKWARD); break;
 	}
-	purePursuit.setFinalAngle(talking.read<float>());
+	
 	// Compute final setpoint
 	const PurePursuit::Waypoint wp0 = purePursuit.getWaypoint(purePursuit.getNumWaypoints() - 2);
 	const PurePursuit::Waypoint wp1 = purePursuit.getWaypoint(purePursuit.getNumWaypoints() - 1);
 	positionControl.setPosSetpoint(Position(wp1.x, wp1.y, atan2(wp1.y - wp0.y, wp1.x - wp0.x) + direction * M_PI));
-	
+	Serial.println("A");
 	// Enable PurePursuit controller
 	velocityControl.enable();
 	positionControl.setMoveStrategy(purePursuit);
 	positionControl.enable();
-
 	talking.endTranfert();
 }
 
@@ -154,8 +155,10 @@ void ADD_PUREPURSUIT_WAYPOINT()
 	// Queue waypoint
 	float x = talking.read<float>();
 	float y = talking.read<float>();
-	talking.endTranfert();
+	
+	Serial.println("B");
 	purePursuit.addWaypoint(PurePursuit::Waypoint(x, y));
+	talking.endTranfert();
 }
 
 void START_TURNONTHESPOT()
@@ -174,9 +177,9 @@ void START_TURNONTHESPOT()
 		if(angPosSetpoint>0) turnOnTheSpot.setDirection(TurnOnTheSpot::TRIG);
 		else                 turnOnTheSpot.setDirection(TurnOnTheSpot::CLOCK);
 	}
-	talking.endTranfert();
 	positionControl.setMoveStrategy(turnOnTheSpot);
 	positionControl.enable();
+	talking.endTranfert();
 }
 
 void START_TURNONTHESPOT_DIR()
@@ -227,8 +230,9 @@ void SET_POSITION()
 	float x     = talking.read<float>();
 	float y     = talking.read<float>();
 	float theta = talking.read<float>();
-	talking.endTranfert();
+	
 	odometry.setPosition(x, y, theta);
+	talking.endTranfert();
 }
 
 void GET_POSITION()

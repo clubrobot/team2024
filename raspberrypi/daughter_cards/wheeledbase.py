@@ -251,12 +251,10 @@ class WheeledBase():
                 direction = 'backward'
 
         # Go to the setpoint position
-        self.purepursuit([self.get_position()[0:2], (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
-        print("fIN",self.isarrived())
+        self.purepursuit([(x0,y0), (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
         #self.wait(**kwargs)
-        while not self.isarrived():
-            print(self.get_position())
-            True
+        while not self.isarrived(raiseSpinUrgency=True):
+            pass
         # Get the setpoint orientation
         if theta is not None:
             self.turnonthespot(theta)

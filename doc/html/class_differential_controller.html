@@ -112,6 +112,20 @@ $(function(){initNavTree('class_differential_controller.html',''); initResizable
 <p>Est dérivée de <a class="el" href="class_periodic_process.html">PeriodicProcess</a>.</p>
 
 <p>Dérivée par <a class="el" href="class_velocity_controller.html">VelocityController</a>.</p>
+<div class="dynheader">
+Graphe de collaboration de DifferentialController:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_differential_controller__coll__graph.png" border="0" usemap="#a_differential_controller_coll__map" alt="Collaboration graph"/></div>
+<map name="a_differential_controller_coll__map" id="a_differential_controller_coll__map">
+<area shape="rect" title="Controle les moteurs." alt="" coords="129,112,265,139"/>
+<area shape="rect" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop." alt="" coords="5,5,122,32"/>
+<area shape="poly" title=" " alt="" coords="93,40,182,109,179,113,90,44"/>
+<area shape="rect" href="class_abstract_motor.html" title="Instance de moteur." alt="" coords="145,5,249,32"/>
+<area shape="poly" title=" " alt="" coords="200,47,200,112,194,112,194,47"/>
+<area shape="rect" href="class_p_i_d.html" title="Classe d&#39;asservissement." alt="" coords="286,5,329,32"/>
+<area shape="poly" title=" " alt="" coords="303,48,294,70,280,90,262,104,242,114,240,109,259,99,276,86,290,67,298,46"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">légende</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
@@ -423,6 +437,28 @@ Attributs protégés</h2></td></tr>
 <p>Implémente <a class="el" href="class_periodic_process.html#a397cd93780d753f5f06335cfe9f2a7f3">PeriodicProcess</a>.</p>
 
 <p>Réimplémentée dans <a class="el" href="class_velocity_controller.html#ad9d7a68904dfe039957aea75e48a88a8">VelocityController</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_differential_controller_a8597663d4601cd0f2d413311e85e2ccc_cgraph.png" border="0" usemap="#aclass_differential_controller_a8597663d4601cd0f2d413311e85e2ccc_cgraph" alt=""/></div>
+<map name="aclass_differential_controller_a8597663d4601cd0f2d413311e85e2ccc_cgraph" id="aclass_differential_controller_a8597663d4601cd0f2d413311e85e2ccc_cgraph">
+<area shape="rect" title="Calcul l&#39;asservissement" alt="" coords="5,23,142,65"/>
+<area shape="rect" href="class_p_i_d.html#a9982ecaf693e2b3b3873f749983814dd" title="Calcul l&#39;asservissement." alt="" coords="228,5,328,32"/>
+<area shape="poly" title=" " alt="" coords="142,33,212,24,213,29,142,38"/>
+<area shape="rect" href="class_abstract_motor.html#ac5c1960c11e5cfe2c4c1e206e79e5bf9" title="Charge une nouvelle vitesse." alt="" coords="190,56,366,83"/>
+<area shape="poly" title=" " alt="" coords="142,50,175,54,174,59,142,55"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_differential_controller_a8597663d4601cd0f2d413311e85e2ccc_icgraph.png" border="0" usemap="#aclass_differential_controller_a8597663d4601cd0f2d413311e85e2ccc_icgraph" alt=""/></div>
+<map name="aclass_differential_controller_a8597663d4601cd0f2d413311e85e2ccc_icgraph" id="aclass_differential_controller_a8597663d4601cd0f2d413311e85e2ccc_icgraph">
+<area shape="rect" title="Calcul l&#39;asservissement" alt="" coords="177,5,313,48"/>
+<area shape="rect" href="class_velocity_controller.html#ad9d7a68904dfe039957aea75e48a88a8" title="Calcul l&#39;asservissement." alt="" coords="5,5,129,48"/>
+<area shape="poly" title=" " alt="" coords="161,29,129,29,129,24,161,24"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -475,6 +511,22 @@ Attributs protégés</h2></td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_differential_controller_aecf1d9bcec79e50b87349d93acce8629_cgraph.png" border="0" usemap="#aclass_differential_controller_aecf1d9bcec79e50b87349d93acce8629_cgraph" alt=""/></div>
+<map name="aclass_differential_controller_aecf1d9bcec79e50b87349d93acce8629_cgraph" id="aclass_differential_controller_aecf1d9bcec79e50b87349d93acce8629_cgraph">
+<area shape="rect" title="Charge l&#39;entraxe." alt="" coords="5,48,142,91"/>
+<area shape="rect" href="class_periodic_process.html#a910daacfe12010947ec541d3ac565867" title="Execute la méthode process." alt="" coords="190,56,353,83"/>
+<area shape="poly" title=" " alt="" coords="142,67,174,67,174,72,142,72"/>
+<area shape="rect" href="class_clock.html#ab1e8d42d8685e9ebdade26ce074185e6" title="Récupère le temps depuis le dernier reset." alt="" coords="409,5,564,32"/>
+<area shape="poly" title=" " alt="" coords="331,53,411,34,412,39,332,58"/>
+<area shape="rect" href="class_periodic_process.html#a397cd93780d753f5f06335cfe9f2a7f3" title="Méthode à implémenter obligatoirement pour hériter de PeriodicProcess." alt="" coords="401,56,571,83"/>
+<area shape="poly" title=" " alt="" coords="353,67,385,67,385,72,353,72"/>
+<area shape="rect" href="class_clock.html#a52e5cc059c78fa8067d24d9d63070ca1" title="Reset le temps." alt="" coords="437,107,536,133"/>
+<area shape="poly" title=" " alt="" coords="332,81,422,102,421,107,331,86"/>
+</map>
+</div>
 
 </div>
 </div>

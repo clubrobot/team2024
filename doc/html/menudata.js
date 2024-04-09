@@ -30,7 +30,7 @@ var menudata={children:[
 {text:"Classes",url:"annotated.html",children:[
 {text:"Liste des classes",url:"annotated.html"},
 {text:"Index des classes",url:"classes.html"},
-{text:"Hiérarchie des classes",url:"hierarchy.html"},
+{text:"Hiérarchie des classes",url:"inherits.html"},
 {text:"Membres de classe",url:"functions.html",children:[
 {text:"Tout",url:"functions.html",children:[
 {text:"_",url:"functions.html#index__5F"},

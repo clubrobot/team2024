@@ -67,7 +67,7 @@ var NAVTREEINDEX =
 [
 "_a_x12_8h_source.html",
 "class_velocity_controller.html#a4a5d3013f75003fb282f68347498b51d",
-"struct_deserializer.html#a37f4bae0d8a61c6c556ba3e90a10f0c4"
+"md__c_1_2_users_2boris_2_desktop_2robotique_2team2024_2platform_i_o_2_r_e_a_d_m_e.html#autotoc_md4"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

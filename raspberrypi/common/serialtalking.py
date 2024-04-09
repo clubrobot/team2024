@@ -179,7 +179,6 @@ class SerialTalking:
         '''
         self.order(SETEEPROM_OPCODE, USHORT(address), BYTE(value))
         return
-
     #For each arg, on tx l'arg puis on envoie tout
     def order(self, opcode, *args):
         '''! Envoie un ordre à l'arduino
@@ -216,6 +215,7 @@ class SerialTalking:
         time.sleep(0.005)
         startingtime = time.monotonic()
         #Boucle while avec timeout
+        try_i=0
         while True:
             try:
                 if(self.available()):#Tant que pas de réponse
@@ -224,12 +224,17 @@ class SerialTalking:
                         data.append(datum)
                         data_size.append(datum_size)
                     if(len(data)==len(args)): break#Break from the loop if every args are there
-                else:#si on a pas de réponse, on la force mdr
+                elif(try_i>=50):#si on a pas de réponse, on la force mdr
+                    try_i=0
+                    self.logger.sendLog("Resend: "+str(opcode))
                     if(send_args==None):
                         self.order(opcode)# On envoit l'ordre pour avoir la réponse
                     else:
                         self.order(opcode, *send_args)
                     time.sleep(0.1)
+                else:
+                    try_i=try_i+1
+                    time.sleep(0.01)
                 if(time.monotonic() - startingtime > timeout): raise TimeoutError
             except Exception as e:
                 self.logger.sendLog(colorise('\'{}\' Got a little hiccup, gonna resend the command.'.format(
@@ -273,7 +278,7 @@ class SerialTalking:
         if(data_type==SERIALTALKING_SINGLE_MAGIC):
             data_size=1
             data = self.link.rx_obj(obj_type=obj_type, start_pos=self.recSize)
-            self.recSize += txfer.STRUCT_FORMAT_LENGTHS[obj_type.format]
+            self.recSize += txfer.STRUCT_FORMAT_LENGTHS[list(obj_type.format)[0]]
 
         #Sinon si valeur multiple (liste)
         elif(data_type==SERIALTALKING_MULTIPLE_MAGIC):
@@ -290,14 +295,14 @@ class SerialTalking:
                         self.recSize += 1
                     else:
                         data_arr.append(self.link.rx_obj(obj_type=obj_type, start_pos=self.recSize))
-                        self.recSize += txfer.STRUCT_FORMAT_LENGTHS[obj_type.format]
+                        self.recSize += txfer.STRUCT_FORMAT_LENGTHS[list(obj_type.format)[0]]
 
             if(obj_type.format=="str"):
                 data= b''.join(data_arr).decode()
                 
         else:
             return (-1,-1) #pas normal
-
+        
         return (data, data_size)
 
     # Réception de donnée

@@ -6,6 +6,7 @@ import serial.tools.list_ports
 import glob
 from array import array
 from common.CRC import CRC
+import time
 
 from logs.logger import Logger
 from logs.utils.colors import colorise, Colors
@@ -189,6 +190,8 @@ class SerialTransfer(object):
             except serial.SerialException as e:
                 self.logger.sendLog(colorise(e, Colors.RED))
                 return False
+            
+        self.last_send = time.monotonic()
         return True
     
     def set_callbacks(self, callbacks):
@@ -294,8 +297,9 @@ class SerialTransfer(object):
             buff = bytes(self.rxBuff[start_pos:(start_pos + obj_byte_size)])
             format_str = '%ds' % len(buff)
         else:
-            buff = bytes(self.rxBuff[start_pos:(start_pos + STRUCT_FORMAT_LENGTHS[obj_type.format])])
+            buff = bytes(self.rxBuff[start_pos:(start_pos + STRUCT_FORMAT_LENGTHS[list(obj_type.format)[0]])])
             format_str = obj_type.format
+            
 
         """
         elif obj_type.type == list:
@@ -411,10 +415,13 @@ class SerialTransfer(object):
             stack.append(STOP_BYTE)
 
             stack = bytearray(stack)
-            
-            if self.open():
-                self.connection.write(stack)
 
+            if self.open():
+                while time.monotonic()-self.last_send<0.001:
+                    pass#Slow down!
+                self.connection.write(stack)
+                self.connection.flush()
+                self.last_send = time.monotonic()
             return True
 
         except:

@@ -97,7 +97,7 @@ class SerialTransfer
 		return sendData(packet.txObj(val, 0, len));
 	}
 
-
+	
   private: // <<---------------------------------------//private
 	Stream* port;
 	uint32_t timeout;

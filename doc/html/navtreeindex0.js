@@ -25,7 +25,7 @@ var NAVTREEINDEX0 =
 "_serial_talking_8cpp.html":[5,0,0,1,0,15,0],
 "_serial_talking_8h.html":[5,0,0,1,0,15,1],
 "_serial_talking_8h_source.html":[5,0,0,1,0,15,1],
-"_serial_talking_example-example.html":[6,0],
+"_serial_talking_example_8py-example.html":[6,0],
 "_serial_talking_example_8py.html":[5,0,1,0,0],
 "_serial_transfer_8h_source.html":[5,0,0,1,0,16,3],
 "_shift_register_8h_source.html":[5,0,0,1,0,17,0],

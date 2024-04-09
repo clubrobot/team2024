@@ -180,4 +180,5 @@ void SerialTalking::CLEAREEPROM() {
 	for(int i=0; i<512;i++){
 		EEPROM.write(i, 0xFF);
 	}
+	talking.endTranfert();
 }

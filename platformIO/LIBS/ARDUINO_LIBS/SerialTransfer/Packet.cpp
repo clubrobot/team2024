@@ -201,7 +201,9 @@ uint8_t Packet::parse(const uint8_t& recChar, const bool& valid)
 
 		case find_crc: ///////////////////////////////////////////
 		{
-			uint8_t calcCrc = crc.calculate(rxBuff, bytesToRec);
+			state = find_end_byte;
+			break;
+			/* uint8_t calcCrc = crc.calculate(rxBuff, bytesToRec);
 
 			if (calcCrc == recChar)
 				state = find_end_byte;
@@ -218,7 +220,7 @@ uint8_t Packet::parse(const uint8_t& recChar, const bool& valid)
 				return bytesRead;
 			}
 
-			break;
+			break; */
 		}
 
 		case find_end_byte: ///////////////////////////////////////////
@@ -231,8 +233,7 @@ uint8_t Packet::parse(const uint8_t& recChar, const bool& valid)
 				bytesRead = bytesToRec;
 				status    = NEW_DATA;
 
-				if (callbacks)
-				{	
+				if (callbacks){	
 					if (idByte < callbacksLen){
 						callbacks[idByte]();
 					}else if (debug)

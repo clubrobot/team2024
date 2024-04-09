@@ -1,9 +1,6 @@
 {
 	"folders": [
 		{
-			"path": "."
-		},
-		{
 			"name": "SerialTopic_Test",
 			"path": "platformIO/SerialTopic_Test"
 		},
@@ -38,6 +35,10 @@
 		{
 			"name": "EEPROM tools",
 			"path": "platformIO/EEPROM tools"
+		},
+		{
+			"name": "team2024",
+			"path": "."
 		}
 	],
 	"settings": {

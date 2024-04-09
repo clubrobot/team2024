@@ -1,5 +1,13 @@
 var NAVTREEINDEX2 =
 {
+"md__c_1_2_users_2boris_2_desktop_2robotique_2team2024_2platform_i_o_2_r_e_a_d_m_e.html#autotoc_md4":[1,2],
+"namespacegeogebra.html":[3,0,0],
+"namespaces.html":[3,0],
+"namespaceserialtalking.html":[3,0,1],
+"namespacexbeetalks.html":[3,0,2],
+"pages.html":[],
+"serialutils_8h_source.html":[5,0,0,1,0,8,2],
+"struct_deserializer.html":[4,0,19],
 "struct_deserializer.html#a37f4bae0d8a61c6c556ba3e90a10f0c4":[4,0,19,7],
 "struct_deserializer.html#a4eb18eaaca2d816228b87a4774702191":[4,0,19,2],
 "struct_deserializer.html#a553fd827b18e08cf35771a583d495dde":[4,0,19,3],

@@ -110,6 +110,22 @@ $(function(){initNavTree('class_velocity_controller.html',''); initResizable(); 
 <p><code>#include &lt;<a class="el" href="_velocity_controller_8h_source.html">VelocityController.h</a>&gt;</code></p>
 
 <p>Est dérivée de <a class="el" href="class_differential_controller.html">DifferentialController</a>.</p>
+<div class="dynheader">
+Graphe de collaboration de VelocityController:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_velocity_controller__coll__graph.png" border="0" usemap="#a_velocity_controller_coll__map" alt="Collaboration graph"/></div>
+<map name="a_velocity_controller_coll__map" id="a_velocity_controller_coll__map">
+<area shape="rect" title="Objet de controle de la vitesse." alt="" coords="135,188,259,215"/>
+<area shape="rect" href="class_differential_controller.html" title="Controle les moteurs." alt="" coords="129,112,265,139"/>
+<area shape="poly" title=" " alt="" coords="200,154,200,188,194,188,194,154"/>
+<area shape="rect" href="class_periodic_process.html" title="Classe à implémenter pour gérer les appels dans la loop." alt="" coords="5,5,122,32"/>
+<area shape="poly" title=" " alt="" coords="93,40,182,109,179,113,90,44"/>
+<area shape="rect" href="class_abstract_motor.html" title="Instance de moteur." alt="" coords="145,5,249,32"/>
+<area shape="poly" title=" " alt="" coords="200,47,200,112,194,112,194,47"/>
+<area shape="rect" href="class_p_i_d.html" title="Classe d&#39;asservissement." alt="" coords="286,5,329,32"/>
+<area shape="poly" title=" " alt="" coords="303,48,294,70,280,90,262,104,242,114,240,109,259,99,276,86,290,67,298,46"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">légende</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
@@ -361,6 +377,16 @@ Attributs protégés</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>float Nouvelle vitesse intermédiaire. </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_velocity_controller_a0b601849cb1f8b70478f530c0d198a60_icgraph.png" border="0" usemap="#aclass_velocity_controller_a0b601849cb1f8b70478f530c0d198a60_icgraph" alt=""/></div>
+<map name="aclass_velocity_controller_a0b601849cb1f8b70478f530c0d198a60_icgraph" id="aclass_velocity_controller_a0b601849cb1f8b70478f530c0d198a60_icgraph">
+<area shape="rect" title="Calcul la vitesse à atteindre." alt="" coords="177,5,309,48"/>
+<area shape="rect" href="class_velocity_controller.html#ad9d7a68904dfe039957aea75e48a88a8" title="Calcul l&#39;asservissement." alt="" coords="5,5,129,48"/>
+<area shape="poly" title=" " alt="" coords="161,29,129,29,129,24,161,24"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -564,6 +590,31 @@ false Si le robot n'est pas bloqué. </dd></dl>
 </dl>
 
 <p>Réimplémentée à partir de <a class="el" href="class_differential_controller.html#a8597663d4601cd0f2d413311e85e2ccc">DifferentialController</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_velocity_controller_ad9d7a68904dfe039957aea75e48a88a8_cgraph.png" border="0" usemap="#aclass_velocity_controller_ad9d7a68904dfe039957aea75e48a88a8_cgraph" alt=""/></div>
+<map name="aclass_velocity_controller_ad9d7a68904dfe039957aea75e48a88a8_cgraph" id="aclass_velocity_controller_ad9d7a68904dfe039957aea75e48a88a8_cgraph">
+<area shape="rect" title="Calcul l&#39;asservissement." alt="" coords="5,148,129,191"/>
+<area shape="rect" href="class_periodic_process.html#a4147798b8ad01690f590d934bdd83c28" title="Désactive le PeriodicProcess." alt="" coords="177,13,342,40"/>
+<area shape="poly" title=" " alt="" coords="81,146,120,98,146,72,175,50,185,44,187,49,178,54,149,76,124,101,85,149"/>
+<area shape="rect" href="class_velocity_controller.html#a0b601849cb1f8b70478f530c0d198a60" title="Calcul la vitesse à atteindre." alt="" coords="193,64,326,107"/>
+<area shape="poly" title=" " alt="" coords="113,145,176,116,189,111,191,116,178,121,115,150"/>
+<area shape="rect" href="class_p_i_d.html#a310f5f2da22b3b492cfe60ebad1f7939" title="Retourne la sortie maximal." alt="" coords="193,131,326,157"/>
+<area shape="poly" title=" " alt="" coords="129,159,178,152,178,157,129,164"/>
+<area shape="rect" href="class_p_i_d.html#a19e0b4481b71f304ee21ed1edb1ba331" title="Retourne la sortie minimal." alt="" coords="195,181,324,208"/>
+<area shape="poly" title=" " alt="" coords="129,175,180,182,180,187,129,180"/>
+<area shape="rect" href="class_differential_controller.html#a8597663d4601cd0f2d413311e85e2ccc" title="Calcul l&#39;asservissement" alt="" coords="191,232,328,275"/>
+<area shape="poly" title=" " alt="" coords="115,189,178,218,191,223,189,228,176,222,113,194"/>
+<area shape="rect" href="class_abstract_motor.html#ac5c1960c11e5cfe2c4c1e206e79e5bf9" title="Charge une nouvelle vitesse." alt="" coords="395,295,571,321"/>
+<area shape="poly" title=" " alt="" coords="83,190,121,240,148,265,178,284,227,302,279,312,331,317,379,317,379,322,330,322,278,318,225,307,175,289,144,269,117,243,79,193"/>
+<area shape="rect" href="class_periodic_process.html#a6e325cb38e20cac3164a01d89e161d90" title="Méthode exécutée à la désactivation du PeriodicProcess." alt="" coords="390,5,576,48"/>
+<area shape="poly" title=" " alt="" coords="342,24,374,24,374,29,342,29"/>
+<area shape="rect" href="class_p_i_d.html#a9982ecaf693e2b3b3873f749983814dd" title="Calcul l&#39;asservissement." alt="" coords="433,240,533,267"/>
+<area shape="poly" title=" " alt="" coords="328,251,418,251,418,256,328,256"/>
+<area shape="poly" title=" " alt="" coords="328,267,411,288,410,293,327,272"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -616,6 +667,22 @@ false Si le robot n'est pas bloqué. </dd></dl>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_velocity_controller_a7b1ccf3d8e7b268301a35b0577f51f31_cgraph.png" border="0" usemap="#aclass_velocity_controller_a7b1ccf3d8e7b268301a35b0577f51f31_cgraph" alt=""/></div>
+<map name="aclass_velocity_controller_a7b1ccf3d8e7b268301a35b0577f51f31_cgraph" id="aclass_velocity_controller_a7b1ccf3d8e7b268301a35b0577f51f31_cgraph">
+<area shape="rect" title="Paramètre les accélérations max." alt="" coords="5,48,129,91"/>
+<area shape="rect" href="class_periodic_process.html#a910daacfe12010947ec541d3ac565867" title="Execute la méthode process." alt="" coords="177,56,340,83"/>
+<area shape="poly" title=" " alt="" coords="129,67,161,67,161,72,129,72"/>
+<area shape="rect" href="class_clock.html#ab1e8d42d8685e9ebdade26ce074185e6" title="Récupère le temps depuis le dernier reset." alt="" coords="396,5,551,32"/>
+<area shape="poly" title=" " alt="" coords="318,53,398,34,399,39,319,58"/>
+<area shape="rect" href="class_periodic_process.html#a397cd93780d753f5f06335cfe9f2a7f3" title="Méthode à implémenter obligatoirement pour hériter de PeriodicProcess." alt="" coords="388,56,558,83"/>
+<area shape="poly" title=" " alt="" coords="340,67,372,67,372,72,340,72"/>
+<area shape="rect" href="class_clock.html#a52e5cc059c78fa8067d24d9d63070ca1" title="Reset le temps." alt="" coords="424,107,523,133"/>
+<area shape="poly" title=" " alt="" coords="319,81,409,102,408,107,318,86"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -642,6 +709,22 @@ false Si le robot n'est pas bloqué. </dd></dl>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_velocity_controller_aa00bd41d5064587f3324c7b4309fd483_cgraph.png" border="0" usemap="#aclass_velocity_controller_aa00bd41d5064587f3324c7b4309fd483_cgraph" alt=""/></div>
+<map name="aclass_velocity_controller_aa00bd41d5064587f3324c7b4309fd483_cgraph" id="aclass_velocity_controller_aa00bd41d5064587f3324c7b4309fd483_cgraph">
+<area shape="rect" title="Paramètre les décéleration max." alt="" coords="5,48,129,91"/>
+<area shape="rect" href="class_periodic_process.html#a910daacfe12010947ec541d3ac565867" title="Execute la méthode process." alt="" coords="177,56,340,83"/>
+<area shape="poly" title=" " alt="" coords="129,67,161,67,161,72,129,72"/>
+<area shape="rect" href="class_clock.html#ab1e8d42d8685e9ebdade26ce074185e6" title="Récupère le temps depuis le dernier reset." alt="" coords="396,5,551,32"/>
+<area shape="poly" title=" " alt="" coords="318,53,398,34,399,39,319,58"/>
+<area shape="rect" href="class_periodic_process.html#a397cd93780d753f5f06335cfe9f2a7f3" title="Méthode à implémenter obligatoirement pour hériter de PeriodicProcess." alt="" coords="388,56,558,83"/>
+<area shape="poly" title=" " alt="" coords="340,67,372,67,372,72,340,72"/>
+<area shape="rect" href="class_clock.html#a52e5cc059c78fa8067d24d9d63070ca1" title="Reset le temps." alt="" coords="424,107,523,133"/>
+<area shape="poly" title=" " alt="" coords="319,81,409,102,408,107,318,86"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -667,6 +750,22 @@ false Si le robot n'est pas bloqué. </dd></dl>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_velocity_controller_a428043fcd8b930c254cf1cbd3615191d_cgraph.png" border="0" usemap="#aclass_velocity_controller_a428043fcd8b930c254cf1cbd3615191d_cgraph" alt=""/></div>
+<map name="aclass_velocity_controller_a428043fcd8b930c254cf1cbd3615191d_cgraph" id="aclass_velocity_controller_a428043fcd8b930c254cf1cbd3615191d_cgraph">
+<area shape="rect" title="Change l&#39;état de l&#39;arret d&#39;urgence." alt="" coords="5,48,136,91"/>
+<area shape="rect" href="class_periodic_process.html#a910daacfe12010947ec541d3ac565867" title="Execute la méthode process." alt="" coords="184,56,347,83"/>
+<area shape="poly" title=" " alt="" coords="136,67,168,67,168,72,136,72"/>
+<area shape="rect" href="class_clock.html#ab1e8d42d8685e9ebdade26ce074185e6" title="Récupère le temps depuis le dernier reset." alt="" coords="403,5,558,32"/>
+<area shape="poly" title=" " alt="" coords="325,53,405,34,406,39,326,58"/>
+<area shape="rect" href="class_periodic_process.html#a397cd93780d753f5f06335cfe9f2a7f3" title="Méthode à implémenter obligatoirement pour hériter de PeriodicProcess." alt="" coords="395,56,565,83"/>
+<area shape="poly" title=" " alt="" coords="347,67,379,67,379,72,347,72"/>
+<area shape="rect" href="class_clock.html#a52e5cc059c78fa8067d24d9d63070ca1" title="Reset le temps." alt="" coords="431,107,530,133"/>
+<area shape="poly" title=" " alt="" coords="326,81,416,102,415,107,325,86"/>
+</map>
+</div>
 
 </div>
 </div>
