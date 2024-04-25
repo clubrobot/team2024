@@ -45,6 +45,9 @@ class AX12():
         def __init__(self, id, parent):
             self.parent = parent
             self.id = id
+
+            self.setEndlessMode(False)
+            self.setAngleLimit(0,300)
         
         def reset(self): self.parent.actio.order(RESET_OPCODE, BYTE(self.id))
 
@@ -76,16 +79,26 @@ class AX12():
 
         def readPosition(self):
             output = self.parent.actio.request(READ_POSITION_OPCODE, FLOAT, send_args=[BYTE(self.id)])
-            return output
+            return output[0]
         
         def readSpeed(self):
             output = self.parent.actio.request(READ_SPEED_OPCODE, FLOAT, send_args=[BYTE(self.id)])
-            return output.read()
+            return output[0]
 
         def readTorque(self):
             output = self.parent.actio.request(READ_TORQUE_OPCODE, INT, BYTE(self.id))
-            return output
+            return output[0]
 
+        #Move till' the angle is reached
+        def move_reached(self, angle):
+             #TODO: very sad code; too bad
+
+            self.move(angle)
+            self.readPosition()#On "ammorce" l'AX12 car la première valeur est 0° même si à x°
+            while angle-1>=self.readPosition()>=angle+1:
+                pass
+        
+            return
 
 if __name__ == "__main__":
     from setups.setup_serialtalks import *

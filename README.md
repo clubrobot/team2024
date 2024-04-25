@@ -2,7 +2,7 @@
 
 > Software solution of the 2023/2024 Robotics Club of INSA Rennes
 
-## [GO TO THE WIKI](https://clubrobot.github.io/team2024/doc/html/index.html)
+[There is a wiki that need to be updated](https://clubrobot.github.io/team2024/doc/html/index.html)
 
 ## How to clone the repository ?
 

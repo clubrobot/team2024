@@ -92,7 +92,7 @@ while abs(wheeledbase.get_position()[2] - theta0) / (2 * math.pi) < abs(N):
     progress = (wheeledbase.get_position()[2] - theta0) / (2 * math.pi) / N
     print('{:.0f}/{} ({:.0f}%)\ttemps restant: {:.0f}'.format(N * progress,
                                                               N, 100 * progress, N * 2 * math.pi / angvel * (1 - progress)), end='\r')
-    time.sleep(0.1)
+    time.sleep(0.01)
 wheeledbase.stop()
 
 input('Veuillez réaligner le robot sur son orientation initiale:')
