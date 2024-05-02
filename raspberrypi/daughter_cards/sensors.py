@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from collections.abc import Callable, Iterable, Mapping
-from typing import Any
+import numpy as np
+
+import sys
 from common.serialtalking import SerialTalking
 from common.serialtypes import USHORT, UCHAR
 import time
+from logs.logger import Logger
 
 UNUSED_SENSOR = 65535
 
@@ -18,36 +20,34 @@ GET_SENSOR5_OPCODE = 0x14
 GET_SENSOR6_OPCODE = 0x15
 GET_SENSOR7_OPCODE = 0x16
 GET_SENSOR8_OPCODE = 0x17
+GET_ALL_SENSORS_OPCODE = 0x19
 
 CHECK_ERROR_OPCODE = 0X18
 
 GET_ALL_TOPIC_OPCODE = 0x01
 
+def pol2cart(rho, phi):
+    x = rho * np.cos(phi)
+    y = rho * np.sin(phi)
+    return(x, y)
 
 class Sensors():
-    TIMESTEP = 100
     MAX_DIST = 10000
-    """     
-    DEFAULT = {GET_SENSOR1_OPCODE: Deserializer(USHORT(MAX_DIST)),
-               GET_SENSOR2_OPCODE: Deserializer(USHORT(MAX_DIST)),
-               GET_SENSOR3_OPCODE: Deserializer(USHORT(MAX_DIST)),
-               GET_SENSOR4_OPCODE: Deserializer(USHORT(MAX_DIST)),
-               GET_SENSOR5_OPCODE: Deserializer(USHORT(MAX_DIST)),
-               GET_SENSOR6_OPCODE: Deserializer(USHORT(MAX_DIST)),
-               GET_SENSOR7_OPCODE: Deserializer(USHORT(MAX_DIST)),
-               GET_SENSOR8_OPCODE: Deserializer(USHORT(MAX_DIST)), 
-               CHECK_ERROR_OPCODE: Deserializer(USHORT(MAX_DIST)), 
-              } """
 
-    def __init__(self, uuid='SensorBoard'):
-        self.sensors = SerialTalking("/dev/arduino/"+uuid)
-        self.last_time = None
+    def __init__(self, uuid='sensors'):
+        if 'linux' in sys.platform:
+            self.sensors = SerialTalking("/dev/arduino/"+uuid)
+        else:
+            self.sensors = SerialTalking(uuid)
+
+        self.log = Logger("sensors")
+        self.log.init()
 
         try:
-            if(self.execute(CHECK_ERROR_OPCODE).read(UCHAR)!=128): raise
-            print("PASSE SENSORS")
+            if(self.check_errors()!=128): raise
+            self.log.sendLog("PASSE SENSORS")
         except:
-            print("ERROR SENSORS")
+            self.log.sendLog("ERROR SENSORS")
             pass
 
         self.sensor1 = self.MAX_DIST
@@ -59,78 +59,85 @@ class Sensors():
         self.sensor7 = self.MAX_DIST
         self.sensor8 = self.MAX_DIST
 
+    def get_all_sensors(self):
+        self.all_sensor = self.sensors.request(GET_ALL_SENSORS_OPCODE, USHORT, USHORT, USHORT, USHORT, USHORT, USHORT, USHORT, USHORT)
+
+        [self.sensor1, self.sensor2, self.sensor3, self.sensor4, self.sensor5, self.sensor6, self.sensor7, self.sensor8]\
+        = self.all_sensor
 
 
-    @TopicHandler(USHORT, USHORT, USHORT, USHORT, USHORT, USHORT, USHORT, USHORT)
-    def get_all_sensors_handler(self, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7, sensor8):
-        self.sensor1 = sensor1
-        self.sensor2 = sensor2
-        self.sensor3 = sensor3
-        self.sensor4 = sensor4
-        self.sensor5 = sensor5
-        self.sensor6 = sensor6
-        self.sensor7 = sensor7
-        self.sensor8 = sensor8
-
-    def get_all(self):
-        return [self.sensor1, self.sensor2, self.sensor3, self.sensor4, self.sensor5, self.sensor6, self.sensor7, self.sensor8]
-
-    def get_range_left_front(self):
-        return self.sensor1
-
-    def get_range_mid_left_front(self):
-        return self.sensor2
-
-    def get_range_mid_right_front(self):
-        return self.sensor3
-
-    def get_range_right_front(self):
-        return self.sensor4
-
-    def get_range_left_back(self):
-        return self.sensor5
-
-    def get_range_mid_left_back(self):
-        return self.sensor6
-
-    def get_range_mid_right_back(self):
-        return self.sensor7
-
-    def get_range_right_back(self):
-        return self.sensor8
+        return self.all_sensor
 
     def get_sensor1_range(self):
-        return self.execute(GET_SENSOR1_OPCODE).read(USHORT)
+        self.sensor1 = self.sensors.request(GET_SENSOR1_OPCODE, USHORT)[0]
+        return self.sensor1
 
     def get_sensor2_range(self):
-        return self.execute(GET_SENSOR2_OPCODE).read(USHORT)
+        self.sensor2 = self.sensors.request(GET_SENSOR2_OPCODE, USHORT)[0]
+        return self.sensor2
 
     def get_sensor3_range(self):
-        return self.execute(GET_SENSOR3_OPCODE).read(USHORT)
+        self.sensor3 = self.sensors.request(GET_SENSOR3_OPCODE, USHORT)[0]
+        return self.sensor3
 
     def get_sensor4_range(self):
-        return self.execute(GET_SENSOR4_OPCODE).read(USHORT)
+        self.sensor4 = self.sensors.request(GET_SENSOR4_OPCODE, USHORT)[0]
+        return self.sensor4
 
     def get_sensor5_range(self):
-        return self.execute(GET_SENSOR5_OPCODE).read(USHORT)
+        self.sensor5 = self.sensors.request(GET_SENSOR5_OPCODE, USHORT)[0]
+        return self.sensor5
 
     def get_sensor6_range(self):
-        return self.execute(GET_SENSOR6_OPCODE).read(USHORT)
+        self.sensor6 = self.sensors.request(GET_SENSOR6_OPCODE, USHORT)[0]
+        return self.sensor6
 
     def get_sensor7_range(self):
-        return self.execute(GET_SENSOR7_OPCODE).read(USHORT)
+        self.sensor7 = self.sensors.request(GET_SENSOR7_OPCODE, USHORT)[0]
+        return self.sensor7
 
     def get_sensor8_range(self):
-        return self.execute(GET_SENSOR8_OPCODE).read(USHORT)
+        self.senor8 = self.sensors.request(GET_SENSOR8_OPCODE, USHORT)[0]
+        return self.sensor8
 
     def is_ready(self):
         try:
             return self.is_connected
         except:
             return False
+    
+    def publish_logs(self):
+        try:
+            if(self.check_errors()!=128): raise
+            self.log.sendLog("PASSE SENSORS")
+        except:
+            self.log.sendLog("ERROR SENSORS")
+            pass
+
+        self.get_all_sensors()
+
+        co_sen1 = pol2cart(0, self.sensor1)
+        co_sen2 = pol2cart(np.pi/4, self.sensor2)
+        co_sen3 = pol2cart(np.pi/2, self.sensor3)
+        co_sen4 = pol2cart(3*np.pi/4, self.sensor4)
+        co_sen5 = pol2cart(np.pi, self.sensor5)
+        co_sen6 = pol2cart(5*np.pi/4, self.sensor6)
+        co_sen7 = pol2cart(3*np.pi/2, self.sensor7)
+        co_sen8 = pol2cart(5*np.pi/4, self.sensor8)
+
+        self.log.sendXY("Sensors", "cm", True, None,
+                        co_sen1[0], co_sen1[1],
+                        co_sen2[0], co_sen2[1],
+                        co_sen3[0], co_sen3[1],
+                        co_sen4[0], co_sen4[1],
+                        co_sen5[0], co_sen5[1],
+                        co_sen6[0], co_sen6[1],
+                        co_sen7[0], co_sen7[1],
+                        co_sen8[0], co_sen8[1],
+                        )
 
     def check_errors(self):
-        return self.execute(CHECK_ERROR_OPCODE).read(UCHAR)
+        return self.sensors.request(CHECK_ERROR_OPCODE, UCHAR)[0]
 
 import threading
 class ThreadSensors():
@@ -158,7 +165,7 @@ class ThreadSensors():
 
 
 if __name__ == "__main__":
-    from setups.setup_serialtalks import *
 
-    s = Sensors(manager, '/dev/ttyUSB0')
-    print(s.get_sensor1_range())
+    s = Sensors('COM8')
+    while 1:
+        s.publish_logs()

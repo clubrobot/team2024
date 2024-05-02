@@ -3,7 +3,8 @@
 
 from time import monotonic, sleep
 from threading import Thread, Event, current_thread
-from logs.logger import *
+from logs.logger import Logger
+from logs.utils.colors import colorise, Colors
 from listeners.end_game_listener import *
 
 
@@ -27,7 +28,7 @@ class RobotBehavior:
     YELLOW_SIDE = 1
     UNDEFINED_SIDE = -1
 
-    def __init__(self, manager, *args, timelimit=None, exec_param=Logger.SHOW, log_level=INFO, **kwargs):
+    def __init__(self, *args, timelimit=None, **kwargs):
         """Initialise all the useful object members
 
         Args:
@@ -36,7 +37,6 @@ class RobotBehavior:
             exec_param (int, optional): The logger display configuration. Defaults to Logger.SHOW.
             log_level (int, optional): The logger display level. Defaults to INFO.
         """
-        self.manager = manager
         self.timelimit = timelimit
         self.whitelist = set()
         self.blacklist = set()
@@ -50,8 +50,8 @@ class RobotBehavior:
         #self.manager.send = self.send
 
         # Init Logger
-        self.logger = LogManager().getlogger(
-            self.__class__.__name__, exec_param, log_level)
+        self.logger = Logger("Robot Behaviour")
+        self.logger.init()
 
     def perform(self, procedure, args=(), kwargs={}, timelimit=True):
         """This method allow the robot to perform an action. It create one thread for the current action and check if this thread is allow to run
@@ -204,34 +204,34 @@ class RobotBehavior:
         """
         self.starttime = monotonic()
         self.stop_event.clear()
-        self.logger(INFO, 'Start Behaviour')
+        self.logger.sendLog('Start Behaviour')
         try:
             start = self.perform(self.start_procedure, timelimit=False)
             while (self.timelimit is None or self.get_elapsed_time() < self.timelimit) and not self.stop_event.is_set():
                 decision = self.make_decision()
                 procedure, args, kwargs, (location, thresholds) = decision
                 if procedure is None:
-                    self.logger(INFO, 'No decision')
+                    self.logger.sendLog('No decision')
                     sleep(1)
                     continue
                 if location is not None:
                     if location[2] is not None:
-                        self.logger(
-                            INFO, 'Goto: ({0[0]:.0f}, {0[1]:.0f}, {0[2]:.2f})'.format(location))
+                        self.logger.sendLog(
+                            'Goto: ({0[0]:.0f}, {0[1]:.0f}, {0[2]:.2f})'.format(location))
                     else:
-                        self.logger(
-                            INFO, 'Goto: ({0[0]:.0f}, {0[1]:.0f})'.format(location))
+                        self.logger.sendLog(
+                            'Goto: ({0[0]:.0f}, {0[1]:.0f})'.format(location))
                     goto = self.perform(self.goto_procedure,
                                         args=(location, thresholds))
                     success = self.get(goto)
                 else:
                     success = True
                 if success:
-                    self.logger(INFO, "Perform Action")
+                    self.logger.sendLog("Perform Action")
                     action = self.perform(procedure, args=args, kwargs=kwargs)
                     self.get(action)
                 else:
-                    self.logger(WARNING, 'Goto failed')
+                    self.logger.sendLog(colorise('Goto failed',Colors.RED))
         except:
             self.whitelist.clear()
             raise
@@ -244,7 +244,7 @@ class RobotBehavior:
     def stop(self):
         """Stop the robot
         """
-        self.logger(INFO, 'Stop match')
+        self.logger.sendLog('Stop match')
         self.stop_event.set()
 
     def get_elapsed_time(self):

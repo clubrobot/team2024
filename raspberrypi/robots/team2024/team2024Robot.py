@@ -15,6 +15,8 @@ import os
 COLOR = RobotBehavior.YELLOW_SIDE
 PREPARATION = False
 
+ROBOT_LENGHT = 0 #en mm, longeur
+ROBOT_WIDTH = 0 #en mm, largeur
 
 class Robeur(RobotBehavior):
     """This class is the main objet of bornibus robot, it contain all the action list and initial configuration to run a match
@@ -23,14 +25,14 @@ class Robeur(RobotBehavior):
         RobotBehavior (class): The main bornibus class inherit from the global robot behaviour in order to have a common behaviour for each robot you want
     """
 
-    def __init__(self, manager, *args, timelimit=None, **kwargs):
+    def __init__(self, *args, timelimit=None, **kwargs):
         """The initialisation function create all functional module of the robot. This function also instanciate all the match actions
 
         Args:
             manager (class): One instance of the manager client. It is the client part of th proxy to have access of all the arduino daughter cards
             timelimit (int, optional): The match time limit, usualy set to 100 seconds. Defaults to None.
         """
-        RobotBehavior.__init__(self, manager, *args,
+        RobotBehavior.__init__(self, *args,
                                timelimit=timelimit, **kwargs)
 
         #self.avoidance_behaviour = AviodanceBehaviour(
@@ -44,11 +46,11 @@ class Robeur(RobotBehavior):
         self.road = RoadMap.load(self.geo)
         self.side = RobotBehavior.BLUE_SIDE
 
-        self.wheeledbase = WheeledBase(manager)
+        self.wheeledbase = WheeledBase()
         #self.display = display
-        self.pince= Pince(manager)
-        self.ascenseur= Ascenseur(manager)
-        self.sensors=Sensors(manager,"sensors")
+        self.pince= Pince()
+        self.ascenseur= Ascenseur()
+        self.sensors=Sensors("sensors")
         #self.sensors=None
         self.blue=self.side==RobotBehavior.BLUE_SIDE
 
@@ -94,7 +96,7 @@ class Robeur(RobotBehavior):
         Returns:
             bool: Return True when the robot successfuly reach the desired position false other.
         """
-        if self.wheeledbase.goto_stop(destination[0],destination[1],self.sensors ):
+        if self.wheeledbase.goto_stop(destination[0],destination[1],self.sensors):
             #self.display.happy()
             self.automatestep += 1
             return True
@@ -146,15 +148,13 @@ class Robeur(RobotBehavior):
         self.wheeledbase.stop()
         self.display.love(duration=1000)
         self.p.release()
-        self.manager.end_game()
 
 
 if __name__ == '__main__':
-    manag=None#Manager('10.0.0.7')
     if PREPARATION:
-        Robeur(manag).start_preparation()
+        Robeur().start_preparation()
     else:
-        robot = Robeur(manag)
+        robot = Robeur()
         robot.set_side(COLOR)
         #init_robot()
         robot.set_position()

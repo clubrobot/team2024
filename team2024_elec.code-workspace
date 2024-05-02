@@ -37,6 +37,10 @@
 			"path": "platformIO/EEPROM tools"
 		},
 		{
+			"name": "sensors",
+			"path": "platformIO/sensors"
+		},
+		{
 			"name": "team2024",
 			"path": "."
 		}

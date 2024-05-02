@@ -23,14 +23,17 @@ class Teleplot:
 
         self.sock.sendto(msg.encode(), self.teleplotAddr)
 
-    def sendTelemetryXY(self, name, x, y, x1, y1, unit):
+    def sendTelemetryXY(self, name, unit, clr, now, *args):
+        if now==None: now = (time.time()+3600)*1000
 
-        now = (time.time()+3600)*1000
-        if(x1==None):
-            msg = name+":"+str(x)+":"+str(y)+":"+str(now)+self.format_unit(unit)+"|xy"
-        else:
-            msg = name+":"+str(x)+":"+str(y)+":"+str(now)+";" +str(x1)+":"+str(y1)+":"+str(now)+self.format_unit(unit)+"|xy"
+        msg = name+":"
+        for i in range(0, len(args)-1, 2):
+           msg +=str(args[i])+":"+str(args[i+1])+":"+str(now)+";"
         
+        msg = msg[:-1]
+        msg += self.format_unit(unit)
+        if clr: msg+="|clr" 
+        else: msg+="|xy"
         self.sock.sendto(msg.encode(), self.teleplotAddr)
 
     def sendLog(self, mstr, now):
@@ -40,5 +43,4 @@ class Teleplot:
 
         msg = (">"+timestamp+":"+mstr)
         self.sock.sendto(msg.encode(), self.teleplotAddr)
-
 

@@ -117,7 +117,7 @@ if __name__ == "__main__":
     btn2.set_function(btn2.switch)
     btn2.on()
 
-    btn3 = LightButton(gpio_pins.INTER_1_PIN, gpio_pins.LED3_PIN, None)
+    btn3 = LightButton(gpio_pins.INTER_3_PIN, gpio_pins.LED3_PIN, None)
     btn3.set_function(btn3.switch)
     btn3.on()
 
@@ -128,5 +128,4 @@ if __name__ == "__main__":
     tirette = Switch(gpio_pins.TIRETTE_PIN, test, True)
     
     while 1:
-        print(btn1.button.is_pressed)
-        sleep(0.1)
+        pass

@@ -8,6 +8,7 @@ import sys
 from time import sleep
 from common.serialtalking import BYTE, LONG, FLOAT, INT
 from common.serialtalking import SerialTalking
+from logs.logger import Logger
 
 # Instructions
 SET_VELOCITIES_OPCODE           = 0x10
@@ -116,6 +117,9 @@ class WheeledBase():
         else:
             self.wheeledbase = SerialTalking(uuid)
 
+        self.log = Logger("wheeledbase")
+        self.log.init()
+
         self.left_wheel_radius              = WheeledBase.Parameter(self, LEFTWHEEL_RADIUS_ID, FLOAT)
         self.left_wheel_constant            = WheeledBase.Parameter(self, LEFTWHEEL_CONSTANT_ID, FLOAT)
         self.left_wheel_maxPWM              = WheeledBase.Parameter(self, LEFTWHEEL_MAXPWM_ID, FLOAT)
@@ -195,7 +199,7 @@ class WheeledBase():
             finalangle = math.atan2(waypoints[-1][1] - waypoints[-2][1], waypoints[-1][0] - waypoints[-2][0])
         self.direction = {'forward':self.FORWARD, 'backward':self.BACKWARD}[direction]
         self.final_angle = finalangle
-        print("start purepursuit")
+        self.log.sendLog("start purepursuit")
         self.wheeledbase.order(START_PUREPURSUIT_OPCODE, BYTE({'forward':0, 'backward':1}[direction]), FLOAT(finalangle))
 
     def purepursuit_stop(self, waypoints,sensors, direction='forward', finalangle=None, lookahead=None, lookaheadbis=None,
@@ -207,9 +211,9 @@ class WheeledBase():
             if (m < 500 or np.min(sensors.get_all()[4:]) < 300):
                 interrupt = True
                 self.stop()
-                print("arret")
+                self.log.sendLog("arret")
 
-        print("ARRIVE")
+        self.log.sendLog("ARRIVE")
     def start_purepursuit(self):
         self.wheeledbase.order(START_PUREPURSUIT_OPCODE, BYTE({self.NO_DIR:0, self.FORWARD:0, self.BACKWARD:1}[self.direction]),
                   FLOAT(self.final_angle))
@@ -285,7 +289,7 @@ class WheeledBase():
                 #print("arret")
             elif interrupt:
                 interrupt=False
-                print("Reprise")
+                self.log.sendLog("Reprise")
                 if direction is None:
                     x0, y0, theta0 = self.get_position()
                     if math.cos(math.atan2(y - y0, x - x0) - theta0) >= 0:
@@ -294,7 +298,7 @@ class WheeledBase():
                         direction = 'backward'
                 self.purepursuit([self.get_position()[0:2], (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
             
-        print("ARRIVE")
+        self.log.sendLog("ARRIVE")
         
         # Get the setpoint orientation
         if theta is not None:

@@ -1,0 +1,30 @@
+#ifndef __INSTRUCTIONS_H__
+#define __INSTRUCTIONS_H__
+
+#include <SerialTalking.h>
+
+#define GET_SENSOR1_OPCODE 0x10
+#define GET_SENSOR2_OPCODE 0x11
+#define GET_SENSOR3_OPCODE 0x12
+#define GET_SENSOR4_OPCODE 0x13
+#define GET_SENSOR5_OPCODE 0x14
+#define GET_SENSOR6_OPCODE 0x15
+#define GET_SENSOR7_OPCODE 0x16
+#define GET_SENSOR8_OPCODE 0x17
+#define GET_ALL_SENSORS_OPCODE 0x19
+
+#define CHECK_ERROR_OPCODE 0x18
+
+void GET_ALL_SENSORS();
+void GET_SENSOR1();
+void GET_SENSOR2();
+void GET_SENSOR3();
+void GET_SENSOR4();
+void GET_SENSOR5();
+void GET_SENSOR6();
+void GET_SENSOR7();
+void GET_SENSOR8();
+
+void CHECK_ERROR();
+
+#endif // __INSTRUCTIONS_H__

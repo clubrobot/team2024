@@ -36,13 +36,14 @@ class Logger:
         self.origin = origin
 
     @staticmethod
-    def init(IP="127.0.0.1", verbose=False, saveToFile=False):
+    def init(IP="127.0.0.1", verbose=True, saveToFile=False):
         """! Méthode statique pour initialiser téleplot
 
         @param IP Ip du serveur teleplot
         @param verbose Boolean pour afficher (ou non) les logs dans la console d'exec
         @param saveToFile Boolean pour savoir si les logs sont écrit dans un .txt
         """
+        if Logger.initied==True: return
         Logger.teleplot = Teleplot(IP)
 
         Logger.saveToFile = saveToFile
@@ -66,7 +67,7 @@ class Logger:
         Logger.teleplot.sendTelemetry(name, value, unit, now)
 
     @staticmethod
-    def sendXY( name, x, y, unit="", x1=None, y1=None):
+    def sendXY(name, unit="", clr=False, now=None, *args):
         """! Envoie une donnée XY à Teleplot
         @param name nom du graphique
         @param x Valeur x
@@ -76,8 +77,9 @@ class Logger:
         @param y1 Valeur y de la deuxième serie
         """
         if(not Logger.initied): return #Logger not initied
+        if(len(args)%2!=0): return #Can't do xy if not even
 
-        Logger.teleplot.sendTelemetryXY(name, x, y, x1, y1, unit)
+        Logger.teleplot.sendTelemetryXY(name, unit, clr, now, *args)
 
     @staticmethod
     def sendLogStatic(message, origin="", now=None):
@@ -138,7 +140,6 @@ class log_archiver:
         if(message):
             self.log_file.write(message)
 
-
 if __name__ == '__main__':
     import math
 
@@ -150,7 +151,7 @@ if __name__ == '__main__':
         myLogger.sendLog("Not connected")
         Logger.sendLogStatic("test")
         Logger.sendGraph("Test", math.sin(i), "km²")
-        Logger.sendXY("XY", math.cos(i), math.sin(i), "km²")
+        Logger.sendXY("XY", "km²", True ,None,math.cos(i), math.sin(i), math.cos(i)*2, math.sin(i)*0.5)
         i+=0.1
         time.sleep(0.1)
 	

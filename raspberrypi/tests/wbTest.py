@@ -14,4 +14,6 @@ wheeledbase = WheeledBase()
 
 print(wheeledbase.wheeledbase.getuuid())
 
-wheeledbase.set_velocities(0,-3)
+wheeledbase.goto(100,50)
+wheeledbase.goto(0,0)
+wheeledbase.goto(400,0)
