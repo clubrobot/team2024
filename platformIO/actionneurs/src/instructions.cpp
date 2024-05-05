@@ -4,7 +4,9 @@
 extern AX12 ax;
 
 //Moche mais ça marche
-extern Servo servo;
+extern Servo servo1;
+extern Servo servo2;
+extern Servo servo3;
 /*
 All the instructions are with ax.attach this is for swaping between 
 differents ax12 that have differents ID
@@ -102,6 +104,22 @@ void READ_TORQUE(){
 
 void SET_ANGLE_SERVO(){
     uint16_t angle = talking.read<short>();
+    uint16_t id = talking.read<short>();
     talking.endTranfert();
-    servo.write(angle);
+
+    switch (id)
+    {
+    case 1:
+        servo1.write(angle);
+        break;
+    case 2:
+        servo2.write(angle);
+        break;
+    case 3:
+        servo3.write(angle);
+        break;
+    default:
+        break;
+    }
+    
 }

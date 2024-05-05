@@ -387,3 +387,6 @@ class WheeledBase():
 
     def save_parameters(self):
         self.wheeledbase.order(SAVE_PARAMETERS_OPCODE)
+
+    def publish_logs(self):
+        pass

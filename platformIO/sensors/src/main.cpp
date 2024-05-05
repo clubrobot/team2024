@@ -50,6 +50,7 @@ void setup()
     Serial.begin(SERIALTALKING_BAUDRATE);
     talking.begin(Serial);
     delay(100);
+
     // I2C Communication
     Wire.begin(SENSORS_SDA, SENSORS_SCL); //SDA SCL
     

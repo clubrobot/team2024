@@ -32,8 +32,17 @@ class Teleplot:
         
         msg = msg[:-1]
         msg += self.format_unit(unit)
-        if clr: msg+="|clr" 
+        if clr: 
+            msg+="|clr" 
+            msg = name+":0:0|xy\n"+msg
         else: msg+="|xy"
+        self.sock.sendto(msg.encode(), self.teleplotAddr)
+
+    def sendLogStatus(self, name, status, now):
+        if now==None: now = (time.time()+3600)*1000
+
+        msg = name+":"+str(now)+":"+str(status)+"|t"
+
         self.sock.sendto(msg.encode(), self.teleplotAddr)
 
     def sendLog(self, mstr, now):

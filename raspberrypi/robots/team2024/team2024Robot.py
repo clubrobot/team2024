@@ -5,15 +5,14 @@ from threading import Semaphore
 from common.geogebra import Geogebra
 from common.roadmap import RoadMap
 from daughter_cards.wheeledbase import WheeledBase
-from robots.team2024.ascenseur import Ascenseur
-from robots.team2024.pince import Pince
+
 from daughter_cards.sensors import Sensors
 from threading import Thread
 from robots.team2024.RecupPile import RecupPile
 import os
 
 COLOR = RobotBehavior.YELLOW_SIDE
-PREPARATION = False
+PREPARATION = True
 
 ROBOT_LENGHT = 0 #en mm, longeur
 ROBOT_WIDTH = 0 #en mm, largeur
@@ -48,13 +47,13 @@ class Robeur(RobotBehavior):
 
         self.wheeledbase = WheeledBase()
         #self.display = display
-        self.pince= Pince()
-        self.ascenseur= Ascenseur()
-        self.sensors=Sensors("sensors")
+
+        #self.sensors=Sensors("sensors")
         #self.sensors=None
         self.blue=self.side==RobotBehavior.BLUE_SIDE
 
         self.automate = []#get 3 couleurs puis gerber puis poser cerises
+        '''
         if(self.blue):#couleur impaire
             self.automate.append(RecupPile(self.wheeledbase,self.geo.get('Rose1'),self.geo.get('ZB1'),self.pince))
             self.automate.append(RecupPile(self.wheeledbase,self.geo.get('Jaune1'),self.geo.get('ZB1'),self.pince))
@@ -63,7 +62,7 @@ class Robeur(RobotBehavior):
             self.automate.append(RecupPile(self.wheeledbase,self.geo.get('Rose2'),self.geo.get('ZV1'),self.pince))
             self.automate.append(RecupPile(self.wheeledbase,self.geo.get('Jaune2'),self.geo.get('ZV1'),self.pince))
             self.automate.append(RecupPile(self.wheeledbase,self.geo.get('Noir2'),self.geo.get('ZV1'),self.pince))
-
+        '''
         self.automatestep = 0
 
         self.p = Semaphore(0)
@@ -116,17 +115,17 @@ class Robeur(RobotBehavior):
         """This function apply the starting position of the robot reagading to the choosed side
         """
         if self.side == RobotBehavior.YELLOW_SIDE:
-            self.wheeledbase.set_position(self.geo.get('ZV1'), -pi/2)
+            self.wheeledbase.set_position(0,0, -pi/2)
         else:
-            self.wheeledbase.set_position(self.geo.get('ZB1'), pi/2)
+            self.wheeledbase.set_position(0,0, pi/2)
 
     def positioning(self):
         """This optionnal function can be useful to do a small move after setting up the postion during the preparation phase
         """
         if self.side == RobotBehavior.YELLOW_SIDE:
-            self.wheeledbase.goto(self.geo.get('ZV1'), -pi/2)
+            self.wheeledbase.goto(self.geo.get('BaseJ1')[0], self.geo.get('BaseJ1')[1], -pi/2)
         else:
-            self.wheeledbase.goto(self.geo.get('ZB1'), pi/2)
+            self.wheeledbase.goto(self.geo.get('BaseJ1')[0], self.geo.get('BaseJ1')[1], pi/2)
 
     def start_procedure(self):
         """This action is launched at the beggining of the match

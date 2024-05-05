@@ -39,7 +39,7 @@ class Actionneur():
     def __init__(self, uuid='actionneurs'):
         self.actio = SerialTalking(uuid)#"/dev/arduino/"
     
-    def SetServoAngle(self, angle): self.actio.order(SET_ANGLE_SERVO_OPCODE, USHORT(angle))
+    def SetServoAngle(self, angle, id): self.actio.order(SET_ANGLE_SERVO_OPCODE, USHORT(angle), USHORT(id))
 
 class AX12():
         def __init__(self, id, parent):
@@ -63,7 +63,7 @@ class AX12():
 
         def turn(self, Speed): self.parent.actio.order(TURN_OPCODE, BYTE(self.id), FLOAT(Speed))
 
-        def stop_turn(self): self.parent.turn(0)
+        def stop_turn(self): self.turn(0)
         
         def moveSpeed(self, Pos, Speed): self.parent.actio.order(MOVE_SPEED_OPCODE, BYTE(self.id), FLOAT(Pos), FLOAT(Speed))
 

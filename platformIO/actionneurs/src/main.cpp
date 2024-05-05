@@ -7,7 +7,9 @@
 
 AX12 ax;
 
-Servo servo;
+Servo servo1;
+Servo servo2;
+Servo servo3;
 
 
 void setup()
@@ -48,6 +50,10 @@ void setup()
 
     ax.attach(254);
     ax.setEndlessMode(true);
+
+    servo1.attach(PIN_SERVO2);
+    servo2.attach(PIN_SERVO3);
+    servo3.attach(PIN_SERVO4);
 }
 void loop(){
     talking.execute();

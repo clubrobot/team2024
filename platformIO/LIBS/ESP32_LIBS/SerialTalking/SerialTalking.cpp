@@ -132,6 +132,7 @@ void SerialTalking::PING(){
 	char msg[5] = "pong";
 	talking.writeTable(msg);
 	talking.endTranfert();
+	talking.m_connected=true;
 }
 
 void SerialTalking::GETUUID(){

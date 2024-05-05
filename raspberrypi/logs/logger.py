@@ -82,6 +82,12 @@ class Logger:
         Logger.teleplot.sendTelemetryXY(name, unit, clr, now, *args)
 
     @staticmethod
+    def sendLogStatus(name, status, now=None):
+        if(not Logger.initied): return #Logger not initied
+
+        Logger.teleplot.sendLogStatus(name, status, name)
+
+    @staticmethod
     def sendLogStatic(message, origin="", now=None):
         """! Envoie un message
         @param message message à transmettre
@@ -144,13 +150,13 @@ if __name__ == '__main__':
     import math
 
     myLogger = Logger("sensors")
-    myLogger.init("127.0.0.1", verbose=True, saveToFile=True)
+    myLogger.init("192.168.0.142", verbose=True, saveToFile=False)
     i=0
     
     while 1:
         myLogger.sendLog("Not connected")
         Logger.sendLogStatic("test")
-        Logger.sendGraph("Test", math.sin(i), "km²")
+        Logger.sendLogStatus("Test", math.sin(i))
         Logger.sendXY("XY", "km²", True ,None,math.cos(i), math.sin(i), math.cos(i)*2, math.sin(i)*0.5)
         i+=0.1
         time.sleep(0.1)

@@ -188,7 +188,7 @@ class SerialTransfer(object):
                 self.connection.open()
                 return True
             except serial.SerialException as e:
-                self.logger.sendLog(colorise(e, Colors.RED))
+                self.logger.sendLog(colorise(str(e), Colors.RED))
                 return False
             
         self.last_send = time.monotonic()
