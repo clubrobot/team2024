@@ -1,14 +1,17 @@
 
 from behaviours.robot_behaviour import RobotBehavior
 from math import pi
+import numpy as np
 from threading import Semaphore
 from common.geogebra import Geogebra
 from common.roadmap import RoadMap
 from daughter_cards.wheeledbase import WheeledBase
-
 from daughter_cards.sensors import Sensors
+
+from robots.team2024.RecupPlante import RecupPlante
+from robots.team2024.barriere import Barriere
+
 from threading import Thread
-from robots.team2024.RecupPile import RecupPile
 import os
 
 COLOR = RobotBehavior.YELLOW_SIDE
@@ -48,11 +51,15 @@ class Robeur(RobotBehavior):
         self.wheeledbase = WheeledBase()
         #self.display = display
 
-        #self.sensors=Sensors("sensors")
-        #self.sensors=None
-        self.blue=self.side==RobotBehavior.BLUE_SIDE
+        self.sensors=Sensors("sensors")
+        self.sensors.publish_logs()
 
-        self.automate = []#get 3 couleurs puis gerber puis poser cerises
+        self.barriere=Barriere()
+        self.barriere.nicole_oouuuuuvre()
+        self.blue=self.side==RobotBehavior.BLUE_SIDE
+        
+        self.automate = []
+        self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseJ1'), np.array(self.geo.get('BaseJ1'))+np.array([0,670])))
         '''
         if(self.blue):#couleur impaire
             self.automate.append(RecupPile(self.wheeledbase,self.geo.get('Rose1'),self.geo.get('ZB1'),self.pince))
@@ -76,14 +83,15 @@ class Robeur(RobotBehavior):
             [function pointer, class pointer, tuple, float, float]: This function return the next action procedure pointer,
             a pointer of itself in order the have full robot acess inside procedure method. The destnation tuple and the precision to reach.
         """
+        action=None
+
         if(self.automatestep < len(self.automate)):
             action = self.automate[self.automatestep]
         else:
             #self.display.love(100)
             self.stop_event.set()
-            return None, (self,), {}, (None, None)
-
-        return action.procedure, (self,), {}, (action.actionpoint + (action.orientation,), (action.actionpoint_precision, None))
+            return None
+        return action.procedure
 
     def goto_procedure(self, destination, thresholds=(None, None)):
         """The method describe the behaviour to reach an action point, it use the avoidance beahviour class that describe how to avoid an obstacle.
@@ -115,17 +123,21 @@ class Robeur(RobotBehavior):
         """This function apply the starting position of the robot reagading to the choosed side
         """
         if self.side == RobotBehavior.YELLOW_SIDE:
-            self.wheeledbase.set_position(0,0, -pi/2)
+            #150 en x 100 en y
+            self.wheeledbase.set_position(150, 100, 0)
         else:
-            self.wheeledbase.set_position(0,0, pi/2)
+            self.wheeledbase.set_position(150,2900,pi)
+            print(self.wheeledbase.get_position())
 
     def positioning(self):
         """This optionnal function can be useful to do a small move after setting up the postion during the preparation phase
         """
+        print(self.geo.get('BaseJ1'))
+        print(self.geo.get('BaseB1'))
         if self.side == RobotBehavior.YELLOW_SIDE:
-            self.wheeledbase.goto(self.geo.get('BaseJ1')[0], self.geo.get('BaseJ1')[1], -pi/2)
+            self.wheeledbase.goto(self.geo.get('BaseJ1')[0], self.geo.get('BaseJ1')[1], 0)
         else:
-            self.wheeledbase.goto(self.geo.get('BaseJ1')[0], self.geo.get('BaseJ1')[1], pi/2)
+            self.wheeledbase.goto(self.geo.get('BaseB1')[0], self.geo.get('BaseB1')[1], pi)
 
     def start_procedure(self):
         """This action is launched at the beggining of the match
@@ -147,6 +159,7 @@ class Robeur(RobotBehavior):
         self.wheeledbase.stop()
         self.display.love(duration=1000)
         self.p.release()
+        
 
 
 if __name__ == '__main__':

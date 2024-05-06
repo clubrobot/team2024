@@ -51,6 +51,8 @@ void setup()
     talking.begin(Serial);
     delay(100);
 
+
+
     // I2C Communication
     Wire.begin(SENSORS_SDA, SENSORS_SCL); //SDA SCL
     
@@ -67,8 +69,9 @@ void setup()
 
     talking.bind(CHECK_ERROR_OPCODE, CHECK_ERROR);
 
-    //bind subscription
-    //topics.bind(GET_ALL_OPCODE, GET_ALL);
+    while(!talking.isConnected()){
+        talking.execute();
+    }
 
 
     // Shutdown all VL53L0X sensors

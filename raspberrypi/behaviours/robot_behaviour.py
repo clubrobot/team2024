@@ -53,7 +53,7 @@ class RobotBehavior:
         self.logger = Logger("Robot Behaviour")
         self.logger.init()
 
-    def perform(self, procedure, args=(), kwargs={}, timelimit=True):
+    def perform(self, procedure, timelimit=True):
         """This method allow the robot to perform an action. It create one thread for the current action and check if this thread is allow to run
 
         Args:
@@ -65,12 +65,12 @@ class RobotBehavior:
         Returns:
             Thread : Return the created thread
         """
-        thread = Thread(args=args, kwargs=kwargs, daemon=True)
+        thread = Thread(daemon=True)
         thread_id = id(thread)
 
-        def target(*args, **kwargs):
+        def target():
             try:
-                output = procedure(*args, **kwargs)
+                output = procedure()
                 self.outputs[thread_id] = output
             except AccessDenied:
                 self.outputs[thread_id] = None
@@ -205,11 +205,16 @@ class RobotBehavior:
         self.starttime = monotonic()
         self.stop_event.clear()
         self.logger.sendLog('Start Behaviour')
+
         try:
             start = self.perform(self.start_procedure, timelimit=False)
+
             while (self.timelimit is None or self.get_elapsed_time() < self.timelimit) and not self.stop_event.is_set():
                 decision = self.make_decision()
-                procedure, args, kwargs, (location, thresholds) = decision
+                procedure = decision
+                location = None
+                thresholds = None
+
                 if procedure is None:
                     self.logger.sendLog('No decision')
                     sleep(1)
@@ -228,8 +233,10 @@ class RobotBehavior:
                     success = True
                 if success:
                     self.logger.sendLog("Perform Action")
-                    action = self.perform(procedure, args=args, kwargs=kwargs)
+                    action = self.perform(procedure)
                     self.get(action)
+                    self.logger.sendLog("Performed Action")
+                    self.automatestep += 1
                 else:
                     self.logger.sendLog(colorise('Goto failed',Colors.RED))
         except:

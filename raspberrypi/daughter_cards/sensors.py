@@ -42,7 +42,8 @@ class Sensors():
 
         self.log = Logger("sensors")
         self.log.init()
-
+        self.log.sendLogStatus("sensors" ,colorise("WAIT SENSORS", Colors.YELLOW))
+        
         try:
             if(self.check_errors()!=128): raise
             self.log.sendLog("PASSE SENSORS")
@@ -110,8 +111,8 @@ class Sensors():
             self.log.sendLogStatus("sensors" ,colorise("ERROR SENSORS", Colors.RED))
             pass
         
+        return
         self.get_all_sensors()
-    
         co_sen1 = pol2cart(0, np.log(self.sensor1))
         co_sen2 = pol2cart(np.pi/4, np.log(self.sensor2))
         co_sen3 = pol2cart(np.pi/2, np.log(self.sensor3))
@@ -171,7 +172,9 @@ class ThreadSensors():
 
 if __name__ == "__main__":
 
-    s = Sensors()
+    s = Sensors("COM8")
+    time.sleep(1)
+    print(s.check_errors())
     print(s.sensors.getuuid())
     while 1:
-        s.publish_logs()
+        print(s.get_all_sensors())

@@ -1,28 +1,29 @@
 import math
 import numpy as np
 from time import sleep
-class RecupPile:
+from robots.team2024.barriere import Barriere
+from daughter_cards.wheeledbase import WheeledBase
 
-    def __init__(self, wheeledbase, barriere, pos_depose, pos_plante, theta_normal=None) -> None:
+class RecupPlante:
+    def __init__(self, wheeledbase: WheeledBase, barriere:Barriere, robot, pos_depose, pos_plante, theta_normal=None) -> None:
         self.wb=wheeledbase
-        self.pos=np.array(positionPoint)
-        self.radiusRobot=400
-        self.radiusPince=230
-        self.approach_range = 130
-        self.forward_distance = 260
+        self.robot=robot
+        self.pos=np.array(pos_plante)
+        self.radiusRobot=220
+        self.radiusPince=50
         self.barriere=barriere
         self.actionpoint=None
         self.orientation=None
-        self.endPoint=np.array(endPoint)
-        #Si theta normal is none, auto calcul avec getpos
-        pass
+        self.actionpoint_precision=None
+        self.endPoint=np.array(pos_depose)
 
+    """ 
     def calc_point_approche(self, pos_plante, theta_normal):
         x = pos_plante[0] - self.approach_range*np.cos(theta_normal)
         y = pos_plante[1] - self.approach_range*np.sin(theta_normal)
-        return (x,y)
+        return (x,y) """
 
-    def procedure(self, robot):
+    def procedure(self):
         #Pos à point d'approche puis angle normal
         #avance distance
         #ferme barriere
@@ -31,7 +32,7 @@ class RecupPile:
         #recule
         #demi tour
         #et fini
-
+        self.barriere.nicole_oouuuuuvre()
 
         rPos=np.array(self.wb.get_position()[:2])
         vecPos=self.pos-rPos[:2]
@@ -40,17 +41,17 @@ class RecupPile:
         ang=math.acos(vecPos[0]/length)
         if(vecPos[1]<0):
             ang*=-1
+        print(length-self.radiusRobot)
         if(length-self.radiusRobot>0):
-            self.wb.goto_stop(stop[0],stop[1],robot.sensors,theta=ang)
+            self.wb.goto_stop(stop[0],stop[1], self.robot.sensors,theta=ang)
             print(self.wb.get_position(),stop)
-        self.pince.ouvrir()
-        self.asc.bas()
+
+        self.barriere.nicole_oouuuuuvre()
+
         stop=vecPos/length*(length-self.radiusPince)+rPos
-        self.wb.goto_stop(stop[0],stop[1],robot.sensors,theta=ang)
-        print(self.wb.get_position(),stop)
-        #sleep(2)
-        self.pince.fermer()
-        self.asc.rouler()
+        self.wb.goto_stop(stop[0],stop[1], self.robot.sensors,theta=ang)
+
+        self.barriere.ferme()
 
         #va poser à la fin
         rPos=np.array(self.wb.get_position()[:2])
@@ -61,12 +62,9 @@ class RecupPile:
         if(vecPos[1]<0):
             ang*=-1
 
-        self.wb.goto_stop(stop[0],stop[1],robot.sensors,theta=ang)
-        print(self.wb.get_position(),stop)
+        self.wb.goto_stop(stop[0],stop[1], self.robot.sensors,theta=ang)
         #sleep(4)
-        self.asc.bas()
-        self.pince.semi_ouvrir()
-        self.asc.rouler()
+        self.barriere.nicole_oouuuuuvre()
         
         #si ascenseur pas besoin de ca
         #self.wb.set_openloop_velocities(-500,-500)

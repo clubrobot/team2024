@@ -3,9 +3,10 @@ from behaviours.robot_behaviour import RobotBehavior
 #from common.components import LightButtonProxy, SwitchProxy
 from threading import Semaphore
 from common.gpiodevices import Switch, LightButton, gpio_pins
-from logs.logger import Logger
+from logs.logger import Logger, colorise, Colors
 from threading import Thread
 import time
+import os
 
 class ButtonsManager:
     RED_PIN = 18  # 1
@@ -20,16 +21,13 @@ class ButtonsManager:
     URGENCY_PIN = 20
 
     def begin(self):
-        self.logger.sendLogStatus("Robot" ,"Start")
+        self.logger.sendLogStatus("Robot" ,"Team Select")
         Thread(target=self.team_stage, daemon=True).start()
-
-        #self.red.set_function(
-        #    Thread(target=self.team_stage, daemon=True).start)
-        
+        Thread(target=self.preaload_vid, daemon=True).start()
         self.p.acquire()
 
     def team_stage(self):
-        self.logger.sendLogStatus("Team" , "Choose")
+        self.logger.sendLogStatus("Team" , "Waiting")
         #ssd.set_message("set team")
         self.blue.set_function(
             Thread(target=self.set_team_blue, daemon=True).start)
@@ -37,23 +35,25 @@ class ButtonsManager:
             Thread(target=self.set_team_yellow, daemon=True).start)
 
     def set_team_yellow(self):
-        self.logger.sendLogStatus("Team" ,"Yellow")
+        self.logger.sendLogStatus("Team" ,colorise("Yellow", Colors.YELLOW))
         self.side = RobotBehavior.YELLOW_SIDE
 
         self.blue.set_function(None)
         self.orange.set_function(None)
 
+        self.logger.sendLogStatus("Robot" ,colorise("Put Robot & Green",Colors.GREEN2))
+
         self.green.set_function(
             Thread(target=self.putrobot, daemon=True).start)
 
     def set_team_blue(self):
-        self.logger.sendLogStatus("Team" , "Blue")
+        self.logger.sendLogStatus("Team" , colorise("Blue", Colors.BLUE))
         self.side = RobotBehavior.BLUE_SIDE
 
         self.blue.set_function(None)
         self.orange.set_function(None)
 
-        self.logger.sendLogStatus("Robot" ,"Put Robot & Green")
+        self.logger.sendLogStatus("Robot" ,colorise("Put Robot & Green",Colors.GREEN2))
 
         self.green.set_function(
             Thread(target=self.putrobot, daemon=True).start)
@@ -67,23 +67,33 @@ class ButtonsManager:
         self.ready_stage()
 
     def ready_stage(self):
-        self.logger.sendLogStatus("Robot" ,"Robot Ready !")
+        self.logger.sendLogStatus("Robot" ,colorise("Robot Ready !", Colors.RED, Colors.BOLD))
         print("ready")
         self.tirette.set_function(
             Thread(target=self.run_match, daemon=True).start)
         #self.tirette.set_active_high(True)
 
+    def preaload_vid(self):
+        #os.system("DISPLAY=:0 vlc -f --no-video-title-show --start-paused -L ~/Rick_Astley_Never_Gonna_Give_You_Up.mp4")
+        pass
+    def run_vid(self):
+        #os.system("killall epiphany")
+        #os.system("dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2   org.mpris.MediaPlayer2.Player.PlayPause")
+        pass
+
     def run_match(self):
-        self.logger.sendLogStatus("Robot" ,"Match !")
-        print("MATCH")
+        self.logger.sendLogStatus("Robot" ,colorise("Match !", Colors.GREEN2))
+        self.logger.sendLog("MATCH")
         self.tirette.close()
-        self.urgency.close()
         self.red.close()
         self.blue.close()
         self.orange.close()
         self.green.close()
 
-        Thread(target=self.auto.start(), daemon=True).start()
+        Thread(target=self.run_vid).start()
+        #Thread(target=self.auto.start(), daemon=True).start()
+        self.auto.start()
+        #os.system("DISPLAY=:0 vlc -f --no-video-title-show -L ~/Rick_Astley_Never_Gonna_Give_You_Up.mp4")#DISPLAY=:0 vlc -f --no-video-title-show -L ~/Rick_Astley_Never_Gonna_Give_You_Up.mp4
         self.p.release()
 
     def __init__(self, auto):
@@ -103,6 +113,7 @@ class ButtonsManager:
         self.blue.on()
         self.orange.on()
         self.logger.sendLog("ALLUME")
+        
         #self.urgency = Switch(gpio_pins., print("tirette"))
 
         # Init Logger

@@ -13,4 +13,4 @@ wheeledbase = WheeledBase()
 
 print(wheeledbase.wheeledbase.getuuid())
 
-wheeledbase.goto(100,0)
+wheeledbase.goto(500,500)

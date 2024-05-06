@@ -206,9 +206,9 @@ class WheeledBase():
                     linvelmax=None, angvelmax=None):
         self.purepursuit(waypoints,direction,finalangle,lookahead,lookaheadbis,linvelmax,angvelmax)
         while not self.isarrived(raiseSpinUrgency=False):
-            m=np.min(sensors.get_all()[0:4])
+            m=np.min(sensors.get_all_sensors()[0:4])
             print(self.get_position(),m)
-            if (m < 500 or np.min(sensors.get_all()[4:]) < 300):
+            if (m < 500 or np.min(sensors.get_all_sensors()[4:]) < 300):
                 interrupt = True
                 self.stop()
                 self.log.sendLog("arret")
@@ -264,7 +264,6 @@ class WheeledBase():
             self.turnonthespot(theta)
             self.wait(**kwargs)
 
-
     def goto_stop(self, x, y,sensors, theta=None, direction=None, finalangle=None, lookahead=None, lookaheadbis=None, linvelmax=None, angvelmax=None, **kwargs):
         """if(sensors is None):
             print("None")
@@ -282,8 +281,8 @@ class WheeledBase():
         self.purepursuit([self.get_position()[0:2], (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
         interrupt=False
         while not self.isarrived(raiseSpinUrgency=False):
-            #print(sensors.get_all())
-            if(np.min(sensors.get_all()[0:4])<500 or np.min(sensors.get_all()[4:])<300):
+            #print(sensors.get_all_sensors())
+            if(np.min(sensors.get_all_sensors()[0:4])<500 or np.min(sensors.get_all_sensors()[4:])<300):
                 interrupt=True
                 self.stop()
                 #print("arret")
@@ -336,7 +335,7 @@ class WheeledBase():
                 trigo =not trigo
             
             #print(trigo,['clock','trig'][trigo])
-            while(np.min(sensors.get_all())<600):
+            while(np.min(sensors.get_all_sensors())<600):
                 sleep(0.1)
             self.turnonthespot(theta,direction=['clock','trig'][trigo])
             print("fin commande turn on the spot")
