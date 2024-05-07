@@ -74,11 +74,11 @@ class ButtonsManager:
         #self.tirette.set_active_high(True)
 
     def preaload_vid(self):
-        #os.system("DISPLAY=:0 vlc -f --no-video-title-show --start-paused -L ~/Rick_Astley_Never_Gonna_Give_You_Up.mp4")
+        os.system("DISPLAY=:0 vlc -f --no-video-title-show --start-paused -L ~/Rick_Astley_Never_Gonna_Give_You_Up.mp4")
         pass
     def run_vid(self):
         #os.system("killall epiphany")
-        #os.system("dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2   org.mpris.MediaPlayer2.Player.PlayPause")
+        os.system("dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2   org.mpris.MediaPlayer2.Player.PlayPause")
         pass
 
     def run_match(self):

@@ -5,17 +5,18 @@ from robots.team2024.barriere import Barriere
 from daughter_cards.wheeledbase import WheeledBase
 
 class RecupPlante:
-    def __init__(self, wheeledbase: WheeledBase, barriere:Barriere, robot, pos_depose, pos_plante, theta_normal=None) -> None:
+    def __init__(self, wheeledbase: WheeledBase, barriere:Barriere, robot, pos_depose, pos_plante, final) -> None:
         self.wb=wheeledbase
         self.robot=robot
-        self.pos=np.array(pos_plante)
+        self.pos=np.flip(np.array(pos_plante))
         self.radiusRobot=220
         self.radiusPince=50
         self.barriere=barriere
         self.actionpoint=None
         self.orientation=None
         self.actionpoint_precision=None
-        self.endPoint=np.array(pos_depose)
+        self.endPoint=np.flip(np.array(pos_depose))
+        self.final= final
 
     """ 
     def calc_point_approche(self, pos_plante, theta_normal):
@@ -62,7 +63,14 @@ class RecupPlante:
         if(vecPos[1]<0):
             ang*=-1
 
+        self.wb.goto_stop(rPos[0],rPos[1], self.robot.sensors,theta=ang)
         self.wb.goto_stop(stop[0],stop[1], self.robot.sensors,theta=ang)
+        #On recule pour le prochain
+        if(not self.final):
+            stop[0]=stop[0]-100*np.cos(ang)
+            stop[1]=stop[1]-100*np.sin(ang)
+            self.wb.goto_stop(stop[0],stop[1], self.robot.sensors,theta=ang)
+        
         #sleep(4)
         self.barriere.nicole_oouuuuuvre()
         

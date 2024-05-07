@@ -9,6 +9,7 @@ from daughter_cards.wheeledbase import WheeledBase
 from daughter_cards.sensors import Sensors
 
 from robots.team2024.RecupPlante import RecupPlante
+from robots.team2024.PanneauxSolaires import PanneauxSolaires
 from robots.team2024.barriere import Barriere
 
 from threading import Thread
@@ -56,24 +57,33 @@ class Robeur(RobotBehavior):
 
         self.barriere=Barriere()
         self.barriere.nicole_oouuuuuvre()
+        self.barriere.aile_d_ouvre()
+        self.barriere.aile_g_ouvre()
         self.blue=self.side==RobotBehavior.BLUE_SIDE
         
         self.automate = []
-        self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseJ1'), np.array(self.geo.get('BaseJ1'))+np.array([0,670])))
-        '''
+        #self.automate.append(PanneauxSolaires(self.wheeledbase,self.barriere,self, self.get_side, False))
+        #self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseJ1'), np.array(self.geo.get('BaseJ1'))+np.array([0,670])))
+
         if(self.blue):#couleur impaire
-            self.automate.append(RecupPile(self.wheeledbase,self.geo.get('Rose1'),self.geo.get('ZB1'),self.pince))
-            self.automate.append(RecupPile(self.wheeledbase,self.geo.get('Jaune1'),self.geo.get('ZB1'),self.pince))
-            self.automate.append(RecupPile(self.wheeledbase,self.geo.get('Noir1'),self.geo.get('ZB1'),self.pince))
+            self.automate.append(PanneauxSolaires(self.wheeledbase,self.barriere,self, self.get_side, False))
+            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseB1'), self.geo.get('PlanteB1'), False))
+            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseB2'), self.geo.get('PlanteB2'), False))
+            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseB3'), self.geo.get('PlantePAMI'), True))
         else:#couleur paire
-            self.automate.append(RecupPile(self.wheeledbase,self.geo.get('Rose2'),self.geo.get('ZV1'),self.pince))
-            self.automate.append(RecupPile(self.wheeledbase,self.geo.get('Jaune2'),self.geo.get('ZV1'),self.pince))
-            self.automate.append(RecupPile(self.wheeledbase,self.geo.get('Noir2'),self.geo.get('ZV1'),self.pince))
-        '''
+            self.automate.append(PanneauxSolaires(self.wheeledbase,self.barriere,self, self.get_side, False))
+            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseJ1'), self.geo.get('PlanteJ1'), False))
+            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseJ2'), self.geo.get('PlanteJ2'), False))
+            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseJ3'), self.geo.get('PlantePAMI'), True))
+
+   
         self.automatestep = 0
 
         self.p = Semaphore(0)
         print("fin")
+
+    def get_side(self):
+        return self.side
 
     def make_decision(self):
         """This function make a decision to choose the next action to play. Today it basically return th next action on list
@@ -124,10 +134,11 @@ class Robeur(RobotBehavior):
         """
         if self.side == RobotBehavior.YELLOW_SIDE:
             #150 en x 100 en y
-            self.wheeledbase.set_position(150, 100, 0)
+            self.wheeledbase.set_position(100, 150, 0)
         else:
-            self.wheeledbase.set_position(150,2900,pi)
-            print(self.wheeledbase.get_position())
+            self.wheeledbase.set_position(2900, 150, pi)
+        print("Curr pos:")
+        print(self.wheeledbase.get_position())
 
     def positioning(self):
         """This optionnal function can be useful to do a small move after setting up the postion during the preparation phase
@@ -135,9 +146,9 @@ class Robeur(RobotBehavior):
         print(self.geo.get('BaseJ1'))
         print(self.geo.get('BaseB1'))
         if self.side == RobotBehavior.YELLOW_SIDE:
-            self.wheeledbase.goto(self.geo.get('BaseJ1')[0], self.geo.get('BaseJ1')[1], 0)
+            self.wheeledbase.goto(self.geo.get('BaseJ1')[1], self.geo.get('BaseJ1')[0],0)
         else:
-            self.wheeledbase.goto(self.geo.get('BaseB1')[0], self.geo.get('BaseB1')[1], pi)
+            self.wheeledbase.goto(self.geo.get('BaseB1')[1], self.geo.get('BaseB1')[0], pi)
 
     def start_procedure(self):
         """This action is launched at the beggining of the match
@@ -154,10 +165,8 @@ class Robeur(RobotBehavior):
     def stop_match(self):
         import time
         time.sleep(95)
-        self.actionneur.raise_flag()
         time.sleep(4)
         self.wheeledbase.stop()
-        self.display.love(duration=1000)
         self.p.release()
         
 
