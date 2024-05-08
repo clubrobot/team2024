@@ -237,8 +237,9 @@ class SerialTalking:
                     time.sleep(0.01)
                 if(time.monotonic() - startingtime > timeout): raise TimeoutError
             except Exception as e:
-                self.logger.sendLog(colorise('\'{}\' Got a little hiccup, gonna resend the command.'.format(
+                self.logger.sendLog(colorise('\'{}\' Got a little hiccup, gonna reconnect the command.'.format(
                             self.port), Colors.RED, Colors.BOLD))
+                print(str(e))
                 self.free_receiver()
         
         #On remet à 0 l'index RX

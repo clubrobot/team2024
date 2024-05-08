@@ -281,8 +281,9 @@ class WheeledBase():
         self.purepursuit([self.get_position()[0:2], (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
         interrupt=False
         while not self.isarrived(raiseSpinUrgency=False):
-            #print(sensors.get_all_sensors())
-            if(np.min(sensors.get_all_sensors()[0:4])<500 or np.min(sensors.get_all_sensors()[4:])<300):
+            sen = sensors.get_all_sensors()
+
+            if(np.min(sen[0:4])<300 or np.min(sen[4:])<500 or sen[5]<600):
                 interrupt=True
                 self.stop()
                 #print("arret")

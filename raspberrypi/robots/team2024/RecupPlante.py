@@ -39,7 +39,8 @@ class RecupPlante:
         self.barriere.nicole_oouuuuuvre()
 
         ###APPROCHE
-        rPos=np.array(self.wb.get_position()[:2])
+        pos = self.wb.get_position()
+        rPos=np.array(pos[:2])
         vecPos=self.pos-rPos[:2]
         length=math.sqrt(vecPos[0]**2+vecPos[1]**2)
         stop=vecPos/length*(length-self.radiusRobot)+rPos
@@ -64,17 +65,12 @@ class RecupPlante:
         #va poser à la fin
         pos = self.wb.get_position()
         rPos=np.array(pos[:2])
-        theta = pos[3]
         vecPos=self.endPoint-rPos
         length=math.sqrt(vecPos[0]**2+vecPos[1]**2)
         stop=vecPos/length*(length-self.radiusPince)+rPos
         ang=math.acos(vecPos[0]/length)
         if(vecPos[1]<0):
             ang*=-1
-        
-        print("là ici")
-        print(theta)
-        print(ang)
         
         self.wb.goto_stop(rPos[0],rPos[1], self.robot.sensors,theta=ang, angvelmax=POSITIONCONTROL_ANGVELMAX_VALUE*0.05)
         self.wb.goto_stop(stop[0],stop[1], self.robot.sensors,theta=ang, angvelmax=POSITIONCONTROL_ANGVELMAX_VALUE, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.2)
@@ -87,7 +83,7 @@ class RecupPlante:
             stop[1]=stop[1]-150*np.sin(ang)
             self.wb.goto_stop(stop[0],stop[1], self.robot.sensors,theta=ang+np.pi)
         
-        #sleep(4)
+        sleep(0.3)
         
         
         #si ascenseur pas besoin de ca

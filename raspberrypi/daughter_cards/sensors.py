@@ -172,7 +172,7 @@ class ThreadSensors():
 
 if __name__ == "__main__":
 
-    s = Sensors("COM8")
+    s = Sensors()
     time.sleep(1)
     print(s.check_errors())
     print(s.sensors.getuuid())
