@@ -16,6 +16,6 @@ print(wheeledbase.wheeledbase.getuuid())
 Y_OFFSET=0
 X_OFFSET=2000
 
-wheeledbase.set_position(0,0,0)
+wheeledbase.set_position(700,0,np.pi)
 
-wheeledbase.goto(700,0)
+wheeledbase.goto(0,0)

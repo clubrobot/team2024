@@ -14,6 +14,10 @@ class Barriere:
         self.actio.SetServoAngle(80, 1)
         self.actio.SetServoAngle(105, 2)
 
+    def quarante_cinq(self):
+        self.actio.SetServoAngle(125, 1)
+        self.actio.SetServoAngle(62, 2)
+
     def nicole_oouuuuuvre(self):
         self.actio.SetServoAngle(170, 1)
         self.actio.SetServoAngle(20, 2)
@@ -22,10 +26,10 @@ class Barriere:
         self.aileD.move_reached(159)
 
     def aile_d_ferme(self):
-        self.aileD.move_reached(62)
+        self.aileD.move_reached(70)
 
     def aile_g_ouvre(self):
         self.aileG.move_reached(145)
 
     def aile_g_ferme(self):
-        self.aileG.move_reached(239)
+        self.aileG.move_reached(238)

@@ -146,9 +146,9 @@ class Robeur(RobotBehavior):
         print(self.geo.get('BaseJ1'))
         print(self.geo.get('BaseB1'))
         if self.side == RobotBehavior.YELLOW_SIDE:
-            self.wheeledbase.goto(self.geo.get('BaseJ1')[1], self.geo.get('BaseJ1')[0],0)
+            self.wheeledbase.goto(self.geo.get('BaseJ1INIT')[1], self.geo.get('BaseJ1INIT')[0],0)
         else:
-            self.wheeledbase.goto(self.geo.get('BaseB1')[1], self.geo.get('BaseB1')[0], pi)
+            self.wheeledbase.goto(self.geo.get('BaseB1INIT')[1], self.geo.get('BaseB1INIT')[0], pi)
 
     def start_procedure(self):
         """This action is launched at the beggining of the match
