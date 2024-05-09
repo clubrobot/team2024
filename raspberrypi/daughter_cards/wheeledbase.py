@@ -284,7 +284,7 @@ class WheeledBase():
             sen = sensors.get_all_sensors()
             # don't stop the robot if there is a wall at less than 300mm in front of a sensor
             pos = self.get_position()
-            if(pos[0]<300):
+            """if(pos[0]<300):
                 if(self.theta < 0 and self.theta > -math.pi/2):
                     # stop 0
                     sen[0] = 5000
@@ -384,7 +384,7 @@ class WheeledBase():
                     sen[2] = 5000
                 elif(self.theta < -math.pi and self.theta > -3*math.pi/2):
                     # stop 3
-                    sen[3] = 5000
+                    sen[3] = 5000"""
             if(np.min(sen[0:4])<300 or np.min(sen[4:])<500 or sen[5]<600):
                 interrupt=True
                 self.stop()
