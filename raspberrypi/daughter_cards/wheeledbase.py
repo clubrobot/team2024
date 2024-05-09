@@ -282,7 +282,109 @@ class WheeledBase():
         interrupt=False
         while not self.isarrived(raiseSpinUrgency=False):
             sen = sensors.get_all_sensors()
+            # don't stop the robot if there is a wall at less than 300mm in front of a sensor
+            pos = self.get_position()
+            if(pos[0]<300):
+                if(self.theta < 0 and self.theta > -math.pi/2):
+                    # stop 0
+                    sen[0] = 5000
+                elif(self.theta < -math.pi/6 and self.theta > -2*math.pi/3):
+                    # stop 1
+                    sen[1] = 5000
+                elif(self.theta < -math.pi/3 and self.theta > -5*math.pi/6):
+                    # stop 2
+                    sen[2] = 5000
+                elif(self.theta < -math.pi/2 and self.theta > -math.pi):
+                    # stop 3
+                    sen[3] = 5000
+                elif(self.theta > 0 and self.theta < math.pi/2):
+                    # stop 7
+                    sen[7] = 5000
+                elif(self.theta > 2*math.pi/3 and self.theta < 7*math.pi/6):
+                    # stop 6
+                    sen[6] = 5000
+                elif(self.theta > 5*math.pi/6 and self.theta < 4*math.pi/3):
+                    # stop 5
+                    sen[5] = 5000
+                elif(self.theta > math.pi and self.theta < 3*math.pi/2):
+                    # stop 4
+                    sen[4] = 5000
 
+            elif(pos[0]>1700):
+                if(self.theta > 0 and self.theta < math.pi/2):
+                    # stop 3
+                    sen[3] = 5000
+                elif(self.theta > math.pi/6 and self.theta < 2*math.pi/3):
+                    # stop 2
+                    sen[2] = 5000
+                elif(self.theta > math.pi/3 and self.theta < 5*math.pi/6):
+                    # stop 1
+                    sen[1] = 5000
+                elif(self.theta > math.pi/2 and self.theta < math.pi):
+                    # stop 0
+                    sen[0] = 5000
+                elif(self.theta < 0 and self.theta > -math.pi/2):
+                    # stop 4
+                    sen[4] = 5000
+                elif(self.theta < -math.pi/6 and self.theta > -2*math.pi/3):
+                    # stop 5
+                    sen[5] = 5000
+                elif(self.theta < -math.pi/3 and self.theta > -5*math.pi/6):
+                    # stop 6
+                    sen[6] = 5000
+                elif(self.theta < -math.pi/2 and self.theta > -math.pi):
+                    # stop 7
+                    sen[7] = 5000
+            if(pos[1]<300):
+                if(self.theta < -math.pi/2 and self.theta > -math.pi):
+                    # stop 4
+                    sen[4] = 5000
+                elif(self.theta < -2*math.pi/3 and self.theta > -7*math.pi/6):
+                    # stop 5
+                    sen[5] = 5000
+                elif(self.theta < -5*math.pi/6 and self.theta > -4*math.pi/3):
+                    # stop 6
+                    sen[6] = 5000
+                elif(self.theta < -math.pi and self.theta > -3*math.pi/2):
+                    # stop 7
+                    sen[7] = 5000
+                elif(self.theta > -math.pi/2 and self.theta < 0):
+                    # stop 3
+                    sen[3] = 5000
+                elif(self.theta > -math.pi/3 and self.theta < math.pi/6):
+                    # stop 2
+                    sen[2] = 5000
+                elif(self.theta > -math.pi/6 and self.theta < math.pi/3):
+                    # stop 1
+                    sen[1] = 5000
+                elif(self.theta > 0 and self.theta < math.pi/2):
+                    # stop 0
+                    sen[0] = 5000
+            elif(pos[1]>2700):
+                if(self.theta > -math.pi/2 and self.theta < 0):
+                    # stop 7
+                    sen[7] = 5000
+                elif(self.theta > -math.pi/3 and self.theta < math.pi/6):
+                    # stop 6
+                    sen[6] = 5000
+                elif(self.theta > -math.pi/6 and self.theta < math.pi/3):
+                    # stop 5
+                    sen[5] = 5000
+                elif(self.theta > 0 and self.theta < math.pi/2):
+                    # stop 4
+                    sen[4] = 5000
+                elif(self.theta < -math.pi/2 and self.theta > -math.pi):
+                    # stop 0
+                    sen[0] = 5000
+                elif(self.theta < -2*math.pi/3 and self.theta > -7*math.pi/6):
+                    # stop 1
+                    sen[1] = 5000
+                elif(self.theta < -5*math.pi/6 and self.theta > -4*math.pi/3):
+                    # stop 2
+                    sen[2] = 5000
+                elif(self.theta < -math.pi and self.theta > -3*math.pi/2):
+                    # stop 3
+                    sen[3] = 5000
             if(np.min(sen[0:4])<300 or np.min(sen[4:])<500 or sen[5]<600):
                 interrupt=True
                 self.stop()
