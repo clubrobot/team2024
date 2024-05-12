@@ -302,20 +302,19 @@ class WheeledBase():
                 direction = 'backward'
 
         # Go to the setpoint position
-        try:
-            self.purepursuit([(x0, y0), (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
-            interrupt=False
-            while not self.isarrived(raiseSpinUrgency=False):
-                time.sleep(0.1)
-                sen = sensors.get_all_sensors()
+        self.purepursuit([self.get_position()[0:2], (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
+        interrupt=False
+        while not self.isarrived(raiseSpinUrgency=False):
+            sen = sensors.get_all_sensors()
 
-                if(False):#(np.min(sen[0:4])<300 or np.min(sen[4:])<500 or sen[5]<600):
-                    interrupt=True
-                    self.stop()
-                    #print("arret")
-                elif interrupt:
-                    interrupt=False
-                    self.log.sendLog("Reprise")
+            if(np.min(sen[0:4])<300 or np.min(sen[4:])<500 or sen[5]<600):
+                interrupt=True
+                self.stop()
+                #print("arret")
+            elif interrupt:
+                interrupt=False
+                self.log.sendLog("Reprise")
+                if direction is None:
                     x0, y0, theta0 = self.get_position()
                     if direction is None:
                         if math.cos(math.atan2(y - y0, x - x0) - theta0) >= 0:
