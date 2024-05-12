@@ -28,6 +28,7 @@ Codewheel rightCodewheel;
 Odometry odometry;
 
 VelocityController velocityControl;
+bool match=false;
 #if ENABLE_VELOCITYCONTROLLER_LOGS
 VelocityControllerLogs controllerLogs;
 #endif // ENABLE_VELOCITYCONTROLLER_LOGS
@@ -68,6 +69,8 @@ void setup(){
 
     talking.bind(START_TURNONTHESPOT_DIR_OPCODE, START_TURNONTHESPOT_DIR);
     talking.bind(PRINT_PARAMS_OPCODE, PRINT_PARAMS);
+    talking.bind(START_MATCH_OPCODE, START_MATCH);
+
     // DC motors wheels
     driver.attach(DRIVER_RESET, DRIVER_FAULT);
     driver.reset();
@@ -166,6 +169,7 @@ void loop()
 {
     talking.execute();
 
+    if(match){
     // Update odometry
     if (odometry.update())
     {
@@ -188,4 +192,5 @@ void loop()
 #else
     velocityControl.update();
 #endif // ENABLE_VELOCITYCONTROLLER_LOGS
+    }
 }

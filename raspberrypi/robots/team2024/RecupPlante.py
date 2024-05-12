@@ -48,15 +48,15 @@ class RecupPlante:
         if(vecPos[1]<0):
             ang*=-1
         print(length-self.radiusRobot)
+        #print(self.wb.wheeledbase.getuuid())
         if(length-self.radiusRobot>0):
-            self.wb.goto_stop(stop[0],stop[1], self.robot.sensors,theta=ang)
-            print(self.wb.get_position(),stop)
+            self.wb.goto(stop[0],stop[1],theta=ang)
 
         ######On prends
         self.barriere.nicole_oouuuuuvre()
 
         stop=vecPos/length*(length-self.radiusPince)+rPos
-        self.wb.goto_stop(stop[0],stop[1], self.robot.sensors,theta=ang, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.2)
+        self.wb.goto(stop[0],stop[1], theta=ang, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.15)
 
         self.wb.set_parameter_value(POSITIONCONTROL_LINVELMAX_ID, POSITIONCONTROL_LINVELMAX_VALUE, FLOAT)
 
@@ -65,6 +65,7 @@ class RecupPlante:
         #va poser à la fin
         pos = self.wb.get_position()
         rPos=np.array(pos[:2])
+        theta=pos[2]
         vecPos=self.endPoint-rPos
         length=math.sqrt(vecPos[0]**2+vecPos[1]**2)
         stop=vecPos/length*(length-self.radiusPince)+rPos
@@ -72,18 +73,29 @@ class RecupPlante:
         if(vecPos[1]<0):
             ang*=-1
         
-        self.wb.goto_stop(rPos[0],rPos[1], self.robot.sensors,theta=ang, angvelmax=POSITIONCONTROL_ANGVELMAX_VALUE*0.05)
-        self.wb.goto_stop(stop[0],stop[1], self.robot.sensors,theta=ang, angvelmax=POSITIONCONTROL_ANGVELMAX_VALUE, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.2)
-        self.wb.set_parameter_value(POSITIONCONTROL_LINVELMAX_ID, POSITIONCONTROL_LINVELMAX_VALUE, FLOAT)
+        print("ANG:")
+        print(theta)
+        print(ang)
 
-        self.barriere.nicole_oouuuuuvre()
+        self.wb.goto(rPos[0],rPos[1], theta=ang, angvelmax=POSITIONCONTROL_ANGVELMAX_VALUE*0.05)
+        self.wb.goto(stop[0],stop[1],theta=ang, angvelmax=POSITIONCONTROL_ANGVELMAX_VALUE, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.3)
+        
         #On recule pour le prochain
         if(not self.final):
+            self.barriere.nicole_oouuuuuvre()
             stop[0]=stop[0]-150*np.cos(ang)
             stop[1]=stop[1]-150*np.sin(ang)
-            self.wb.goto_stop(stop[0],stop[1], self.robot.sensors,theta=ang+np.pi)
+            self.wb.goto(stop[0],stop[1],theta=ang+np.pi)
+        else:
+            stop[0]=stop[0]-50*np.cos(ang)
+            stop[1]=stop[1]-50*np.sin(ang)
+            self.wb.goto(stop[0],stop[1],theta=ang)
+            self.barriere.nicole_oouuuuuvre()
+
         
-        sleep(0.3)
+
+        self.wb.set_parameter_value(POSITIONCONTROL_LINVELMAX_ID, POSITIONCONTROL_LINVELMAX_VALUE, FLOAT)
+        sleep(0.2)
         
         
         #si ascenseur pas besoin de ca

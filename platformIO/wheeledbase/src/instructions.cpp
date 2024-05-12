@@ -15,6 +15,7 @@
 #include <math.h>
 
 // Global variables
+extern bool match;
 
 extern DCMotorsDriver driver;
 extern DCMotor leftWheel;
@@ -44,6 +45,7 @@ void DISABLE()
 	positionControl.disable();
 	leftWheel .setVelocity(0);
 	rightWheel.setVelocity(0);
+	talking.endTranfert();
 }
 
 void GOTO_DELTA()
@@ -255,10 +257,132 @@ void GET_VELOCITIES()
 	talking.endTranfert();
 }
 
+void START_MATCH(){
+	match=true;
+	talking.endTranfert();
+}
+
 void SET_PARAMETER_VALUE()
 {
 	byte  id = talking.read<byte>();
-	switch (id)
+	if(id== LEFTWHEEL_RADIUS_ID){
+		leftWheel.setWheelRadius(talking.read<float>());}
+	else if(id== LEFTWHEEL_CONSTANT_ID){
+		leftWheel.setConstant(talking.read<float>());
+		}
+	else if(id== LEFTWHEEL_MAXPWM_ID){
+		leftWheel.setMaxPWM(talking.read<float>());
+		}
+
+	else if(id== RIGHTWHEEL_RADIUS_ID){
+		rightWheel.setWheelRadius(talking.read<float>());
+		}
+	else if(id== RIGHTWHEEL_CONSTANT_ID){
+		rightWheel.setConstant(talking.read<float>());
+		}
+	else if(id== RIGHTWHEEL_MAXPWM_ID){
+		rightWheel.setMaxPWM(talking.read<float>());
+		}
+
+	else if(id== LEFTCODEWHEEL_RADIUS_ID){
+		leftCodewheel.setWheelRadius(talking.read<float>());
+		}
+	else if(id== LEFTCODEWHEEL_COUNTSPERREV_ID){
+		leftCodewheel.setCountsPerRev(talking.read<long>());
+		}
+
+	else if(id== RIGHTCODEWHEEL_RADIUS_ID){
+		rightCodewheel.setWheelRadius(talking.read<float>());
+		}
+	else if(id== RIGHTCODEWHEEL_COUNTSPERREV_ID){
+		rightCodewheel.setCountsPerRev(talking.read<long>());
+		}
+	
+	else if(id== ODOMETRY_AXLETRACK_ID){
+		odometry.setAxleTrack(talking.read<float>());
+		}
+	else if(id== ODOMETRY_SLIPPAGE_ID){
+		odometry.setSlippage(talking.read<float>());
+		}
+	
+	else if(id== VELOCITYCONTROL_AXLETRACK_ID){
+		velocityControl.setAxleTrack(talking.read<float>());
+		}
+	else if(id== VELOCITYCONTROL_MAXLINACC_ID){
+		velocityControl.setMaxLinAcc(talking.read<float>());
+		}
+	else if(id== VELOCITYCONTROL_MAXLINDEC_ID){
+		velocityControl.setMaxLinDec(talking.read<float>());
+		}
+	else if(id== VELOCITYCONTROL_MAXANGACC_ID){
+		velocityControl.setMaxAngAcc(talking.read<float>());
+		}
+	else if(id== VELOCITYCONTROL_MAXANGDEC_ID){
+		velocityControl.setMaxAngDec(talking.read<float>());
+		}
+	else if(id== VELOCITYCONTROL_SPINSHUTDOWN_ID){
+		velocityControl.setSpinShutdown(talking.read<byte>());
+		}
+	
+	else if(id== LINVELPID_KP_ID){
+		linVelPID.setTunings(talking.read<float>(), linVelPID.getKi(), linVelPID.getKd());
+		}
+	else if(id== LINVELPID_KI_ID){
+		linVelPID.setTunings(linVelPID.getKp(), talking.read<float>(), linVelPID.getKd());
+		}
+	else if(id== LINVELPID_KD_ID){
+		linVelPID.setTunings(linVelPID.getKp(), linVelPID.getKi(), talking.read<float>());
+		}
+	else if(id== LINVELPID_MINOUTPUT_ID){
+		linVelPID.setOutputLimits(talking.read<float>(), linVelPID.getMaxOutput());
+		}
+	else if(id== LINVELPID_MAXOUTPUT_ID){
+		linVelPID.setOutputLimits(linVelPID.getMinOutput(), talking.read<float>());
+		}
+	
+	else if(id== ANGVELPID_KP_ID){
+		angVelPID.setTunings(talking.read<float>(), angVelPID.getKi(), angVelPID.getKd());
+		}
+	else if(id== ANGVELPID_KI_ID){
+		angVelPID.setTunings(angVelPID.getKp(), talking.read<float>(), angVelPID.getKd());
+		}
+	else if(id== ANGVELPID_KD_ID){
+		angVelPID.setTunings(angVelPID.getKp(), angVelPID.getKi(), talking.read<float>());
+		}
+	else if(id== ANGVELPID_MINOUTPUT_ID){
+		angVelPID.setOutputLimits(talking.read<float>(), angVelPID.getMaxOutput());
+		}
+	else if(id== ANGVELPID_MAXOUTPUT_ID){
+		angVelPID.setOutputLimits(angVelPID.getMinOutput(), talking.read<float>());
+		}
+	
+	else if(id== POSITIONCONTROL_LINVELKP_ID){
+		positionControl.setVelTunings(talking.read<float>(), positionControl.getAngVelKp());
+		}
+	else if(id== POSITIONCONTROL_ANGVELKP_ID){
+		positionControl.setVelTunings(positionControl.getLinVelKp(), talking.read<float>());
+		}
+	else if(id== POSITIONCONTROL_LINVELMAX_ID){
+		positionControl.setVelLimits(talking.read<float>(), positionControl.getAngVelMax());
+		}
+	else if(id== POSITIONCONTROL_ANGVELMAX_ID){
+		positionControl.setVelLimits(positionControl.getLinVelMax(), talking.read<float>());
+		}
+	else if(id== POSITIONCONTROL_LINPOSTHRESHOLD_ID){
+		positionControl.setPosThresholds(talking.read<float>(), positionControl.getAngPosThreshold());
+		}
+	else if(id== POSITIONCONTROL_ANGPOSTHRESHOLD_ID){
+		positionControl.setPosThresholds(positionControl.getLinPosThreshold(), talking.read<float>());
+		}
+
+	else if(id== PUREPURSUIT_LOOKAHED_ID){
+		purePursuit.setLookAhead(talking.read<float>());
+		}
+	else if(id== PUREPURSUIT_LOOKAHEADBIS_ID){
+		purePursuit.setLookAheadBis(talking.read<float>());
+		}
+	
+	/*switch (id)
 	{
 	case LEFTWHEEL_RADIUS_ID:
 		leftWheel.setWheelRadius(talking.read<float>());
@@ -377,7 +501,7 @@ void SET_PARAMETER_VALUE()
 	case PUREPURSUIT_LOOKAHEADBIS_ID:
 		purePursuit.setLookAheadBis(talking.read<float>());
 		break;
-	}
+	}*/
 	talking.endTranfert();
 }
 
@@ -398,126 +522,124 @@ void SAVE_PARAMETERS()
 void GET_PARAMETER_VALUE()
 {
 	byte id = talking.read<byte>();
-	switch (id)
-	{
-	case LEFTWHEEL_RADIUS_ID: 
+	if(id==LEFTWHEEL_RADIUS_ID){
 		talking.write<float>(leftWheel.getWheelRadius());
-		break;
-	case LEFTWHEEL_CONSTANT_ID:
+		}
+	else if(id== LEFTWHEEL_CONSTANT_ID){
 		talking.write<float>(leftWheel.getConstant());
-		break;
-	case LEFTWHEEL_MAXPWM_ID:
+		}
+	else if(id== LEFTWHEEL_MAXPWM_ID){
 		talking.write<float>(leftWheel.getMaxPWM());
-		break;
+		}
 	
-	case RIGHTWHEEL_RADIUS_ID:
+	else if(id== RIGHTWHEEL_RADIUS_ID){
 		talking.write<float>(rightWheel.getWheelRadius());
-		break;
-	case RIGHTWHEEL_CONSTANT_ID:
+		}
+	else if(id== RIGHTWHEEL_CONSTANT_ID){
 		talking.write<float>(rightWheel.getConstant());
-		break;
-	case RIGHTWHEEL_MAXPWM_ID:
+		}
+	else if(id== RIGHTWHEEL_MAXPWM_ID){
 		talking.write<float>(rightWheel.getMaxPWM());
-		break;
+		}
 
-	case LEFTCODEWHEEL_RADIUS_ID:
+	else if(id== LEFTCODEWHEEL_RADIUS_ID){
 		talking.write<float>(leftCodewheel.getWheelRadius());
-		break;
-	case LEFTCODEWHEEL_COUNTSPERREV_ID:
+		}
+	else if(id== LEFTCODEWHEEL_COUNTSPERREV_ID){
 		talking.write<long>(leftCodewheel.getCountsPerRev());
-		break;
+		}
 	
-	case RIGHTCODEWHEEL_RADIUS_ID:
+	else if(id== RIGHTCODEWHEEL_RADIUS_ID){
 		talking.write<float>(rightCodewheel.getWheelRadius());
-		break;
-	case RIGHTCODEWHEEL_COUNTSPERREV_ID:
+		}
+	else if(id== RIGHTCODEWHEEL_COUNTSPERREV_ID){
 		talking.write<long>(rightCodewheel.getCountsPerRev());
-		break;
+		}
 	
-	case ODOMETRY_AXLETRACK_ID:
+	else if(id== ODOMETRY_AXLETRACK_ID){
 		talking.write<float>(odometry.getAxleTrack());
-		break;
-	case ODOMETRY_SLIPPAGE_ID:
+		}
+	else if(id== ODOMETRY_SLIPPAGE_ID){
 		talking.write<float>(odometry.getSlippage());
-		break;
+		}
 	
-	case VELOCITYCONTROL_AXLETRACK_ID:
+	else if(id== VELOCITYCONTROL_AXLETRACK_ID){
 		talking.write<float>(velocityControl.getAxleTrack());
-		break;
-	case VELOCITYCONTROL_MAXLINACC_ID:
+		}
+	else if(id== VELOCITYCONTROL_MAXLINACC_ID){
 		talking.write<float>(velocityControl.getMaxLinAcc());
-		break;
-	case VELOCITYCONTROL_MAXLINDEC_ID:
+		}
+	else if(id== VELOCITYCONTROL_MAXLINDEC_ID){
 		talking.write<float>(velocityControl.getMaxLinDec());
-		break;
-	case VELOCITYCONTROL_MAXANGACC_ID:
+		}
+	else if(id== VELOCITYCONTROL_MAXANGACC_ID){
 		talking.write<float>(velocityControl.getMaxAngAcc());
-		break;
-	case VELOCITYCONTROL_MAXANGDEC_ID:
+		}
+	else if(id== VELOCITYCONTROL_MAXANGDEC_ID){
 		talking.write<float>(velocityControl.getMaxAngDec());
-		break;
-	case VELOCITYCONTROL_SPINSHUTDOWN_ID:
+		}
+	else if(id== VELOCITYCONTROL_SPINSHUTDOWN_ID){
 		talking.write<byte>(velocityControl.getSpinShutdown());
-		break;
+		}
 	
-	case LINVELPID_KP_ID:
+	else if(id== LINVELPID_KP_ID){
 		talking.write<float>(linVelPID.getKp());
-		break;
-	case LINVELPID_KI_ID:
+		}
+	else if(id== LINVELPID_KI_ID){
 		talking.write<float>(linVelPID.getKi());
-		break;
-	case LINVELPID_KD_ID:
+		}
+	else if(id== LINVELPID_KD_ID){
 		talking.write<float>(linVelPID.getKd());
-		break;
-	case LINVELPID_MINOUTPUT_ID:
+		}
+	else if(id== LINVELPID_MINOUTPUT_ID){
 		talking.write<float>(linVelPID.getMinOutput());
-		break;
-	case LINVELPID_MAXOUTPUT_ID:
+		}
+	else if(id== LINVELPID_MAXOUTPUT_ID){
 		talking.write<float>(linVelPID.getMaxOutput());
-		break;
+		}
 	
-	case ANGVELPID_KP_ID:
+	else if(id== ANGVELPID_KP_ID){
 		talking.write<float>(angVelPID.getKp());
-		break;
-	case ANGVELPID_KI_ID:
+		}
+	else if(id== ANGVELPID_KI_ID){
 		talking.write<float>(angVelPID.getKi());
-		break;
-	case ANGVELPID_KD_ID:
+		}
+	else if(id== ANGVELPID_KD_ID){
 		talking.write<float>(angVelPID.getKd());
-		break;
-	case ANGVELPID_MINOUTPUT_ID:
+		}
+	else if(id== ANGVELPID_MINOUTPUT_ID){
 		talking.write<float>(angVelPID.getMinOutput());
-		break;
-	case ANGVELPID_MAXOUTPUT_ID:
+		}
+	else if(id== ANGVELPID_MAXOUTPUT_ID){
 		talking.write<float>(angVelPID.getMaxOutput());
-		break;
+		}
 
-	case POSITIONCONTROL_LINVELKP_ID:
+	else if(id== POSITIONCONTROL_LINVELKP_ID){
 		talking.write<float>(positionControl.getLinVelKp());
-		break;
-	case POSITIONCONTROL_ANGVELKP_ID:
+		}
+	else if(id== POSITIONCONTROL_ANGVELKP_ID){
 		talking.write<float>(positionControl.getAngVelKp());
-		break;
-	case POSITIONCONTROL_LINVELMAX_ID:
+		}
+	else if(id== POSITIONCONTROL_LINVELMAX_ID){
 		talking.write<float>(positionControl.getLinVelMax());
-		break;
-	case POSITIONCONTROL_ANGVELMAX_ID:
+		}
+	else if(id== POSITIONCONTROL_ANGVELMAX_ID){
 		talking.write<float>(positionControl.getAngVelMax());
-		break;
-	case POSITIONCONTROL_LINPOSTHRESHOLD_ID:
+		}
+	else if(id== POSITIONCONTROL_LINPOSTHRESHOLD_ID){
 		talking.write<float>(positionControl.getLinPosThreshold());
-		break;
-	case POSITIONCONTROL_ANGPOSTHRESHOLD_ID:
+		}
+	else if(id== POSITIONCONTROL_ANGPOSTHRESHOLD_ID){
 		talking.write<float>(positionControl.getAngPosThreshold());
-		break;
+		}
 
-	case PUREPURSUIT_LOOKAHED_ID:
+	else if(id== PUREPURSUIT_LOOKAHED_ID){
 		talking.write<float>(purePursuit.getLookAhead());
-		break;
-	case PUREPURSUIT_LOOKAHEADBIS_ID:
+		}
+	else if(id== PUREPURSUIT_LOOKAHEADBIS_ID){
 		talking.write<float>(purePursuit.getLookAheadBis());
-		break;
-	}
+		}
+	
 	talking.endTranfert();
 }
 
@@ -536,7 +658,7 @@ void RESET_PARAMETERS()
 }
 
 void PRINT_PARAMS(){
-	Serial.println(F(" LEFTWHEEL_RADIUS_ID:")); Serial.println(leftWheel.getWheelRadius());
+	/*Serial.println(F(" LEFTWHEEL_RADIUS_ID:")); Serial.println(leftWheel.getWheelRadius());
 	Serial.println(F(" LEFTWHEEL_CONSTANT_ID:")); Serial.println(leftWheel.getConstant());
 	Serial.println(F(" LEFTWHEEL_MAXPWM_ID:")); Serial.println(leftWheel.getMaxPWM());
 	Serial.println(F(" RIGHTWHEEL_RADIUS_ID:")); Serial.println(rightWheel.getWheelRadius());
@@ -571,5 +693,5 @@ void PRINT_PARAMS(){
 	Serial.println(F(" POSITIONCONTROL_LINPOSTHRESHOLD_ID:")); Serial.println(positionControl.getLinPosThreshold());
 	Serial.println(F(" POSITIONCONTROL_ANGPOSTHRESHOLD_ID:")); Serial.println(positionControl.getAngPosThreshold());
 	Serial.println(F(" PUREPURSUIT_LOOKAHED_ID:")); Serial.println(purePursuit.getLookAhead());
-	Serial.println(F(" PUREPURSUIT_LOOKAHEADBIS_ID:")); Serial.println(purePursuit.getLookAheadBis());
+	Serial.println(F(" PUREPURSUIT_LOOKAHEADBIS_ID:")); Serial.println(purePursuit.getLookAheadBis());*/
 }

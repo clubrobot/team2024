@@ -33,6 +33,7 @@
 #define SAVE_PARAMETERS_OPCODE          0x20
 #define START_TURNONTHESPOT_DIR_OPCODE  0x21
 #define PRINT_PARAMS_OPCODE  0x22
+#define START_MATCH_OPCODE 0x23
 
 // Parameters identifiers
 
@@ -72,9 +73,6 @@
 #define POSITIONCONTROL_ANGPOSTHRESHOLD_ID  0xD5
 #define PUREPURSUIT_LOOKAHED_ID         0xE0
 #define PUREPURSUIT_LOOKAHEADBIS_ID     0xE2
-
-#define BORNIBUS    0
-#define R128        1
 
 
 // Instructions prototypes
@@ -119,5 +117,7 @@ void RESET_PARAMETERS();
 void SAVE_PARAMETERS();
 
 void PRINT_PARAMS();
+
+void START_MATCH();
 
 #endif // __INSTRUCTIONS_H__

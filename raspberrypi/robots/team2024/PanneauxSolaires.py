@@ -13,7 +13,7 @@ class PanneauxSolaires:
         self.wb=wheeledbase
 
         self.radiusRobot=400
-        self.radiusAile=180 # - égal plus proche du mur; inversement
+        self.radiusAile=165 # diminue égal plus proche du mur; inversement
         self.forward_distance = 260
         self.barriere=barriere
         self.actionpoint=None
@@ -44,27 +44,33 @@ class PanneauxSolaires:
 
         ############################################## Approche
 
+
+        
         if(not self.yellow): 
             ang_approche = np.pi
-            depart = np.flip(np.array(self.robot.geo.get('PSBleuFin')) + np.array([self.radiusAile,-120]))
-            fin = np.flip(np.array(self.robot.geo.get('PSBleuDepart')) + np.array([self.radiusAile,120]))
+            #depart = np.flip(np.array(self.robot.geo.get('BaseB1INIT')) + np.array([0,0]))
+            fin = np.flip(np.array(self.robot.geo.get('PSBleuFin')) + np.array([self.radiusAile,-130]))
         else:
             ang_approche = 0
-            depart = np.flip(np.array(self.robot.geo.get('PSJauneFin')) + np.array([self.radiusAile,120]))
-            fin = np.flip(np.array(self.robot.geo.get('PSJauneDepart')) + np.array([self.radiusAile,-120]))
+            #depart = np.flip(np.array(self.robot.geo.get('BaseJ1INIT')) + np.array([0,0]))
+            fin = np.flip(np.array(self.robot.geo.get('PSJauneFin')) + np.array([self.radiusAile,140]))
 
 
-        print(self.wb.get_position())
-        print(depart)
-        self.wb.goto_stop(depart[0],depart[1],self.robot.sensors,theta=ang_approche)
-        if(not self.yellow): self.barriere.aile_d_ferme()
-        else: self.barriere.aile_g_ferme()
-        self.barriere.quarante_cinq()
+        #self.wb.goto_stop(depart[0],depart[1],self.robot.sensors,theta=ang_approche)
+        if(not self.yellow): 
+            self.barriere.aile_d_ferme()
+            self.barriere.ferme_droite()
+        else: 
+            self.barriere.aile_g_ferme()
+            self.barriere.ferme_gauche()
         ############################################ Avance
-
-        self.wb.goto_stop(fin[0],fin[1],self.robot.sensors,theta=ang_approche, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.4)
+        pos =self.wb.get_position()
+        self.wb.goto(pos[0],pos[1],theta=ang_approche)
+        self.wb.goto(fin[0],fin[1],theta=ang_approche, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.2)
 
         self.wb.set_parameter_value(POSITIONCONTROL_LINVELMAX_ID, POSITIONCONTROL_LINVELMAX_VALUE, FLOAT)
 
         if(not self.yellow): self.barriere.aile_d_ouvre()
         else: self.barriere.aile_g_ouvre()
+
+        self.barriere.nicole_oouuuuuvre()

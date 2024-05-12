@@ -123,7 +123,7 @@ uint8_t Packet::parse(const uint8_t& recChar, const bool& valid)
 	if(!packet_fresh) //packet is stale, start over.
 	{
 		if (debug)
-			debugPort->println("ERROR: STALE PACKET");
+			debugPort->println(F("ERROR: STALE PACKET"));
 
 		bytesRead   = 0;
 		state       = find_start_byte;
@@ -178,7 +178,7 @@ uint8_t Packet::parse(const uint8_t& recChar, const bool& valid)
 				status    = PAYLOAD_ERROR;
 
 				if (debug)
-					debugPort->println("ERROR: PAYLOAD_ERROR");
+					debugPort->println(F("ERROR: PAYLOAD_ERROR"));
 
 				reset();
 				return bytesRead;
@@ -235,7 +235,9 @@ uint8_t Packet::parse(const uint8_t& recChar, const bool& valid)
 
 				if (callbacks){	
 					if (idByte < callbacksLen){
+						Serial.write((uint8_t) 0x3D);
 						callbacks[idByte]();
+						
 					}else if (debug)
 					{
 						debugPort->print(F("ERROR: No callback available for packet ID "));

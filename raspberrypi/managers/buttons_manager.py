@@ -7,6 +7,7 @@ from logs.logger import Logger, colorise, Colors
 from threading import Thread
 import time
 import os
+from daughter_cards.wheeledbase import WheeledBase
 
 class ButtonsManager:
     RED_PIN = 18  # 1
@@ -59,11 +60,13 @@ class ButtonsManager:
             Thread(target=self.putrobot, daemon=True).start)
 
     def putrobot(self):
+        '''
         self.green.set_function(None)
         self.auto.set_side(self.side)
         self.auto.set_position()
         time.sleep(0.1)
         self.auto.positioning()
+        '''
         self.ready_stage()
 
     def ready_stage(self):
@@ -84,12 +87,21 @@ class ButtonsManager:
     def run_match(self):
         self.logger.sendLogStatus("Robot" ,colorise("Match !", Colors.GREEN2))
         self.logger.sendLog("MATCH")
+        self.auto.wheeledbase = WheeledBase()
+        time.sleep(0.5)
+        self.auto.wheeledbase.start_match()
+        time.sleep(0.1)
+        self.auto.set_side(self.side)
+        self.auto.set_position()
+        time.sleep(0.1)
+        self.auto.positioning()
+        #time.sleep(0.5)
+        #self.auto.wheeledbase.set_position(self.auto.lastknownpos[0], self.auto.lastknownpos[1], self.auto.lastknownpos[2])
         self.tirette.close()
         self.red.close()
         self.blue.close()
         self.orange.close()
         self.green.close()
-
         Thread(target=self.run_vid).start()
         #Thread(target=self.auto.start(), daemon=True).start()
         self.auto.start()

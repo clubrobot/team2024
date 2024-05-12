@@ -135,10 +135,7 @@ uint8_t SerialTransfer::available()
 */
 bool SerialTransfer::tick()
 {
-	if (available()){
-		return true;
-	}
-	return false;
+	return available();
 }
 
 

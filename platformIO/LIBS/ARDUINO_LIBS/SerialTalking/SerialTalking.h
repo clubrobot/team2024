@@ -28,7 +28,7 @@
 #define SERIALTALKING_SINGLE_MAGIC 's' //comme single
 #define SERIALTALKING_MULTIPLE_MAGIC 'm' //comme multiple
 
-#define SERIALTALKING_PING_OPCODE           0x00
+#define SERIALTALKING_ZING_OPCODE           0x00
 #define SERIALTALKING_GETUUID_OPCODE        0x01
 #define SERIALTALKING_SETUUID_OPCODE        0x02
 #define SERIALTALKING_DISCONNECT_OPCODE     0x03
@@ -190,8 +190,8 @@ protected: // Protected methods
 
 private:
 
-    //! Méthode pour la requête de ping.
-    static void PING();
+    //! Méthode pour la requête de ZING.
+    static void ZING();
     //! Méthode pour la requête d'UUID.
     static void GETUUID();
     //! Méthode pour la requête de changement d'UUID.

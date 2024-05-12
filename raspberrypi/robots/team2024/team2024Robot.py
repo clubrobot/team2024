@@ -7,7 +7,7 @@ from common.geogebra import Geogebra
 from common.roadmap import RoadMap
 from daughter_cards.wheeledbase import WheeledBase
 from daughter_cards.sensors import Sensors
-
+import time
 from robots.team2024.RecupPlante import RecupPlante
 from robots.team2024.PanneauxSolaires import PanneauxSolaires
 from robots.team2024.barriere import Barriere
@@ -49,7 +49,10 @@ class Robeur(RobotBehavior):
         self.road = RoadMap.load(self.geo)
         self.side = RobotBehavior.BLUE_SIDE
 
-        self.wheeledbase = WheeledBase()
+        """ 
+         self.wheeledbase = WheeledBase()
+        self.wheeledbase.start_match()
+        """
         #self.display = display
 
         self.sensors=Sensors("sensors")
@@ -134,6 +137,7 @@ class Robeur(RobotBehavior):
     def set_position(self):
         """This function apply the starting position of the robot reagading to the choosed side
         """
+        print("SIDDDDEEE: {}".format(self.side))
         if self.side == RobotBehavior.YELLOW_SIDE:
             #150 en x 100 en y
             self.wheeledbase.set_position(100, 150, 0)
@@ -155,13 +159,18 @@ class Robeur(RobotBehavior):
     def positioning(self):
         """This optionnal function can be useful to do a small move after setting up the postion during the preparation phase
         """
+        print(self.wheeledbase.get_position())
         print(self.geo.get('BaseJ1'))
         print(self.geo.get('BaseB1'))
         if self.side == RobotBehavior.YELLOW_SIDE:
             self.wheeledbase.goto(self.geo.get('BaseJ1INIT')[1], self.geo.get('BaseJ1INIT')[0],0)
         else:
+            print("GOTO bLUE")
             self.wheeledbase.goto(self.geo.get('BaseB1INIT')[1], self.geo.get('BaseB1INIT')[0], pi)
 
+        #time.sleep(1)
+        #self.lastknownpos = self.wheeledbase.get_position()
+        #self.wheeledbase.wheeledbase.disconnect()
     def start_procedure(self):
         """This action is launched at the beggining of the match
         """
@@ -175,12 +184,13 @@ class Robeur(RobotBehavior):
         self.p.acquire(blocking=True)
 
     def stop_match(self):
-        import time
+        pass
+        '''import time
         time.sleep(95)
         time.sleep(4)
         self.wheeledbase.stop()
         self.p.release()
-        
+        '''
 
 
 if __name__ == '__main__':

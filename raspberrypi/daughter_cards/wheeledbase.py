@@ -202,6 +202,10 @@ class WheeledBase():
         self.log.sendLog("start purepursuit")
         self.wheeledbase.order(START_PUREPURSUIT_OPCODE, BYTE({'forward':0, 'backward':1}[direction]), FLOAT(finalangle))
 
+    def start_match(self):
+        START_MATCH_OPCODE=0x23
+        self.wheeledbase.order(START_MATCH_OPCODE)
+
     def purepursuit_stop(self, waypoints,sensors, direction='forward', finalangle=None, lookahead=None, lookaheadbis=None,
                     linvelmax=None, angvelmax=None):
         self.purepursuit(waypoints,direction,finalangle,lookahead,lookaheadbis,linvelmax,angvelmax)
@@ -264,39 +268,70 @@ class WheeledBase():
             self.turnonthespot(theta)
             self.wait(**kwargs)
 
+    def goto_waypoints(self, waypoints, theta=None, direction=None, finalangle=None, lookahead=None, lookaheadbis=None, linvelmax=None, angvelmax=None, **kwargs):
+        # Compute the preferred direction if not set
+        if direction is None:
+            x0, y0, theta0 = self.get_position()
+            if math.cos(math.atan2(waypoints[0][1] - y0, waypoints[0][0] - x0) - theta0) >= 0:
+                direction = 'forward'
+            else:
+                direction = 'backward'
+
+        # Go to the setpoint position
+        waypoints.insert(0,(x0,y0))
+        self.purepursuit(waypoints, direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
+        #self.wait(**kwargs)
+        while not self.isarrived(raiseSpinUrgency=True):
+            pass
+        # Get the setpoint orientation
+        if theta is not None:
+            self.turnonthespot(theta)
+            self.wait(**kwargs)
+
     def goto_stop(self, x, y,sensors, theta=None, direction=None, finalangle=None, lookahead=None, lookaheadbis=None, linvelmax=None, angvelmax=None, **kwargs):
         """if(sensors is None):
             print("None")
             self.goto(x,y,theta=theta,finalangle=finalangle)
             return"""
         # Compute the preferred direction if not set
+        x0, y0, theta0 = self.get_position()
         if direction is None:
-            x0, y0, theta0 = self.get_position()
             if math.cos(math.atan2(y - y0, x - x0) - theta0) >= 0:
                 direction = 'forward'
             else:
                 direction = 'backward'
 
         # Go to the setpoint position
-        self.purepursuit([self.get_position()[0:2], (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
-        interrupt=False
-        while not self.isarrived(raiseSpinUrgency=False):
-            sen = sensors.get_all_sensors()
+        try:
+            self.purepursuit([(x0, y0), (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
+            interrupt=False
+            while not self.isarrived(raiseSpinUrgency=False):
+                time.sleep(0.1)
+                sen = sensors.get_all_sensors()
 
-            if(np.min(sen[0:4])<300 or np.min(sen[4:])<500 or sen[5]<600):
-                interrupt=True
-                self.stop()
-                #print("arret")
-            elif interrupt:
-                interrupt=False
-                self.log.sendLog("Reprise")
-                if direction is None:
+                if(False):#(np.min(sen[0:4])<300 or np.min(sen[4:])<500 or sen[5]<600):
+                    interrupt=True
+                    self.stop()
+                    #print("arret")
+                elif interrupt:
+                    interrupt=False
+                    self.log.sendLog("Reprise")
                     x0, y0, theta0 = self.get_position()
-                    if math.cos(math.atan2(y - y0, x - x0) - theta0) >= 0:
-                        direction = 'forward'
-                    else:
-                        direction = 'backward'
-                self.purepursuit([self.get_position()[0:2], (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
+                    if direction is None:
+                        if math.cos(math.atan2(y - y0, x - x0) - theta0) >= 0:
+                            direction = 'forward'
+                        else:
+                            direction = 'backward'
+                    self.purepursuit([(x0,y0), (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
+        except RuntimeError:
+            self.goto_stop(x, y,sensors, theta, direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
+            print("FUUUUCK runtime")
+        except TimeoutError:
+            print("FUUUUUUUUUCk")
+            self.wheeledbase.disconnect()
+            time.sleep(0.5)
+            self.wheeledbase.connect()
+
             
         self.log.sendLog("ARRIVE")
         

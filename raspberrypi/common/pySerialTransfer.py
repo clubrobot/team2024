@@ -417,7 +417,7 @@ class SerialTransfer(object):
             stack = bytearray(stack)
 
             if self.open():
-                while time.monotonic()-self.last_send<0.010:#100Hz
+                while time.monotonic()-self.last_send<0.05:#100Hz
                     pass#Slow down!
                 self.connection.write(stack)
                 self.connection.flush()

@@ -224,7 +224,7 @@ class SerialTalking:
                         data.append(datum)
                         data_size.append(datum_size)
                     if(len(data)==len(args)): break#Break from the loop if every args are there
-                elif(try_i>=50):#si on a pas de réponse, on la force mdr
+                elif(try_i>=100):#si on a pas de réponse, on la force mdr
                     try_i=0
                     self.logger.sendLog("Resend: "+str(opcode))
                     if(send_args==None):
@@ -237,6 +237,7 @@ class SerialTalking:
                     time.sleep(0.01)
                 if(time.monotonic() - startingtime > timeout): raise TimeoutError
             except Exception as e:
+                raise e
                 self.logger.sendLog(colorise('\'{}\' Got a little hiccup, gonna reconnect the command.'.format(
                             self.port), Colors.RED, Colors.BOLD))
                 print(str(e))
