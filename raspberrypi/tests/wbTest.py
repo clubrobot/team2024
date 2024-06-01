@@ -21,4 +21,4 @@ print("Sensors:",sensors)
 wheeledbase.start_match()
 wheeledbase.goto_stop(500,0, sensors)
 while 1:
-    print(wheeledbase.get_position())
+    print(wheeledbase.get_position(),sensors.get_all_sensors())
