@@ -15,7 +15,7 @@ sensors = Sensors()
 
 wheeledbase.start_match()
 wheeledbase.set_position(0,0, np.pi)
-wheeledbase.goto(10,0,np.pi)
+wheeledbase.goto_stop(10,0,np.pi)
 time.sleep(90)
 wheeledbase.set_position(10,0, np.pi)
 wheeledbase.start_match()
