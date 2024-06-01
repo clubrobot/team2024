@@ -6,18 +6,7 @@
 extern uint16_t vl53_status[VL53L0X_COUNT];
 extern uint16_t vl53_measurement[VL53L0X_COUNT];
 
-void GET_ALL_SENSORS()
-{
-    talking.write<uint16_t>(vl53_measurement[0]);
-    talking.write<uint16_t>(vl53_measurement[1]);
-    talking.write<uint16_t>(vl53_measurement[2]);
-    talking.write<uint16_t>(vl53_measurement[3]);
-    talking.write<uint16_t>(vl53_measurement[4]);
-    talking.write<uint16_t>(vl53_measurement[5]);
-    talking.write<uint16_t>(vl53_measurement[6]);
-    talking.write<uint16_t>(vl53_measurement[7]);
-    talking.endTranfert();
-}
+
 void GET_SENSOR1()
 {
     talking.write<uint16_t>(vl53_measurement[0]);

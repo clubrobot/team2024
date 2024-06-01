@@ -38,7 +38,25 @@ uint16_t vl53_measurement[VL53L0X_COUNT] = {10};
 // serialtalks wrapper
 void talkingExecuteWrapper()
 {
-    talking.execute();
+    //talking.execute();
+}
+
+void GET_ALL_SENSORS()
+{
+    uint8_t counter=0;
+    for (const auto &cur_sensor : sensors_vl53){
+        vl53_measurement[counter++] = cur_sensor->readRangeContinuousMillimeters(NULL);
+    }
+
+    talking.write<uint16_t>(vl53_measurement[0]);
+    talking.write<uint16_t>(vl53_measurement[1]);
+    talking.write<uint16_t>(vl53_measurement[2]);
+    talking.write<uint16_t>(vl53_measurement[3]);
+    talking.write<uint16_t>(vl53_measurement[4]);
+    talking.write<uint16_t>(vl53_measurement[5]);
+    talking.write<uint16_t>(vl53_measurement[6]);
+    talking.write<uint16_t>(vl53_measurement[7]);
+    talking.endTranfert();
 }
 
 void setup()
@@ -104,13 +122,11 @@ void setup()
 }
 
 // Loop
-uint8_t counter;
+
 void loop(){
-    counter = 0;
+    //counter = 0;
 
     talking.execute();
 
-    for (const auto &cur_sensor : sensors_vl53){
-        vl53_measurement[counter++] = cur_sensor->readRangeContinuousMillimeters(talkingExecuteWrapper);
-    }
+
 }
