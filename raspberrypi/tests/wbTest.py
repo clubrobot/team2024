@@ -19,11 +19,18 @@ sensors = Sensors()
 #time.sleep(90)
 
 for i in range(100):
-    print(i,sensors.get_all_sensors())
+    sen=sensors.get_all_sensors()
+    detect=np.sum(sen<0)>5
+
+    print(i,sensors.get_all_sensors(),detect)
+    if(detect):
+        print("RESET-------------------")
+        sensors = Sensors()
     time.sleep(1)
 
 print("BONNE ANN2e")
 print("Sensors:",sensors)
+
 wheeledbase.start_match()
 wheeledbase.goto_stop(500,0, sensors)
 while 1:
