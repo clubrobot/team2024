@@ -342,6 +342,8 @@ class WheeledBase():
         
         # Get the setpoint orientation
         if theta is not None:
+            if(theta<0):
+                theta+=2*math.pi
             rPos=self.get_position()
             radiusRobot=370
             ang=rPos[2]%(2*math.pi)
