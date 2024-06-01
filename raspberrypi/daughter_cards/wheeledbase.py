@@ -316,15 +316,15 @@ class WheeledBase():
                     print("reprise:",sen)
                     interrupt=False
                     self.log.sendLog("Reprise")
+                    
+                    x0, y0, theta0 = self.get_position()
                     if direction is None:
-                        x0, y0, theta0 = self.get_position()
-                        if direction is None:
-                            if math.cos(math.atan2(y - y0, x - x0) - theta0) >= 0:
-                                direction = 'forward'
-                            else:
-                                direction = 'backward'
-                        print([(x0,y0), (x, y)],finalangle)
-                        self.purepursuit([(x0,y0), (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
+                        if math.cos(math.atan2(y - y0, x - x0) - theta0) >= 0:
+                            direction = 'forward'
+                        else:
+                            direction = 'backward'
+                    print([(x0,y0), (x, y)],finalangle)
+                    self.purepursuit([(x0,y0), (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
                 #else:
                     #print("avance:",sen)
         except RuntimeError:
