@@ -304,24 +304,25 @@ class WheeledBase():
         # Go to the setpoint position
         self.purepursuit([self.get_position()[0:2], (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
         interrupt=False
-        while not self.isarrived(raiseSpinUrgency=False):
-            sen = sensors.get_all_sensors()
+        try:
+            while not self.isarrived(raiseSpinUrgency=False):
+                sen = sensors.get_all_sensors()
 
-            if(np.min(sen[0:4])<300 or np.min(sen[4:])<500 or sen[5]<600):
-                interrupt=True
-                self.stop()
-                #print("arret")
-            elif interrupt:
-                interrupt=False
-                self.log.sendLog("Reprise")
-                if direction is None:
-                    x0, y0, theta0 = self.get_position()
+                if(np.min(sen[0:4])<300 or np.min(sen[4:])<500 or sen[5]<600):
+                    interrupt=True
+                    self.stop()
+                    #print("arret")
+                elif interrupt:
+                    interrupt=False
+                    self.log.sendLog("Reprise")
                     if direction is None:
-                        if math.cos(math.atan2(y - y0, x - x0) - theta0) >= 0:
-                            direction = 'forward'
-                        else:
-                            direction = 'backward'
-                    self.purepursuit([(x0,y0), (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
+                        x0, y0, theta0 = self.get_position()
+                        if direction is None:
+                            if math.cos(math.atan2(y - y0, x - x0) - theta0) >= 0:
+                                direction = 'forward'
+                            else:
+                                direction = 'backward'
+                        self.purepursuit([(x0,y0), (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
         except RuntimeError:
             self.goto_stop(x, y,sensors, theta, direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
             print("FUUUUCK runtime")
