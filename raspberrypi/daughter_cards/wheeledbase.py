@@ -383,6 +383,7 @@ class WheeledBase():
             #print(trigo,['clock','trig'][trigo])
             while(np.min(sensors.get_all_sensors())<600):
                 sleep(0.1)
+            print("fin trigo:",trigo)
             self.turnonthespot(theta,direction=['clock','trig'][trigo])
             print("fin commande turn on the spot")
             self.wait(**kwargs)
