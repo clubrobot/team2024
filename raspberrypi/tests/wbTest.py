@@ -19,7 +19,7 @@ sensors = Sensors()
 #time.sleep(90)
 for i in range(100):
     print(i)
-    time.sleep()
+    time.sleep(1)
 
 print("BONNE ANN2e")
 print("Sensors:",sensors)
