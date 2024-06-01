@@ -65,8 +65,8 @@ class PanneauxSolaires:
             self.barriere.ferme_gauche()
         ############################################ Avance
         pos =self.wb.get_position()
-        self.wb.goto(pos[0],pos[1],theta=ang_approche)
-        self.wb.goto(fin[0],fin[1],theta=ang_approche, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.2)
+        self.wb.goto_stop(pos[0],pos[1],theta=ang_approche)
+        self.wb.goto_stop(fin[0],fin[1],theta=ang_approche, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.2)
 
         self.wb.set_parameter_value(POSITIONCONTROL_LINVELMAX_ID, POSITIONCONTROL_LINVELMAX_VALUE, FLOAT)
 
