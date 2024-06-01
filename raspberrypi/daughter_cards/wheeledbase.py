@@ -293,6 +293,7 @@ class WheeledBase():
             print("None")
             self.goto(x,y,theta=theta,finalangle=finalangle)
             return"""
+        print(sensors.get_all_sensors())
         # Compute the preferred direction if not set
         x0, y0, theta0 = self.get_position()
         if direction is None:
@@ -311,7 +312,7 @@ class WheeledBase():
                 if(np.min(sen[0:4])<300 or np.min(sen[4:])<500 or sen[5]<600):
                     interrupt=True
                     self.stop()
-                    print("arret:",sen)
+                    print("arret:",sen,sensors.get_sensor1_range())
                 elif interrupt:
                     print("reprise:",sen)
                     interrupt=False
