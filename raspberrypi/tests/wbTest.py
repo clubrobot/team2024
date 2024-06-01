@@ -17,9 +17,10 @@ sensors = Sensors()
 #wheeledbase.set_position(0,0, np.pi)
 #wheeledbase.goto_stop(10,0,np.pi)
 #time.sleep(90)
+
 for i in range(100):
     print(i)
-    time.sleep(1)
+    time.sleep(1,sensors.get_all_sensors())
 
 print("BONNE ANN2e")
 print("Sensors:",sensors)
