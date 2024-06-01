@@ -345,6 +345,7 @@ class WheeledBase():
             rPos=self.get_position()
             radiusRobot=370
             ang=rPos[2]%(2*math.pi)
+            print(ang,theta)
             #fait en sorte que |ang-theta|<pi pr trouver le sens du robot
             if(theta-ang>math.pi):
                 theta-=2*math.pi
