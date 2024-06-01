@@ -325,7 +325,7 @@ class WheeledBase():
                                 direction = 'backward'
                         print([(x0,y0), (x, y)],finalangle)
                         self.purepursuit([(x0,y0), (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
-                else:
+                #else:
                     #print("avance:",sen)
         except RuntimeError:
             self.goto_stop(x, y,sensors, theta, direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
