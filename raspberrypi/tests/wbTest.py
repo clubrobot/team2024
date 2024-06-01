@@ -17,6 +17,11 @@ sensors = Sensors()
 #wheeledbase.set_position(0,0, np.pi)
 #wheeledbase.goto_stop(10,0,np.pi)
 #time.sleep(90)
+for i in range(100):
+    print(i)
+    time.sleep()
+
+print("BONNE ANN2e")
 print("Sensors:",sensors)
 wheeledbase.start_match()
 wheeledbase.goto_stop(500,0, sensors)
