@@ -32,9 +32,10 @@ print("BONNE ANN2e")
 print("Sensors:",sensors)
 
 wheeledbase.start_match()
-wheeledbase.goto_stop(0,0, sensors,theta=-math.pi/2)
-time.sleep(1)
 wheeledbase.set_position(1000,1000,0)
-wheeledbase.goto_stop(1000,1000, sensors,theta=0)
-while 1:
-    print(wheeledbase.get_position(),sensors.get_all_sensors())
+wheeledbase.goto_stop(1000,1000, sensors,theta=-math.pi/2)
+time.sleep(1)
+
+#wheeledbase.goto_stop(1000,1000, sensors,theta=0)
+#while 1:
+#    print(wheeledbase.get_position(),sensors.get_all_sensors())
