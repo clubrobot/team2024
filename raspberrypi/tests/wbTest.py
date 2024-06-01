@@ -20,11 +20,11 @@ sensors = Sensors()
 
 for i in range(100):
     sen=sensors.get_all_sensors()
-    detect=np.sum(np.arry(sen)<5)>5
+    detect=np.sum(np.array(sen)<5)>5
 
     print(i,sensors.get_all_sensors(),detect)
     if(detect):
-        print("RESET-------------------")
+        print("RESET------------------------------------------")
         sensors = Sensors()
     time.sleep(1)
 
