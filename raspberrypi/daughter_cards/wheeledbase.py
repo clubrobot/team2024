@@ -311,8 +311,9 @@ class WheeledBase():
                 if(np.min(sen[0:4])<300 or np.min(sen[4:])<500 or sen[5]<600):
                     interrupt=True
                     self.stop()
-                    #print("arret")
+                    print("arret:",sen)
                 elif interrupt:
+                    print("reprise:",sen)
                     interrupt=False
                     self.log.sendLog("Reprise")
                     if direction is None:
@@ -323,6 +324,8 @@ class WheeledBase():
                             else:
                                 direction = 'backward'
                         self.purepursuit([(x0,y0), (x, y)], direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
+                else:
+                    print("avance:",sen)
         except RuntimeError:
             self.goto_stop(x, y,sensors, theta, direction, finalangle, lookahead, lookaheadbis, linvelmax, angvelmax)
             print("FUUUUCK runtime")
