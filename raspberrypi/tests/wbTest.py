@@ -20,7 +20,7 @@ sensors = Sensors()
 
 for i in range(100):
     sen=sensors.get_all_sensors()
-    detect=np.sum(sen<0)>5
+    detect=np.sum(np.arry(sen)<5)>5
 
     print(i,sensors.get_all_sensors(),detect)
     if(detect):
