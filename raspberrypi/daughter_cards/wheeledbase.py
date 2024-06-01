@@ -347,13 +347,15 @@ class WheeledBase():
             rPos=self.get_position()
             radiusRobot=370
             ang=rPos[2]%(2*math.pi)
-            print(ang,theta)
+            
             #fait en sorte que |ang-theta|<pi pr trouver le sens du robot
             if(theta-ang>math.pi):
                 theta-=2*math.pi
             if(ang-theta>math.pi):
                 ang-=2*math.pi
+            print(ang,theta)
             trigo=theta>ang#va ds le sens trigo
+            print(trigo)
             #le rbot va bouger ds l'intervalle [a;b] inclus ds [-pi;2pi]
             a=min(ang,theta)
             b=max(ang,theta)
