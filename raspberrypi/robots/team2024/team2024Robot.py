@@ -146,15 +146,15 @@ class Robeur(RobotBehavior):
             
         self.blue=self.side==RobotBehavior.BLUE_SIDE
         if(self.blue):#couleur impaire
-            self.automate.append(PanneauxSolaires(self.wheeledbase,self.barriere,self, self.get_side, False))
-            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseB1'), self.geo.get('PlanteB1'), False))
-            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseB2'), self.geo.get('PlanteB2'), False))
-            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseB3'), self.geo.get('PlantePAMI'), True))
+            self.automate.append(PanneauxSolaires(self.wheeledbase,self.barriere,self, self.get_side, False,self.sensors))
+            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseB1'), self.geo.get('PlanteB1'), False,self.sensors))
+            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseB2'), self.geo.get('PlanteB2'), False,self.sensors))
+            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseB3'), self.geo.get('PlantePAMI'), True,self.sensors))
         else:#couleur paire
-            self.automate.append(PanneauxSolaires(self.wheeledbase,self.barriere,self, self.get_side, False))
-            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseJ1'), self.geo.get('PlanteJ1'), False))
-            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseJ2'), self.geo.get('PlanteJ2'), False))
-            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseJ3'), self.geo.get('PlantePAMI'), True))
+            self.automate.append(PanneauxSolaires(self.wheeledbase,self.barriere,self, self.get_side, False,self.sensors))
+            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseJ1'), self.geo.get('PlanteJ1'), False,self.sensors))
+            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseJ2'), self.geo.get('PlanteJ2'), False,self.sensors))
+            self.automate.append(RecupPlante(self.wheeledbase, self.barriere, self, self.geo.get('BaseJ3'), self.geo.get('PlantePAMI'), True,self.sensors))
 
     def positioning(self):
         """This optionnal function can be useful to do a small move after setting up the postion during the preparation phase

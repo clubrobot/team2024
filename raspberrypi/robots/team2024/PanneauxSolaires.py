@@ -4,12 +4,13 @@ from time import sleep
 from behaviours.robot_behaviour import RobotBehavior
 from robots.team2024.barriere import Barriere
 from daughter_cards.wheeledbase import WheeledBase
+from daughter_cards.sensors import Sensors
 
 from tunings.tunings_robeur import POSITIONCONTROL_LINVELMAX_VALUE, POSITIONCONTROL_LINVELMAX_ID
 from common.serialtypes import FLOAT, STRING, INT
 
 class PanneauxSolaires:
-    def __init__(self, wheeledbase: WheeledBase, barriere:Barriere, robot, side, middle) -> None:
+    def __init__(self, wheeledbase: WheeledBase, barriere:Barriere, robot, side, middle,sensors:Sensors) -> None:
         self.wb=wheeledbase
 
         self.radiusRobot=400
@@ -22,6 +23,7 @@ class PanneauxSolaires:
         self.get_side = side
         self.middle=middle
         self.robot=robot
+        self.sensors=sensors
 
     """ 
     def calc_point_approche(self, pos_plante, theta_normal):
@@ -65,8 +67,8 @@ class PanneauxSolaires:
             self.barriere.ferme_gauche()
         ############################################ Avance
         pos =self.wb.get_position()
-        self.wb.goto_stop(pos[0],pos[1],theta=ang_approche)
-        self.wb.goto_stop(fin[0],fin[1],theta=ang_approche, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.2)
+        self.wb.goto_stop(pos[0],pos[1],self.sensors,theta=ang_approche)
+        self.wb.goto_stop(fin[0],fin[1],self.sensors,theta=ang_approche, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.2)
 
         self.wb.set_parameter_value(POSITIONCONTROL_LINVELMAX_ID, POSITIONCONTROL_LINVELMAX_VALUE, FLOAT)
 
