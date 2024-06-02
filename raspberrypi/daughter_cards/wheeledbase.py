@@ -382,6 +382,7 @@ class WheeledBase():
             
             #print(trigo,['clock','trig'][trigo])
             while(np.min(sensors.get_all_sensors())<600):
+                print("snesors detection")
                 sleep(0.1)
             print("fin trigo:",trigo,rPos)
             self.turnonthespot(theta,direction=['clock','trig'][trigo])
