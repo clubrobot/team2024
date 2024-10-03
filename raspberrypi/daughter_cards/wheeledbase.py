@@ -367,7 +367,7 @@ class WheeledBase():
                 
                 #print(trigo,ang,theta)
                 #print("     ",xmin,xmax,ymin,ymax)    
-                if(xmin<0 or xmax>2000 or ymin<0 or ymax>3000):
+                if(xmin<0 or xmax>3000 or ymin<0 or ymax>2000):
                     trigo =not trigo
                 
                 #print(trigo,['clock','trig'][trigo])

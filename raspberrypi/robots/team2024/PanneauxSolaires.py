@@ -57,7 +57,7 @@ class PanneauxSolaires:
             #depart = np.flip(np.array(self.robot.geo.get('BaseJ1INIT')) + np.array([0,0]))
             fin = np.flip(np.array(self.robot.geo.get('PSJauneFin')) + np.array([self.radiusAile,140]))
 
-
+        
         #self.wb.goto_stop(depart[0],depart[1],self.robot.sensors,theta=ang_approche)
         if(not self.yellow): 
             self.barriere.aile_d_ferme()

@@ -16,7 +16,7 @@ Les images doivent être le plus varie possible il faut en prendre avec des:
 #9 et 6 si l'échiquier fait bien 9 carreaux par 6 carreaux
 n_carreau_longeur=9
 n_carreau_largeur=6
-taille_carreau_mm=231/9#taille d'un carreau en mm
+taille_carreau_mm=207/8#taille d'un carreau en mm
 
 criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
 objp = np.zeros((n_carreau_largeur*n_carreau_longeur, 3), np.float32)
@@ -24,42 +24,49 @@ objp[:, :2] = np.mgrid[0:n_carreau_longeur, 0:n_carreau_largeur].T.reshape(-1, 2
 objpoints = []  # 3D points in real world space
 imgpoints = []  # 2D points in image plane.
 
-cam= cv2.VideoCapture(0)#mettre 1 ou 2 ... si la camera qui est detectée n'est pas celle que l'on souhaite calibrer
-cam.set(3, 480)#résolution de la camera
-cam.set(4, 480)#résolution de la camera
+cam= cv2.VideoCapture(1)#mettre 1 ou 2 ... si la camera qui est detectée n'est pas celle que l'on souhaite calibrer
+cam.set(3, 720)#résolution de la camera
+cam.set(4, 720)#résolution de la camera
 cam.set(10, 10)
 
 total=0
 print("Debut")
 last_capture=time.time()
 #boucle et et prends en photo l'échiquier toute les 1 secondes.
-for i in range(1,50):
+#for i in range(1,500):
+while total<35:
     sucessL, img = cam.read()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     
-    cv2.imshow('Frame',gray)
+    ret, corners = cv2.findChessboardCorners(gray, (n_carreau_longeur, n_carreau_largeur), None)
+
+    
+    
+    if ret:
+        #detecte l'echiquier
+        corners2 = cv2.cornerSubPix(gray, corners, (7, 7), (-1, -1), criteria)
+        cv2.drawChessboardCorners(img, (n_carreau_longeur, n_carreau_largeur), corners2, ret)
+        if (time.time()-last_capture>1):
+            
+            print(ret,total)
+            total+=1
+            imgpoints.append(corners2)
+            objpoints.append(objp)
+            
+            last_capture=time.time()
+    cv2.imshow('Frame',img)
  
     # Press Q on keyboard to  exit
     if cv2.waitKey(25) & 0xFF == ord('q'):
       break
-    
-    if(time.time-last_capture>1):
-        #detecte l'echiquier
-        ret, corners = cv2.findChessboardCorners(gray, (n_carreau_longeur, n_carreau_largeur), None)
-        if ret:
-            total+=1
-            objpoints.append(objp)
-            corners2 = cv2.cornerSubPix(gray, corners, (11, 11), (-1, -1), criteria)
-            imgpoints.append(corners2)
-            last_capture=time.time()
-    
-    
+
+print("Total",total)
 #calcule et sauvegarde le résultat de la calibration
 ret, cameraMatrix, distCoeffs, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
 print(cameraMatrix)
-np.save("raspberrypi/tracking/cameraMatrix",cameraMatrix)
+np.save("cameraMatrix",cameraMatrix)
 print(distCoeffs)
-np.save("raspberrypi/tracking/distCoeffs",distCoeffs)
+np.save("distCoeffs",distCoeffs)
 
 #calcule un indicateur de la qualité de la calibration 
 mean_error = 0

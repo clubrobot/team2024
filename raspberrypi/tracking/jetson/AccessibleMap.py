@@ -1,5 +1,5 @@
 import numpy as np
-import team2022.raspberrypi.tracking.jetson.AvoidancePathfinding as AvoidancePathfinding
+import tracking.jetson.AvoidancePathfinding as AvoidancePathfinding
 
 class AccessibleMap:
 

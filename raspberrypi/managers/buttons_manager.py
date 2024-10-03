@@ -72,6 +72,11 @@ class ButtonsManager:
     def ready_stage(self):
         self.logger.sendLogStatus("Robot" ,colorise("Robot Ready !", Colors.RED, Colors.BOLD))
         print("ready")
+        self.red.off()
+        self.green.off()
+        self.blue.off()
+        self.orange.off()
+        self.green.set_function(None)
         self.tirette.set_function(
             Thread(target=self.run_match, daemon=True).start)
         #self.tirette.set_active_high(True)

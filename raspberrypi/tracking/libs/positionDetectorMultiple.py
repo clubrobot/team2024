@@ -20,8 +20,8 @@ class PositionDetectorMultiple:
         self.cameraPos = []
         self.cameraLeft = None
         self.cameraRight = None
-        self.WIDTH = 480
-        self.HEIGTH = 480
+        self.WIDTH = 720
+        self.HEIGTH = 720
         self.CENTER_MARKER_ID=17
         self.KNOW_DISTANCE_TO_MARKER = 300
         self.KNOW_WIDTH_MARKER = 0.06
@@ -60,32 +60,47 @@ class PositionDetectorMultiple:
 
     #init the camera need the camera position and its orientation
     def init(self,camPos, pitchCam, yawCam):
-        self.cameraLeft = cv2.VideoCapture(0)
-        self.cameraLeft.set(3, self.WIDTH)
-        self.cameraLeft.set(4, self.HEIGTH)
-        self.cameraLeft.set(10, 10)
-
+        
         self.cameraPos = camPos
 
 
         #compute view matrix
         viewMatrix=self.createViewMatrix(pitchCam, yawCam, [-camPos[0],-camPos[1],-camPos[2]])
+        viewMatrix[2]*=-1
+        viewMatrix[:,1]*=-1
+        print(viewMatrix)
         self.invViewMatrix = np.linalg.inv(viewMatrix)
-        self.cameraMatrix=np.load("res/cameraMatrix.npy")
-        self.distCoeffs=np.load("res/distCoeffs.npy")
-        marker_size=66
+        print(self.invViewMatrix)
+        self.cameraMatrix=np.load("cameraMatrix.npy")
+        self.distCoeffs=np.load("distCoeffs.npy")
+        marker_size=102
         self.obj_points = np.array([[-marker_size / 2, marker_size / 2, 0],
                               [marker_size / 2, marker_size / 2, 0],
                               [marker_size / 2, -marker_size / 2, 0],
                               [-marker_size / 2, -marker_size / 2, 0]], dtype=np.float32)
 
 
+        self.cameraLeft = cv2.VideoCapture(1)
+        self.cameraLeft.set(3, self.WIDTH)
+        self.cameraLeft.set(4, self.HEIGTH)
+        self.cameraLeft.set(10, 10)
+        print("Load camera")
+
     #compute marker positions, velocities, and orientation
     def update(self):
-        #capture an image
-        sucessL, imgL = self.cameraLeft.read()
-        self.markerPositions={}
 
+        #capture an image
+        t=time.time()
+        sucessL, imgL = self.cameraLeft.read()
+        gamma = 0.5
+
+        # Construire une table de correspondance pour la correction gamma
+        table = np.array([((i / 255.0) ** gamma) * 255 for i in np.arange(256)]).astype(np.uint8)
+
+        # Appliquer la correction gamma à l'image
+        imgL = cv2.LUT(imgL, table)
+        self.markerPositions={}
+        
         imgTreeL = cv2.cvtColor(imgL, cv2.COLOR_BGR2GRAY)
 
         #On suppose que les dex camera detexte bien les tout les mêmes tags hein sinon on pleure
@@ -97,15 +112,17 @@ class PositionDetectorMultiple:
                 if markeridsL[i][0] in self.markerIds:
                     #à tester
                     success, vector_rotation, vector_translation = cv2.solvePnP(self.obj_points , markerCornersL[i], self.cameraMatrix, self.distCoeffs, False,cv2.SOLVEPNP_IPPE_SQUARE)
-                    pos=np.matmul(self.invViewMatrix,np.array([vector_translation[0],vector_translation[1],vector_translation[2],1]))
-                    print(pos)
+                    #print(vector_translation,vector_translation[1])
+                    pos=np.matmul(self.invViewMatrix,np.array([vector_translation[0][0],vector_translation[1][0],vector_translation[2][0],1]))
+                    
+                    print(pos,vector_translation,(markerCornersL[i][0][0]+markerCornersL[i][0][2])/np.array([2*640,2*480]))
                     if not (markeridsL[i][0] in self.markerPositions.keys()):
                         self.markerPositions[markeridsL[i][0]]=[]
                     self.markerPositions[markeridsL[i][0]].append(pos)
                     cv2.drawFrameAxes(imgL, self.cameraMatrix, self.distCoeffs, vector_rotation, vector_translation, 33)
         # Press Q on keyboard to  exit
         cv2.imshow('Frame', imgL)
-        time.sleep(0.2)
+        
         if cv2.waitKey(25) & 0xFF == ord('q'):
             print("a")
     #add a new maker to follow
