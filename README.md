@@ -35,4 +35,3 @@
    
    > `code platformIO\PROJECT_FOLDER` it should init platformio and everything
    > or, on windows, right-click on the folder and do "open with vscode"
-   HELLO WORD
