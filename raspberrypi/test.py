@@ -1,25 +1,37 @@
-import cv2, glob
 import math
-from tracking.libs.positionDetectorMultiple import PositionDetectorMultiple
-print("a")
-cam = cv2.VideoCapture(1)
+import numpy as np
 
-if not cam.isOpened():
-    print("Cannot open camera")
-    exit()
+A=np.array([[ 1.00000000e+00,  0.00000000e+00 , 0.00000000e+00 , 0.00000000e+00],
+ [ 0.00000000e+00 , 8.45727822e-01 , 5.33614516e-01, 4.10883177e+02],
+ [ 0.00000000e+00, 5.33614516e-01 , -8.45727822e-01 ,-6.51210423e+02],
+ [ 0.00000000e+00 , 0.00000000e+00 , 0.00000000e+00,  1.00000000e+00]])
+pos=np.array([0,0,1220,1])
+#[-1.59377493e-01][ 5.09197442e+01][ 1.54207681e+03]
+print(np.matmul(A,pos))
+#print(np.linalg.inv(A))
+print(np.matmul(np.linalg.inv(A),np.array([0,1.51207681e+03,0,1])))
+#import cv2, glob
+#
+#from tracking.libs.positionDetectorMultiple import PositionDetectorMultiple
+#print("a")
+#cam = cv2.VideoCapture(1)
+
+#if not cam.isOpened():
+#    print("Cannot open camera")
+#    exit()
 
 #pd=PositionDetectorMultiple()
 #pd.KNOW_WIDTH_MARKER=65
 #pd.KNOW_WIDTH_MARKER=600
 #pd.init([560,1000,880],0,-math.pi/2)
-print("read")
-while True:
-    ret_val, img = cam.read()
-    #print(img.shape)
-    cv2.imshow('my webcam', img)
-    if cv2.waitKey(1) == 27: 
-        break  # esc to quit
-cv2.destroyAllWindows()
+#print("read")
+#while True:
+#    ret_val, img = cam.read()
+#    #print(img.shape)
+#    cv2.imshow('my webcam', img)
+#    if cv2.waitKey(1) == 27: 
+#        break  # esc to quit
+#cv2.destroyAllWindows()
 """
 print(wb.left_codewheel_radius.get())
 print(wb.right_wheel_radius.get())
@@ -47,7 +59,7 @@ wb.set_position(0,1000,0)
 #while True:
 #    True
     #print(wb.get_position())
-print("arrivé",wb.get_position())
+#print("arrivé",wb.get_position())
 
 #from managers.buttons_manager import ButtonsManager
 #ButtonsManager(None).begin()

@@ -8,7 +8,7 @@ from tunings.tunings_robeur import POSITIONCONTROL_LINVELMAX_VALUE, POSITIONCONT
 from common.serialtypes import FLOAT, STRING, INT
 
 class RecupPlante:
-    def __init__(self, wheeledbase: WheeledBase, barriere:Barriere, robot, pos_depose, pos_plante, final) -> None:
+    def __init__(self, wheeledbase: WheeledBase, barriere:Barriere, robot, pos_depose, pos_plante, final,sensors) -> None:
         self.wb=wheeledbase
         self.robot=robot
         self.pos=np.flip(np.array(pos_plante))
@@ -20,6 +20,7 @@ class RecupPlante:
         self.actionpoint_precision=None
         self.endPoint=np.flip(np.array(pos_depose))
         self.final= final
+        self.sensors=sensors
 
     """ 
     def calc_point_approche(self, pos_plante, theta_normal):
@@ -50,13 +51,13 @@ class RecupPlante:
         print(length-self.radiusRobot)
         #print(self.wb.wheeledbase.getuuid())
         if(length-self.radiusRobot>0):
-            self.wb.goto_stop(stop[0],stop[1],theta=ang)
+            self.wb.goto_stop(stop[0],stop[1],self.sensors,theta=ang)
 
         ######On prends
         self.barriere.nicole_oouuuuuvre()
 
         stop=vecPos/length*(length-self.radiusPince)+rPos
-        self.wb.goto_stop(stop[0],stop[1], theta=ang, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.15)
+        self.wb.goto_stop(stop[0],stop[1],self.sensors, theta=ang, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.15)
 
         self.wb.set_parameter_value(POSITIONCONTROL_LINVELMAX_ID, POSITIONCONTROL_LINVELMAX_VALUE, FLOAT)
 
@@ -77,19 +78,19 @@ class RecupPlante:
         print(theta)
         print(ang)
 
-        self.wb.goto_stop(rPos[0],rPos[1], theta=ang, angvelmax=POSITIONCONTROL_ANGVELMAX_VALUE*0.05)
-        self.wb.goto_stop(stop[0],stop[1],theta=ang, angvelmax=POSITIONCONTROL_ANGVELMAX_VALUE, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.3)
+        self.wb.goto_stop(rPos[0],rPos[1],self.sensors, theta=ang, angvelmax=POSITIONCONTROL_ANGVELMAX_VALUE*0.05)
+        self.wb.goto_stop(stop[0],stop[1],self.sensors,theta=ang, angvelmax=POSITIONCONTROL_ANGVELMAX_VALUE, linvelmax=POSITIONCONTROL_LINVELMAX_VALUE*0.3)
         
         #On recule pour le prochains
         if(not self.final):
             self.barriere.nicole_oouuuuuvre()
             stop[0]=stop[0]-150*np.cos(ang)
             stop[1]=stop[1]-150*np.sin(ang)
-            self.wb.goto_stop(stop[0],stop[1],theta=ang+np.pi)
+            self.wb.goto_stop(stop[0],stop[1],self.sensors,theta=ang+np.pi)
         else:
             stop[0]=stop[0]-50*np.cos(ang)
             stop[1]=stop[1]-50*np.sin(ang)
-            self.wb.goto_stop(stop[0],stop[1],theta=ang)
+            self.wb.goto_stop(stop[0],stop[1],self.sensors,theta=ang)
             self.barriere.nicole_oouuuuuvre()
 
         

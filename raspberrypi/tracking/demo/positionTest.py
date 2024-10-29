@@ -1,5 +1,5 @@
 import time
-from daughter_cards.sensors import Sensors
+#from daughter_cards.sensors import Sensors
 import cv2, glob
 import math
 import numpy as np

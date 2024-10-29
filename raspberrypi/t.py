@@ -1,37 +1,20 @@
-#import imp
-from daughter_cards.wheeledbase import WheeledBase, POSITIONCONTROL_LINVELKP_ID
-from daughter_cards.actionneur import Actionneur
-from common.serialtypes import FLOAT, STRING, INT
-from common.serialtalking import GETUUID_OPCODE, SerialTalking
+# import imp
+from managers.simple_wifi import WiFiManager
 import time
-import sys
 
-#Gestion du port série
-if 'linux' in sys.platform:
-    serial_path = '/dev/ttyUSB0'
-else:
-    serial_path = 'COM11'
+def square(args):
+    return args[0] ** 2
 
-ww = Actionneur(None, '/dev/ttyUSB0')
 
-aa = ww.AX12(254, ww)
-aa.reset()
-time.sleep(1)
-aa.move(0)
+def printing(args):
+    print(args)
 
-#while 1:
-    #ww.set_velocities(1,0)
-    #print(ww.get_position())
 
-#ww.turnonthespot(180)
-#ww.set_velocities(1,0)
-
-	
-#LEFTCODEWHEEL_RADIUS_VALUE              = 21.90460280828869
-#RIGHTCODEWHEEL_RADIUS_VALUE         = 22.017182927267537
-#ODOMETRY_AXLETRACK_VALUE            = 357.5722465739272
-# verifier les moteurs sans assver (vrif les sens de marche) open loop velocities
-# verifier les codeuses et leur sens
-# Faire la metrologie et l'enregistrer
-# calibrer l'odométrie (verif la precision)
-# calib asservisseement
+communication = WiFiManager("10.0.0.11", 25565,"client")
+communication.start()
+print("printing",communication.send([4,"Coucou test"]))
+t=time.time()
+for i in range(100):
+    print("square:",communication.send_return([3,i]))
+print(time.time()-t)
+communication.send([0x00])
